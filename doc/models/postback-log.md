@@ -1,6 +1,8 @@
 
 # Postback Log
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `PostbackLog`
@@ -9,7 +11,7 @@
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `postbackStatusId` | [`?int(PostbackStatusIdEnum)`](../../doc/models/postback-status-id-enum.md) | Optional | Postback Status Id | getPostbackStatusId(): ?int | setPostbackStatusId(?int postbackStatusId): void |
+| `postbackStatusId` | `?array` | Optional | - | getPostbackStatusId(): ?array | setPostbackStatusId(?array postbackStatusId): void |
 | `id` | `?string` | Optional | Postback Log Id<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` | getId(): ?string | setId(?string id): void |
 | `postbackConfigId` | `?string` | Optional | Postback Config Id<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` | getPostbackConfigId(): ?string | setPostbackConfigId(?string postbackConfigId): void |
 | `changelogId` | `?string` | Optional | Changelog Id<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` | getChangelogId(): ?string | setChangelogId(?string changelogId): void |
@@ -18,6 +20,7 @@
 | `createdTs` | `?int` | Optional | Created Time Stamp | getCreatedTs(): ?int | setCreatedTs(?int createdTs): void |
 | `model` | `?string` | Optional | MOdel | getModel(): ?string | setModel(?string model): void |
 | `modelId` | `?string` | Optional | Model Id<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` | getModelId(): ?string | setModelId(?string modelId): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -29,8 +32,15 @@
   "next_run_ts": 1422040992,
   "created_ts": 1422040992,
   "model_id": "11e95f8ec39de8fbdb0a4f1a",
-  "postback_status_id": 3,
-  "http_verb": "http_verb8"
+  "postback_status_id": {
+    "key1": "val1",
+    "key2": "val2"
+  },
+  "http_verb": "http_verb8",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

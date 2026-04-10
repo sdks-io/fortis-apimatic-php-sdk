@@ -1,6 +1,8 @@
 
 # Data 7
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `Data7`
@@ -15,6 +17,7 @@
 | `productTransactionId` | `?string` | Optional | Include a product_transaction_id to respect it's cvv and address field settings when creating a ticket.  These settings are enforced at the ticket creation level only.<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` | getProductTransactionId(): ?string | setProductTransactionId(?string productTransactionId): void |
 | `message` | `?string` | Optional | A custom text message that displays after the ticket is created.<br><br>**Constraints**: *Maximum Length*: `120` | getMessage(): ?string | setMessage(?string message): void |
 | `clientToken` | `?string` | Optional | A JWT to be used to create the elements.<br><br>> This is a one-time only use token.<br>> Do not store for long term use. | getClientToken(): ?string | setClientToken(?string clientToken): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -25,7 +28,11 @@
   "product_transaction_id": "11e95f8ec39de8fbdb0a4f1a",
   "client_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
   "contact_api_id": "contact_api_id0",
-  "message": "message4"
+  "message": "message4",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

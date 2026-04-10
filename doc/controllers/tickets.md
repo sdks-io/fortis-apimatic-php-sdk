@@ -12,15 +12,15 @@ $ticketsController = $client->getTicketsController();
 
 ## Methods
 
-* [Create a Ticket Record](../../doc/controllers/tickets.md#create-a-ticket-record)
-* [List All Tickets Related](../../doc/controllers/tickets.md#list-all-tickets-related)
-* [View Single Ticket Record](../../doc/controllers/tickets.md#view-single-ticket-record)
+* [Createa Ticketrecord](../../doc/controllers/tickets.md#createa-ticketrecord)
+* [Listallticketsrelated](../../doc/controllers/tickets.md#listallticketsrelated)
+* [Viewsingleticketrecord](../../doc/controllers/tickets.md#viewsingleticketrecord)
 
 
-# Create a Ticket Record
+# Createa Ticketrecord
 
 ```php
-function createATicketRecord(V1TicketsRequest $body, ?array $expand = null): ResponseTicket
+function createaTicketrecord(V1TicketsRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -28,11 +28,11 @@ function createATicketRecord(V1TicketsRequest $body, ?array $expand = null): Res
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TicketsRequest`](../../doc/models/v1-tickets-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand44Enum)[])`](../../doc/models/expand-44-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand44)[])`](../../doc/models/expand-44.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTicket`](../../doc/models/response-ticket.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTicket`](../../doc/models/response-ticket.md).
 
 ## Example Usage
 
@@ -46,17 +46,19 @@ $body = V1TicketsRequestBuilder::init(
     ->build();
 
 $ticketsController = $client->getTicketsController();
+$apiResponse = $ticketsController->createaTicketrecord($body);
 
-try {
-    $result = $ticketsController->createATicketRecord($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTicket:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -86,44 +88,44 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# List All Tickets Related
+# Listallticketsrelated
 
 ```php
-function listAllTicketsRelated(
-    ?Page $page = null,
+function listallticketsrelated(
+    ?Page1 $page = null,
     ?array $order = null,
     ?array $filterBy = null,
     ?array $expand = null,
     ?string $format = null,
     ?string $typeahead = null,
     ?array $fields = null
-): ResponseTicketsCollection
+): ApiResponse
 ```
 
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `page` | [`?Page`](../../doc/models/page.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
+| `page` | [`?Page1`](../../doc/models/page-1.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
 | `order` | [`?(Order21[])`](../../doc/models/order-21.md) | Query, Optional | Criteria used in query string parameters to order results.  Most fields from the endpoint results can be used as a `key`.  Unsupported fields or operators will return a `412`.  Must be encoded, or use syntax that does not require encoding.<br><br>> /endpoint?order[0][key]=created_ts&order[0][operator]=asc<br>> <br>> /endpoint?order=[{ "key": "created_ts", "operator": "asc"}]<br>> <br>> /endpoint?order=[{ "key": "balance", "operator": "desc"},{ "key": "created_ts", "operator": "asc"}]<br><br>**Constraints**: *Minimum Items*: `1` |
 | `filterBy` | [`?(FilterBy[])`](../../doc/models/filter-by.md) | Query, Optional | Filter criteria that can be used in query string parameters.  Most fields from the endpoint results can be used as a `key`.  Unsupported fields or operators will return a `412`. Must be encoded, or use syntax that does not require encoding.<br><br>> ?filter_by[0][key]=first_name&filter_by[0][operator]==&filter_by[0][value]=Steve<br>> <br>> /endpoint?filter_by=[{ "key": "first_name", "operator": "=", "value": "Fred" }]<br>> <br>> /endpoint?filter_by=[{ "key": "account_type", "operator": "=", "value": "VISA" }]<br>> <br>> /endpoint?filter_by=[{ "key": "created_ts", "operator": ">=", "value": "946702799" }, { "key": "created_ts", "operator": "<=", value: "1695061891" }]<br>> <br>> /endpoint?filter_by=[{ "key": "last_name", "operator": "IN", "value": "Williams,Brown,Allman" }]<br><br>**Constraints**: *Minimum Items*: `1` |
-| `expand` | [`?(string(Expand44Enum)[])`](../../doc/models/expand-44-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `format` | [`?string(Format1Enum)`](../../doc/models/format-1-enum.md) | Query, Optional | Reporting format, valid values: csv, tsv |
+| `expand` | [`?(string(Expand44)[])`](../../doc/models/expand-44.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
+| `format` | [`?string(Format1)`](../../doc/models/format-1.md) | Query, Optional | Reporting format, valid values: csv, tsv |
 | `typeahead` | `?string` | Query, Optional | You can use any `field_name` from this endpoint results to order the list using the value provided as filter for the same `field_name`. It will be ordered using the following rules: 1) Exact match, 2) Starts with, 3) Contains.<br><br>> /endpoint?filter={ "field_name": "Value" }&_typeahead=field_name |
-| `fields` | [`?(string(Field51Enum)[])`](../../doc/models/field-51-enum.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
+| `fields` | [`?(string(Field51)[])`](../../doc/models/field-51.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
 
 ## Response Type
 
-[`ResponseTicketsCollection`](../../doc/models/response-tickets-collection.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTicketsCollection`](../../doc/models/response-tickets-collection.md).
 
 ## Example Usage
 
 ```php
-$page = PageBuilder::init()
+$page = Page1Builder::init()
     ->number(1)
     ->size(50)
     ->build();
@@ -131,32 +133,36 @@ $page = PageBuilder::init()
 $order = [
     Order21Builder::init(
         'first_name',
-        OperatorEnum::ASC
+        Operator::ASC
     )->build()
 ];
 
 $filterBy = [
     FilterByBuilder::init(
         'first_name',
-        Operator1Enum::ENUM_1,
+        Operator1::ENUM_1,
         'Fred'
     )->build()
 ];
 
 $ticketsController = $client->getTicketsController();
+$apiResponse = $ticketsController->listallticketsrelated(
+    $page,
+    $order,
+    $filterBy
+);
 
-try {
-    $result = $ticketsController->listAllTicketsRelated(
-        $page,
-        $order,
-        $filterBy
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTicketsCollection:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -211,13 +217,13 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# View Single Ticket Record
+# Viewsingleticketrecord
 
 ```php
-function viewSingleTicketRecord(string $ticketId, ?array $expand = null, ?array $fields = null): ResponseTicket
+function viewsingleticketrecord(string $ticketId, ?array $expand = null, ?array $fields = null): ApiResponse
 ```
 
 ## Parameters
@@ -225,12 +231,12 @@ function viewSingleTicketRecord(string $ticketId, ?array $expand = null, ?array 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `ticketId` | `string` | Template, Required | A unique, system-generated identifier for the Ticket.<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
-| `expand` | [`?(string(Expand44Enum)[])`](../../doc/models/expand-44-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `fields` | [`?(string(Field51Enum)[])`](../../doc/models/field-51-enum.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
+| `expand` | [`?(string(Expand44)[])`](../../doc/models/expand-44.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
+| `fields` | [`?(string(Field51)[])`](../../doc/models/field-51.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
 
 ## Response Type
 
-[`ResponseTicket`](../../doc/models/response-ticket.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTicket`](../../doc/models/response-ticket.md).
 
 ## Example Usage
 
@@ -238,15 +244,19 @@ function viewSingleTicketRecord(string $ticketId, ?array $expand = null, ?array 
 $ticketId = '11e95f8ec39de8fbdb0a4f1a';
 
 $ticketsController = $client->getTicketsController();
+$apiResponse = $ticketsController->viewsingleticketrecord($ticketId);
 
-try {
-    $result = $ticketsController->viewSingleTicketRecord($ticketId);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTicket:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -276,5 +286,5 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 

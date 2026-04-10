@@ -14,7 +14,7 @@ $paymentCardReaderTokenController = $client->getPaymentCardReaderTokenController
 For initializing iPhone card readers for Apple Tap to Pay transactions
 
 ```php
-function paymentCardReaderTokenRequest(string $productTransactionId): ResponsePaymentCardReaderToken
+function paymentCardReaderTokenRequest(string $productTransactionId): ApiResponse
 ```
 
 ## Parameters
@@ -25,7 +25,7 @@ function paymentCardReaderTokenRequest(string $productTransactionId): ResponsePa
 
 ## Response Type
 
-[`ResponsePaymentCardReaderToken`](../../doc/models/response-payment-card-reader-token.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponsePaymentCardReaderToken`](../../doc/models/response-payment-card-reader-token.md).
 
 ## Example Usage
 
@@ -33,15 +33,19 @@ function paymentCardReaderTokenRequest(string $productTransactionId): ResponsePa
 $productTransactionId = '11e95f8ec39de8fbdb0a4f1a';
 
 $paymentCardReaderTokenController = $client->getPaymentCardReaderTokenController();
+$apiResponse = $paymentCardReaderTokenController->paymentCardReaderTokenRequest($productTransactionId);
 
-try {
-    $result = $paymentCardReaderTokenController->paymentCardReaderTokenRequest($productTransactionId);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponsePaymentCardReaderToken:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -58,5 +62,5 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 

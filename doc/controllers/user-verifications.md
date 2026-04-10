@@ -10,16 +10,16 @@ $userVerificationsController = $client->getUserVerificationsController();
 
 ## Methods
 
-* [Get User Verification](../../doc/controllers/user-verifications.md#get-user-verification)
-* [List User Verifications](../../doc/controllers/user-verifications.md#list-user-verifications)
+* [Getuserverification](../../doc/controllers/user-verifications.md#getuserverification)
+* [Listuserverifications](../../doc/controllers/user-verifications.md#listuserverifications)
 
 
-# Get User Verification
+# Getuserverification
 
 Get user verification
 
 ```php
-function getUserVerification(string $userVerificationId): ResponseUserVerification
+function getuserverification(string $userVerificationId): ApiResponse
 ```
 
 ## Parameters
@@ -30,7 +30,7 @@ function getUserVerification(string $userVerificationId): ResponseUserVerificati
 
 ## Response Type
 
-[`ResponseUserVerification`](../../doc/models/response-user-verification.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseUserVerification`](../../doc/models/response-user-verification.md).
 
 ## Example Usage
 
@@ -38,15 +38,19 @@ function getUserVerification(string $userVerificationId): ResponseUserVerificati
 $userVerificationId = '11e95f8ec39de8fbdb0a4f1a';
 
 $userVerificationsController = $client->getUserVerificationsController();
+$apiResponse = $userVerificationsController->getuserverification($userVerificationId);
 
-try {
-    $result = $userVerificationsController->getUserVerification($userVerificationId);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseUserVerification:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -68,45 +72,45 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# List User Verifications
+# Listuserverifications
 
 List user verifications
 
 ```php
-function listUserVerifications(
-    ?Page $page = null,
+function listuserverifications(
+    ?Page1 $page = null,
     ?array $order = null,
     ?array $filterBy = null,
     ?array $expand = null,
     ?string $format = null,
     ?string $typeahead = null,
     ?array $fields = null
-): ResponseUserVerificationsCollection
+): ApiResponse
 ```
 
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `page` | [`?Page`](../../doc/models/page.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
+| `page` | [`?Page1`](../../doc/models/page-1.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
 | `order` | [`?(Order21[])`](../../doc/models/order-21.md) | Query, Optional | Criteria used in query string parameters to order results.  Most fields from the endpoint results can be used as a `key`.  Unsupported fields or operators will return a `412`.  Must be encoded, or use syntax that does not require encoding.<br><br>> /endpoint?order[0][key]=created_ts&order[0][operator]=asc<br>> <br>> /endpoint?order=[{ "key": "created_ts", "operator": "asc"}]<br>> <br>> /endpoint?order=[{ "key": "balance", "operator": "desc"},{ "key": "created_ts", "operator": "asc"}]<br><br>**Constraints**: *Minimum Items*: `1` |
 | `filterBy` | [`?(FilterBy[])`](../../doc/models/filter-by.md) | Query, Optional | Filter criteria that can be used in query string parameters.  Most fields from the endpoint results can be used as a `key`.  Unsupported fields or operators will return a `412`. Must be encoded, or use syntax that does not require encoding.<br><br>> ?filter_by[0][key]=first_name&filter_by[0][operator]==&filter_by[0][value]=Steve<br>> <br>> /endpoint?filter_by=[{ "key": "first_name", "operator": "=", "value": "Fred" }]<br>> <br>> /endpoint?filter_by=[{ "key": "account_type", "operator": "=", "value": "VISA" }]<br>> <br>> /endpoint?filter_by=[{ "key": "created_ts", "operator": ">=", "value": "946702799" }, { "key": "created_ts", "operator": "<=", value: "1695061891" }]<br>> <br>> /endpoint?filter_by=[{ "key": "last_name", "operator": "IN", "value": "Williams,Brown,Allman" }]<br><br>**Constraints**: *Minimum Items*: `1` |
 | `expand` | `?(string[])` | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `format` | [`?string(Format1Enum)`](../../doc/models/format-1-enum.md) | Query, Optional | Reporting format, valid values: csv, tsv |
+| `format` | [`?string(Format1)`](../../doc/models/format-1.md) | Query, Optional | Reporting format, valid values: csv, tsv |
 | `typeahead` | `?string` | Query, Optional | You can use any `field_name` from this endpoint results to order the list using the value provided as filter for the same `field_name`. It will be ordered using the following rules: 1) Exact match, 2) Starts with, 3) Contains.<br><br>> /endpoint?filter={ "field_name": "Value" }&_typeahead=field_name |
-| `fields` | [`?(string(Field59Enum)[])`](../../doc/models/field-59-enum.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
+| `fields` | [`?(string(Field59)[])`](../../doc/models/field-59.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
 
 ## Response Type
 
-[`ResponseUserVerificationsCollection`](../../doc/models/response-user-verifications-collection.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseUserVerificationsCollection`](../../doc/models/response-user-verifications-collection.md).
 
 ## Example Usage
 
 ```php
-$page = PageBuilder::init()
+$page = Page1Builder::init()
     ->number(1)
     ->size(50)
     ->build();
@@ -114,32 +118,36 @@ $page = PageBuilder::init()
 $order = [
     Order21Builder::init(
         'first_name',
-        OperatorEnum::ASC
+        Operator::ASC
     )->build()
 ];
 
 $filterBy = [
     FilterByBuilder::init(
         'first_name',
-        Operator1Enum::ENUM_1,
+        Operator1::ENUM_1,
         'Fred'
     )->build()
 ];
 
 $userVerificationsController = $client->getUserVerificationsController();
+$apiResponse = $userVerificationsController->listuserverifications(
+    $page,
+    $order,
+    $filterBy
+);
 
-try {
-    $result = $userVerificationsController->listUserVerifications(
-        $page,
-        $order,
-        $filterBy
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseUserVerificationsCollection:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -186,5 +194,5 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 

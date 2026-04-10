@@ -11,9 +11,9 @@ $locationsController = $client->getLocationsController();
 ## Methods
 
 * [Locations Search](../../doc/controllers/locations.md#locations-search)
-* [List All Locations](../../doc/controllers/locations.md#list-all-locations)
+* [Listalllocations](../../doc/controllers/locations.md#listalllocations)
 * [Locations Detail](../../doc/controllers/locations.md#locations-detail)
-* [View Single Location Record](../../doc/controllers/locations.md#view-single-location-record)
+* [Viewsinglelocationrecord](../../doc/controllers/locations.md#viewsinglelocationrecord)
 * [Location Detail](../../doc/controllers/locations.md#location-detail)
 
 
@@ -21,51 +21,48 @@ $locationsController = $client->getLocationsController();
 
 ```php
 function locationsSearch(
-    ?Page $page = null,
+    ?Page1 $page = null,
     ?string $keyword = null,
     ?array $expand = null,
     ?string $relationship = null
-): ResponseLocationSearchsCollection
+): ApiResponse
 ```
 
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `page` | [`?Page`](../../doc/models/page.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
+| `page` | [`?Page1`](../../doc/models/page-1.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
 | `keyword` | `?string` | Query, Optional | You can use any value to search on specific fields of this endpoint results. You can not specify the fields that are used. |
-| `expand` | [`?(string(Expand10Enum)[])`](../../doc/models/expand-10-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `relationship` | [`?string(RelationshipEnum)`](../../doc/models/relationship-enum.md) | Query, Optional | Used to filter the type of locations that will be returned |
+| `expand` | [`?(string(Expand10)[])`](../../doc/models/expand-10.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
+| `relationship` | [`?string(Relationship)`](../../doc/models/relationship.md) | Query, Optional | Used to filter the type of locations that will be returned |
 
 ## Response Type
 
-[`ResponseLocationSearchsCollection`](../../doc/models/response-location-searchs-collection.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseLocationSearchsCollection`](../../doc/models/response-location-searchs-collection.md).
 
 ## Example Usage
 
 ```php
-$page = PageBuilder::init()
+$page = Page1Builder::init()
     ->number(1)
     ->size(50)
     ->build();
 
-$relationship = RelationshipEnum::CHILD;
-
 $locationsController = $client->getLocationsController();
+$apiResponse = $locationsController->locationsSearch($page);
 
-try {
-    $result = $locationsController->locationsSearch(
-        $page,
-        null,
-        null,
-        $relationship
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseLocationSearchsCollection:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -427,43 +424,43 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# List All Locations
+# Listalllocations
 
 ```php
-function listAllLocations(
-    ?Page $page = null,
+function listalllocations(
+    ?Page1 $page = null,
     ?array $order = null,
     ?array $filterBy = null,
     ?array $expand = null,
     ?string $format = null,
     ?string $typeahead = null,
     ?array $fields = null
-): ResponseLocationsCollection
+): ApiResponse
 ```
 
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `page` | [`?Page`](../../doc/models/page.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
+| `page` | [`?Page1`](../../doc/models/page-1.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
 | `order` | [`?(Order21[])`](../../doc/models/order-21.md) | Query, Optional | Criteria used in query string parameters to order results.  Most fields from the endpoint results can be used as a `key`.  Unsupported fields or operators will return a `412`.  Must be encoded, or use syntax that does not require encoding.<br><br>> /endpoint?order[0][key]=created_ts&order[0][operator]=asc<br>> <br>> /endpoint?order=[{ "key": "created_ts", "operator": "asc"}]<br>> <br>> /endpoint?order=[{ "key": "balance", "operator": "desc"},{ "key": "created_ts", "operator": "asc"}]<br><br>**Constraints**: *Minimum Items*: `1` |
 | `filterBy` | [`?(FilterBy[])`](../../doc/models/filter-by.md) | Query, Optional | Filter criteria that can be used in query string parameters.  Most fields from the endpoint results can be used as a `key`.  Unsupported fields or operators will return a `412`. Must be encoded, or use syntax that does not require encoding.<br><br>> ?filter_by[0][key]=first_name&filter_by[0][operator]==&filter_by[0][value]=Steve<br>> <br>> /endpoint?filter_by=[{ "key": "first_name", "operator": "=", "value": "Fred" }]<br>> <br>> /endpoint?filter_by=[{ "key": "account_type", "operator": "=", "value": "VISA" }]<br>> <br>> /endpoint?filter_by=[{ "key": "created_ts", "operator": ">=", "value": "946702799" }, { "key": "created_ts", "operator": "<=", value: "1695061891" }]<br>> <br>> /endpoint?filter_by=[{ "key": "last_name", "operator": "IN", "value": "Williams,Brown,Allman" }]<br><br>**Constraints**: *Minimum Items*: `1` |
-| `expand` | [`?(string(Expand11Enum)[])`](../../doc/models/expand-11-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `format` | [`?string(Format1Enum)`](../../doc/models/format-1-enum.md) | Query, Optional | Reporting format, valid values: csv, tsv |
+| `expand` | [`?(string(Expand11)[])`](../../doc/models/expand-11.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
+| `format` | [`?string(Format1)`](../../doc/models/format-1.md) | Query, Optional | Reporting format, valid values: csv, tsv |
 | `typeahead` | `?string` | Query, Optional | You can use any `field_name` from this endpoint results to order the list using the value provided as filter for the same `field_name`. It will be ordered using the following rules: 1) Exact match, 2) Starts with, 3) Contains.<br><br>> /endpoint?filter={ "field_name": "Value" }&_typeahead=field_name |
-| `fields` | [`?(string(Field33Enum)[])`](../../doc/models/field-33-enum.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
+| `fields` | [`?(string(Field33)[])`](../../doc/models/field-33.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
 
 ## Response Type
 
-[`ResponseLocationsCollection`](../../doc/models/response-locations-collection.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseLocationsCollection`](../../doc/models/response-locations-collection.md).
 
 ## Example Usage
 
 ```php
-$page = PageBuilder::init()
+$page = Page1Builder::init()
     ->number(1)
     ->size(50)
     ->build();
@@ -471,32 +468,36 @@ $page = PageBuilder::init()
 $order = [
     Order21Builder::init(
         'first_name',
-        OperatorEnum::ASC
+        Operator::ASC
     )->build()
 ];
 
 $filterBy = [
     FilterByBuilder::init(
         'first_name',
-        Operator1Enum::ENUM_1,
+        Operator1::ENUM_1,
         'Fred'
     )->build()
 ];
 
 $locationsController = $client->getLocationsController();
+$apiResponse = $locationsController->listalllocations(
+    $page,
+    $order,
+    $filterBy
+);
 
-try {
-    $result = $locationsController->listAllLocations(
-        $page,
-        $order,
-        $filterBy
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseLocationsCollection:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -1109,14 +1110,14 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
 # Locations Detail
 
 ```php
 function locationsDetail(
-    ?Page $page = null,
+    ?Page1 $page = null,
     ?array $order = null,
     ?array $filterBy = null,
     ?array $expand = null,
@@ -1128,20 +1129,20 @@ function locationsDetail(
     ?array $productInvoiceActive = null,
     ?array $productRecurringActive = null,
     ?array $productAccountvaultActive = null
-): ResponseLocationInfosCollection
+): ApiResponse
 ```
 
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `page` | [`?Page`](../../doc/models/page.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
+| `page` | [`?Page1`](../../doc/models/page-1.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
 | `order` | [`?(Order21[])`](../../doc/models/order-21.md) | Query, Optional | Criteria used in query string parameters to order results.  Most fields from the endpoint results can be used as a `key`.  Unsupported fields or operators will return a `412`.  Must be encoded, or use syntax that does not require encoding.<br><br>> /endpoint?order[0][key]=created_ts&order[0][operator]=asc<br>> <br>> /endpoint?order=[{ "key": "created_ts", "operator": "asc"}]<br>> <br>> /endpoint?order=[{ "key": "balance", "operator": "desc"},{ "key": "created_ts", "operator": "asc"}]<br><br>**Constraints**: *Minimum Items*: `1` |
 | `filterBy` | [`?(FilterBy[])`](../../doc/models/filter-by.md) | Query, Optional | Filter criteria that can be used in query string parameters.  Most fields from the endpoint results can be used as a `key`.  Unsupported fields or operators will return a `412`. Must be encoded, or use syntax that does not require encoding.<br><br>> ?filter_by[0][key]=first_name&filter_by[0][operator]==&filter_by[0][value]=Steve<br>> <br>> /endpoint?filter_by=[{ "key": "first_name", "operator": "=", "value": "Fred" }]<br>> <br>> /endpoint?filter_by=[{ "key": "account_type", "operator": "=", "value": "VISA" }]<br>> <br>> /endpoint?filter_by=[{ "key": "created_ts", "operator": ">=", "value": "946702799" }, { "key": "created_ts", "operator": "<=", value: "1695061891" }]<br>> <br>> /endpoint?filter_by=[{ "key": "last_name", "operator": "IN", "value": "Williams,Brown,Allman" }]<br><br>**Constraints**: *Minimum Items*: `1` |
-| `expand` | [`?(string(Expand11Enum)[])`](../../doc/models/expand-11-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `format` | [`?string(Format1Enum)`](../../doc/models/format-1-enum.md) | Query, Optional | Reporting format, valid values: csv, tsv |
+| `expand` | [`?(string(Expand11)[])`](../../doc/models/expand-11.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
+| `format` | [`?string(Format1)`](../../doc/models/format-1.md) | Query, Optional | Reporting format, valid values: csv, tsv |
 | `typeahead` | `?string` | Query, Optional | You can use any `field_name` from this endpoint results to order the list using the value provided as filter for the same `field_name`. It will be ordered using the following rules: 1) Exact match, 2) Starts with, 3) Contains.<br><br>> /endpoint?filter={ "field_name": "Value" }&_typeahead=field_name |
-| `fields` | [`?(string(Field34Enum)[])`](../../doc/models/field-34-enum.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
+| `fields` | [`?(string(Field34)[])`](../../doc/models/field-34.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
 | `productTransactionActive` | `?array` | Query, Optional | Product Transaction Active |
 | `productFileActive` | `?array` | Query, Optional | Product File Active |
 | `productInvoiceActive` | `?array` | Query, Optional | Product Invoice Active |
@@ -1150,12 +1151,12 @@ function locationsDetail(
 
 ## Response Type
 
-[`ResponseLocationInfosCollection`](../../doc/models/response-location-infos-collection.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseLocationInfosCollection`](../../doc/models/response-location-infos-collection.md).
 
 ## Example Usage
 
 ```php
-$page = PageBuilder::init()
+$page = Page1Builder::init()
     ->number(1)
     ->size(50)
     ->build();
@@ -1163,32 +1164,36 @@ $page = PageBuilder::init()
 $order = [
     Order21Builder::init(
         'first_name',
-        OperatorEnum::ASC
+        Operator::ASC
     )->build()
 ];
 
 $filterBy = [
     FilterByBuilder::init(
         'first_name',
-        Operator1Enum::ENUM_1,
+        Operator1::ENUM_1,
         'Fred'
     )->build()
 ];
 
 $locationsController = $client->getLocationsController();
+$apiResponse = $locationsController->locationsDetail(
+    $page,
+    $order,
+    $filterBy
+);
 
-try {
-    $result = $locationsController->locationsDetail(
-        $page,
-        $order,
-        $filterBy
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseLocationInfosCollection:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -1550,17 +1555,13 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# View Single Location Record
+# Viewsinglelocationrecord
 
 ```php
-function viewSingleLocationRecord(
-    string $locationId,
-    ?array $expand = null,
-    ?array $fields = null
-): ResponseLocation
+function viewsinglelocationrecord(string $locationId, ?array $expand = null, ?array $fields = null): ApiResponse
 ```
 
 ## Parameters
@@ -1568,12 +1569,12 @@ function viewSingleLocationRecord(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `locationId` | `string` | Template, Required | Location ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
-| `expand` | [`?(string(Expand11Enum)[])`](../../doc/models/expand-11-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `fields` | [`?(string(Field35Enum)[])`](../../doc/models/field-35-enum.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
+| `expand` | [`?(string(Expand11)[])`](../../doc/models/expand-11.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
+| `fields` | [`?(string(Field35)[])`](../../doc/models/field-35.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
 
 ## Response Type
 
-[`ResponseLocation`](../../doc/models/response-location.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseLocation`](../../doc/models/response-location.md).
 
 ## Example Usage
 
@@ -1581,15 +1582,19 @@ function viewSingleLocationRecord(
 $locationId = '11e95f8ec39de8fbdb0a4f1a';
 
 $locationsController = $client->getLocationsController();
+$apiResponse = $locationsController->viewsinglelocationrecord($locationId);
 
-try {
-    $result = $locationsController->viewSingleLocationRecord($locationId);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseLocation:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -2177,7 +2182,7 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
 # Location Detail
@@ -2192,7 +2197,7 @@ function locationDetail(
     ?array $productInvoiceActive = null,
     ?array $productRecurringActive = null,
     ?array $productAccountvaultActive = null
-): ResponseLocationInfo
+): ApiResponse
 ```
 
 ## Parameters
@@ -2200,8 +2205,8 @@ function locationDetail(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `locationId` | `string` | Template, Required | Location ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
-| `expand` | [`?(string(Expand11Enum)[])`](../../doc/models/expand-11-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `fields` | [`?(string(Field36Enum)[])`](../../doc/models/field-36-enum.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
+| `expand` | [`?(string(Expand11)[])`](../../doc/models/expand-11.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
+| `fields` | [`?(string(Field36)[])`](../../doc/models/field-36.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
 | `productTransactionActive` | `?array` | Query, Optional | Product Transaction Active |
 | `productFileActive` | `?array` | Query, Optional | Product File Active |
 | `productInvoiceActive` | `?array` | Query, Optional | Product Invoice Active |
@@ -2210,7 +2215,7 @@ function locationDetail(
 
 ## Response Type
 
-[`ResponseLocationInfo`](../../doc/models/response-location-info.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseLocationInfo`](../../doc/models/response-location-info.md).
 
 ## Example Usage
 
@@ -2218,15 +2223,19 @@ function locationDetail(
 $locationId = '11e95f8ec39de8fbdb0a4f1a';
 
 $locationsController = $client->getLocationsController();
+$apiResponse = $locationsController->locationDetail($locationId);
 
-try {
-    $result = $locationsController->locationDetail($locationId);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseLocationInfo:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -2563,5 +2572,5 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 

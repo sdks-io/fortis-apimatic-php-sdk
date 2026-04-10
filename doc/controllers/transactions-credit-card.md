@@ -11,49 +11,49 @@ $transactionsCreditCardController = $client->getTransactionsCreditCardController
 ## Methods
 
 * [CC Auth Only](../../doc/controllers/transactions-credit-card.md#cc-auth-only)
-* [CC Auth Only - Previous Transaction](../../doc/controllers/transactions-credit-card.md#cc-auth-only---previous-transaction)
-* [CC Auth Only - Swiped](../../doc/controllers/transactions-credit-card.md#cc-auth-only---swiped)
-* [CC Auth Only - Tap to Pay](../../doc/controllers/transactions-credit-card.md#cc-auth-only---tap-to-pay)
-* [CC Auth Only - Terminal](../../doc/controllers/transactions-credit-card.md#cc-auth-only---terminal)
-* [CC Auth Only - Ticket](../../doc/controllers/transactions-credit-card.md#cc-auth-only---ticket)
-* [CC Auth Only - Tokenized](../../doc/controllers/transactions-credit-card.md#cc-auth-only---tokenized)
-* [CC Auth Only - Wallet](../../doc/controllers/transactions-credit-card.md#cc-auth-only---wallet)
-* [CC AVS](../../doc/controllers/transactions-credit-card.md#cc-avs)
-* [CC AVS - Previous Transaction](../../doc/controllers/transactions-credit-card.md#cc-avs---previous-transaction)
-* [CC AVS - Swiped](../../doc/controllers/transactions-credit-card.md#cc-avs---swiped)
-* [CC AVS - Terminal](../../doc/controllers/transactions-credit-card.md#cc-avs---terminal)
-* [CC AVS - Ticket](../../doc/controllers/transactions-credit-card.md#cc-avs---ticket)
-* [CC AVS - Tokenized](../../doc/controllers/transactions-credit-card.md#cc-avs---tokenized)
-* [CC AVS - Wallet](../../doc/controllers/transactions-credit-card.md#cc-avs---wallet)
+* [CC Auth Only-Previous Transaction](../../doc/controllers/transactions-credit-card.md#cc-auth-only-previous-transaction)
+* [CC Auth Only-Swiped](../../doc/controllers/transactions-credit-card.md#cc-auth-only-swiped)
+* [CC Auth Only-Tap to Pay](../../doc/controllers/transactions-credit-card.md#cc-auth-only-tap-to-pay)
+* [CC Auth Only-Terminal](../../doc/controllers/transactions-credit-card.md#cc-auth-only-terminal)
+* [CC Auth Only-Ticket](../../doc/controllers/transactions-credit-card.md#cc-auth-only-ticket)
+* [CC Auth Only-Tokenized](../../doc/controllers/transactions-credit-card.md#cc-auth-only-tokenized)
+* [CC Auth Only-Wallet](../../doc/controllers/transactions-credit-card.md#cc-auth-only-wallet)
+* [CCAVS](../../doc/controllers/transactions-credit-card.md#ccavs)
+* [CCAVS-Previous Transaction](../../doc/controllers/transactions-credit-card.md#ccavs-previous-transaction)
+* [CCAVS-Swiped](../../doc/controllers/transactions-credit-card.md#ccavs-swiped)
+* [CCAVS-Terminal](../../doc/controllers/transactions-credit-card.md#ccavs-terminal)
+* [CCAVS-Ticket](../../doc/controllers/transactions-credit-card.md#ccavs-ticket)
+* [CCAVS-Tokenized](../../doc/controllers/transactions-credit-card.md#ccavs-tokenized)
+* [CCAVS-Wallet](../../doc/controllers/transactions-credit-card.md#ccavs-wallet)
 * [CC Balance Inquiry](../../doc/controllers/transactions-credit-card.md#cc-balance-inquiry)
-* [CC Balance Inquiry - Previous Transaction](../../doc/controllers/transactions-credit-card.md#cc-balance-inquiry---previous-transaction)
-* [CC Balance Inquiry - Swiped](../../doc/controllers/transactions-credit-card.md#cc-balance-inquiry---swiped)
-* [CC Balance Inquiry - Terminal](../../doc/controllers/transactions-credit-card.md#cc-balance-inquiry---terminal)
-* [CC Balance Inquiry - Ticket](../../doc/controllers/transactions-credit-card.md#cc-balance-inquiry---ticket)
-* [CC Balance Inquiry - Tokenized](../../doc/controllers/transactions-credit-card.md#cc-balance-inquiry---tokenized)
-* [CC Balance Inquiry - Wallet](../../doc/controllers/transactions-credit-card.md#cc-balance-inquiry---wallet)
+* [CC Balance Inquiry-Previous Transaction](../../doc/controllers/transactions-credit-card.md#cc-balance-inquiry-previous-transaction)
+* [CC Balance Inquiry-Swiped](../../doc/controllers/transactions-credit-card.md#cc-balance-inquiry-swiped)
+* [CC Balance Inquiry-Terminal](../../doc/controllers/transactions-credit-card.md#cc-balance-inquiry-terminal)
+* [CC Balance Inquiry-Ticket](../../doc/controllers/transactions-credit-card.md#cc-balance-inquiry-ticket)
+* [CC Balance Inquiry-Tokenized](../../doc/controllers/transactions-credit-card.md#cc-balance-inquiry-tokenized)
+* [CC Balance Inquiry-Wallet](../../doc/controllers/transactions-credit-card.md#cc-balance-inquiry-wallet)
 * [CC Force](../../doc/controllers/transactions-credit-card.md#cc-force)
-* [CC Force - Previous Transaction](../../doc/controllers/transactions-credit-card.md#cc-force---previous-transaction)
-* [CC Force - Swiped](../../doc/controllers/transactions-credit-card.md#cc-force---swiped)
-* [CC Force - Ticket](../../doc/controllers/transactions-credit-card.md#cc-force---ticket)
-* [CC Force - Tokenized](../../doc/controllers/transactions-credit-card.md#cc-force---tokenized)
-* [CC Force - Wallet](../../doc/controllers/transactions-credit-card.md#cc-force---wallet)
+* [CC Force-Previous Transaction](../../doc/controllers/transactions-credit-card.md#cc-force-previous-transaction)
+* [CC Force-Swiped](../../doc/controllers/transactions-credit-card.md#cc-force-swiped)
+* [CC Force-Ticket](../../doc/controllers/transactions-credit-card.md#cc-force-ticket)
+* [CC Force-Tokenized](../../doc/controllers/transactions-credit-card.md#cc-force-tokenized)
+* [CC Force-Wallet](../../doc/controllers/transactions-credit-card.md#cc-force-wallet)
 * [CC Refund](../../doc/controllers/transactions-credit-card.md#cc-refund)
-* [CC Refund - Previous Transaction](../../doc/controllers/transactions-credit-card.md#cc-refund---previous-transaction)
-* [CC Refund - Swiped](../../doc/controllers/transactions-credit-card.md#cc-refund---swiped)
-* [CC Refund - Tap to Pay](../../doc/controllers/transactions-credit-card.md#cc-refund---tap-to-pay)
-* [CC Refund - Terminal](../../doc/controllers/transactions-credit-card.md#cc-refund---terminal)
-* [CC Refund - Ticket](../../doc/controllers/transactions-credit-card.md#cc-refund---ticket)
-* [CC Refund - Tokenized](../../doc/controllers/transactions-credit-card.md#cc-refund---tokenized)
-* [CC Refund - Wallet](../../doc/controllers/transactions-credit-card.md#cc-refund---wallet)
+* [CC Refund-Previous Transaction](../../doc/controllers/transactions-credit-card.md#cc-refund-previous-transaction)
+* [CC Refund-Swiped](../../doc/controllers/transactions-credit-card.md#cc-refund-swiped)
+* [CC Refund-Tap to Pay](../../doc/controllers/transactions-credit-card.md#cc-refund-tap-to-pay)
+* [CC Refund-Terminal](../../doc/controllers/transactions-credit-card.md#cc-refund-terminal)
+* [CC Refund-Ticket](../../doc/controllers/transactions-credit-card.md#cc-refund-ticket)
+* [CC Refund-Tokenized](../../doc/controllers/transactions-credit-card.md#cc-refund-tokenized)
+* [CC Refund-Wallet](../../doc/controllers/transactions-credit-card.md#cc-refund-wallet)
 * [CC Sale](../../doc/controllers/transactions-credit-card.md#cc-sale)
-* [CC Sale - Previous Transaction](../../doc/controllers/transactions-credit-card.md#cc-sale---previous-transaction)
-* [CC Sale - Swiped](../../doc/controllers/transactions-credit-card.md#cc-sale---swiped)
-* [CC Sale - Tap to Pay](../../doc/controllers/transactions-credit-card.md#cc-sale---tap-to-pay)
-* [CC Sale - Terminal](../../doc/controllers/transactions-credit-card.md#cc-sale---terminal)
-* [CC Sale - Ticket](../../doc/controllers/transactions-credit-card.md#cc-sale---ticket)
-* [CC Sale - Tokenized](../../doc/controllers/transactions-credit-card.md#cc-sale---tokenized)
-* [CC Sale - Wallet](../../doc/controllers/transactions-credit-card.md#cc-sale---wallet)
+* [CC Sale-Previous Transaction](../../doc/controllers/transactions-credit-card.md#cc-sale-previous-transaction)
+* [CC Sale-Swiped](../../doc/controllers/transactions-credit-card.md#cc-sale-swiped)
+* [CC Sale-Tap to Pay](../../doc/controllers/transactions-credit-card.md#cc-sale-tap-to-pay)
+* [CC Sale-Terminal](../../doc/controllers/transactions-credit-card.md#cc-sale-terminal)
+* [CC Sale-Ticket](../../doc/controllers/transactions-credit-card.md#cc-sale-ticket)
+* [CC Sale-Tokenized](../../doc/controllers/transactions-credit-card.md#cc-sale-tokenized)
+* [CC Sale-Wallet](../../doc/controllers/transactions-credit-card.md#cc-sale-wallet)
 
 
 # CC Auth Only
@@ -61,7 +61,7 @@ $transactionsCreditCardController = $client->getTransactionsCreditCardController
 Create a new keyed Credit Card authorization only transaction
 
 ```php
-function cCAuthOnly(V1TransactionsCcAuthOnlyKeyedRequest $body, ?array $expand = null): ResponseTransaction
+function ccAuthOnly(V1TransactionsCcAuthOnlyKeyedRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -69,11 +69,11 @@ function cCAuthOnly(V1TransactionsCcAuthOnlyKeyedRequest $body, ?array $expand =
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcAuthOnlyKeyedRequest`](../../doc/models/v1-transactions-cc-auth-only-keyed-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -90,13 +90,11 @@ $body = V1TransactionsCcAuthOnlyKeyedRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -130,7 +128,6 @@ $body = V1TransactionsCcAuthOnlyKeyedRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -140,31 +137,31 @@ $body = V1TransactionsCcAuthOnlyKeyedRequestBuilder::init(
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
     ->ebtFoodEligibleAmount(0)
     ->ebtCashEligibleAmount(0)
     ->accountHolderName('smith')
-    ->entryModeId(EntryModeIdEnum::K)
     ->trackData('T051904524T 741025349520O 8520748520963')
     ->pin('1234')
     ->ksn('1234')
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccAuthOnly($body);
 
-try {
-    $result = $transactionsCreditCardController->cCAuthOnly($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -1219,19 +1216,19 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Auth Only - Previous Transaction
+# CC Auth Only-Previous Transaction
 
 Create a new Credit Card authorization only transaction using previous transaction id
 
 ```php
-function cCAuthOnlyPreviousTransaction(
+function ccAuthOnlyPreviousTransaction(
     V1TransactionsCcAuthOnlyPrevTrxnRequest $body,
     ?array $expand = null
-): ResponseTransaction
+): ApiResponse
 ```
 
 ## Parameters
@@ -1239,11 +1236,11 @@ function cCAuthOnlyPreviousTransaction(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcAuthOnlyPrevTrxnRequest`](../../doc/models/v1-transactions-cc-auth-only-prev-trxn-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -1256,13 +1253,11 @@ $body = V1TransactionsCcAuthOnlyPrevTrxnRequestBuilder::init()
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -1297,7 +1292,6 @@ $body = V1TransactionsCcAuthOnlyPrevTrxnRequestBuilder::init()
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -1307,7 +1301,6 @@ $body = V1TransactionsCcAuthOnlyPrevTrxnRequestBuilder::init()
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
@@ -1318,17 +1311,19 @@ $body = V1TransactionsCcAuthOnlyPrevTrxnRequestBuilder::init()
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccAuthOnlyPreviousTransaction($body);
 
-try {
-    $result = $transactionsCreditCardController->cCAuthOnlyPreviousTransaction($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -2383,19 +2378,16 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Auth Only - Swiped
+# CC Auth Only-Swiped
 
 Create a new swiped Credit Card authorization only transaction
 
 ```php
-function cCAuthOnlySwiped(
-    V1TransactionsCcAuthOnlySwipedRequest $body,
-    ?array $expand = null
-): ResponseTransaction
+function ccAuthOnlySwiped(V1TransactionsCcAuthOnlySwipedRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -2403,11 +2395,11 @@ function cCAuthOnlySwiped(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcAuthOnlySwipedRequest`](../../doc/models/v1-transactions-cc-auth-only-swiped-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -2423,13 +2415,11 @@ $body = V1TransactionsCcAuthOnlySwipedRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -2463,7 +2453,6 @@ $body = V1TransactionsCcAuthOnlySwipedRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -2473,28 +2462,28 @@ $body = V1TransactionsCcAuthOnlySwipedRequestBuilder::init(
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
     ->ebtFoodEligibleAmount(0)
     ->ebtCashEligibleAmount(0)
-    ->entryModeId(EntryModeIdEnum::K)
     ->accountHolderName('smith')
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccAuthOnlySwiped($body);
 
-try {
-    $result = $transactionsCreditCardController->cCAuthOnlySwiped($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -3549,19 +3538,16 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Auth Only - Tap to Pay
+# CC Auth Only-Tap to Pay
 
 Create a new Tap To Pay Credit Card authorization only transaction
 
 ```php
-function cCAuthOnlyTapToPay(
-    V1TransactionsCcAuthOnlyTaptopayRequest $body,
-    ?array $expand = null
-): ResponseTransaction
+function ccAuthOnlyTapToPay(V1TransactionsCcAuthOnlyTaptopayRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -3569,11 +3555,11 @@ function cCAuthOnlyTapToPay(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcAuthOnlyTaptopayRequest`](../../doc/models/v1-transactions-cc-auth-only-taptopay-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -3589,13 +3575,11 @@ $body = V1TransactionsCcAuthOnlyTaptopayRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -3630,13 +3614,11 @@ $body = V1TransactionsCcAuthOnlyTaptopayRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
     ->secureDirectoryServerTransactionId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->terminalSerialNumber('1234567890')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
@@ -3645,17 +3627,19 @@ $body = V1TransactionsCcAuthOnlyTaptopayRequestBuilder::init(
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccAuthOnlyTapToPay($body);
 
-try {
-    $result = $transactionsCreditCardController->cCAuthOnlyTapToPay($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -4710,16 +4694,16 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Auth Only - Terminal
+# CC Auth Only-Terminal
 
 Create a new terminal Credit Card authorization only transaction
 
 ```php
-function cCAuthOnlyTerminal(V1TransactionsCcAuthOnlyTerminalRequest $body): ResponseTransactionProcessing
+function ccAuthOnlyTerminal(V1TransactionsCcAuthOnlyTerminalRequest $body): ApiResponse
 ```
 
 ## Parameters
@@ -4730,7 +4714,7 @@ function cCAuthOnlyTerminal(V1TransactionsCcAuthOnlyTerminalRequest $body): Resp
 
 ## Response Type
 
-[`ResponseTransactionProcessing`](../../doc/models/response-transaction-processing.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransactionProcessing`](../../doc/models/response-transaction-processing.md).
 
 ## Example Usage
 
@@ -4747,13 +4731,11 @@ $body = V1TransactionsCcAuthOnlyTerminalRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -4785,7 +4767,6 @@ $body = V1TransactionsCcAuthOnlyTerminalRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -4795,27 +4776,27 @@ $body = V1TransactionsCcAuthOnlyTerminalRequestBuilder::init(
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
     ->ebtFoodEligibleAmount(0)
     ->ebtCashEligibleAmount(0)
-    ->eFormat(EFormatEnum::MAGNESAFE)
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccAuthOnlyTerminal($body);
 
-try {
-    $result = $transactionsCreditCardController->cCAuthOnlyTerminal($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransactionProcessing:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -4837,19 +4818,16 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Auth Only - Ticket
+# CC Auth Only-Ticket
 
 Create a new ticket Credit Card authorization only transaction
 
 ```php
-function cCAuthOnlyTicket(
-    V1TransactionsCcAuthOnlyTicketRequest $body,
-    ?array $expand = null
-): ResponseTransaction
+function ccAuthOnlyTicket(V1TransactionsCcAuthOnlyTicketRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -4857,11 +4835,11 @@ function cCAuthOnlyTicket(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcAuthOnlyTicketRequest`](../../doc/models/v1-transactions-cc-auth-only-ticket-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -4877,13 +4855,11 @@ $body = V1TransactionsCcAuthOnlyTicketRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -4917,7 +4893,6 @@ $body = V1TransactionsCcAuthOnlyTicketRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -4927,7 +4902,6 @@ $body = V1TransactionsCcAuthOnlyTicketRequestBuilder::init(
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
@@ -4937,17 +4911,19 @@ $body = V1TransactionsCcAuthOnlyTicketRequestBuilder::init(
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccAuthOnlyTicket($body);
 
-try {
-    $result = $transactionsCreditCardController->cCAuthOnlyTicket($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -6002,19 +5978,16 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Auth Only - Tokenized
+# CC Auth Only-Tokenized
 
 Create a new tokenized Credit Card authorization only transaction
 
 ```php
-function cCAuthOnlyTokenized(
-    V1TransactionsCcAuthOnlyTokenRequest $body,
-    ?array $expand = null
-): ResponseTransaction
+function ccAuthOnlyTokenized(V1TransactionsCcAuthOnlyTokenRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -6022,11 +5995,11 @@ function cCAuthOnlyTokenized(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcAuthOnlyTokenRequest`](../../doc/models/v1-transactions-cc-auth-only-token-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -6041,13 +6014,11 @@ $body = V1TransactionsCcAuthOnlyTokenRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -6081,7 +6052,6 @@ $body = V1TransactionsCcAuthOnlyTokenRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -6091,7 +6061,6 @@ $body = V1TransactionsCcAuthOnlyTokenRequestBuilder::init(
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
@@ -6102,17 +6071,19 @@ $body = V1TransactionsCcAuthOnlyTokenRequestBuilder::init(
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccAuthOnlyTokenized($body);
 
-try {
-    $result = $transactionsCreditCardController->cCAuthOnlyTokenized($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -7167,19 +7138,16 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Auth Only - Wallet
+# CC Auth Only-Wallet
 
 Create a new Wallet Credit Card authorization only transaction
 
 ```php
-function cCAuthOnlyWallet(
-    V1TransactionsCcAuthOnlyWalletRequest $body,
-    ?array $expand = null
-): ResponseTransaction
+function ccAuthOnlyWallet(V1TransactionsCcAuthOnlyWalletRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -7187,11 +7155,11 @@ function cCAuthOnlyWallet(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcAuthOnlyWalletRequest`](../../doc/models/v1-transactions-cc-auth-only-wallet-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -7199,7 +7167,7 @@ function cCAuthOnlyWallet(
 $body = V1TransactionsCcAuthOnlyWalletRequestBuilder::init(
     1,
     'wallet_data2',
-    WalletProviderEnum::GOOGLEPAY
+    WalletProvider::GOOGLEPAY
 )
     ->checkinDate('2021-12-01')
     ->checkoutDate('2021-12-01')
@@ -7208,13 +7176,11 @@ $body = V1TransactionsCcAuthOnlyWalletRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -7248,7 +7214,6 @@ $body = V1TransactionsCcAuthOnlyWalletRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -7258,7 +7223,6 @@ $body = V1TransactionsCcAuthOnlyWalletRequestBuilder::init(
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
@@ -7269,17 +7233,19 @@ $body = V1TransactionsCcAuthOnlyWalletRequestBuilder::init(
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccAuthOnlyWallet($body);
 
-try {
-    $result = $transactionsCreditCardController->cCAuthOnlyWallet($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -8334,16 +8300,16 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC AVS
+# CCAVS
 
 Create a new keyed Credit Card AVS only transaction
 
 ```php
-function cCAVS(V1TransactionsCcAvsOnlyKeyedRequest $body, ?array $expand = null): ResponseTransaction
+function ccavs(V1TransactionsCcAvsOnlyKeyedRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -8351,11 +8317,11 @@ function cCAVS(V1TransactionsCcAvsOnlyKeyedRequest $body, ?array $expand = null)
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcAvsOnlyKeyedRequest`](../../doc/models/v1-transactions-cc-avs-only-keyed-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -8371,13 +8337,11 @@ $body = V1TransactionsCcAvsOnlyKeyedRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -8412,7 +8376,6 @@ $body = V1TransactionsCcAvsOnlyKeyedRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -8422,31 +8385,31 @@ $body = V1TransactionsCcAvsOnlyKeyedRequestBuilder::init(
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
     ->ebtFoodEligibleAmount(0)
     ->ebtCashEligibleAmount(0)
     ->accountHolderName('smith')
-    ->entryModeId(EntryModeIdEnum::K)
     ->trackData('T051904524T 741025349520O 8520748520963')
     ->pin('1234')
     ->ksn('1234')
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccavs($body);
 
-try {
-    $result = $transactionsCreditCardController->cCAVS($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -9501,19 +9464,19 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC AVS - Previous Transaction
+# CCAVS-Previous Transaction
 
 Create a new Credit Card AVS only transaction using previous transaction id
 
 ```php
-function cCAVSPreviousTransaction(
+function ccavsPreviousTransaction(
     V1TransactionsCcAvsOnlyPrevTrxnRequest $body,
     ?array $expand = null
-): ResponseTransaction
+): ApiResponse
 ```
 
 ## Parameters
@@ -9521,11 +9484,11 @@ function cCAVSPreviousTransaction(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcAvsOnlyPrevTrxnRequest`](../../doc/models/v1-transactions-cc-avs-only-prev-trxn-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -9538,13 +9501,11 @@ $body = V1TransactionsCcAvsOnlyPrevTrxnRequestBuilder::init()
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -9579,7 +9540,6 @@ $body = V1TransactionsCcAvsOnlyPrevTrxnRequestBuilder::init()
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -9589,7 +9549,6 @@ $body = V1TransactionsCcAvsOnlyPrevTrxnRequestBuilder::init()
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
@@ -9600,17 +9559,19 @@ $body = V1TransactionsCcAvsOnlyPrevTrxnRequestBuilder::init()
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccavsPreviousTransaction($body);
 
-try {
-    $result = $transactionsCreditCardController->cCAVSPreviousTransaction($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -10665,16 +10626,16 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC AVS - Swiped
+# CCAVS-Swiped
 
 Create a new swiped Credit Card AVS only transaction
 
 ```php
-function cCAVSSwiped(V1TransactionsCcAvsOnlySwipedRequest $body, ?array $expand = null): ResponseTransaction
+function ccavsSwiped(V1TransactionsCcAvsOnlySwipedRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -10682,11 +10643,11 @@ function cCAVSSwiped(V1TransactionsCcAvsOnlySwipedRequest $body, ?array $expand 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcAvsOnlySwipedRequest`](../../doc/models/v1-transactions-cc-avs-only-swiped-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -10701,13 +10662,11 @@ $body = V1TransactionsCcAvsOnlySwipedRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -10742,7 +10701,6 @@ $body = V1TransactionsCcAvsOnlySwipedRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -10752,28 +10710,28 @@ $body = V1TransactionsCcAvsOnlySwipedRequestBuilder::init(
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
     ->ebtFoodEligibleAmount(0)
     ->ebtCashEligibleAmount(0)
-    ->entryModeId(EntryModeIdEnum::K)
     ->accountHolderName('smith')
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccavsSwiped($body);
 
-try {
-    $result = $transactionsCreditCardController->cCAVSSwiped($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -11828,16 +11786,16 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC AVS - Terminal
+# CCAVS-Terminal
 
 Create a new terminal Credit Card AVS only transaction
 
 ```php
-function cCAVSTerminal(V1TransactionsCcAvsOnlyTerminalRequest $body): ResponseTransactionProcessing
+function ccavsTerminal(V1TransactionsCcAvsOnlyTerminalRequest $body): ApiResponse
 ```
 
 ## Parameters
@@ -11848,7 +11806,7 @@ function cCAVSTerminal(V1TransactionsCcAvsOnlyTerminalRequest $body): ResponseTr
 
 ## Response Type
 
-[`ResponseTransactionProcessing`](../../doc/models/response-transaction-processing.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransactionProcessing`](../../doc/models/response-transaction-processing.md).
 
 ## Example Usage
 
@@ -11864,13 +11822,11 @@ $body = V1TransactionsCcAvsOnlyTerminalRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -11903,7 +11859,6 @@ $body = V1TransactionsCcAvsOnlyTerminalRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -11913,27 +11868,27 @@ $body = V1TransactionsCcAvsOnlyTerminalRequestBuilder::init(
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
     ->ebtFoodEligibleAmount(0)
     ->ebtCashEligibleAmount(0)
-    ->eFormat(EFormatEnum::MAGNESAFE)
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccavsTerminal($body);
 
-try {
-    $result = $transactionsCreditCardController->cCAVSTerminal($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransactionProcessing:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -11955,16 +11910,16 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC AVS - Ticket
+# CCAVS-Ticket
 
 Create a new ticket Credit Card AVS only transaction
 
 ```php
-function cCAVSTicket(V1TransactionsCcAvsOnlyTicketRequest $body, ?array $expand = null): ResponseTransaction
+function ccavsTicket(V1TransactionsCcAvsOnlyTicketRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -11972,11 +11927,11 @@ function cCAVSTicket(V1TransactionsCcAvsOnlyTicketRequest $body, ?array $expand 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcAvsOnlyTicketRequest`](../../doc/models/v1-transactions-cc-avs-only-ticket-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -11991,13 +11946,11 @@ $body = V1TransactionsCcAvsOnlyTicketRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -12032,7 +11985,6 @@ $body = V1TransactionsCcAvsOnlyTicketRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -12042,7 +11994,6 @@ $body = V1TransactionsCcAvsOnlyTicketRequestBuilder::init(
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
@@ -12052,17 +12003,19 @@ $body = V1TransactionsCcAvsOnlyTicketRequestBuilder::init(
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccavsTicket($body);
 
-try {
-    $result = $transactionsCreditCardController->cCAVSTicket($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -13117,16 +13070,16 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC AVS - Tokenized
+# CCAVS-Tokenized
 
 Create a new tokenized Credit Card AVS only transaction
 
 ```php
-function cCAVSTokenized(V1TransactionsCcAvsOnlyTokenRequest $body, ?array $expand = null): ResponseTransaction
+function ccavsTokenized(V1TransactionsCcAvsOnlyTokenRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -13134,11 +13087,11 @@ function cCAVSTokenized(V1TransactionsCcAvsOnlyTokenRequest $body, ?array $expan
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcAvsOnlyTokenRequest`](../../doc/models/v1-transactions-cc-avs-only-token-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -13151,13 +13104,11 @@ $body = V1TransactionsCcAvsOnlyTokenRequestBuilder::init()
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -13192,7 +13143,6 @@ $body = V1TransactionsCcAvsOnlyTokenRequestBuilder::init()
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -13202,7 +13152,6 @@ $body = V1TransactionsCcAvsOnlyTokenRequestBuilder::init()
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
@@ -13213,17 +13162,19 @@ $body = V1TransactionsCcAvsOnlyTokenRequestBuilder::init()
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccavsTokenized($body);
 
-try {
-    $result = $transactionsCreditCardController->cCAVSTokenized($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -14278,16 +14229,16 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC AVS - Wallet
+# CCAVS-Wallet
 
 Create a new Wallet Credit Card AVS only transaction
 
 ```php
-function cCAVSWallet(V1TransactionsCcAvsOnlyWalletRequest $body, ?array $expand = null): ResponseTransaction
+function ccavsWallet(V1TransactionsCcAvsOnlyWalletRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -14295,18 +14246,18 @@ function cCAVSWallet(V1TransactionsCcAvsOnlyWalletRequest $body, ?array $expand 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcAvsOnlyWalletRequest`](../../doc/models/v1-transactions-cc-avs-only-wallet-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
 ```php
 $body = V1TransactionsCcAvsOnlyWalletRequestBuilder::init(
     'wallet_data2',
-    WalletProviderEnum::GOOGLEPAY
+    WalletProvider::GOOGLEPAY
 )
     ->checkinDate('2021-12-01')
     ->checkoutDate('2021-12-01')
@@ -14315,13 +14266,11 @@ $body = V1TransactionsCcAvsOnlyWalletRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -14356,7 +14305,6 @@ $body = V1TransactionsCcAvsOnlyWalletRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -14366,7 +14314,6 @@ $body = V1TransactionsCcAvsOnlyWalletRequestBuilder::init(
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
@@ -14377,17 +14324,19 @@ $body = V1TransactionsCcAvsOnlyWalletRequestBuilder::init(
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccavsWallet($body);
 
-try {
-    $result = $transactionsCreditCardController->cCAVSWallet($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -15442,7 +15391,7 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
@@ -15451,10 +15400,7 @@ try {
 Create a new keyed Credit Card balance inquiry transaction
 
 ```php
-function cCBalanceInquiry(
-    V1TransactionsCcBalanceInquiryKeyedRequest $body,
-    ?array $expand = null
-): ResponseTransaction
+function ccBalanceInquiry(V1TransactionsCcBalanceInquiryKeyedRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -15462,11 +15408,11 @@ function cCBalanceInquiry(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcBalanceInquiryKeyedRequest`](../../doc/models/v1-transactions-cc-balance-inquiry-keyed-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -15482,13 +15428,11 @@ $body = V1TransactionsCcBalanceInquiryKeyedRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -15523,7 +15467,6 @@ $body = V1TransactionsCcBalanceInquiryKeyedRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -15533,31 +15476,31 @@ $body = V1TransactionsCcBalanceInquiryKeyedRequestBuilder::init(
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
     ->ebtFoodEligibleAmount(0)
     ->ebtCashEligibleAmount(0)
     ->accountHolderName('smith')
-    ->entryModeId(EntryModeIdEnum::K)
     ->trackData('T051904524T 741025349520O 8520748520963')
     ->pin('1234')
     ->ksn('1234')
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccBalanceInquiry($body);
 
-try {
-    $result = $transactionsCreditCardController->cCBalanceInquiry($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -16612,19 +16555,19 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Balance Inquiry - Previous Transaction
+# CC Balance Inquiry-Previous Transaction
 
 Create a new Credit Card balance inquiry transaction using previous transaction id
 
 ```php
-function cCBalanceInquiryPreviousTransaction(
+function ccBalanceInquiryPreviousTransaction(
     V1TransactionsCcBalanceInquiryPrevTrxnRequest $body,
     ?array $expand = null
-): ResponseTransaction
+): ApiResponse
 ```
 
 ## Parameters
@@ -16632,11 +16575,11 @@ function cCBalanceInquiryPreviousTransaction(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcBalanceInquiryPrevTrxnRequest`](../../doc/models/v1-transactions-cc-balance-inquiry-prev-trxn-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -16649,13 +16592,11 @@ $body = V1TransactionsCcBalanceInquiryPrevTrxnRequestBuilder::init()
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -16690,7 +16631,6 @@ $body = V1TransactionsCcBalanceInquiryPrevTrxnRequestBuilder::init()
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -16700,7 +16640,6 @@ $body = V1TransactionsCcBalanceInquiryPrevTrxnRequestBuilder::init()
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
@@ -16711,17 +16650,19 @@ $body = V1TransactionsCcBalanceInquiryPrevTrxnRequestBuilder::init()
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccBalanceInquiryPreviousTransaction($body);
 
-try {
-    $result = $transactionsCreditCardController->cCBalanceInquiryPreviousTransaction($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -17776,19 +17717,19 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Balance Inquiry - Swiped
+# CC Balance Inquiry-Swiped
 
 Create a new swiped Credit Card balance inquiry transaction
 
 ```php
-function cCBalanceInquirySwiped(
+function ccBalanceInquirySwiped(
     V1TransactionsCcBalanceInquirySwipedRequest $body,
     ?array $expand = null
-): ResponseTransaction
+): ApiResponse
 ```
 
 ## Parameters
@@ -17796,11 +17737,11 @@ function cCBalanceInquirySwiped(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcBalanceInquirySwipedRequest`](../../doc/models/v1-transactions-cc-balance-inquiry-swiped-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -17815,13 +17756,11 @@ $body = V1TransactionsCcBalanceInquirySwipedRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -17856,7 +17795,6 @@ $body = V1TransactionsCcBalanceInquirySwipedRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -17866,28 +17804,28 @@ $body = V1TransactionsCcBalanceInquirySwipedRequestBuilder::init(
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
     ->ebtFoodEligibleAmount(0)
     ->ebtCashEligibleAmount(0)
-    ->entryModeId(EntryModeIdEnum::K)
     ->accountHolderName('smith')
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccBalanceInquirySwiped($body);
 
-try {
-    $result = $transactionsCreditCardController->cCBalanceInquirySwiped($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -18942,18 +18880,16 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Balance Inquiry - Terminal
+# CC Balance Inquiry-Terminal
 
 Create a new terminal Credit Card balance inquiry transaction
 
 ```php
-function cCBalanceInquiryTerminal(
-    V1TransactionsCcBalanceInquiryTerminalRequest $body
-): ResponseTransactionProcessing
+function ccBalanceInquiryTerminal(V1TransactionsCcBalanceInquiryTerminalRequest $body): ApiResponse
 ```
 
 ## Parameters
@@ -18964,7 +18900,7 @@ function cCBalanceInquiryTerminal(
 
 ## Response Type
 
-[`ResponseTransactionProcessing`](../../doc/models/response-transaction-processing.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransactionProcessing`](../../doc/models/response-transaction-processing.md).
 
 ## Example Usage
 
@@ -18980,13 +18916,11 @@ $body = V1TransactionsCcBalanceInquiryTerminalRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -19019,7 +18953,6 @@ $body = V1TransactionsCcBalanceInquiryTerminalRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -19029,27 +18962,27 @@ $body = V1TransactionsCcBalanceInquiryTerminalRequestBuilder::init(
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
     ->ebtFoodEligibleAmount(0)
     ->ebtCashEligibleAmount(0)
-    ->eFormat(EFormatEnum::MAGNESAFE)
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccBalanceInquiryTerminal($body);
 
-try {
-    $result = $transactionsCreditCardController->cCBalanceInquiryTerminal($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransactionProcessing:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -19071,19 +19004,19 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Balance Inquiry - Ticket
+# CC Balance Inquiry-Ticket
 
 Create a new Ticket Credit Card balance inquiry transaction
 
 ```php
-function cCBalanceInquiryTicket(
+function ccBalanceInquiryTicket(
     V1TransactionsCcBalanceInquiryTicketRequest $body,
     ?array $expand = null
-): ResponseTransaction
+): ApiResponse
 ```
 
 ## Parameters
@@ -19091,11 +19024,11 @@ function cCBalanceInquiryTicket(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcBalanceInquiryTicketRequest`](../../doc/models/v1-transactions-cc-balance-inquiry-ticket-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -19110,13 +19043,11 @@ $body = V1TransactionsCcBalanceInquiryTicketRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -19151,7 +19082,6 @@ $body = V1TransactionsCcBalanceInquiryTicketRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -19161,7 +19091,6 @@ $body = V1TransactionsCcBalanceInquiryTicketRequestBuilder::init(
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
@@ -19171,17 +19100,19 @@ $body = V1TransactionsCcBalanceInquiryTicketRequestBuilder::init(
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccBalanceInquiryTicket($body);
 
-try {
-    $result = $transactionsCreditCardController->cCBalanceInquiryTicket($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -20236,19 +20167,19 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Balance Inquiry - Tokenized
+# CC Balance Inquiry-Tokenized
 
 Create a new tokenized Credit Card balance inquiry transaction
 
 ```php
-function cCBalanceInquiryTokenized(
+function ccBalanceInquiryTokenized(
     V1TransactionsCcBalanceInquiryTokenRequest $body,
     ?array $expand = null
-): ResponseTransaction
+): ApiResponse
 ```
 
 ## Parameters
@@ -20256,11 +20187,11 @@ function cCBalanceInquiryTokenized(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcBalanceInquiryTokenRequest`](../../doc/models/v1-transactions-cc-balance-inquiry-token-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -20273,13 +20204,11 @@ $body = V1TransactionsCcBalanceInquiryTokenRequestBuilder::init()
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -20314,7 +20243,6 @@ $body = V1TransactionsCcBalanceInquiryTokenRequestBuilder::init()
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -20324,7 +20252,6 @@ $body = V1TransactionsCcBalanceInquiryTokenRequestBuilder::init()
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
@@ -20335,17 +20262,19 @@ $body = V1TransactionsCcBalanceInquiryTokenRequestBuilder::init()
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccBalanceInquiryTokenized($body);
 
-try {
-    $result = $transactionsCreditCardController->cCBalanceInquiryTokenized($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -21400,19 +21329,19 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Balance Inquiry - Wallet
+# CC Balance Inquiry-Wallet
 
 Create a new Wallet Credit Card balance inquiry transaction
 
 ```php
-function cCBalanceInquiryWallet(
+function ccBalanceInquiryWallet(
     V1TransactionsCcBalanceInquiryWalletRequest $body,
     ?array $expand = null
-): ResponseTransaction
+): ApiResponse
 ```
 
 ## Parameters
@@ -21420,18 +21349,18 @@ function cCBalanceInquiryWallet(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcBalanceInquiryWalletRequest`](../../doc/models/v1-transactions-cc-balance-inquiry-wallet-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
 ```php
 $body = V1TransactionsCcBalanceInquiryWalletRequestBuilder::init(
     'wallet_data2',
-    WalletProviderEnum::GOOGLEPAY
+    WalletProvider::GOOGLEPAY
 )
     ->checkinDate('2021-12-01')
     ->checkoutDate('2021-12-01')
@@ -21440,13 +21369,11 @@ $body = V1TransactionsCcBalanceInquiryWalletRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -21481,7 +21408,6 @@ $body = V1TransactionsCcBalanceInquiryWalletRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -21491,7 +21417,6 @@ $body = V1TransactionsCcBalanceInquiryWalletRequestBuilder::init(
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
@@ -21502,17 +21427,19 @@ $body = V1TransactionsCcBalanceInquiryWalletRequestBuilder::init(
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccBalanceInquiryWallet($body);
 
-try {
-    $result = $transactionsCreditCardController->cCBalanceInquiryWallet($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -22567,7 +22494,7 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
@@ -22576,7 +22503,7 @@ try {
 Create a new keyed Credit Card force transaction
 
 ```php
-function cCForce(V1TransactionsCcForceKeyedRequest $body, ?array $expand = null): ResponseTransaction
+function ccForce(V1TransactionsCcForceKeyedRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -22584,11 +22511,11 @@ function cCForce(V1TransactionsCcForceKeyedRequest $body, ?array $expand = null)
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcForceKeyedRequest`](../../doc/models/v1-transactions-cc-force-keyed-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -22605,13 +22532,11 @@ $body = V1TransactionsCcForceKeyedRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -22646,7 +22571,6 @@ $body = V1TransactionsCcForceKeyedRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -22656,14 +22580,12 @@ $body = V1TransactionsCcForceKeyedRequestBuilder::init(
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
     ->ebtFoodEligibleAmount(0)
     ->ebtCashEligibleAmount(0)
     ->accountHolderName('smith')
-    ->entryModeId(EntryModeIdEnum::K)
     ->trackData('T051904524T 741025349520O 8520748520963')
     ->pin('1234')
     ->ksn('1234')
@@ -22671,17 +22593,19 @@ $body = V1TransactionsCcForceKeyedRequestBuilder::init(
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccForce($body);
 
-try {
-    $result = $transactionsCreditCardController->cCForce($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -23736,19 +23660,19 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Force - Previous Transaction
+# CC Force-Previous Transaction
 
 Create a new Credit Card force transaction using previous transaction id
 
 ```php
-function cCForcePreviousTransaction(
+function ccForcePreviousTransaction(
     V1TransactionsCcForcePrevTrxnRequest $body,
     ?array $expand = null
-): ResponseTransaction
+): ApiResponse
 ```
 
 ## Parameters
@@ -23756,11 +23680,11 @@ function cCForcePreviousTransaction(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcForcePrevTrxnRequest`](../../doc/models/v1-transactions-cc-force-prev-trxn-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -23775,13 +23699,11 @@ $body = V1TransactionsCcForcePrevTrxnRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -23816,7 +23738,6 @@ $body = V1TransactionsCcForcePrevTrxnRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -23826,7 +23747,6 @@ $body = V1TransactionsCcForcePrevTrxnRequestBuilder::init(
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
@@ -23838,17 +23758,19 @@ $body = V1TransactionsCcForcePrevTrxnRequestBuilder::init(
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccForcePreviousTransaction($body);
 
-try {
-    $result = $transactionsCreditCardController->cCForcePreviousTransaction($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -24903,16 +24825,16 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Force - Swiped
+# CC Force-Swiped
 
 Create a new swiped Credit Card force transaction
 
 ```php
-function cCForceSwiped(V1TransactionsCcForceSwipedRequest $body, ?array $expand = null): ResponseTransaction
+function ccForceSwiped(V1TransactionsCcForceSwipedRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -24920,11 +24842,11 @@ function cCForceSwiped(V1TransactionsCcForceSwipedRequest $body, ?array $expand 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcForceSwipedRequest`](../../doc/models/v1-transactions-cc-force-swiped-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -24940,13 +24862,11 @@ $body = V1TransactionsCcForceSwipedRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -24981,7 +24901,6 @@ $body = V1TransactionsCcForceSwipedRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -24991,28 +24910,28 @@ $body = V1TransactionsCcForceSwipedRequestBuilder::init(
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
     ->ebtFoodEligibleAmount(0)
     ->ebtCashEligibleAmount(0)
-    ->entryModeId(EntryModeIdEnum::K)
     ->accountHolderName('smith')
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccForceSwiped($body);
 
-try {
-    $result = $transactionsCreditCardController->cCForceSwiped($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -26067,16 +25986,16 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Force - Ticket
+# CC Force-Ticket
 
 Create a new ticket Credit Card force transaction
 
 ```php
-function cCForceTicket(V1TransactionsCcForceTicketRequest $body, ?array $expand = null): ResponseTransaction
+function ccForceTicket(V1TransactionsCcForceTicketRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -26084,11 +26003,11 @@ function cCForceTicket(V1TransactionsCcForceTicketRequest $body, ?array $expand 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcForceTicketRequest`](../../doc/models/v1-transactions-cc-force-ticket-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -26104,13 +26023,11 @@ $body = V1TransactionsCcForceTicketRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -26145,7 +26062,6 @@ $body = V1TransactionsCcForceTicketRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -26155,7 +26071,6 @@ $body = V1TransactionsCcForceTicketRequestBuilder::init(
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
@@ -26166,17 +26081,19 @@ $body = V1TransactionsCcForceTicketRequestBuilder::init(
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccForceTicket($body);
 
-try {
-    $result = $transactionsCreditCardController->cCForceTicket($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -27231,16 +27148,16 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Force - Tokenized
+# CC Force-Tokenized
 
 Create a new tokenized Credit Card force transaction
 
 ```php
-function cCForceTokenized(V1TransactionsCcForceTokenRequest $body, ?array $expand = null): ResponseTransaction
+function ccForceTokenized(V1TransactionsCcForceTokenRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -27248,11 +27165,11 @@ function cCForceTokenized(V1TransactionsCcForceTokenRequest $body, ?array $expan
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcForceTokenRequest`](../../doc/models/v1-transactions-cc-force-token-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -27267,13 +27184,11 @@ $body = V1TransactionsCcForceTokenRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -27308,7 +27223,6 @@ $body = V1TransactionsCcForceTokenRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -27318,7 +27232,6 @@ $body = V1TransactionsCcForceTokenRequestBuilder::init(
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
@@ -27330,17 +27243,19 @@ $body = V1TransactionsCcForceTokenRequestBuilder::init(
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccForceTokenized($body);
 
-try {
-    $result = $transactionsCreditCardController->cCForceTokenized($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -28395,16 +28310,16 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Force - Wallet
+# CC Force-Wallet
 
 Create a new Wallet Credit Card force transaction
 
 ```php
-function cCForceWallet(V1TransactionsCcForceWalletRequest $body, ?array $expand = null): ResponseTransaction
+function ccForceWallet(V1TransactionsCcForceWalletRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -28412,18 +28327,18 @@ function cCForceWallet(V1TransactionsCcForceWalletRequest $body, ?array $expand 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcForceWalletRequest`](../../doc/models/v1-transactions-cc-force-wallet-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
 ```php
 $body = V1TransactionsCcForceWalletRequestBuilder::init(
     'wallet_data2',
-    WalletProviderEnum::GOOGLEPAY,
+    WalletProvider::GOOGLEPAY,
     'abc123'
 )
     ->checkinDate('2021-12-01')
@@ -28433,13 +28348,11 @@ $body = V1TransactionsCcForceWalletRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -28474,7 +28387,6 @@ $body = V1TransactionsCcForceWalletRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -28484,7 +28396,6 @@ $body = V1TransactionsCcForceWalletRequestBuilder::init(
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
@@ -28496,17 +28407,19 @@ $body = V1TransactionsCcForceWalletRequestBuilder::init(
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccForceWallet($body);
 
-try {
-    $result = $transactionsCreditCardController->cCForceWallet($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -29561,7 +29474,7 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
@@ -29570,7 +29483,7 @@ try {
 Create a new keyed Credit Card refund transaction
 
 ```php
-function cCRefund(V1TransactionsCcRefundKeyedRequest $body, ?array $expand = null): ResponseTransaction
+function ccRefund(V1TransactionsCcRefundKeyedRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -29578,11 +29491,11 @@ function cCRefund(V1TransactionsCcRefundKeyedRequest $body, ?array $expand = nul
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcRefundKeyedRequest`](../../doc/models/v1-transactions-cc-refund-keyed-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -29597,13 +29510,11 @@ $body = V1TransactionsCcRefundKeyedRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -29637,7 +29548,6 @@ $body = V1TransactionsCcRefundKeyedRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -29647,14 +29557,12 @@ $body = V1TransactionsCcRefundKeyedRequestBuilder::init(
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
     ->ebtFoodEligibleAmount(0)
     ->ebtCashEligibleAmount(0)
     ->accountHolderName('smith')
-    ->entryModeId(EntryModeIdEnum::K)
     ->trackData('T051904524T 741025349520O 8520748520963')
     ->pin('1234')
     ->ksn('1234')
@@ -29662,17 +29570,19 @@ $body = V1TransactionsCcRefundKeyedRequestBuilder::init(
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccRefund($body);
 
-try {
-    $result = $transactionsCreditCardController->cCRefund($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -30727,19 +30637,19 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Refund - Previous Transaction
+# CC Refund-Previous Transaction
 
 Create a new Credit Card refund transaction using previous transaction id
 
 ```php
-function cCRefundPreviousTransaction(
+function ccRefundPreviousTransaction(
     V1TransactionsCcRefundPrevTrxnRequest $body,
     ?array $expand = null
-): ResponseTransaction
+): ApiResponse
 ```
 
 ## Parameters
@@ -30747,11 +30657,11 @@ function cCRefundPreviousTransaction(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcRefundPrevTrxnRequest`](../../doc/models/v1-transactions-cc-refund-prev-trxn-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -30764,13 +30674,11 @@ $body = V1TransactionsCcRefundPrevTrxnRequestBuilder::init()
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -30805,7 +30713,6 @@ $body = V1TransactionsCcRefundPrevTrxnRequestBuilder::init()
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -30815,7 +30722,6 @@ $body = V1TransactionsCcRefundPrevTrxnRequestBuilder::init()
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
@@ -30826,17 +30732,19 @@ $body = V1TransactionsCcRefundPrevTrxnRequestBuilder::init()
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccRefundPreviousTransaction($body);
 
-try {
-    $result = $transactionsCreditCardController->cCRefundPreviousTransaction($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -31891,16 +31799,16 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Refund - Swiped
+# CC Refund-Swiped
 
 Create a new swiped Credit Card refund transaction
 
 ```php
-function cCRefundSwiped(V1TransactionsCcRefundSwipedRequest $body, ?array $expand = null): ResponseTransaction
+function ccRefundSwiped(V1TransactionsCcRefundSwipedRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -31908,11 +31816,11 @@ function cCRefundSwiped(V1TransactionsCcRefundSwipedRequest $body, ?array $expan
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcRefundSwipedRequest`](../../doc/models/v1-transactions-cc-refund-swiped-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -31928,13 +31836,11 @@ $body = V1TransactionsCcRefundSwipedRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -31968,7 +31874,6 @@ $body = V1TransactionsCcRefundSwipedRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -31978,28 +31883,28 @@ $body = V1TransactionsCcRefundSwipedRequestBuilder::init(
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
     ->ebtFoodEligibleAmount(0)
     ->ebtCashEligibleAmount(0)
-    ->entryModeId(EntryModeIdEnum::K)
     ->accountHolderName('smith')
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccRefundSwiped($body);
 
-try {
-    $result = $transactionsCreditCardController->cCRefundSwiped($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -33054,19 +32959,16 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Refund - Tap to Pay
+# CC Refund-Tap to Pay
 
 Create a new Tap To Pay Credit Card refund transaction
 
 ```php
-function cCRefundTapToPay(
-    V1TransactionsCcRefundTaptopayRequest $body,
-    ?array $expand = null
-): ResponseTransaction
+function ccRefundTapToPay(V1TransactionsCcRefundTaptopayRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -33074,11 +32976,11 @@ function cCRefundTapToPay(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcRefundTaptopayRequest`](../../doc/models/v1-transactions-cc-refund-taptopay-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -33094,13 +32996,11 @@ $body = V1TransactionsCcRefundTaptopayRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -33135,13 +33035,11 @@ $body = V1TransactionsCcRefundTaptopayRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
     ->secureDirectoryServerTransactionId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->terminalSerialNumber('1234567890')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
@@ -33151,17 +33049,19 @@ $body = V1TransactionsCcRefundTaptopayRequestBuilder::init(
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccRefundTapToPay($body);
 
-try {
-    $result = $transactionsCreditCardController->cCRefundTapToPay($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -34216,16 +34116,16 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Refund - Terminal
+# CC Refund-Terminal
 
 Create a new terminal Credit Card refund transaction
 
 ```php
-function cCRefundTerminal(V1TransactionsCcRefundTerminalRequest $body): ResponseTransactionProcessing
+function ccRefundTerminal(V1TransactionsCcRefundTerminalRequest $body): ApiResponse
 ```
 
 ## Parameters
@@ -34236,7 +34136,7 @@ function cCRefundTerminal(V1TransactionsCcRefundTerminalRequest $body): Response
 
 ## Response Type
 
-[`ResponseTransactionProcessing`](../../doc/models/response-transaction-processing.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransactionProcessing`](../../doc/models/response-transaction-processing.md).
 
 ## Example Usage
 
@@ -34253,13 +34153,11 @@ $body = V1TransactionsCcRefundTerminalRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -34291,7 +34189,6 @@ $body = V1TransactionsCcRefundTerminalRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -34301,27 +34198,27 @@ $body = V1TransactionsCcRefundTerminalRequestBuilder::init(
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
     ->ebtFoodEligibleAmount(0)
     ->ebtCashEligibleAmount(0)
-    ->eFormat(EFormatEnum::MAGNESAFE)
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccRefundTerminal($body);
 
-try {
-    $result = $transactionsCreditCardController->cCRefundTerminal($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransactionProcessing:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -34343,16 +34240,16 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Refund - Ticket
+# CC Refund-Ticket
 
 Create a new ticket Credit Card refund transaction
 
 ```php
-function cCRefundTicket(V1TransactionsCcRefundTicketRequest $body, ?array $expand = null): ResponseTransaction
+function ccRefundTicket(V1TransactionsCcRefundTicketRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -34360,11 +34257,11 @@ function cCRefundTicket(V1TransactionsCcRefundTicketRequest $body, ?array $expan
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcRefundTicketRequest`](../../doc/models/v1-transactions-cc-refund-ticket-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -34380,13 +34277,11 @@ $body = V1TransactionsCcRefundTicketRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -34420,7 +34315,6 @@ $body = V1TransactionsCcRefundTicketRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -34430,7 +34324,6 @@ $body = V1TransactionsCcRefundTicketRequestBuilder::init(
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
@@ -34440,17 +34333,19 @@ $body = V1TransactionsCcRefundTicketRequestBuilder::init(
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccRefundTicket($body);
 
-try {
-    $result = $transactionsCreditCardController->cCRefundTicket($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -35505,16 +35400,16 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Refund - Tokenized
+# CC Refund-Tokenized
 
 Create a new tokenized Credit Card refund transaction
 
 ```php
-function cCRefundTokenized(V1TransactionsCcRefundTokenRequest $body, ?array $expand = null): ResponseTransaction
+function ccRefundTokenized(V1TransactionsCcRefundTokenRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -35522,11 +35417,11 @@ function cCRefundTokenized(V1TransactionsCcRefundTokenRequest $body, ?array $exp
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcRefundTokenRequest`](../../doc/models/v1-transactions-cc-refund-token-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -35541,13 +35436,11 @@ $body = V1TransactionsCcRefundTokenRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -35581,7 +35474,6 @@ $body = V1TransactionsCcRefundTokenRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -35591,7 +35483,6 @@ $body = V1TransactionsCcRefundTokenRequestBuilder::init(
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
@@ -35602,17 +35493,19 @@ $body = V1TransactionsCcRefundTokenRequestBuilder::init(
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccRefundTokenized($body);
 
-try {
-    $result = $transactionsCreditCardController->cCRefundTokenized($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -36667,16 +36560,16 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Refund - Wallet
+# CC Refund-Wallet
 
 Create a new Wallet Credit Card refund transaction
 
 ```php
-function cCRefundWallet(V1TransactionsCcRefundWalletRequest $body, ?array $expand = null): ResponseTransaction
+function ccRefundWallet(V1TransactionsCcRefundWalletRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -36684,11 +36577,11 @@ function cCRefundWallet(V1TransactionsCcRefundWalletRequest $body, ?array $expan
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcRefundWalletRequest`](../../doc/models/v1-transactions-cc-refund-wallet-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -36696,7 +36589,7 @@ function cCRefundWallet(V1TransactionsCcRefundWalletRequest $body, ?array $expan
 $body = V1TransactionsCcRefundWalletRequestBuilder::init(
     1,
     'wallet_data2',
-    WalletProviderEnum::GOOGLEPAY
+    WalletProvider::GOOGLEPAY
 )
     ->checkinDate('2021-12-01')
     ->checkoutDate('2021-12-01')
@@ -36705,13 +36598,11 @@ $body = V1TransactionsCcRefundWalletRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -36745,7 +36636,6 @@ $body = V1TransactionsCcRefundWalletRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -36755,7 +36645,6 @@ $body = V1TransactionsCcRefundWalletRequestBuilder::init(
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
@@ -36766,17 +36655,19 @@ $body = V1TransactionsCcRefundWalletRequestBuilder::init(
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccRefundWallet($body);
 
-try {
-    $result = $transactionsCreditCardController->cCRefundWallet($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -37831,7 +37722,7 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
@@ -37840,7 +37731,7 @@ try {
 Create a new keyed Credit Card sale transaction with a non hosted card form. This is an in PCI Scope endpoint and requires PCI compliance verification.
 
 ```php
-function cCSale(V1TransactionsCcSaleKeyedRequest $body, ?array $expand = null): ResponseTransaction
+function ccSale(V1TransactionsCcSaleKeyedRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -37848,11 +37739,11 @@ function cCSale(V1TransactionsCcSaleKeyedRequest $body, ?array $expand = null): 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcSaleKeyedRequest`](../../doc/models/v1-transactions-cc-sale-keyed-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -37869,13 +37760,11 @@ $body = V1TransactionsCcSaleKeyedRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -37909,7 +37798,6 @@ $body = V1TransactionsCcSaleKeyedRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -37919,31 +37807,31 @@ $body = V1TransactionsCcSaleKeyedRequestBuilder::init(
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
     ->ebtFoodEligibleAmount(0)
     ->ebtCashEligibleAmount(0)
     ->accountHolderName('smith')
-    ->entryModeId(EntryModeIdEnum::K)
     ->trackData('T051904524T 741025349520O 8520748520963')
     ->pin('1234')
     ->ksn('1234')
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccSale($body);
 
-try {
-    $result = $transactionsCreditCardController->cCSale($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -38998,19 +38886,19 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Sale - Previous Transaction
+# CC Sale-Previous Transaction
 
 Create a new Credit Card sale transaction using previous transaction id
 
 ```php
-function cCSalePreviousTransaction(
+function ccSalePreviousTransaction(
     V1TransactionsCcSalePrevTrxnRequest $body,
     ?array $expand = null
-): ResponseTransaction
+): ApiResponse
 ```
 
 ## Parameters
@@ -39018,11 +38906,11 @@ function cCSalePreviousTransaction(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcSalePrevTrxnRequest`](../../doc/models/v1-transactions-cc-sale-prev-trxn-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -39035,13 +38923,11 @@ $body = V1TransactionsCcSalePrevTrxnRequestBuilder::init()
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -39076,7 +38962,6 @@ $body = V1TransactionsCcSalePrevTrxnRequestBuilder::init()
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -39086,7 +38971,6 @@ $body = V1TransactionsCcSalePrevTrxnRequestBuilder::init()
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
@@ -39097,17 +38981,19 @@ $body = V1TransactionsCcSalePrevTrxnRequestBuilder::init()
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccSalePreviousTransaction($body);
 
-try {
-    $result = $transactionsCreditCardController->cCSalePreviousTransaction($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -40162,16 +40048,16 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Sale - Swiped
+# CC Sale-Swiped
 
 Create a new swiped Credit Card sale transaction
 
 ```php
-function cCSaleSwiped(V1TransactionsCcSaleSwipedRequest $body, ?array $expand = null): ResponseTransaction
+function ccSaleSwiped(V1TransactionsCcSaleSwipedRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -40179,11 +40065,11 @@ function cCSaleSwiped(V1TransactionsCcSaleSwipedRequest $body, ?array $expand = 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcSaleSwipedRequest`](../../doc/models/v1-transactions-cc-sale-swiped-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -40199,13 +40085,11 @@ $body = V1TransactionsCcSaleSwipedRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -40239,7 +40123,6 @@ $body = V1TransactionsCcSaleSwipedRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -40249,28 +40132,28 @@ $body = V1TransactionsCcSaleSwipedRequestBuilder::init(
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
     ->ebtFoodEligibleAmount(0)
     ->ebtCashEligibleAmount(0)
-    ->entryModeId(EntryModeIdEnum::K)
     ->accountHolderName('smith')
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccSaleSwiped($body);
 
-try {
-    $result = $transactionsCreditCardController->cCSaleSwiped($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -41325,16 +41208,16 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Sale - Tap to Pay
+# CC Sale-Tap to Pay
 
 Create a new Tap To Pay Credit card sale transaction. Only supported on native iOS integrations.
 
 ```php
-function cCSaleTapToPay(V1TransactionsCcSaleTaptopayRequest $body, ?array $expand = null): ResponseTransaction
+function ccSaleTapToPay(V1TransactionsCcSaleTaptopayRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -41342,11 +41225,11 @@ function cCSaleTapToPay(V1TransactionsCcSaleTaptopayRequest $body, ?array $expan
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcSaleTaptopayRequest`](../../doc/models/v1-transactions-cc-sale-taptopay-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -41362,13 +41245,11 @@ $body = V1TransactionsCcSaleTaptopayRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -41403,13 +41284,11 @@ $body = V1TransactionsCcSaleTaptopayRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
     ->secureDirectoryServerTransactionId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->terminalSerialNumber('1234567890')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
@@ -41418,17 +41297,19 @@ $body = V1TransactionsCcSaleTaptopayRequestBuilder::init(
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccSaleTapToPay($body);
 
-try {
-    $result = $transactionsCreditCardController->cCSaleTapToPay($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -42483,16 +42364,16 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Sale - Terminal
+# CC Sale-Terminal
 
 Create a new Credit Card Sale for card present EMV transactions using any of the Certified terminals.
 
 ```php
-function cCSaleTerminal(V1TransactionsCcSaleTerminalRequest $body): ResponseTransactionProcessing
+function ccSaleTerminal(V1TransactionsCcSaleTerminalRequest $body): ApiResponse
 ```
 
 ## Parameters
@@ -42503,7 +42384,7 @@ function cCSaleTerminal(V1TransactionsCcSaleTerminalRequest $body): ResponseTran
 
 ## Response Type
 
-[`ResponseTransactionProcessing`](../../doc/models/response-transaction-processing.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransactionProcessing`](../../doc/models/response-transaction-processing.md).
 
 ## Example Usage
 
@@ -42520,13 +42401,11 @@ $body = V1TransactionsCcSaleTerminalRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -42558,7 +42437,6 @@ $body = V1TransactionsCcSaleTerminalRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -42568,27 +42446,27 @@ $body = V1TransactionsCcSaleTerminalRequestBuilder::init(
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
     ->ebtFoodEligibleAmount(0)
     ->ebtCashEligibleAmount(0)
-    ->eFormat(EFormatEnum::MAGNESAFE)
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccSaleTerminal($body);
 
-try {
-    $result = $transactionsCreditCardController->cCSaleTerminal($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransactionProcessing:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -42610,16 +42488,16 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Sale - Ticket
+# CC Sale-Ticket
 
 Create a new Credit Card Sale using the Ticket_id obtained from the Elements form submission done event.
 
 ```php
-function cCSaleTicket(V1TransactionsCcSaleTicketRequest $body, ?array $expand = null): ResponseTransaction
+function ccSaleTicket(V1TransactionsCcSaleTicketRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -42627,11 +42505,11 @@ function cCSaleTicket(V1TransactionsCcSaleTicketRequest $body, ?array $expand = 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcSaleTicketRequest`](../../doc/models/v1-transactions-cc-sale-ticket-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -42647,13 +42525,11 @@ $body = V1TransactionsCcSaleTicketRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -42687,7 +42563,6 @@ $body = V1TransactionsCcSaleTicketRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -42697,7 +42572,6 @@ $body = V1TransactionsCcSaleTicketRequestBuilder::init(
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
@@ -42707,17 +42581,19 @@ $body = V1TransactionsCcSaleTicketRequestBuilder::init(
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccSaleTicket($body);
 
-try {
-    $result = $transactionsCreditCardController->cCSaleTicket($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -43772,16 +43648,16 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Sale - Tokenized
+# CC Sale-Tokenized
 
 Create a new Credit Card Sale with a previously created token_id.
 
 ```php
-function cCSaleTokenized(V1TransactionsCcSaleTokenRequest $body, ?array $expand = null): ResponseTransaction
+function ccSaleTokenized(V1TransactionsCcSaleTokenRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -43789,11 +43665,11 @@ function cCSaleTokenized(V1TransactionsCcSaleTokenRequest $body, ?array $expand 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcSaleTokenRequest`](../../doc/models/v1-transactions-cc-sale-token-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -43808,13 +43684,11 @@ $body = V1TransactionsCcSaleTokenRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -43848,7 +43722,6 @@ $body = V1TransactionsCcSaleTokenRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -43858,7 +43731,6 @@ $body = V1TransactionsCcSaleTokenRequestBuilder::init(
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
@@ -43869,17 +43741,19 @@ $body = V1TransactionsCcSaleTokenRequestBuilder::init(
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccSaleTokenized($body);
 
-try {
-    $result = $transactionsCreditCardController->cCSaleTokenized($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -44934,16 +44808,16 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Sale - Wallet
+# CC Sale-Wallet
 
 Create a new Wallet Credit Card sale transaction
 
 ```php
-function cCSaleWallet(V1TransactionsCcSaleWalletRequest $body, ?array $expand = null): ResponseTransaction
+function ccSaleWallet(V1TransactionsCcSaleWalletRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -44951,11 +44825,11 @@ function cCSaleWallet(V1TransactionsCcSaleWalletRequest $body, ?array $expand = 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcSaleWalletRequest`](../../doc/models/v1-transactions-cc-sale-wallet-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -44963,7 +44837,7 @@ function cCSaleWallet(V1TransactionsCcSaleWalletRequest $body, ?array $expand = 
 $body = V1TransactionsCcSaleWalletRequestBuilder::init(
     1,
     'wallet_data2',
-    WalletProviderEnum::GOOGLEPAY
+    WalletProvider::GOOGLEPAY
 )
     ->checkinDate('2021-12-01')
     ->checkoutDate('2021-12-01')
@@ -44972,13 +44846,11 @@ $body = V1TransactionsCcSaleWalletRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -45012,7 +44884,6 @@ $body = V1TransactionsCcSaleWalletRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -45022,7 +44893,6 @@ $body = V1TransactionsCcSaleWalletRequestBuilder::init(
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
@@ -45033,17 +44903,19 @@ $body = V1TransactionsCcSaleWalletRequestBuilder::init(
     ->build();
 
 $transactionsCreditCardController = $client->getTransactionsCreditCardController();
+$apiResponse = $transactionsCreditCardController->ccSaleWallet($body);
 
-try {
-    $result = $transactionsCreditCardController->cCSaleWallet($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -46098,6 +45970,6 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 

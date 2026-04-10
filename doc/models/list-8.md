@@ -1,6 +1,8 @@
 
 # List 8
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `List8`
@@ -13,7 +15,7 @@
 | `companyId` | `?string` | Optional | Company Id | getCompanyId(): ?string | setCompanyId(?string companyId): void |
 | `merchantId` | `?string` | Optional | Merchant Id | getMerchantId(): ?string | setMerchantId(?string merchantId): void |
 | `service` | `?string` | Optional | Service | getService(): ?string | setService(?string service): void |
-| `depositTypes` | [`?(string(DepositTypeEnum)[])`](../../doc/models/deposit-type-enum.md) | Optional | - | getDepositTypes(): ?array | setDepositTypes(?array depositTypes): void |
+| `depositTypes` | [`?(string(DepositType)[])`](../../doc/models/deposit-type.md) | Optional | - | getDepositTypes(): ?array | setDepositTypes(?array depositTypes): void |
 | `depositAmount` | `?float` | Optional | Deposit Amount | getDepositAmount(): ?float | setDepositAmount(?float depositAmount): void |
 | `batchAmount` | `?float` | Optional | Batch Amount | getBatchAmount(): ?float | setBatchAmount(?float batchAmount): void |
 | `adjustmentAmount` | `?float` | Optional | Adjustment Amount | getAdjustmentAmount(): ?float | setAdjustmentAmount(?float adjustmentAmount): void |
@@ -28,6 +30,7 @@
 | `transactionDate` | `?string` | Optional | Transaction Date<br><br>**Constraints**: *Maximum Length*: `10`, *Pattern*: `^[\d]{4}-[\d]{2}-[\d]{2}$` | getTransactionDate(): ?string | setTransactionDate(?string transactionDate): void |
 | `depositAccount` | `?string` | Optional | Deposit Account | getDepositAccount(): ?string | setDepositAccount(?string depositAccount): void |
 | `details` | [`?(Detail2[])`](../../doc/models/detail-2.md) | Optional | - | getDetails(): ?array | setDetails(?array details): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -52,7 +55,11 @@
   "deposit_types": [
     "fee",
     "deposit"
-  ]
+  ],
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

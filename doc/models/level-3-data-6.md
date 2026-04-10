@@ -3,6 +3,8 @@
 
 Level 3 data object
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `Level3Data6`
@@ -19,7 +21,7 @@ Level 3 data object
 | `shipfromZipCode` | `?string` | Optional | Postal/ZIP code of the address from where the purchased goods are being shipped.<br><br>**Constraints**: *Maximum Length*: `10` | getShipfromZipCode(): ?string | setShipfromZipCode(?string shipfromZipCode): void |
 | `shiptoZipCode` | `?string` | Optional | Postal/ZIP code of the address where purchased goods will be delivered.<br><br>**Constraints**: *Maximum Length*: `10` | getShiptoZipCode(): ?string | setShiptoZipCode(?string shiptoZipCode): void |
 | `taxAmount` | `?int` | Optional | Amount of any value added taxes ,Can accept Two (2) decimal places.<br><br>**Constraints**: `>= 0`, `<= 99999999900` | getTaxAmount(): ?int | setTaxAmount(?int taxAmount): void |
-| `taxExempt` | [`?string(TaxExemptEnum)`](../../doc/models/tax-exempt-enum.md) | Optional | Sales Tax Exempt. Allowed values: “1”, “0”. | getTaxExempt(): ?string | setTaxExempt(?string taxExempt): void |
+| `taxExempt` | `?array` | Optional | - | getTaxExempt(): ?array | setTaxExempt(?array taxExempt): void |
 | `customerVatRegistration` | `?string` | Optional | Customer VAT Registration<br><br>**Constraints**: *Maximum Length*: `13` | getCustomerVatRegistration(): ?string | setCustomerVatRegistration(?string customerVatRegistration): void |
 | `merchantVatRegistration` | `?string` | Optional | Merchant VAT Registration<br><br>**Constraints**: *Maximum Length*: `20` | getMerchantVatRegistration(): ?string | setMerchantVatRegistration(?string merchantVatRegistration): void |
 | `orderDate` | `?string` | Optional | Order Date<br><br>**Constraints**: *Minimum Length*: `6`, *Maximum Length*: `6` | getOrderDate(): ?string | setOrderDate(?string orderDate): void |
@@ -27,6 +29,7 @@ Level 3 data object
 | `taxRate` | `?int` | Optional | Tax rate used to calculate the sales tax amount, can accept 2 decimal places.<br><br>**Constraints**: `<= 999900` | getTaxRate(): ?int | setTaxRate(?int taxRate): void |
 | `uniqueVatRefNumber` | `?string` | Optional | Unique VAT Reference Number<br><br>**Constraints**: *Maximum Length*: `15` | getUniqueVatRefNumber(): ?string | setUniqueVatRefNumber(?string uniqueVatRefNumber): void |
 | `lineItems` | [`LineItem20[]`](../../doc/models/line-item-20.md) | Required | Array of line items in transaction | getLineItems(): array | setLineItems(array lineItems): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -40,7 +43,6 @@ Level 3 data object
   "shipfrom_zip_code": "AZ1234",
   "shipto_zip_code": "FL1234",
   "tax_amount": 10,
-  "tax_exempt": "0",
   "customer_vat_registration": "12345678",
   "merchant_vat_registration": "123456",
   "order_date": "171006",
@@ -58,9 +60,17 @@ Level 3 data object
       "tax_amount": 4,
       "tax_rate": 0,
       "unit_code": "gll",
-      "unit_cost": 3
+      "unit_cost": 3,
+      "exampleAdditionalProperty": {
+        "key1": "val1",
+        "key2": "val2"
+      }
     }
-  ]
+  ],
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

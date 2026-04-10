@@ -1,6 +1,8 @@
 
 # Active Recurring
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `ActiveRecurring`
@@ -20,15 +22,15 @@
 | `endDate` | `?string` | Optional | End date<br><br>**Constraints**: *Maximum Length*: `10`, *Pattern*: `^[\d]{4}-[\d]{2}-[\d]{2}$` | getEndDate(): ?string | setEndDate(?string endDate): void |
 | `installmentTotalCount` | `?int` | Optional | Installment Total Count<br><br>**Constraints**: `>= 1`, `<= 999` | getInstallmentTotalCount(): ?int | setInstallmentTotalCount(?int installmentTotalCount): void |
 | `interval` | `?int` | Optional | Interval<br><br>**Constraints**: `>= 0`, `<= 365` | getInterval(): ?int | setInterval(?int interval): void |
-| `intervalType` | [`?string(IntervalTypeEnum)`](../../doc/models/interval-type-enum.md) | Optional | Interval Type | getIntervalType(): ?string | setIntervalType(?string intervalType): void |
+| `intervalType` | [`?string(IntervalType)`](../../doc/models/interval-type.md) | Optional | - | getIntervalType(): ?string | setIntervalType(?string intervalType): void |
 | `locationId` | `?string` | Optional | Location ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` | getLocationId(): ?string | setLocationId(?string locationId): void |
 | `notificationDays` | `?int` | Optional | Notification Days<br><br>**Constraints**: `>= 0`, `<= 365` | getNotificationDays(): ?int | setNotificationDays(?int notificationDays): void |
-| `paymentMethod` | [`?string(PaymentMethod1Enum)`](../../doc/models/payment-method-1-enum.md) | Optional | Payment Method | getPaymentMethod(): ?string | setPaymentMethod(?string paymentMethod): void |
+| `paymentMethod` | [`?string(PaymentMethod1)`](../../doc/models/payment-method-1.md) | Optional | - | getPaymentMethod(): ?string | setPaymentMethod(?string paymentMethod): void |
 | `productTransactionId` | `?string` | Optional | Product Transaction ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` | getProductTransactionId(): ?string | setProductTransactionId(?string productTransactionId): void |
 | `recurringId` | `?string` | Optional | Recurring ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` | getRecurringId(): ?string | setRecurringId(?string recurringId): void |
 | `recurringApiId` | `?string` | Optional | Recurring Api ID<br><br>**Constraints**: *Maximum Length*: `64` | getRecurringApiId(): ?string | setRecurringApiId(?string recurringApiId): void |
 | `startDate` | `?string` | Optional | Start date<br><br>**Constraints**: *Maximum Length*: `10`, *Pattern*: `^[\d]{4}-[\d]{2}-[\d]{2}$` | getStartDate(): ?string | setStartDate(?string startDate): void |
-| `status` | [`?string(StatusEnum)`](../../doc/models/status-enum.md) | Optional | Status | getStatus(): ?string | setStatus(?string status): void |
+| `status` | [`?string(Status)`](../../doc/models/status.md) | Optional | - | getStatus(): ?string | setStatus(?string status): void |
 | `transactionAmount` | `?int` | Optional | Transaction amount | getTransactionAmount(): ?int | setTransactionAmount(?int transactionAmount): void |
 | `termsAgree` | `?bool` | Optional | Terms Agree | getTermsAgree(): ?bool | setTermsAgree(?bool termsAgree): void |
 | `termsAgreeIp` | `?string` | Optional | Terms Agree Ip | getTermsAgreeIp(): ?string | setTermsAgreeIp(?string termsAgreeIp): void |
@@ -43,9 +45,10 @@
 | `nextRunDate` | `?string` | Optional | Next Run Date<br><br>**Constraints**: *Maximum Length*: `10`, *Pattern*: `^[\d]{4}-[\d]{2}-[\d]{2}$` | getNextRunDate(): ?string | setNextRunDate(?string nextRunDate): void |
 | `createdTs` | `?int` | Optional | Created Time Stamp | getCreatedTs(): ?int | setCreatedTs(?int createdTs): void |
 | `modifiedTs` | `?int` | Optional | Modified Time Stamp | getModifiedTs(): ?int | setModifiedTs(?int modifiedTs): void |
-| `recurringTypeId` | [`?string(RecurringTypeIdEnum)`](../../doc/models/recurring-type-id-enum.md) | Optional | Recurring Type | getRecurringTypeId(): ?string | setRecurringTypeId(?string recurringTypeId): void |
+| `recurringTypeId` | [`?string(RecurringTypeId)`](../../doc/models/recurring-type-id.md) | Optional | - | getRecurringTypeId(): ?string | setRecurringTypeId(?string recurringTypeId): void |
 | `installmentAmountTotal` | `?int` | Optional | Installment Amount Total | getInstallmentAmountTotal(): ?int | setInstallmentAmountTotal(?int installmentAmountTotal): void |
 | `createdUserId` | `?string` | Optional | User ID Created the register<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` | getCreatedUserId(): ?string | setCreatedUserId(?string createdUserId): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -61,15 +64,12 @@
   "end_date": "2021-12-01",
   "installment_total_count": 20,
   "interval": 1,
-  "interval_type": "d",
   "location_id": "11e95f8ec39de8fbdb0a4f1a",
   "notification_days": 2,
-  "payment_method": "cc",
   "product_transaction_id": "11e95f8ec39de8fbdb0a4f1a",
   "recurring_id": "11e95f8ec39de8fbdb0a4f1a",
   "recurring_api_id": "recurring1234abcd",
   "start_date": "2021-12-01",
-  "status": "active",
   "transaction_amount": 300,
   "terms_agree": true,
   "terms_agree_ip": "192.168.0.10",
@@ -83,9 +83,12 @@
   "next_run_date": "2021-12-01",
   "created_ts": 1422040992,
   "modified_ts": 1422040992,
-  "recurring_type_id": "i",
   "installment_amount_total": 99999999,
-  "created_user_id": "11e95f8ec39de8fbdb0a4f1a"
+  "created_user_id": "11e95f8ec39de8fbdb0a4f1a",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

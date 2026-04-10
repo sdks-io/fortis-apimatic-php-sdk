@@ -1,12 +1,12 @@
 # 3 DS Transactions
 
 ```php
-$m3DSTransactionsController = $client->getM3DSTransactionsController();
+$m3DsTransactionsController = $client->getM3DsTransactionsController();
 ```
 
 ## Class Name
 
-`M3DSTransactionsController`
+`M3DsTransactionsController`
 
 
 # 3 DS Transactions Request
@@ -14,10 +14,7 @@ $m3DSTransactionsController = $client->getM3DSTransactionsController();
 For getting results of successful 3DS authentication attempts
 
 ```php
-function m3DSTransactionsRequest(
-    string $threeDsServerTransId,
-    string $productTransactionId
-): ResponseThreeDSTransaction
+function m3DsTransactionsRequest(string $threeDsServerTransId, string $productTransactionId): ApiResponse
 ```
 
 ## Parameters
@@ -29,7 +26,7 @@ function m3DSTransactionsRequest(
 
 ## Response Type
 
-[`ResponseThreeDSTransaction`](../../doc/models/response-three-ds-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseThreeDsTransaction`](../../doc/models/response-three-ds-transaction.md).
 
 ## Example Usage
 
@@ -38,19 +35,23 @@ $threeDsServerTransId = '516ef0bf-e510-4895-b0a8-c889f2eaf471';
 
 $productTransactionId = '11e95f8ec39de8fbdb0a4f1a';
 
-$m3DSTransactionsController = $client->getM3DSTransactionsController();
+$m3DsTransactionsController = $client->getM3DsTransactionsController();
+$apiResponse = $m3DsTransactionsController->m3DsTransactionsRequest(
+    $threeDsServerTransId,
+    $productTransactionId
+);
 
-try {
-    $result = $m3DSTransactionsController->m3DSTransactionsRequest(
-        $threeDsServerTransId,
-        $productTransactionId
-    );
-    echo 'ResponseThreeDSTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
+    echo 'ResponseThreeDsTransaction:';
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -75,5 +76,5 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 

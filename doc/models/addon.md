@@ -1,6 +1,8 @@
 
 # Addon
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `Addon`
@@ -15,6 +17,7 @@
 | `locationSetupUrl` | `?string` | Optional | Location Setup URL<br><br>**Constraints**: *Maximum Length*: `512` | getLocationSetupUrl(): ?string | setLocationSetupUrl(?string locationSetupUrl): void |
 | `userSetupUrl` | `?string` | Optional | User Setup URL<br><br>**Constraints**: *Maximum Length*: `512` | getUserSetupUrl(): ?string | setUserSetupUrl(?string userSetupUrl): void |
 | `encryptUrlParams` | `?bool` | Optional | Encrypt URL Params | getEncryptUrlParams(): ?bool | setEncryptUrlParams(?bool encryptUrlParams): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -25,7 +28,11 @@
   "secret": "secret4",
   "iframe_url": "iframe_url4",
   "location_setup_url": "location_setup_url0",
-  "user_setup_url": "user_setup_url6"
+  "user_setup_url": "user_setup_url6",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

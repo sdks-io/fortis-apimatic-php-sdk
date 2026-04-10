@@ -11,7 +11,7 @@ $transactionsUpdatesController = $client->getTransactionsUpdatesController();
 ## Methods
 
 * [Void](../../doc/controllers/transactions-updates.md#void)
-* [Void 1](../../doc/controllers/transactions-updates.md#void-1)
+* [Patch Void](../../doc/controllers/transactions-updates.md#patch-void)
 * [Auth Complete](../../doc/controllers/transactions-updates.md#auth-complete)
 * [Auth Increment](../../doc/controllers/transactions-updates.md#auth-increment)
 * [Partial Reversal](../../doc/controllers/transactions-updates.md#partial-reversal)
@@ -24,7 +24,7 @@ $transactionsUpdatesController = $client->getTransactionsUpdatesController();
 Void a transaction
 
 ```php
-function void(string $transactionId, ?array $expand = null): ResponseTransaction
+function void(string $transactionId, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -32,11 +32,11 @@ function void(string $transactionId, ?array $expand = null): ResponseTransaction
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `transactionId` | `string` | Template, Required | Transaction ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -44,15 +44,19 @@ function void(string $transactionId, ?array $expand = null): ResponseTransaction
 $transactionId = '11e95f8ec39de8fbdb0a4f1a';
 
 $transactionsUpdatesController = $client->getTransactionsUpdatesController();
+$apiResponse = $transactionsUpdatesController->void($transactionId);
 
-try {
-    $result = $transactionsUpdatesController->void($transactionId);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -1107,19 +1111,15 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# Void 1
+# Patch Void
 
 Void a transaction
 
 ```php
-function void1(
-    string $transactionId,
-    V1TransactionsVoidRequest $body,
-    ?array $expand = null
-): ResponseTransaction
+function patchVoid(string $transactionId, V1TransactionsVoidRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -1128,11 +1128,11 @@ function void1(
 |  --- | --- | --- | --- |
 | `transactionId` | `string` | Template, Required | Transaction ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
 | `body` | [`V1TransactionsVoidRequest`](../../doc/models/v1-transactions-void-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -1144,20 +1144,22 @@ $body = V1TransactionsVoidRequestBuilder::init()
     ->build();
 
 $transactionsUpdatesController = $client->getTransactionsUpdatesController();
+$apiResponse = $transactionsUpdatesController->patchVoid(
+    $transactionId,
+    $body
+);
 
-try {
-    $result = $transactionsUpdatesController->void1(
-        $transactionId,
-        $body
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -2212,7 +2214,7 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
@@ -2225,7 +2227,7 @@ function authComplete(
     string $transactionId,
     V1TransactionsAuthCompleteRequest $body,
     ?array $expand = null
-): ResponseTransaction
+): ApiResponse
 ```
 
 ## Parameters
@@ -2234,11 +2236,11 @@ function authComplete(
 |  --- | --- | --- | --- |
 | `transactionId` | `string` | Template, Required | Transaction ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
 | `body` | [`V1TransactionsAuthCompleteRequest`](../../doc/models/v1-transactions-auth-complete-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -2253,13 +2255,11 @@ $body = V1TransactionsAuthCompleteRequestBuilder::init()
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -2294,25 +2294,26 @@ $body = V1TransactionsAuthCompleteRequestBuilder::init()
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->deferredAuth(true)
     ->build();
 
 $transactionsUpdatesController = $client->getTransactionsUpdatesController();
+$apiResponse = $transactionsUpdatesController->authComplete(
+    $transactionId,
+    $body
+);
 
-try {
-    $result = $transactionsUpdatesController->authComplete(
-        $transactionId,
-        $body
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -3367,7 +3368,7 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
@@ -3380,7 +3381,7 @@ function authIncrement(
     string $transactionId,
     V1TransactionsAuthIncrementRequest $body,
     ?array $expand = null
-): ResponseTransaction
+): ApiResponse
 ```
 
 ## Parameters
@@ -3389,11 +3390,11 @@ function authIncrement(
 |  --- | --- | --- | --- |
 | `transactionId` | `string` | Template, Required | Transaction ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
 | `body` | [`V1TransactionsAuthIncrementRequest`](../../doc/models/v1-transactions-auth-increment-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -3410,13 +3411,11 @@ $body = V1TransactionsAuthIncrementRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -3450,25 +3449,26 @@ $body = V1TransactionsAuthIncrementRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->deferredAuth(true)
     ->build();
 
 $transactionsUpdatesController = $client->getTransactionsUpdatesController();
+$apiResponse = $transactionsUpdatesController->authIncrement(
+    $transactionId,
+    $body
+);
 
-try {
-    $result = $transactionsUpdatesController->authIncrement(
-        $transactionId,
-        $body
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -4523,7 +4523,7 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
@@ -4536,7 +4536,7 @@ function partialReversal(
     string $transactionId,
     V1TransactionsPartialReversalRequest $body,
     ?array $expand = null
-): ResponseTransaction
+): ApiResponse
 ```
 
 ## Parameters
@@ -4545,11 +4545,11 @@ function partialReversal(
 |  --- | --- | --- | --- |
 | `transactionId` | `string` | Template, Required | Transaction ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
 | `body` | [`V1TransactionsPartialReversalRequest`](../../doc/models/v1-transactions-partial-reversal-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -4566,13 +4566,11 @@ $body = V1TransactionsPartialReversalRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -4606,24 +4604,25 @@ $body = V1TransactionsPartialReversalRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->build();
 
 $transactionsUpdatesController = $client->getTransactionsUpdatesController();
+$apiResponse = $transactionsUpdatesController->partialReversal(
+    $transactionId,
+    $body
+);
 
-try {
-    $result = $transactionsUpdatesController->partialReversal(
-        $transactionId,
-        $body
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -5678,7 +5677,7 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
@@ -5691,7 +5690,7 @@ function refundTransaction(
     string $transactionId,
     V1TransactionsRefundRequest $body,
     ?array $expand = null
-): ResponseTransaction
+): ApiResponse
 ```
 
 ## Parameters
@@ -5700,11 +5699,11 @@ function refundTransaction(
 |  --- | --- | --- | --- |
 | `transactionId` | `string` | Template, Required | Transaction ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
 | `body` | [`V1TransactionsRefundRequest`](../../doc/models/v1-transactions-refund-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -5719,13 +5718,11 @@ $body = V1TransactionsRefundRequestBuilder::init()
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -5760,24 +5757,25 @@ $body = V1TransactionsRefundRequestBuilder::init()
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->build();
 
 $transactionsUpdatesController = $client->getTransactionsUpdatesController();
+$apiResponse = $transactionsUpdatesController->refundTransaction(
+    $transactionId,
+    $body
+);
 
-try {
-    $result = $transactionsUpdatesController->refundTransaction(
-        $transactionId,
-        $body
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -6832,7 +6830,7 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
@@ -6845,7 +6843,7 @@ function tipAdjustment(
     string $transactionId,
     V1TransactionsTipAdjustRequest $body,
     ?array $expand = null
-): ResponseTransaction
+): ApiResponse
 ```
 
 ## Parameters
@@ -6854,11 +6852,11 @@ function tipAdjustment(
 |  --- | --- | --- | --- |
 | `transactionId` | `string` | Template, Required | Transaction ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
 | `body` | [`V1TransactionsTipAdjustRequest`](../../doc/models/v1-transactions-tip-adjust-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -6876,13 +6874,11 @@ $body = V1TransactionsTipAdjustRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -6915,7 +6911,6 @@ $body = V1TransactionsTipAdjustRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -6925,7 +6920,6 @@ $body = V1TransactionsTipAdjustRequestBuilder::init(
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
@@ -6934,20 +6928,22 @@ $body = V1TransactionsTipAdjustRequestBuilder::init(
     ->build();
 
 $transactionsUpdatesController = $client->getTransactionsUpdatesController();
+$apiResponse = $transactionsUpdatesController->tipAdjustment(
+    $transactionId,
+    $body
+);
 
-try {
-    $result = $transactionsUpdatesController->tipAdjustment(
-        $transactionId,
-        $body
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -8002,6 +7998,6 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 

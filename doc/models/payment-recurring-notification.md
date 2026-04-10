@@ -3,6 +3,8 @@
 
 Payment Recurring Notification Information on `expand`
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `PaymentRecurringNotification`
@@ -18,6 +20,7 @@ Payment Recurring Notification Information on `expand`
 | `createdUserId` | `?string` | Optional | User ID Created the register<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` | getCreatedUserId(): ?string | setCreatedUserId(?string createdUserId): void |
 | `modifiedTs` | `?int` | Optional | Modified Time Stamp | getModifiedTs(): ?int | setModifiedTs(?int modifiedTs): void |
 | `modifiedUserId` | `?string` | Optional | Last User ID that updated the register<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` | getModifiedUserId(): ?string | setModifiedUserId(?string modifiedUserId): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -29,7 +32,11 @@ Payment Recurring Notification Information on `expand`
   "modified_ts": 1422040992,
   "modified_user_id": "11e95f8ec39de8fbdb0a4f1a",
   "declined_transaction_id": "declined_transaction_id0",
-  "payment_transaction_id": "payment_transaction_id8"
+  "payment_transaction_id": "payment_transaction_id8",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

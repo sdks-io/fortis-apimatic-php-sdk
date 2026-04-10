@@ -3,6 +3,8 @@
 
 Array of merchant owners.
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `Owner`
@@ -28,6 +30,7 @@ Array of merchant owners.
 | `emailAddress` | `string` | Required | Owner's email address.<br><br>**Constraints**: *Maximum Length*: `100` | getEmailAddress(): string | setEmailAddress(string emailAddress): void |
 | `isController` | `bool` | Required | Flag indicating whether this owner is the control owner. Maximum of 1 owner can be marked as control..<br><br>> Flag indicating whether this owner is the control owner. Maximum of 1 owner can be marked as control. | getIsController(): bool | setIsController(bool isController): void |
 | `isSigner` | `bool` | Required | Flag indicating whether or not the owner is a signer for the business. Maximum of 1 owner can be marked as signer.<br><br>> Flag indicating whether or not the owner is a signer for the business. Maximum of 1 owner can be marked as signer. | getIsSigner(): bool | setIsSigner(bool isSigner): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -49,7 +52,11 @@ Array of merchant owners.
   "phone_number": "9042142323",
   "email_address": "james@example.com",
   "is_controller": true,
-  "is_signer": true
+  "is_signer": true,
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

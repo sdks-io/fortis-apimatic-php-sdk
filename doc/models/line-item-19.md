@@ -1,6 +1,8 @@
 
 # Line Item 19
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `LineItem19`
@@ -10,7 +12,7 @@
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `alternateTaxId` | `?string` | Optional | Tax identification number of the merchant that reported the alternate tax amount.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `15` | getAlternateTaxId(): ?string | setAlternateTaxId(?string alternateTaxId): void |
-| `debitCredit` | [`?string(DebitCreditEnum)`](../../doc/models/debit-credit-enum.md) | Optional | Indicator used to reflect debit (D) or credit (C) transaction. Allowed values: “D”, “C”. | getDebitCredit(): ?string | setDebitCredit(?string debitCredit): void |
+| `debitCredit` | `?array` | Optional | - | getDebitCredit(): ?array | setDebitCredit(?array debitCredit): void |
 | `description` | `string` | Required | Description of the item.<br><br>**Constraints**: *Maximum Length*: `26` | getDescription(): string | setDescription(string description): void |
 | `discountAmount` | `?int` | Optional | Total discount amount applied against the line item total ,Can accept Two (2) decimal places.<br><br>**Constraints**: `<= 99999999999900` | getDiscountAmount(): ?int | setDiscountAmount(?int discountAmount): void |
 | `discountRate` | `?int` | Optional | Discount rate for the line item ,Can accept Two (2) decimal places.<br><br>**Constraints**: `<= 9999900` | getDiscountRate(): ?int | setDiscountRate(?int discountRate): void |
@@ -22,13 +24,13 @@
 | `taxTypeId` | `?string` | Optional | Indicates the type of tax collected in relationship to a specific tax amount (Conditional If tax amount is supplied)<br><br>**Constraints**: *Maximum Length*: `2` | getTaxTypeId(): ?string | setTaxTypeId(?string taxTypeId): void |
 | `unitCode` | `string` | Required | Units of measurement as used in international trade. (See Codes for Units of Measurement below for unit code abbreviations)<br><br>**Constraints**: *Maximum Length*: `3` | getUnitCode(): string | setUnitCode(string unitCode): void |
 | `unitCost` | `int` | Required | Unit cost of the item ,Can accept Four (4) decimal places.<br><br>**Constraints**: `<= 99999999999900` | getUnitCost(): int | setUnitCost(int unitCost): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
 ```json
 {
   "alternate_tax_id": "1234",
-  "debit_credit": "C",
   "description": "cool drink",
   "discount_amount": 10,
   "discount_rate": 11,
@@ -39,7 +41,15 @@
   "tax_type_applied": "22",
   "tax_type_id": "a1",
   "unit_code": "gll",
-  "unit_cost": 10
+  "unit_cost": 10,
+  "debit_credit": {
+    "key1": "val1",
+    "key2": "val2"
+  },
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

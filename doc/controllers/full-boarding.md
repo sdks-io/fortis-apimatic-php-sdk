@@ -14,7 +14,7 @@ $fullBoardingController = $client->getFullBoardingController();
 This method is used to fully board a merchant to the platform. When using this method, you must provide data for each "Required" property. See the description for each of these properties for more information about their requirement criteria.
 
 ```php
-function merchantBoardingFull(V1FullboardingRequest $body): ResponseFullboarding
+function merchantBoardingFull(V1FullboardingRequest $body): ApiResponse
 ```
 
 ## Parameters
@@ -25,7 +25,7 @@ function merchantBoardingFull(V1FullboardingRequest $body): ResponseFullboarding
 
 ## Response Type
 
-[`ResponseFullboarding`](../../doc/models/response-fullboarding.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseFullboarding`](../../doc/models/response-fullboarding.md).
 
 ## Example Usage
 
@@ -34,7 +34,7 @@ $body = V1FullboardingRequestBuilder::init(
     'email@domain.com',
     'Discount Home Goods',
     '5555551234',
-    OwnershipTypeEnum::LLP,
+    OwnershipType::NP,
     '0000000000',
     15,
     150,
@@ -53,7 +53,7 @@ $body = V1FullboardingRequestBuilder::init(
             'TX',
             '75087',
             'US',
-            AddressTypeEnum::LOCATION
+            AddressType::CORPORATE
         )
             ->addressLine2('Apt 707')
             ->build()
@@ -85,7 +85,7 @@ $body = V1FullboardingRequestBuilder::init(
             'James Bond',
             '111111111',
             '1234567',
-            AccountType12Enum::CHECKING
+            AccountType12::CHECKING
         )
             ->isPrimary(true)
             ->build()
@@ -96,22 +96,23 @@ $body = V1FullboardingRequestBuilder::init(
     ->legalName('Total Home Goods, LLP')
     ->website('http://www.example.com')
     ->ecMonthlyVolume(22)
-    ->preferredLanguage(PreferredLanguageEnum::FRCA)
     ->signerIp('192.168.0.10')
     ->build();
 
 $fullBoardingController = $client->getFullBoardingController();
+$apiResponse = $fullBoardingController->merchantBoardingFull($body);
 
-try {
-    $result = $fullBoardingController->merchantBoardingFull($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseFullboarding:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -137,6 +138,6 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 

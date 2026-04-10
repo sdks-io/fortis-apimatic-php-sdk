@@ -1,6 +1,8 @@
 
 # Data 19
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `Data19`
@@ -15,6 +17,7 @@
 | `success` | `?bool` | Optional | Success | getSuccess(): ?bool | setSuccess(?bool success): void |
 | `smsSuccess` | `?bool` | Optional | SMS Success | getSmsSuccess(): ?bool | setSmsSuccess(?bool smsSuccess): void |
 | `email` | `?string` | Optional | Email<br><br>**Constraints**: *Maximum Length*: `64` | getEmail(): ?string | setEmail(?string email): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -25,7 +28,11 @@
   "sms_log_id": "11e95f8ec39de8fbdb0a4f1a",
   "success": true,
   "sms_success": true,
-  "email": "email@domain.com"
+  "email": "email@domain.com",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

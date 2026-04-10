@@ -10,16 +10,16 @@ $terminalsController = $client->getTerminalsController();
 
 ## Methods
 
-* [Create a New Terminal Device](../../doc/controllers/terminals.md#create-a-new-terminal-device)
-* [List All Terminals Related](../../doc/controllers/terminals.md#list-all-terminals-related)
-* [View Single Terminals Record](../../doc/controllers/terminals.md#view-single-terminals-record)
-* [Update Terminal Record](../../doc/controllers/terminals.md#update-terminal-record)
+* [Createanewterminaldevice](../../doc/controllers/terminals.md#createanewterminaldevice)
+* [Listallterminalsrelated](../../doc/controllers/terminals.md#listallterminalsrelated)
+* [Viewsingleterminalsrecord](../../doc/controllers/terminals.md#viewsingleterminalsrecord)
+* [Updateterminalrecord](../../doc/controllers/terminals.md#updateterminalrecord)
 
 
-# Create a New Terminal Device
+# Createanewterminaldevice
 
 ```php
-function createANewTerminalDevice(V1TerminalsRequest $body, ?array $expand = null): ResponseTerminal
+function createanewterminaldevice(V1TerminalsRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -27,11 +27,11 @@ function createANewTerminalDevice(V1TerminalsRequest $body, ?array $expand = nul
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TerminalsRequest`](../../doc/models/v1-terminals-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand40Enum)[])`](../../doc/models/expand-40-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand40)[])`](../../doc/models/expand-40.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTerminal`](../../doc/models/response-terminal.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTerminal`](../../doc/models/response-terminal.md).
 
 ## Example Usage
 
@@ -39,7 +39,7 @@ function createANewTerminalDevice(V1TerminalsRequest $body, ?array $expand = nul
 $body = V1TerminalsRequestBuilder::init(
     '11e95f8ec39de8fbdb0a4f1a',
     '11e95f8ec39de8fbdb0a4f1a',
-    TerminalManufacturerCodeEnum::ENUM_1,
+    TerminalManufacturerCode::ENUM_4,
     'My terminal',
     '1234567890',
     false,
@@ -71,22 +71,23 @@ $body = V1TerminalsRequestBuilder::init(
     ->isProvisioned(false)
     ->tipEnable(false)
     ->validatedDecryption(false)
-    ->communicationType(CommunicationTypeEnum::HTTP)
     ->active(true)
     ->build();
 
 $terminalsController = $client->getTerminalsController();
+$apiResponse = $terminalsController->createanewterminaldevice($body);
 
-try {
-    $result = $terminalsController->createANewTerminalDevice($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTerminal:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -321,44 +322,44 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# List All Terminals Related
+# Listallterminalsrelated
 
 ```php
-function listAllTerminalsRelated(
-    ?Page $page = null,
+function listallterminalsrelated(
+    ?Page1 $page = null,
     ?array $order = null,
     ?array $filterBy = null,
     ?array $expand = null,
     ?string $format = null,
     ?string $typeahead = null,
     ?array $fields = null
-): ResponseTerminalsCollection
+): ApiResponse
 ```
 
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `page` | [`?Page`](../../doc/models/page.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
+| `page` | [`?Page1`](../../doc/models/page-1.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
 | `order` | [`?(Order21[])`](../../doc/models/order-21.md) | Query, Optional | Criteria used in query string parameters to order results.  Most fields from the endpoint results can be used as a `key`.  Unsupported fields or operators will return a `412`.  Must be encoded, or use syntax that does not require encoding.<br><br>> /endpoint?order[0][key]=created_ts&order[0][operator]=asc<br>> <br>> /endpoint?order=[{ "key": "created_ts", "operator": "asc"}]<br>> <br>> /endpoint?order=[{ "key": "balance", "operator": "desc"},{ "key": "created_ts", "operator": "asc"}]<br><br>**Constraints**: *Minimum Items*: `1` |
 | `filterBy` | [`?(FilterBy[])`](../../doc/models/filter-by.md) | Query, Optional | Filter criteria that can be used in query string parameters.  Most fields from the endpoint results can be used as a `key`.  Unsupported fields or operators will return a `412`. Must be encoded, or use syntax that does not require encoding.<br><br>> ?filter_by[0][key]=first_name&filter_by[0][operator]==&filter_by[0][value]=Steve<br>> <br>> /endpoint?filter_by=[{ "key": "first_name", "operator": "=", "value": "Fred" }]<br>> <br>> /endpoint?filter_by=[{ "key": "account_type", "operator": "=", "value": "VISA" }]<br>> <br>> /endpoint?filter_by=[{ "key": "created_ts", "operator": ">=", "value": "946702799" }, { "key": "created_ts", "operator": "<=", value: "1695061891" }]<br>> <br>> /endpoint?filter_by=[{ "key": "last_name", "operator": "IN", "value": "Williams,Brown,Allman" }]<br><br>**Constraints**: *Minimum Items*: `1` |
-| `expand` | [`?(string(Expand40Enum)[])`](../../doc/models/expand-40-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `format` | [`?string(Format1Enum)`](../../doc/models/format-1-enum.md) | Query, Optional | Reporting format, valid values: csv, tsv |
+| `expand` | [`?(string(Expand40)[])`](../../doc/models/expand-40.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
+| `format` | [`?string(Format1)`](../../doc/models/format-1.md) | Query, Optional | Reporting format, valid values: csv, tsv |
 | `typeahead` | `?string` | Query, Optional | You can use any `field_name` from this endpoint results to order the list using the value provided as filter for the same `field_name`. It will be ordered using the following rules: 1) Exact match, 2) Starts with, 3) Contains.<br><br>> /endpoint?filter={ "field_name": "Value" }&_typeahead=field_name |
-| `fields` | [`?(string(Field49Enum)[])`](../../doc/models/field-49-enum.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
+| `fields` | [`?(string(Field49)[])`](../../doc/models/field-49.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
 
 ## Response Type
 
-[`ResponseTerminalsCollection`](../../doc/models/response-terminals-collection.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTerminalsCollection`](../../doc/models/response-terminals-collection.md).
 
 ## Example Usage
 
 ```php
-$page = PageBuilder::init()
+$page = Page1Builder::init()
     ->number(1)
     ->size(50)
     ->build();
@@ -366,32 +367,36 @@ $page = PageBuilder::init()
 $order = [
     Order21Builder::init(
         'first_name',
-        OperatorEnum::ASC
+        Operator::ASC
     )->build()
 ];
 
 $filterBy = [
     FilterByBuilder::init(
         'first_name',
-        Operator1Enum::ENUM_1,
+        Operator1::ENUM_1,
         'Fred'
     )->build()
 ];
 
 $terminalsController = $client->getTerminalsController();
+$apiResponse = $terminalsController->listallterminalsrelated(
+    $page,
+    $order,
+    $filterBy
+);
 
-try {
-    $result = $terminalsController->listAllTerminalsRelated(
-        $page,
-        $order,
-        $filterBy
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTerminalsCollection:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -651,17 +656,17 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# View Single Terminals Record
+# Viewsingleterminalsrecord
 
 ```php
-function viewSingleTerminalsRecord(
+function viewsingleterminalsrecord(
     string $terminalId,
     ?array $expand = null,
     ?array $fields = null
-): ResponseTerminal
+): ApiResponse
 ```
 
 ## Parameters
@@ -669,12 +674,12 @@ function viewSingleTerminalsRecord(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `terminalId` | `string` | Template, Required | Terminal ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
-| `expand` | [`?(string(Expand40Enum)[])`](../../doc/models/expand-40-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `fields` | [`?(string(Field49Enum)[])`](../../doc/models/field-49-enum.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
+| `expand` | [`?(string(Expand40)[])`](../../doc/models/expand-40.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
+| `fields` | [`?(string(Field49)[])`](../../doc/models/field-49.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
 
 ## Response Type
 
-[`ResponseTerminal`](../../doc/models/response-terminal.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTerminal`](../../doc/models/response-terminal.md).
 
 ## Example Usage
 
@@ -682,15 +687,19 @@ function viewSingleTerminalsRecord(
 $terminalId = '11e95f8ec39de8fbdb0a4f1a';
 
 $terminalsController = $client->getTerminalsController();
+$apiResponse = $terminalsController->viewsingleterminalsrecord($terminalId);
 
-try {
-    $result = $terminalsController->viewSingleTerminalsRecord($terminalId);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTerminal:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -925,17 +934,13 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# Update Terminal Record
+# Updateterminalrecord
 
 ```php
-function updateTerminalRecord(
-    string $terminalId,
-    V1TerminalsRequest1 $body,
-    ?array $expand = null
-): ResponseTerminal
+function updateterminalrecord(string $terminalId, V1TerminalsRequest1 $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -944,11 +949,11 @@ function updateTerminalRecord(
 |  --- | --- | --- | --- |
 | `terminalId` | `string` | Template, Required | Terminal ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
 | `body` | [`V1TerminalsRequest1`](../../doc/models/v1-terminals-request-1.md) | Body, Required | - |
-| `expand` | [`?(string(Expand40Enum)[])`](../../doc/models/expand-40-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand40)[])`](../../doc/models/expand-40.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTerminal`](../../doc/models/response-terminal.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTerminal`](../../doc/models/response-terminal.md).
 
 ## Example Usage
 
@@ -960,7 +965,6 @@ $body = V1TerminalsRequest1Builder::init()
     ->defaultProductTransactionId('11e95f8ec39de8fbdb0a4f1a')
     ->terminalApplicationId('11e95f8ec39de8fbdb0a4f1a')
     ->terminalCvmId('11e95f8ec39de8fbdb0a4f1a')
-    ->terminalManufacturerCode(TerminalManufacturerCodeEnum::ENUM_1)
     ->title('My terminal')
     ->macAddress('3D:F2:C9:A6:B3:4F')
     ->localIpAddress('192.168.0.10')
@@ -989,25 +993,26 @@ $body = V1TerminalsRequest1Builder::init()
     ->isProvisioned(false)
     ->tipEnable(false)
     ->validatedDecryption(false)
-    ->communicationType(CommunicationTypeEnum::HTTP)
     ->active(true)
     ->build();
 
 $terminalsController = $client->getTerminalsController();
+$apiResponse = $terminalsController->updateterminalrecord(
+    $terminalId,
+    $body
+);
 
-try {
-    $result = $terminalsController->updateTerminalRecord(
-        $terminalId,
-        $body
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTerminal:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -1242,6 +1247,6 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 

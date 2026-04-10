@@ -1,6 +1,8 @@
 
 # Detail 2
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `Detail2`
@@ -17,6 +19,7 @@
 | `reportedDate` | `?string` | Optional | Reported Date<br><br>**Constraints**: *Maximum Length*: `10`, *Pattern*: `^[\d]{4}-[\d]{2}-[\d]{2}$` | getReportedDate(): ?string | setReportedDate(?string reportedDate): void |
 | `settledDate` | `?string` | Optional | Settled Date<br><br>**Constraints**: *Maximum Length*: `10`, *Pattern*: `^[\d]{4}-[\d]{2}-[\d]{2}$` | getSettledDate(): ?string | setSettledDate(?string settledDate): void |
 | `mid` | `?string` | Optional | Merchant ID | getMid(): ?string | setMid(?string mid): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -28,7 +31,11 @@
   "processor_batch_number": "processor_batch_number6",
   "product_code": "product_code8",
   "deposit_detail_type": "deposit_detail_type6",
-  "memo": "memo6"
+  "memo": "memo6",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

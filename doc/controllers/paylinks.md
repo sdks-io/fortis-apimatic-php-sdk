@@ -12,20 +12,20 @@ $paylinksController = $client->getPaylinksController();
 
 ## Methods
 
-* [Create a New Paylink](../../doc/controllers/paylinks.md#create-a-new-paylink)
-* [List All Paylinks](../../doc/controllers/paylinks.md#list-all-paylinks)
+* [Createanew Paylink](../../doc/controllers/paylinks.md#createanew-paylink)
+* [Listall Paylinks](../../doc/controllers/paylinks.md#listall-paylinks)
 * [Delete Paylink](../../doc/controllers/paylinks.md#delete-paylink)
 * [View Single Paylink](../../doc/controllers/paylinks.md#view-single-paylink)
 * [Update Paylink](../../doc/controllers/paylinks.md#update-paylink)
 * [Resend Paylink](../../doc/controllers/paylinks.md#resend-paylink)
 
 
-# Create a New Paylink
+# Createanew Paylink
 
 Generate a new Paylink to be sent via email, sms or grab the payment_url to embed in you own messaging system.
 
 ```php
-function createANewPaylink(V1PaylinksRequest $body, ?array $expand = null): ResponsePaylink
+function createanewPaylink(V1PaylinksRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -33,11 +33,11 @@ function createANewPaylink(V1PaylinksRequest $body, ?array $expand = null): Resp
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1PaylinksRequest`](../../doc/models/v1-paylinks-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand17Enum)[])`](../../doc/models/expand-17-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand17)[])`](../../doc/models/expand-17.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponsePaylink`](../../doc/models/response-paylink.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponsePaylink`](../../doc/models/response-paylink.md).
 
 ## Example Usage
 
@@ -53,7 +53,6 @@ $body = V1PaylinksRequestBuilder::init(
     ->expireDate('2021-12-01')
     ->displayProductTransactionReceiptDetails(true)
     ->displayBillingFields(true)
-    ->deliveryMethod(DeliveryMethodEnum::ENUM_0)
     ->cellPhone('3339998822')
     ->description('Description')
     ->storeToken(false)
@@ -63,17 +62,19 @@ $body = V1PaylinksRequestBuilder::init(
     ->build();
 
 $paylinksController = $client->getPaylinksController();
+$apiResponse = $paylinksController->createanewPaylink($body);
 
-try {
-    $result = $paylinksController->createANewPaylink($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponsePaylink:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -120,46 +121,46 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# List All Paylinks
+# Listall Paylinks
 
 Pull in all Paylinks associated with the location_id.
 
 ```php
-function listAllPaylinks(
-    ?Page $page = null,
+function listallPaylinks(
+    ?Page1 $page = null,
     ?array $order = null,
     ?array $filterBy = null,
     ?array $expand = null,
     ?string $format = null,
     ?string $typeahead = null,
     ?array $fields = null
-): ResponsePaylinksCollection
+): ApiResponse
 ```
 
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `page` | [`?Page`](../../doc/models/page.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
+| `page` | [`?Page1`](../../doc/models/page-1.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
 | `order` | [`?(Order21[])`](../../doc/models/order-21.md) | Query, Optional | Criteria used in query string parameters to order results.  Most fields from the endpoint results can be used as a `key`.  Unsupported fields or operators will return a `412`.  Must be encoded, or use syntax that does not require encoding.<br><br>> /endpoint?order[0][key]=created_ts&order[0][operator]=asc<br>> <br>> /endpoint?order=[{ "key": "created_ts", "operator": "asc"}]<br>> <br>> /endpoint?order=[{ "key": "balance", "operator": "desc"},{ "key": "created_ts", "operator": "asc"}]<br><br>**Constraints**: *Minimum Items*: `1` |
 | `filterBy` | [`?(FilterBy[])`](../../doc/models/filter-by.md) | Query, Optional | Filter criteria that can be used in query string parameters.  Most fields from the endpoint results can be used as a `key`.  Unsupported fields or operators will return a `412`. Must be encoded, or use syntax that does not require encoding.<br><br>> ?filter_by[0][key]=first_name&filter_by[0][operator]==&filter_by[0][value]=Steve<br>> <br>> /endpoint?filter_by=[{ "key": "first_name", "operator": "=", "value": "Fred" }]<br>> <br>> /endpoint?filter_by=[{ "key": "account_type", "operator": "=", "value": "VISA" }]<br>> <br>> /endpoint?filter_by=[{ "key": "created_ts", "operator": ">=", "value": "946702799" }, { "key": "created_ts", "operator": "<=", value: "1695061891" }]<br>> <br>> /endpoint?filter_by=[{ "key": "last_name", "operator": "IN", "value": "Williams,Brown,Allman" }]<br><br>**Constraints**: *Minimum Items*: `1` |
-| `expand` | [`?(string(Expand18Enum)[])`](../../doc/models/expand-18-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `format` | [`?string(Format1Enum)`](../../doc/models/format-1-enum.md) | Query, Optional | Reporting format, valid values: csv, tsv |
+| `expand` | [`?(string(Expand18)[])`](../../doc/models/expand-18.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
+| `format` | [`?string(Format1)`](../../doc/models/format-1.md) | Query, Optional | Reporting format, valid values: csv, tsv |
 | `typeahead` | `?string` | Query, Optional | You can use any `field_name` from this endpoint results to order the list using the value provided as filter for the same `field_name`. It will be ordered using the following rules: 1) Exact match, 2) Starts with, 3) Contains.<br><br>> /endpoint?filter={ "field_name": "Value" }&_typeahead=field_name |
-| `fields` | [`?(string(Field39Enum)[])`](../../doc/models/field-39-enum.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
+| `fields` | [`?(string(Field39)[])`](../../doc/models/field-39.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
 
 ## Response Type
 
-[`ResponsePaylinksCollection`](../../doc/models/response-paylinks-collection.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponsePaylinksCollection`](../../doc/models/response-paylinks-collection.md).
 
 ## Example Usage
 
 ```php
-$page = PageBuilder::init()
+$page = Page1Builder::init()
     ->number(1)
     ->size(50)
     ->build();
@@ -167,32 +168,36 @@ $page = PageBuilder::init()
 $order = [
     Order21Builder::init(
         'first_name',
-        OperatorEnum::ASC
+        Operator::ASC
     )->build()
 ];
 
 $filterBy = [
     FilterByBuilder::init(
         'first_name',
-        Operator1Enum::ENUM_1,
+        Operator1::ENUM_1,
         'Fred'
     )->build()
 ];
 
 $paylinksController = $client->getPaylinksController();
+$apiResponse = $paylinksController->listallPaylinks(
+    $page,
+    $order,
+    $filterBy
+);
 
-try {
-    $result = $paylinksController->listAllPaylinks(
-        $page,
-        $order,
-        $filterBy
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponsePaylinksCollection:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -264,7 +269,7 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
 # Delete Paylink
@@ -272,7 +277,7 @@ try {
 Delete an existing Paylink_id
 
 ```php
-function deletePaylink(string $paylinkId): ResponsePaylink
+function deletePaylink(string $paylinkId): ApiResponse
 ```
 
 ## Parameters
@@ -283,7 +288,7 @@ function deletePaylink(string $paylinkId): ResponsePaylink
 
 ## Response Type
 
-[`ResponsePaylink`](../../doc/models/response-paylink.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponsePaylink`](../../doc/models/response-paylink.md).
 
 ## Example Usage
 
@@ -291,15 +296,19 @@ function deletePaylink(string $paylinkId): ResponsePaylink
 $paylinkId = '11e95f8ec39de8fbdb0a4f1a';
 
 $paylinksController = $client->getPaylinksController();
+$apiResponse = $paylinksController->deletePaylink($paylinkId);
 
-try {
-    $result = $paylinksController->deletePaylink($paylinkId);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponsePaylink:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -346,7 +355,7 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
 # View Single Paylink
@@ -354,7 +363,7 @@ try {
 Use the Paylink_id obtained from the Create request to look up the status
 
 ```php
-function viewSinglePaylink(string $paylinkId, ?array $expand = null, ?array $fields = null): ResponsePaylink
+function viewSinglePaylink(string $paylinkId, ?array $expand = null, ?array $fields = null): ApiResponse
 ```
 
 ## Parameters
@@ -362,12 +371,12 @@ function viewSinglePaylink(string $paylinkId, ?array $expand = null, ?array $fie
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `paylinkId` | `string` | Template, Required | System generatedPaylink Id<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
-| `expand` | [`?(string(Expand18Enum)[])`](../../doc/models/expand-18-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `fields` | [`?(string(Field39Enum)[])`](../../doc/models/field-39-enum.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
+| `expand` | [`?(string(Expand18)[])`](../../doc/models/expand-18.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
+| `fields` | [`?(string(Field39)[])`](../../doc/models/field-39.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
 
 ## Response Type
 
-[`ResponsePaylink`](../../doc/models/response-paylink.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponsePaylink`](../../doc/models/response-paylink.md).
 
 ## Example Usage
 
@@ -375,15 +384,19 @@ function viewSinglePaylink(string $paylinkId, ?array $expand = null, ?array $fie
 $paylinkId = '11e95f8ec39de8fbdb0a4f1a';
 
 $paylinksController = $client->getPaylinksController();
+$apiResponse = $paylinksController->viewSinglePaylink($paylinkId);
 
-try {
-    $result = $paylinksController->viewSinglePaylink($paylinkId);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponsePaylink:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -430,7 +443,7 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
 # Update Paylink
@@ -438,7 +451,7 @@ try {
 Update an existing Paylink_id
 
 ```php
-function updatePaylink(string $paylinkId, V1PaylinksRequest1 $body, ?array $expand = null): ResponsePaylink
+function updatePaylink(string $paylinkId, V1PaylinksRequest1 $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -447,11 +460,11 @@ function updatePaylink(string $paylinkId, V1PaylinksRequest1 $body, ?array $expa
 |  --- | --- | --- | --- |
 | `paylinkId` | `string` | Template, Required | System generatedPaylink Id<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
 | `body` | [`V1PaylinksRequest1`](../../doc/models/v1-paylinks-request-1.md) | Body, Required | - |
-| `expand` | [`?(string(Expand17Enum)[])`](../../doc/models/expand-17-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand17)[])`](../../doc/models/expand-17.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponsePaylink`](../../doc/models/response-paylink.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponsePaylink`](../../doc/models/response-paylink.md).
 
 ## Example Usage
 
@@ -468,7 +481,6 @@ $body = V1PaylinksRequest1Builder::init()
     ->expireDate('2021-12-01')
     ->displayProductTransactionReceiptDetails(true)
     ->displayBillingFields(true)
-    ->deliveryMethod(DeliveryMethodEnum::ENUM_0)
     ->cellPhone('3339998822')
     ->description('Description')
     ->storeToken(false)
@@ -478,20 +490,22 @@ $body = V1PaylinksRequest1Builder::init()
     ->build();
 
 $paylinksController = $client->getPaylinksController();
+$apiResponse = $paylinksController->updatePaylink(
+    $paylinkId,
+    $body
+);
 
-try {
-    $result = $paylinksController->updatePaylink(
-        $paylinkId,
-        $body
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponsePaylink:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -538,7 +552,7 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
@@ -552,7 +566,7 @@ function resendPaylink(
     ?array $expand = null,
     ?int $email = null,
     ?int $sms = null
-): ResponsePaylink
+): ApiResponse
 ```
 
 ## Parameters
@@ -560,13 +574,13 @@ function resendPaylink(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `paylinkId` | `string` | Template, Required | System generatedPaylink Id<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
-| `expand` | [`?(string(Expand17Enum)[])`](../../doc/models/expand-17-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `email` | [`?int(EmailEnum)`](../../doc/models/email-enum.md) | Query, Optional | Resend Email |
-| `sms` | [`?int(SmsEnum)`](../../doc/models/sms-enum.md) | Query, Optional | Resend SMS |
+| `expand` | [`?(string(Expand17)[])`](../../doc/models/expand-17.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
+| `email` | [`?int(Email)`](../../doc/models/email.md) | Query, Optional | Resend Email |
+| `sms` | [`?int(Sms)`](../../doc/models/sms.md) | Query, Optional | Resend SMS |
 
 ## Response Type
 
-[`ResponsePaylink`](../../doc/models/response-paylink.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponsePaylink`](../../doc/models/response-paylink.md).
 
 ## Example Usage
 
@@ -574,15 +588,19 @@ function resendPaylink(
 $paylinkId = '11e95f8ec39de8fbdb0a4f1a';
 
 $paylinksController = $client->getPaylinksController();
+$apiResponse = $paylinksController->resendPaylink($paylinkId);
 
-try {
-    $result = $paylinksController->resendPaylink($paylinkId);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponsePaylink:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -629,5 +647,5 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 

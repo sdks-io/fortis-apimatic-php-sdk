@@ -22,10 +22,10 @@ Documentation for accessing and setting credentials for developer-id.
 You must provide credentials in the client as shown in the following code snippet.
 
 ```php
-use FortisAPILib\Authentication\DeveloperIdCredentialsBuilder;
-use FortisAPILib\FortisAPIClientBuilder;
+use FortisApiLib\Authentication\DeveloperIdCredentialsBuilder;
+use FortisApiLib\FortisApiClientBuilder;
 
-$client = FortisAPIClientBuilder::init()
+$client = FortisApiClientBuilder::init()
     ->developerIdCredentials(
         DeveloperIdCredentialsBuilder::init(
             'developer-id'

@@ -1,12 +1,12 @@
 # Transactions-EBT Card
 
 ```php
-$transactionsEBTCardController = $client->getTransactionsEBTCardController();
+$transactionsEbtCardController = $client->getTransactionsEbtCardController();
 ```
 
 ## Class Name
 
-`TransactionsEBTCardController`
+`TransactionsEbtCardController`
 
 ## Methods
 
@@ -19,10 +19,10 @@ $transactionsEBTCardController = $client->getTransactionsEBTCardController();
 Create a new keyed EBT voucher clear refund transaction
 
 ```php
-function eBTVoucherClearRefund(
+function ebtVoucherClearRefund(
     V1TransactionsEbtVoucherClearRefundKeyedRequest $body,
     ?array $expand = null
-): ResponseTransaction
+): ApiResponse
 ```
 
 ## Parameters
@@ -30,11 +30,11 @@ function eBTVoucherClearRefund(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsEbtVoucherClearRefundKeyedRequest`](../../doc/models/v1-transactions-ebt-voucher-clear-refund-keyed-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -51,13 +51,11 @@ $body = V1TransactionsEbtVoucherClearRefundKeyedRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -92,7 +90,6 @@ $body = V1TransactionsEbtVoucherClearRefundKeyedRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -102,31 +99,31 @@ $body = V1TransactionsEbtVoucherClearRefundKeyedRequestBuilder::init(
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
     ->ebtFoodEligibleAmount(0)
     ->ebtCashEligibleAmount(0)
     ->accountHolderName('smith')
-    ->entryModeId(EntryModeIdEnum::K)
     ->trackData('T051904524T 741025349520O 8520748520963')
     ->pin('1234')
     ->ksn('1234')
     ->build();
 
-$transactionsEBTCardController = $client->getTransactionsEBTCardController();
+$transactionsEbtCardController = $client->getTransactionsEbtCardController();
+$apiResponse = $transactionsEbtCardController->ebtVoucherClearRefund($body);
 
-try {
-    $result = $transactionsEBTCardController->eBTVoucherClearRefund($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -1181,7 +1178,7 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
@@ -1190,10 +1187,10 @@ try {
 Create a new keyed EBT voucher clear sale transaction
 
 ```php
-function eBTVoucherClearSale(
+function ebtVoucherClearSale(
     V1TransactionsEbtVoucherClearSaleKeyedRequest $body,
     ?array $expand = null
-): ResponseTransaction
+): ApiResponse
 ```
 
 ## Parameters
@@ -1201,11 +1198,11 @@ function eBTVoucherClearSale(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsEbtVoucherClearSaleKeyedRequest`](../../doc/models/v1-transactions-ebt-voucher-clear-sale-keyed-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -1222,13 +1219,11 @@ $body = V1TransactionsEbtVoucherClearSaleKeyedRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -1263,7 +1258,6 @@ $body = V1TransactionsEbtVoucherClearSaleKeyedRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->secureProtocolVersion(2)
     ->secureCryptogram('ZVVEVDJITHpTNE9yNlNHMUh0R0E=')
@@ -1273,31 +1267,31 @@ $body = V1TransactionsEbtVoucherClearSaleKeyedRequestBuilder::init(
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->clerkId('1234')
     ->voucherNumber('1234')
-    ->initiationType(InitiationTypeEnum::M103)
     ->billPayment(true)
     ->delayCharge(true)
     ->deferredAuth(true)
     ->ebtFoodEligibleAmount(0)
     ->ebtCashEligibleAmount(0)
     ->accountHolderName('smith')
-    ->entryModeId(EntryModeIdEnum::K)
     ->trackData('T051904524T 741025349520O 8520748520963')
     ->pin('1234')
     ->ksn('1234')
     ->build();
 
-$transactionsEBTCardController = $client->getTransactionsEBTCardController();
+$transactionsEbtCardController = $client->getTransactionsEbtCardController();
+$apiResponse = $transactionsEbtCardController->ebtVoucherClearSale($body);
 
-try {
-    $result = $transactionsEBTCardController->eBTVoucherClearSale($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -2352,6 +2346,6 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 

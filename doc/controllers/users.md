@@ -10,21 +10,21 @@ $usersController = $client->getUsersController();
 
 ## Methods
 
-* [Create a New API Key](../../doc/controllers/users.md#create-a-new-api-key)
-* [Create a New User](../../doc/controllers/users.md#create-a-new-user)
-* [List All User](../../doc/controllers/users.md#list-all-user)
-* [Delete a User Record](../../doc/controllers/users.md#delete-a-user-record)
-* [View Single User Record](../../doc/controllers/users.md#view-single-user-record)
-* [Update a User Record](../../doc/controllers/users.md#update-a-user-record)
-* [View Self Record](../../doc/controllers/users.md#view-self-record)
-* [Remove Verification](../../doc/controllers/users.md#remove-verification)
-* [Send Verification](../../doc/controllers/users.md#send-verification)
+* [Createanew AP Ikey](../../doc/controllers/users.md#createanew-ap-ikey)
+* [Createanewuser](../../doc/controllers/users.md#createanewuser)
+* [Listall User](../../doc/controllers/users.md#listall-user)
+* [Deleteauserrecord](../../doc/controllers/users.md#deleteauserrecord)
+* [Viewsingleuserrecord](../../doc/controllers/users.md#viewsingleuserrecord)
+* [Updateauserrecord](../../doc/controllers/users.md#updateauserrecord)
+* [Viewselfrecord](../../doc/controllers/users.md#viewselfrecord)
+* [Removeverification](../../doc/controllers/users.md#removeverification)
+* [Sendverification](../../doc/controllers/users.md#sendverification)
 
 
-# Create a New API Key
+# Createanew AP Ikey
 
 ```php
-function createANewAPIKey(string $userId, ?array $expand = null): ResponseUserApiKey
+function createanewApIkey(string $userId, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -32,11 +32,11 @@ function createANewAPIKey(string $userId, ?array $expand = null): ResponseUserAp
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `userId` | `string` | Template, Required | User ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
-| `expand` | [`?(string(Expand117Enum)[])`](../../doc/models/expand-117-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand117)[])`](../../doc/models/expand-117.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseUserApiKey`](../../doc/models/response-user-api-key.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseUserApiKey`](../../doc/models/response-user-api-key.md).
 
 ## Example Usage
 
@@ -44,15 +44,19 @@ function createANewAPIKey(string $userId, ?array $expand = null): ResponseUserAp
 $userId = '11e95f8ec39de8fbdb0a4f1a';
 
 $usersController = $client->getUsersController();
+$apiResponse = $usersController->createanewApIkey($userId);
 
-try {
-    $result = $usersController->createANewAPIKey($userId);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseUserApiKey:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -71,13 +75,13 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# Create a New User
+# Createanewuser
 
 ```php
-function createANewUser(V1UsersRequest $body, ?array $expand = null): ResponseUser
+function createanewuser(V1UsersRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -85,11 +89,11 @@ function createANewUser(V1UsersRequest $body, ?array $expand = null): ResponseUs
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1UsersRequest`](../../doc/models/v1-users-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand117Enum)[])`](../../doc/models/expand-117-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand117)[])`](../../doc/models/expand-117.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseUser`](../../doc/models/response-user.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseUser`](../../doc/models/response-user.md).
 
 ## Example Usage
 
@@ -99,7 +103,7 @@ $body = V1UsersRequestBuilder::init(
     'Smith',
     '11e95f8ec39de8fbdb0a4f1a',
     '{user_name}',
-    UserTypeCodeEnum::ENUM_100
+    UserTypeCode::ENUM_600
 )
     ->accountNumber('5454545454545454')
     ->brandingDomainUrl('{branding_domain_url}')
@@ -119,23 +123,24 @@ $body = V1UsersRequestBuilder::init(
     ->userApiKey('234bas8dfn8238f923w2')
     ->zip('48375')
     ->locationId('11e95f8ec39de8fbdb0a4f1a')
-    ->statusCode(StatusCodeEnum::ENUM_1)
     ->apiOnly(false)
     ->isInvitation(false)
     ->build();
 
 $usersController = $client->getUsersController();
+$apiResponse = $usersController->createanewuser($body);
 
-try {
-    $result = $usersController->createANewUser($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseUser:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -527,44 +532,44 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# List All User
+# Listall User
 
 ```php
-function listAllUser(
-    ?Page $page = null,
+function listallUser(
+    ?Page1 $page = null,
     ?array $order = null,
     ?array $filterBy = null,
     ?array $expand = null,
     ?string $format = null,
     ?string $typeahead = null,
     ?array $fields = null
-): ResponseUsersCollection
+): ApiResponse
 ```
 
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `page` | [`?Page`](../../doc/models/page.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
+| `page` | [`?Page1`](../../doc/models/page-1.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
 | `order` | [`?(Order21[])`](../../doc/models/order-21.md) | Query, Optional | Criteria used in query string parameters to order results.  Most fields from the endpoint results can be used as a `key`.  Unsupported fields or operators will return a `412`.  Must be encoded, or use syntax that does not require encoding.<br><br>> /endpoint?order[0][key]=created_ts&order[0][operator]=asc<br>> <br>> /endpoint?order=[{ "key": "created_ts", "operator": "asc"}]<br>> <br>> /endpoint?order=[{ "key": "balance", "operator": "desc"},{ "key": "created_ts", "operator": "asc"}]<br><br>**Constraints**: *Minimum Items*: `1` |
 | `filterBy` | [`?(FilterBy[])`](../../doc/models/filter-by.md) | Query, Optional | Filter criteria that can be used in query string parameters.  Most fields from the endpoint results can be used as a `key`.  Unsupported fields or operators will return a `412`. Must be encoded, or use syntax that does not require encoding.<br><br>> ?filter_by[0][key]=first_name&filter_by[0][operator]==&filter_by[0][value]=Steve<br>> <br>> /endpoint?filter_by=[{ "key": "first_name", "operator": "=", "value": "Fred" }]<br>> <br>> /endpoint?filter_by=[{ "key": "account_type", "operator": "=", "value": "VISA" }]<br>> <br>> /endpoint?filter_by=[{ "key": "created_ts", "operator": ">=", "value": "946702799" }, { "key": "created_ts", "operator": "<=", value: "1695061891" }]<br>> <br>> /endpoint?filter_by=[{ "key": "last_name", "operator": "IN", "value": "Williams,Brown,Allman" }]<br><br>**Constraints**: *Minimum Items*: `1` |
-| `expand` | [`?(string(Expand117Enum)[])`](../../doc/models/expand-117-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `format` | [`?string(Format1Enum)`](../../doc/models/format-1-enum.md) | Query, Optional | Reporting format, valid values: csv, tsv |
+| `expand` | [`?(string(Expand117)[])`](../../doc/models/expand-117.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
+| `format` | [`?string(Format1)`](../../doc/models/format-1.md) | Query, Optional | Reporting format, valid values: csv, tsv |
 | `typeahead` | `?string` | Query, Optional | You can use any `field_name` from this endpoint results to order the list using the value provided as filter for the same `field_name`. It will be ordered using the following rules: 1) Exact match, 2) Starts with, 3) Contains.<br><br>> /endpoint?filter={ "field_name": "Value" }&_typeahead=field_name |
-| `fields` | [`?(string(Field60Enum)[])`](../../doc/models/field-60-enum.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
+| `fields` | [`?(string(Field60)[])`](../../doc/models/field-60.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
 
 ## Response Type
 
-[`ResponseUsersCollection`](../../doc/models/response-users-collection.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseUsersCollection`](../../doc/models/response-users-collection.md).
 
 ## Example Usage
 
 ```php
-$page = PageBuilder::init()
+$page = Page1Builder::init()
     ->number(1)
     ->size(50)
     ->build();
@@ -572,32 +577,36 @@ $page = PageBuilder::init()
 $order = [
     Order21Builder::init(
         'first_name',
-        OperatorEnum::ASC
+        Operator::ASC
     )->build()
 ];
 
 $filterBy = [
     FilterByBuilder::init(
         'first_name',
-        Operator1Enum::ENUM_1,
+        Operator1::ENUM_1,
         'Fred'
     )->build()
 ];
 
 $usersController = $client->getUsersController();
+$apiResponse = $usersController->listallUser(
+    $page,
+    $order,
+    $filterBy
+);
 
-try {
-    $result = $usersController->listAllUser(
-        $page,
-        $order,
-        $filterBy
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseUsersCollection:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -1014,13 +1023,13 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# Delete a User Record
+# Deleteauserrecord
 
 ```php
-function deleteAUserRecord(string $userId): ResponseUser
+function deleteauserrecord(string $userId): ApiResponse
 ```
 
 ## Parameters
@@ -1031,7 +1040,7 @@ function deleteAUserRecord(string $userId): ResponseUser
 
 ## Response Type
 
-[`ResponseUser`](../../doc/models/response-user.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseUser`](../../doc/models/response-user.md).
 
 ## Example Usage
 
@@ -1039,15 +1048,19 @@ function deleteAUserRecord(string $userId): ResponseUser
 $userId = '11e95f8ec39de8fbdb0a4f1a';
 
 $usersController = $client->getUsersController();
+$apiResponse = $usersController->deleteauserrecord($userId);
 
-try {
-    $result = $usersController->deleteAUserRecord($userId);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseUser:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -1439,13 +1452,13 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# View Single User Record
+# Viewsingleuserrecord
 
 ```php
-function viewSingleUserRecord(string $userId, ?array $expand = null, ?array $fields = null): ResponseUser
+function viewsingleuserrecord(string $userId, ?array $expand = null, ?array $fields = null): ApiResponse
 ```
 
 ## Parameters
@@ -1453,12 +1466,12 @@ function viewSingleUserRecord(string $userId, ?array $expand = null, ?array $fie
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `userId` | `string` | Template, Required | User ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
-| `expand` | [`?(string(Expand117Enum)[])`](../../doc/models/expand-117-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `fields` | [`?(string(Field60Enum)[])`](../../doc/models/field-60-enum.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
+| `expand` | [`?(string(Expand117)[])`](../../doc/models/expand-117.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
+| `fields` | [`?(string(Field60)[])`](../../doc/models/field-60.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
 
 ## Response Type
 
-[`ResponseUser`](../../doc/models/response-user.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseUser`](../../doc/models/response-user.md).
 
 ## Example Usage
 
@@ -1466,15 +1479,19 @@ function viewSingleUserRecord(string $userId, ?array $expand = null, ?array $fie
 $userId = '11e95f8ec39de8fbdb0a4f1a';
 
 $usersController = $client->getUsersController();
+$apiResponse = $usersController->viewsingleuserrecord($userId);
 
-try {
-    $result = $usersController->viewSingleUserRecord($userId);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseUser:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -1866,13 +1883,13 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# Update a User Record
+# Updateauserrecord
 
 ```php
-function updateAUserRecord(string $userId, V1UsersRequest1 $body, ?array $expand = null): ResponseUser
+function updateauserrecord(string $userId, V1UsersRequest1 $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -1881,11 +1898,11 @@ function updateAUserRecord(string $userId, V1UsersRequest1 $body, ?array $expand
 |  --- | --- | --- | --- |
 | `userId` | `string` | Template, Required | User ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
 | `body` | [`V1UsersRequest1`](../../doc/models/v1-users-request-1.md) | Body, Required | - |
-| `expand` | [`?(string(Expand117Enum)[])`](../../doc/models/expand-117-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand117)[])`](../../doc/models/expand-117.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseUser`](../../doc/models/response-user.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseUser`](../../doc/models/response-user.md).
 
 ## Example Usage
 
@@ -1913,29 +1930,29 @@ $body = V1UsersRequest1Builder::init()
     ->tz('America/New_York')
     ->username('{user_name}')
     ->userApiKey('234bas8dfn8238f923w2')
-    ->userTypeCode(UserTypeCodeEnum::ENUM_100)
     ->zip('48375')
     ->locationId('11e95f8ec39de8fbdb0a4f1a')
-    ->statusCode(StatusCodeEnum::ENUM_1)
     ->apiOnly(false)
     ->isInvitation(false)
     ->build();
 
 $usersController = $client->getUsersController();
+$apiResponse = $usersController->updateauserrecord(
+    $userId,
+    $body
+);
 
-try {
-    $result = $usersController->updateAUserRecord(
-        $userId,
-        $body
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseUser:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -2327,40 +2344,44 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# View Self Record
+# Viewselfrecord
 
 ```php
-function viewSelfRecord(?array $expand = null, ?array $fields = null): ResponseUser
+function viewselfrecord(?array $expand = null, ?array $fields = null): ApiResponse
 ```
 
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `expand` | [`?(string(Expand117Enum)[])`](../../doc/models/expand-117-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `fields` | [`?(string(Field60Enum)[])`](../../doc/models/field-60-enum.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
+| `expand` | [`?(string(Expand117)[])`](../../doc/models/expand-117.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
+| `fields` | [`?(string(Field60)[])`](../../doc/models/field-60.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
 
 ## Response Type
 
-[`ResponseUser`](../../doc/models/response-user.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseUser`](../../doc/models/response-user.md).
 
 ## Example Usage
 
 ```php
 $usersController = $client->getUsersController();
+$apiResponse = $usersController->viewselfrecord();
 
-try {
-    $result = $usersController->viewSelfRecord();
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseUser:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -2752,15 +2773,15 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# Remove Verification
+# Removeverification
 
 Remove the pending user
 
 ```php
-function removeVerification(string $userId): ResponseRemoveVerification
+function removeverification(string $userId): ApiResponse
 ```
 
 ## Parameters
@@ -2771,7 +2792,7 @@ function removeVerification(string $userId): ResponseRemoveVerification
 
 ## Response Type
 
-[`ResponseRemoveVerification`](../../doc/models/response-remove-verification.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseRemoveVerification`](../../doc/models/response-remove-verification.md).
 
 ## Example Usage
 
@@ -2779,15 +2800,19 @@ function removeVerification(string $userId): ResponseRemoveVerification
 $userId = 'user_id8';
 
 $usersController = $client->getUsersController();
+$apiResponse = $usersController->removeverification($userId);
 
-try {
-    $result = $usersController->removeVerification($userId);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseRemoveVerification:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -2809,15 +2834,15 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# Send Verification
+# Sendverification
 
 Send an verification email to the pending user
 
 ```php
-function sendVerification(string $userId): ResponseSendVerification
+function sendverification(string $userId): ApiResponse
 ```
 
 ## Parameters
@@ -2828,7 +2853,7 @@ function sendVerification(string $userId): ResponseSendVerification
 
 ## Response Type
 
-[`ResponseSendVerification`](../../doc/models/response-send-verification.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseSendVerification`](../../doc/models/response-send-verification.md).
 
 ## Example Usage
 
@@ -2836,15 +2861,19 @@ function sendVerification(string $userId): ResponseSendVerification
 $userId = 'user_id8';
 
 $usersController = $client->getUsersController();
+$apiResponse = $usersController->sendverification($userId);
 
-try {
-    $result = $usersController->sendVerification($userId);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseSendVerification:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -2866,5 +2895,5 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 

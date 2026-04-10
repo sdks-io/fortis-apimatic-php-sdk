@@ -10,22 +10,22 @@ $webhooksController = $client->getWebhooksController();
 
 ## Methods
 
-* [Create a New Transaction Batch Postback Config](../../doc/controllers/webhooks.md#create-a-new-transaction-batch-postback-config)
-* [Create a New Contact Postback Config](../../doc/controllers/webhooks.md#create-a-new-contact-postback-config)
-* [Create a New Transaction Postback Config](../../doc/controllers/webhooks.md#create-a-new-transaction-postback-config)
-* [Delete a Postback Config](../../doc/controllers/webhooks.md#delete-a-postback-config)
-* [Update Transaction Batch Postback Config](../../doc/controllers/webhooks.md#update-transaction-batch-postback-config)
-* [Update Contact Postback Config](../../doc/controllers/webhooks.md#update-contact-postback-config)
-* [Update Transaction Postback Config](../../doc/controllers/webhooks.md#update-transaction-postback-config)
+* [Createanewtransactionbatchpostbackconfig](../../doc/controllers/webhooks.md#createanewtransactionbatchpostbackconfig)
+* [Createanewcontactpostbackconfig](../../doc/controllers/webhooks.md#createanewcontactpostbackconfig)
+* [Createanewtransactionpostbackconfig](../../doc/controllers/webhooks.md#createanewtransactionpostbackconfig)
+* [Deleteapostbackconfig](../../doc/controllers/webhooks.md#deleteapostbackconfig)
+* [Updatetransactionbatchpostbackconfig](../../doc/controllers/webhooks.md#updatetransactionbatchpostbackconfig)
+* [Updatecontactpostbackconfig](../../doc/controllers/webhooks.md#updatecontactpostbackconfig)
+* [Updatetransactionpostbackconfig](../../doc/controllers/webhooks.md#updatetransactionpostbackconfig)
 
 
-# Create a New Transaction Batch Postback Config
+# Createanewtransactionbatchpostbackconfig
 
 ```php
-function createANewTransactionBatchPostbackConfig(
+function createanewtransactionbatchpostbackconfig(
     V1WebhooksBatchRequest $body,
     ?array $expand = null
-): ResponseWebhook
+): ApiResponse
 ```
 
 ## Parameters
@@ -33,11 +33,11 @@ function createANewTransactionBatchPostbackConfig(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1WebhooksBatchRequest`](../../doc/models/v1-webhooks-batch-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand123Enum)[])`](../../doc/models/expand-123-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand123)[])`](../../doc/models/expand-123.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseWebhook`](../../doc/models/response-webhook.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseWebhook`](../../doc/models/response-webhook.md).
 
 ## Example Usage
 
@@ -56,24 +56,24 @@ $body = V1WebhooksBatchRequestBuilder::init(
     ->basicAuthUsername('tester')
     ->basicAuthPassword('Test@522')
     ->expands('changelogs,tags')
-    ->format(FormatEnum::APIDEFAULT)
     ->legacy(true)
     ->postbackConfigId('11e95f8ec39de8fbdb0a4f1a')
-    ->resource(Resource12Enum::CONTACT)
     ->build();
 
 $webhooksController = $client->getWebhooksController();
+$apiResponse = $webhooksController->createanewtransactionbatchpostbackconfig($body);
 
-try {
-    $result = $webhooksController->createANewTransactionBatchPostbackConfig($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseWebhook:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -118,14 +118,14 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# Create a New Contact Postback Config
+# Createanewcontactpostbackconfig
 
 ```php
-function createANewContactPostbackConfig(V1WebhooksContactRequest $body, ?array $expand = null): ResponseWebhook
+function createanewcontactpostbackconfig(V1WebhooksContactRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -133,11 +133,11 @@ function createANewContactPostbackConfig(V1WebhooksContactRequest $body, ?array 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1WebhooksContactRequest`](../../doc/models/v1-webhooks-contact-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand123Enum)[])`](../../doc/models/expand-123-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand123)[])`](../../doc/models/expand-123.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseWebhook`](../../doc/models/response-webhook.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseWebhook`](../../doc/models/response-webhook.md).
 
 ## Example Usage
 
@@ -155,25 +155,25 @@ $body = V1WebhooksContactRequestBuilder::init(
     ->basicAuthUsername('tester')
     ->basicAuthPassword('Test@522')
     ->expands('changelogs,tags')
-    ->format(FormatEnum::APIDEFAULT)
     ->legacy(true)
     ->postbackConfigId('11e95f8ec39de8fbdb0a4f1a')
     ->productTransactionId('11e95f8ec39de8fbdb0a4f1a')
-    ->resource(Resource12Enum::CONTACT)
     ->build();
 
 $webhooksController = $client->getWebhooksController();
+$apiResponse = $webhooksController->createanewcontactpostbackconfig($body);
 
-try {
-    $result = $webhooksController->createANewContactPostbackConfig($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseWebhook:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -218,17 +218,17 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# Create a New Transaction Postback Config
+# Createanewtransactionpostbackconfig
 
 ```php
-function createANewTransactionPostbackConfig(
+function createanewtransactionpostbackconfig(
     V1WebhooksTransactionRequest $body,
     ?array $expand = null
-): ResponseWebhook
+): ApiResponse
 ```
 
 ## Parameters
@@ -236,11 +236,11 @@ function createANewTransactionPostbackConfig(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1WebhooksTransactionRequest`](../../doc/models/v1-webhooks-transaction-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand123Enum)[])`](../../doc/models/expand-123-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand123)[])`](../../doc/models/expand-123.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseWebhook`](../../doc/models/response-webhook.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseWebhook`](../../doc/models/response-webhook.md).
 
 ## Example Usage
 
@@ -259,24 +259,24 @@ $body = V1WebhooksTransactionRequestBuilder::init(
     ->basicAuthUsername('tester')
     ->basicAuthPassword('Test@522')
     ->expands('changelogs,tags')
-    ->format(FormatEnum::APIDEFAULT)
     ->legacy(true)
     ->postbackConfigId('11e95f8ec39de8fbdb0a4f1a')
-    ->resource(Resource12Enum::CONTACT)
     ->build();
 
 $webhooksController = $client->getWebhooksController();
+$apiResponse = $webhooksController->createanewtransactionpostbackconfig($body);
 
-try {
-    $result = $webhooksController->createANewTransactionPostbackConfig($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseWebhook:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -321,14 +321,14 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# Delete a Postback Config
+# Deleteapostbackconfig
 
 ```php
-function deleteAPostbackConfig(string $webhookId): ResponseWebhook
+function deleteapostbackconfig(string $webhookId): ApiResponse
 ```
 
 ## Parameters
@@ -339,7 +339,7 @@ function deleteAPostbackConfig(string $webhookId): ResponseWebhook
 
 ## Response Type
 
-[`ResponseWebhook`](../../doc/models/response-webhook.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseWebhook`](../../doc/models/response-webhook.md).
 
 ## Example Usage
 
@@ -347,15 +347,19 @@ function deleteAPostbackConfig(string $webhookId): ResponseWebhook
 $webhookId = '11e95f8ec39de8fbdb0a4f1a';
 
 $webhooksController = $client->getWebhooksController();
+$apiResponse = $webhooksController->deleteapostbackconfig($webhookId);
 
-try {
-    $result = $webhooksController->deleteAPostbackConfig($webhookId);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseWebhook:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -400,17 +404,17 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# Update Transaction Batch Postback Config
+# Updatetransactionbatchpostbackconfig
 
 ```php
-function updateTransactionBatchPostbackConfig(
+function updatetransactionbatchpostbackconfig(
     string $webhookId,
     V1WebhooksBatchRequest1 $body,
     ?array $expand = null
-): ResponseWebhook
+): ApiResponse
 ```
 
 ## Parameters
@@ -419,11 +423,11 @@ function updateTransactionBatchPostbackConfig(
 |  --- | --- | --- | --- |
 | `webhookId` | `string` | Template, Required | Postback Config ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
 | `body` | [`V1WebhooksBatchRequest1`](../../doc/models/v1-webhooks-batch-request-1.md) | Body, Required | - |
-| `expand` | [`?(string(Expand123Enum)[])`](../../doc/models/expand-123-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand123)[])`](../../doc/models/expand-123.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseWebhook`](../../doc/models/response-webhook.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseWebhook`](../../doc/models/response-webhook.md).
 
 ## Example Usage
 
@@ -435,7 +439,6 @@ $body = V1WebhooksBatchRequest1Builder::init()
     ->basicAuthUsername('tester')
     ->basicAuthPassword('Test@522')
     ->expands('changelogs,tags')
-    ->format(FormatEnum::APIDEFAULT)
     ->isActive(true)
     ->locationId('11e95f8ec39de8fbdb0a4f1a')
     ->onCreate(true)
@@ -444,26 +447,27 @@ $body = V1WebhooksBatchRequest1Builder::init()
     ->legacy(true)
     ->postbackConfigId('11e95f8ec39de8fbdb0a4f1a')
     ->productTransactionId('11e95f8ec39de8fbdb0a4f1a')
-    ->resource(Resource12Enum::CONTACT)
     ->numberOfAttempts(1)
     ->url('https://127.0.0.1/receiver')
     ->build();
 
 $webhooksController = $client->getWebhooksController();
+$apiResponse = $webhooksController->updatetransactionbatchpostbackconfig(
+    $webhookId,
+    $body
+);
 
-try {
-    $result = $webhooksController->updateTransactionBatchPostbackConfig(
-        $webhookId,
-        $body
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseWebhook:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -508,18 +512,18 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# Update Contact Postback Config
+# Updatecontactpostbackconfig
 
 ```php
-function updateContactPostbackConfig(
+function updatecontactpostbackconfig(
     string $webhookId,
     V1WebhooksContactRequest1 $body,
     ?array $expand = null
-): ResponseWebhook
+): ApiResponse
 ```
 
 ## Parameters
@@ -528,11 +532,11 @@ function updateContactPostbackConfig(
 |  --- | --- | --- | --- |
 | `webhookId` | `string` | Template, Required | Postback Config ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
 | `body` | [`V1WebhooksContactRequest1`](../../doc/models/v1-webhooks-contact-request-1.md) | Body, Required | - |
-| `expand` | [`?(string(Expand123Enum)[])`](../../doc/models/expand-123-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand123)[])`](../../doc/models/expand-123.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseWebhook`](../../doc/models/response-webhook.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseWebhook`](../../doc/models/response-webhook.md).
 
 ## Example Usage
 
@@ -544,7 +548,6 @@ $body = V1WebhooksContactRequest1Builder::init()
     ->basicAuthUsername('tester')
     ->basicAuthPassword('Test@522')
     ->expands('changelogs,tags')
-    ->format(FormatEnum::APIDEFAULT)
     ->isActive(true)
     ->locationId('11e95f8ec39de8fbdb0a4f1a')
     ->onCreate(true)
@@ -553,26 +556,27 @@ $body = V1WebhooksContactRequest1Builder::init()
     ->legacy(true)
     ->postbackConfigId('11e95f8ec39de8fbdb0a4f1a')
     ->productTransactionId('11e95f8ec39de8fbdb0a4f1a')
-    ->resource(Resource12Enum::CONTACT)
     ->numberOfAttempts(1)
     ->url('https://127.0.0.1/receiver')
     ->build();
 
 $webhooksController = $client->getWebhooksController();
+$apiResponse = $webhooksController->updatecontactpostbackconfig(
+    $webhookId,
+    $body
+);
 
-try {
-    $result = $webhooksController->updateContactPostbackConfig(
-        $webhookId,
-        $body
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseWebhook:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -617,18 +621,18 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# Update Transaction Postback Config
+# Updatetransactionpostbackconfig
 
 ```php
-function updateTransactionPostbackConfig(
+function updatetransactionpostbackconfig(
     string $webhookId,
     V1WebhooksTransactionRequest1 $body,
     ?array $expand = null
-): ResponseWebhook
+): ApiResponse
 ```
 
 ## Parameters
@@ -637,11 +641,11 @@ function updateTransactionPostbackConfig(
 |  --- | --- | --- | --- |
 | `webhookId` | `string` | Template, Required | Postback Config ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
 | `body` | [`V1WebhooksTransactionRequest1`](../../doc/models/v1-webhooks-transaction-request-1.md) | Body, Required | - |
-| `expand` | [`?(string(Expand123Enum)[])`](../../doc/models/expand-123-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand123)[])`](../../doc/models/expand-123.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseWebhook`](../../doc/models/response-webhook.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseWebhook`](../../doc/models/response-webhook.md).
 
 ## Example Usage
 
@@ -653,7 +657,6 @@ $body = V1WebhooksTransactionRequest1Builder::init()
     ->basicAuthUsername('tester')
     ->basicAuthPassword('Test@522')
     ->expands('changelogs,tags')
-    ->format(FormatEnum::APIDEFAULT)
     ->isActive(true)
     ->locationId('11e95f8ec39de8fbdb0a4f1a')
     ->onCreate(true)
@@ -662,26 +665,27 @@ $body = V1WebhooksTransactionRequest1Builder::init()
     ->legacy(true)
     ->postbackConfigId('11e95f8ec39de8fbdb0a4f1a')
     ->productTransactionId('11e95f8ec39de8fbdb0a4f1a')
-    ->resource(Resource12Enum::CONTACT)
     ->numberOfAttempts(1)
     ->url('https://127.0.0.1/receiver')
     ->build();
 
 $webhooksController = $client->getWebhooksController();
+$apiResponse = $webhooksController->updatetransactionpostbackconfig(
+    $webhookId,
+    $body
+);
 
-try {
-    $result = $webhooksController->updateTransactionPostbackConfig(
-        $webhookId,
-        $body
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseWebhook:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -726,6 +730,6 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 

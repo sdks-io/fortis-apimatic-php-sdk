@@ -3,6 +3,8 @@
 
 Transaction Batch Information on `expand`
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `TransactionBatch`
@@ -28,6 +30,7 @@ Transaction Batch Information on `expand`
 | `totalVoidCount` | `?int` | Optional | Total Void Count | getTotalVoidCount(): ?int | setTotalVoidCount(?int totalVoidCount): void |
 | `totalBlindRefundAmount` | `?int` | Optional | Total Blind Refund Amount | getTotalBlindRefundAmount(): ?int | setTotalBlindRefundAmount(?int totalBlindRefundAmount): void |
 | `totalBlindRefundCount` | `?int` | Optional | Total Blind Refund Count | getTotalBlindRefundCount(): ?int | setTotalBlindRefundCount(?int totalBlindRefundCount): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -49,7 +52,11 @@ Transaction Batch Information on `expand`
   "total_void_amount": 2342,
   "total_void_count": 17,
   "total_blind_refund_amount": 2342,
-  "total_blind_refund_count": 16
+  "total_blind_refund_count": 16,
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

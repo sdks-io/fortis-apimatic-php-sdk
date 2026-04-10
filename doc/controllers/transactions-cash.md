@@ -19,7 +19,7 @@ $transactionsCashController = $client->getTransactionsCashController();
 Create a new cash refund transaction
 
 ```php
-function cashRefund(V1TransactionsCashRefundRequest $body): ResponseTransaction
+function cashRefund(V1TransactionsCashRefundRequest $body): ApiResponse
 ```
 
 ## Parameters
@@ -30,7 +30,7 @@ function cashRefund(V1TransactionsCashRefundRequest $body): ResponseTransaction
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -45,13 +45,11 @@ $body = V1TransactionsCashRefundRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -85,23 +83,24 @@ $body = V1TransactionsCashRefundRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->previousTransactionId('11e95f8ec39de8fbdb0a4f1a')
     ->accountHolderName('smith')
     ->build();
 
 $transactionsCashController = $client->getTransactionsCashController();
+$apiResponse = $transactionsCashController->cashRefund($body);
 
-try {
-    $result = $transactionsCashController->cashRefund($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -1156,7 +1155,7 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
@@ -1165,7 +1164,7 @@ try {
 Create a new cash sale transaction
 
 ```php
-function cashSale(V1TransactionsCashSaleRequest $body): ResponseTransaction
+function cashSale(V1TransactionsCashSaleRequest $body): ApiResponse
 ```
 
 ## Parameters
@@ -1176,7 +1175,7 @@ function cashSale(V1TransactionsCashSaleRequest $body): ResponseTransaction
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -1191,13 +1190,11 @@ $body = V1TransactionsCashSaleRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -1231,22 +1228,23 @@ $body = V1TransactionsCashSaleRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->accountHolderName('smith')
     ->build();
 
 $transactionsCashController = $client->getTransactionsCashController();
+$apiResponse = $transactionsCashController->cashSale($body);
 
-try {
-    $result = $transactionsCashController->cashSale($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -2301,6 +2299,6 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 

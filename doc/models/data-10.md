@@ -1,6 +1,8 @@
 
 # Data 10
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `Data10`
@@ -13,7 +15,7 @@
 | `createdTs` | `?int` | Optional | Created Time Stamp | getCreatedTs(): ?int | setCreatedTs(?int createdTs): void |
 | `modifiedTs` | `?int` | Optional | Modified Time Stamp | getModifiedTs(): ?int | setModifiedTs(?int modifiedTs): void |
 | `accountNumber` | `?string` | Optional | Account number<br><br>**Constraints**: *Maximum Length*: `32`, *Pattern*: `^[a-zA-Z0-9\-_]+$` | getAccountNumber(): ?string | setAccountNumber(?string accountNumber): void |
-| `address` | [`?Address1`](../../doc/models/address-1.md) | Optional | Address | getAddress(): ?Address1 | setAddress(?Address1 address): void |
+| `address` | [`?Address6`](../../doc/models/address-6.md) | Optional | - | getAddress(): ?Address6 | setAddress(?Address6 address): void |
 | `brandingDomainId` | `?string` | Optional | GUID for Branding Domain<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` | getBrandingDomainId(): ?string | setBrandingDomainId(?string brandingDomainId): void |
 | `contactEmailTrxReceiptDefault` | `?bool` | Optional | If true, will email contact receipt for any transaction | getContactEmailTrxReceiptDefault(): ?bool | setContactEmailTrxReceiptDefault(?bool contactEmailTrxReceiptDefault): void |
 | `defaultAch` | `?string` | Optional | GUID for Location's default ACH Product Transaction<br><br>**Constraints**: *Minimum Length*: `24`, *Maximum Length*: `36` | getDefaultAch(): ?string | setDefaultAch(?string defaultAch): void |
@@ -33,29 +35,30 @@
 | `showContactNotes` | `?bool` | Optional | If set to true will show 'Notes' tab on Contact | getShowContactNotes(): ?bool | setShowContactNotes(?bool showContactNotes): void |
 | `showContactFiles` | `?bool` | Optional | If set to true will show 'Files' tab on Contact | getShowContactFiles(): ?bool | setShowContactFiles(?bool showContactFiles): void |
 | `createdUserId` | `?string` | Optional | User ID Created the register<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` | getCreatedUserId(): ?string | setCreatedUserId(?string createdUserId): void |
-| `locationType` | [`?string(LocationTypeEnum)`](../../doc/models/location-type-enum.md) | Optional | Location Type | getLocationType(): ?string | setLocationType(?string locationType): void |
+| `locationType` | `?array` | Optional | - | getLocationType(): ?array | setLocationType(?array locationType): void |
 | `parentName` | `?string` | Optional | Name of the parent location | getParentName(): ?string | setParentName(?string parentName): void |
 | `ticketHashKey` | `?string` | Optional | Ticket Hash Key<br><br>**Constraints**: *Maximum Length*: `36` | getTicketHashKey(): ?string | setTicketHashKey(?string ticketHashKey): void |
 | `additionalAccess` | [`?AdditionalAccess`](../../doc/models/additional-access.md) | Optional | - | getAdditionalAccess(): ?AdditionalAccess | setAdditionalAccess(?AdditionalAccess additionalAccess): void |
-| `parent` | [`?Parent3`](../../doc/models/parent-3.md) | Optional | Parent Information on `expand` | getParent(): ?Parent3 | setParent(?Parent3 parent): void |
+| `parent` | [`?AccountVaultCauProductTransaction`](../../doc/models/account-vault-cau-product-transaction.md) | Optional | - | getParent(): ?AccountVaultCauProductTransaction | setParent(?AccountVaultCauProductTransaction parent): void |
 | `users` | [`?(User9[])`](../../doc/models/user-9.md) | Optional | User Information on `expand` | getUsers(): ?array | setUsers(?array users): void |
 | `isDeletable` | `?bool` | Optional | Is Deletable Information on `expand` | getIsDeletable(): ?bool | setIsDeletable(?bool isDeletable): void |
 | `terminals` | [`?(Terminal2[])`](../../doc/models/terminal-2.md) | Optional | Terminal Information on `expand` | getTerminals(): ?array | setTerminals(?array terminals): void |
-| `brandingDomain` | [`?BrandingDomain1`](../../doc/models/branding-domain-1.md) | Optional | Branding Domain Information on `expand` | getBrandingDomain(): ?BrandingDomain1 | setBrandingDomain(?BrandingDomain1 brandingDomain): void |
-| `productInvoice` | [`?ProductInvoice`](../../doc/models/product-invoice.md) | Optional | Product Invoice Information on `expand` | getProductInvoice(): ?ProductInvoice | setProductInvoice(?ProductInvoice productInvoice): void |
+| `brandingDomain` | [`?BrandingDomain2`](../../doc/models/branding-domain-2.md) | Optional | - | getBrandingDomain(): ?BrandingDomain2 | setBrandingDomain(?BrandingDomain2 brandingDomain): void |
+| `productInvoice` | [`?ProductInvoice1`](../../doc/models/product-invoice-1.md) | Optional | - | getProductInvoice(): ?ProductInvoice1 | setProductInvoice(?ProductInvoice1 productInvoice): void |
 | `productFiles` | [`?(ProductFile1[])`](../../doc/models/product-file-1.md) | Optional | Product File Information on `expand` | getProductFiles(): ?array | setProductFiles(?array productFiles): void |
-| `createdUser` | [`?CreatedUser`](../../doc/models/created-user.md) | Optional | User Information on `expand` | getCreatedUser(): ?CreatedUser | setCreatedUser(?CreatedUser createdUser): void |
+| `createdUser` | [`?User9`](../../doc/models/user-9.md) | Optional | - | getCreatedUser(): ?User9 | setCreatedUser(?User9 createdUser): void |
 | `changelogs` | [`?(Changelog[])`](../../doc/models/changelog.md) | Optional | Changelog Information on `expand` | getChangelogs(): ?array | setChangelogs(?array changelogs): void |
 | `productTransactions` | [`?(ProductTransaction1[])`](../../doc/models/product-transaction-1.md) | Optional | Product Transaction Information on `expand` | getProductTransactions(): ?array | setProductTransactions(?array productTransactions): void |
 | `terminalRouters` | [`?(TerminalRouter[])`](../../doc/models/terminal-router.md) | Optional | Terminal Router Information on `expand` | getTerminalRouters(): ?array | setTerminalRouters(?array terminalRouters): void |
-| `developerCompany` | [`?DeveloperCompany`](../../doc/models/developer-company.md) | Optional | Developer Company Information on `expand` | getDeveloperCompany(): ?DeveloperCompany | setDeveloperCompany(?DeveloperCompany developerCompany): void |
+| `developerCompany` | [`?DeveloperCompany1`](../../doc/models/developer-company-1.md) | Optional | - | getDeveloperCompany(): ?DeveloperCompany1 | setDeveloperCompany(?DeveloperCompany1 developerCompany): void |
 | `developerCompanyId` | `?string` | Optional | Developer Company Id Information on `expand` | getDeveloperCompanyId(): ?string | setDeveloperCompanyId(?string developerCompanyId): void |
 | `helppages` | [`?(Helppage[])`](../../doc/models/helppage.md) | Optional | Helppage Information on `expand` | getHelppages(): ?array | setHelppages(?array helppages): void |
-| `quickInvoiceSetting` | [`?QuickInvoiceSetting`](../../doc/models/quick-invoice-setting.md) | Optional | Quick Invoice Setting Information on `expand` | getQuickInvoiceSetting(): ?QuickInvoiceSetting | setQuickInvoiceSetting(?QuickInvoiceSetting quickInvoiceSetting): void |
+| `quickInvoiceSetting` | [`?QuickInvoiceSetting1`](../../doc/models/quick-invoice-setting-1.md) | Optional | - | getQuickInvoiceSetting(): ?QuickInvoiceSetting1 | setQuickInvoiceSetting(?QuickInvoiceSetting1 quickInvoiceSetting): void |
 | `locationBillingAccounts` | [`?(LocationBillingAccount[])`](../../doc/models/location-billing-account.md) | Optional | Location Billing Account Information on `expand` | getLocationBillingAccounts(): ?array | setLocationBillingAccounts(?array locationBillingAccounts): void |
 | `marketplaces` | [`?(Marketplace[])`](../../doc/models/marketplace.md) | Optional | Marketplace Information on `expand` | getMarketplaces(): ?array | setMarketplaces(?array marketplaces): void |
 | `locationmarketplaces` | [`?(Locationmarketplace[])`](../../doc/models/locationmarketplace.md) | Optional | Locationmarketplaces Information on `expand` | getLocationmarketplaces(): ?array | setLocationmarketplaces(?array locationmarketplaces): void |
 | `addons` | [`?(Addon[])`](../../doc/models/addon.md) | Optional | Addons Information on `expand` | getAddons(): ?array | setAddons(?array addons): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -84,7 +87,6 @@
   "show_contact_notes": true,
   "show_contact_files": true,
   "created_user_id": "11e95f8ec39de8fbdb0a4f1a",
-  "location_type": "merchant",
   "ticket_hash_key": "A5F443CADF4AE34BBCAADF4",
   "is_deletable": true,
   "developer_company_id": "sample developer company id",
@@ -92,8 +94,19 @@
     "city": "city6",
     "state": "state2",
     "postal_code": "postal_code8",
-    "country": "US",
-    "street": "street6"
+    "country": {
+      "key1": "val1",
+      "key2": "val2"
+    },
+    "street": "street6",
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
+  },
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
   }
 }
 ```

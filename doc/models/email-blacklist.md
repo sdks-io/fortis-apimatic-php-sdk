@@ -3,6 +3,8 @@
 
 Email Blacklist Information on `expand`
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `EmailBlacklist`
@@ -15,6 +17,7 @@ Email Blacklist Information on `expand`
 | `isBlacklisted` | `?bool` | Optional | isBlacklisted | getIsBlacklisted(): ?bool | setIsBlacklisted(?bool isBlacklisted): void |
 | `detail` | `?bool` | Optional | Contact Id | getDetail(): ?bool | setDetail(?bool detail): void |
 | `createdTs` | `?int` | Optional | Created Time Stamp | getCreatedTs(): ?int | setCreatedTs(?int createdTs): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -23,7 +26,11 @@ Email Blacklist Information on `expand`
   "id": "11e95f8ec39de8fbdb0a4f1a",
   "isBlacklisted": true,
   "detail": true,
-  "created_ts": 1422040992
+  "created_ts": 1422040992,
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

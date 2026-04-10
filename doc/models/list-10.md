@@ -1,6 +1,8 @@
 
 # List 10
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `List10`
@@ -31,8 +33,8 @@
 | `itemFooter` | `?string` | Optional | Item footer<br><br>**Constraints**: *Maximum Length*: `250` | getItemFooter(): ?string | setItemFooter(?string itemFooter): void |
 | `amountDue` | `?float` | Optional | Amount Due | getAmountDue(): ?float | setAmountDue(?float amountDue): void |
 | `notificationEmail` | `?string` | Optional | Notification email<br><br>**Constraints**: *Maximum Length*: `640` | getNotificationEmail(): ?string | setNotificationEmail(?string notificationEmail): void |
-| `statusId` | [`?int(StatusIdEnum)`](../../doc/models/status-id-enum.md) | Optional | (DEPRECATED) Status Id | getStatusId(): ?int | setStatusId(?int statusId): void |
-| `statusCode` | [`?int(StatusCode14Enum)`](../../doc/models/status-code-14-enum.md) | Optional | Status Code | getStatusCode(): ?int | setStatusCode(?int statusCode): void |
+| `statusId` | `?array` | Optional | - | getStatusId(): ?array | setStatusId(?array statusId): void |
+| `statusCode` | `?array` | Optional | - | getStatusCode(): ?array | setStatusCode(?array statusCode): void |
 | `note` | `?string` | Optional | Note<br><br>**Constraints**: *Maximum Length*: `200` | getNote(): ?string | setNote(?string note): void |
 | `notificationDaysBeforeDueDate` | `?int` | Optional | Notification days before due date<br><br>**Constraints**: `>= 0`, `<= 99` | getNotificationDaysBeforeDueDate(): ?int | setNotificationDaysBeforeDueDate(?int notificationDaysBeforeDueDate): void |
 | `notificationDaysAfterDueDate` | `?int` | Optional | Notification days after due date<br><br>**Constraints**: `>= 0`, `<= 99` | getNotificationDaysAfterDueDate(): ?int | setNotificationDaysAfterDueDate(?int notificationDaysAfterDueDate): void |
@@ -56,21 +58,22 @@
 | `active` | `?bool` | Optional | Active status | getActive(): ?bool | setActive(?bool active): void |
 | `paymentStatusId` | `?int` | Optional | Payment Status Id<br><br>**Constraints**: `>= 1`, `<= 3` | getPaymentStatusId(): ?int | setPaymentStatusId(?int paymentStatusId): void |
 | `isActive` | `?bool` | Optional | Register is active | getIsActive(): ?bool | setIsActive(?bool isActive): void |
-| `quickInvoiceSetting` | [`?QuickInvoiceSetting`](../../doc/models/quick-invoice-setting.md) | Optional | Quick Invoice Setting Information on `expand` | getQuickInvoiceSetting(): ?QuickInvoiceSetting | setQuickInvoiceSetting(?QuickInvoiceSetting quickInvoiceSetting): void |
+| `quickInvoiceSetting` | [`?QuickInvoiceSetting1`](../../doc/models/quick-invoice-setting-1.md) | Optional | - | getQuickInvoiceSetting(): ?QuickInvoiceSetting1 | setQuickInvoiceSetting(?QuickInvoiceSetting1 quickInvoiceSetting): void |
 | `quickInvoiceViews` | [`?(QuickInvoiceView[])`](../../doc/models/quick-invoice-view.md) | Optional | Quick Invoice View Information on `expand` | getQuickInvoiceViews(): ?array | setQuickInvoiceViews(?array quickInvoiceViews): void |
-| `location` | [`?Location`](../../doc/models/location.md) | Optional | Location Information on `expand` | getLocation(): ?Location | setLocation(?Location location): void |
-| `createdUser` | [`?CreatedUser`](../../doc/models/created-user.md) | Optional | User Information on `expand` | getCreatedUser(): ?CreatedUser | setCreatedUser(?CreatedUser createdUser): void |
-| `modifiedUser` | [`?ModifiedUser`](../../doc/models/modified-user.md) | Optional | Modified User Information on `expand` | getModifiedUser(): ?ModifiedUser | setModifiedUser(?ModifiedUser modifiedUser): void |
+| `location` | [`?Location18`](../../doc/models/location-18.md) | Optional | - | getLocation(): ?Location18 | setLocation(?Location18 location): void |
+| `createdUser` | [`?User9`](../../doc/models/user-9.md) | Optional | - | getCreatedUser(): ?User9 | setCreatedUser(?User9 createdUser): void |
+| `modifiedUser` | [`?User9`](../../doc/models/user-9.md) | Optional | - | getModifiedUser(): ?User9 | setModifiedUser(?User9 modifiedUser): void |
 | `changelogs` | [`?(Changelog[])`](../../doc/models/changelog.md) | Optional | Changelog Information on `expand` | getChangelogs(): ?array | setChangelogs(?array changelogs): void |
-| `contact` | [`?Contact1`](../../doc/models/contact-1.md) | Optional | Contact Information on `expand` | getContact(): ?Contact1 | setContact(?Contact1 contact): void |
+| `contact` | [`?Contact3`](../../doc/models/contact-3.md) | Optional | - | getContact(): ?Contact3 | setContact(?Contact3 contact): void |
 | `logEmails` | [`?(LogEmail[])`](../../doc/models/log-email.md) | Optional | Log Email Information on `expand` | getLogEmails(): ?array | setLogEmails(?array logEmails): void |
-| `logSms` | [`?LogSms`](../../doc/models/log-sms.md) | Optional | Log Sms Information on `expand` | getLogSms(): ?LogSms | setLogSms(?LogSms logSms): void |
+| `logSms` | [`?LogSms1`](../../doc/models/log-sms-1.md) | Optional | - | getLogSms(): ?LogSms1 | setLogSms(?LogSms1 logSms): void |
 | `transactions` | [`?(Transaction[])`](../../doc/models/transaction.md) | Optional | Transaction Information on `expand` | getTransactions(): ?array | setTransactions(?array transactions): void |
-| `ccProductTransaction` | [`?CcProductTransaction`](../../doc/models/cc-product-transaction.md) | Optional | Cc Product Transaction Information on `expand` | getCcProductTransaction(): ?CcProductTransaction | setCcProductTransaction(?CcProductTransaction ccProductTransaction): void |
-| `achProductTransaction` | [`?AchProductTransaction`](../../doc/models/ach-product-transaction.md) | Optional | Ach Product Transaction Information on `expand` | getAchProductTransaction(): ?AchProductTransaction | setAchProductTransaction(?AchProductTransaction achProductTransaction): void |
-| `emailBlacklist` | [`?EmailBlacklist`](../../doc/models/email-blacklist.md) | Optional | Email Blacklist Information on `expand` | getEmailBlacklist(): ?EmailBlacklist | setEmailBlacklist(?EmailBlacklist emailBlacklist): void |
-| `smsBlacklist` | [`?SmsBlacklist`](../../doc/models/sms-blacklist.md) | Optional | Sms Blacklist Information on `expand` | getSmsBlacklist(): ?SmsBlacklist | setSmsBlacklist(?SmsBlacklist smsBlacklist): void |
+| `ccProductTransaction` | [`?ProductTransaction1`](../../doc/models/product-transaction-1.md) | Optional | - | getCcProductTransaction(): ?ProductTransaction1 | setCcProductTransaction(?ProductTransaction1 ccProductTransaction): void |
+| `achProductTransaction` | [`?ProductTransaction1`](../../doc/models/product-transaction-1.md) | Optional | - | getAchProductTransaction(): ?ProductTransaction1 | setAchProductTransaction(?ProductTransaction1 achProductTransaction): void |
+| `emailBlacklist` | [`?EmailBlacklist1`](../../doc/models/email-blacklist-1.md) | Optional | - | getEmailBlacklist(): ?EmailBlacklist1 | setEmailBlacklist(?EmailBlacklist1 emailBlacklist): void |
+| `smsBlacklist` | [`?SmsBlacklist1`](../../doc/models/sms-blacklist-1.md) | Optional | - | getSmsBlacklist(): ?SmsBlacklist1 | setSmsBlacklist(?SmsBlacklist1 smsBlacklist): void |
 | `paymentUrl` | `?string` | Optional | Payment Url Information on `expand` | getPaymentUrl(): ?string | setPaymentUrl(?string paymentUrl): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -97,8 +100,6 @@
   "item_footer": "Thank you",
   "amount_due": 245.36,
   "notification_email": "email@domain.com",
-  "status_id": 1,
-  "status_code": 1,
   "note": "some note",
   "notification_days_before_due_date": 3,
   "notification_days_after_due_date": 7,
@@ -119,7 +120,11 @@
   "modified_user_id": "11e95f8ec39de8fbdb0a4f1a",
   "active": true,
   "payment_status_id": 1,
-  "is_active": true
+  "is_active": true,
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

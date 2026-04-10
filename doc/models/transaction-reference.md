@@ -1,6 +1,8 @@
 
 # Transaction Reference
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `TransactionReference`
@@ -18,6 +20,7 @@
 | `referenceType` | `?string` | Optional | Reference Type | getReferenceType(): ?string | setReferenceType(?string referenceType): void |
 | `createdTs` | `?int` | Optional | Created Time Stamp | getCreatedTs(): ?int | setCreatedTs(?int createdTs): void |
 | `createdUserId` | `?string` | Optional | User ID Created the register<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` | getCreatedUserId(): ?string | setCreatedUserId(?string createdUserId): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -29,7 +32,11 @@
   "transaction_id": "transaction_id2",
   "previous_transaction_id": "previous_transaction_id8",
   "transaction_amount": 188,
-  "previous_transaction_amount": 176
+  "previous_transaction_amount": 176,
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

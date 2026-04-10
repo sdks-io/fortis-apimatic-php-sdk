@@ -1,12 +1,12 @@
 # 3 DS Authentication
 
 ```php
-$m3DSAuthenticationController = $client->getM3DSAuthenticationController();
+$m3DsAuthenticationController = $client->getM3DsAuthenticationController();
 ```
 
 ## Class Name
 
-`M3DSAuthenticationController`
+`M3DsAuthenticationController`
 
 
 # 3 DS Authentication Request
@@ -14,9 +14,7 @@ $m3DSAuthenticationController = $client->getM3DSAuthenticationController();
 Makes a 3DS Authentication request to authenticate a card or begin the challenge flow.  If a challenge is required, a POST should be made to acs_url using the value of base64_encoded_challenge_request for the value of "creq" using x-www-form-urlencoded for the challenge request to the ACS.
 
 ```php
-function m3DSAuthenticationRequest(
-    V1MerchantThreedsecureAuthenticationRequest $body
-): ResponseThreeDSAuthentication
+function m3DsAuthenticationRequest(V1MerchantThreedsecureAuthenticationRequest $body): ApiResponse
 ```
 
 ## Parameters
@@ -27,50 +25,49 @@ function m3DSAuthenticationRequest(
 
 ## Response Type
 
-[`ResponseThreeDSAuthentication`](../../doc/models/response-three-ds-authentication.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseThreeDsAuthentication`](../../doc/models/response-three-ds-authentication.md).
 
 ## Example Usage
 
 ```php
 $body = V1MerchantThreedsecureAuthenticationRequestBuilder::init(
     '11ee3860e2fc7f5ea67d36b3',
-    DeviceChannelEnum::ENUM_02,
-    MessageCategoryEnum::ENUM_01,
-    ThreeDsRequestorBuilder::init(
-        ThreeDsRequestorAuthenticationIndEnum::ENUM_01
+    DeviceChannel::ENUM_02,
+    MessageCategory::ENUM_82,
+    ThreeDsRequestor1Builder::init(
+        ThreeDsRequestorAuthenticationInd::ENUM_90
     )
         ->threeDsRequestorChallengeInd(
             [
-                ThreeDsRequestorChallengeIndEnum::ENUM_03
+                ThreeDsRequestorChallengeInd::ENUM_03
             ]
         )
         ->build(),
-    CardholderAccountBuilder::init(
+    CardholderAccount1Builder::init(
         '5454545454545454',
-        SchemeIdEnum::VISA
+        SchemeId::VISA
     )
         ->expireDate('2508')
         ->build()
 )
-    ->preferredProtocolVersion(PreferredProtocolVersionEnum::ENUM_220)
     ->enforcePreferredProtocolVersion(true)
     ->threeDsCompInd('Y')
     ->build();
 
-$m3DSAuthenticationController = $client->getM3DSAuthenticationController();
+$m3DsAuthenticationController = $client->getM3DsAuthenticationController();
+$apiResponse = $m3DsAuthenticationController->m3DsAuthenticationRequest($body);
 
-try {
-    $result = $m3DSAuthenticationController->m3DSAuthenticationRequest($body);
-    echo 'ResponseThreeDSAuthentication:';
-    var_dump($result);
-} catch (ResponseErrorException $exp) {
-    echo 'Caught ResponseErrorException:', $exp;
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
+    echo 'ResponseThreeDsAuthentication:';
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -97,7 +94,7 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request | [`ResponseErrorException`](../../doc/models/response-error-exception.md) |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 400 | Bad Request | [`V1MerchantThreedsecureAuthentication400ErrorException`](../../doc/models/v1-merchant-threedsecure-authentication-400-error-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 

@@ -3,6 +3,8 @@
 
 The Location.
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `Location5`
@@ -17,6 +19,7 @@ The Location.
 | `stateProvince` | `?string` | Optional | Merchant's business two-digit state or province code.<br><br>**Constraints**: *Maximum Length*: `2` | getStateProvince(): ?string | setStateProvince(?string stateProvince): void |
 | `postalCode` | `?string` | Optional | Merchant's business postal code.<br><br>**Constraints**: *Maximum Length*: `10` | getPostalCode(): ?string | setPostalCode(?string postalCode): void |
 | `phoneNumber` | `?string` | Optional | Merchant's business phone number.<br><br>**Constraints**: *Maximum Length*: `20` | getPhoneNumber(): ?string | setPhoneNumber(?string phoneNumber): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -27,7 +30,11 @@ The Location.
   "city": "Dover",
   "state_province": "DE",
   "postal_code": "55022",
-  "phone_number": "555-555-1212"
+  "phone_number": "555-555-1212",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

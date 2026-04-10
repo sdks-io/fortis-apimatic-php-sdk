@@ -10,19 +10,19 @@ $level3DataController = $client->getLevel3DataController();
 
 ## Methods
 
-* [Create a New Level 3 Entry for a Master Card](../../doc/controllers/level-3-data.md#create-a-new-level-3-entry-for-a-master-card)
-* [Create a New Level 3 Entry for a Visa](../../doc/controllers/level-3-data.md#create-a-new-level-3-entry-for-a-visa)
-* [Delete a Single Level 3 Record](../../doc/controllers/level-3-data.md#delete-a-single-level-3-record)
-* [View Single Level 3 Record](../../doc/controllers/level-3-data.md#view-single-level-3-record)
+* [Createanew Level 3 Entryfora Master Card](../../doc/controllers/level-3-data.md#createanew-level-3-entryfora-master-card)
+* [Createanew Level 3 Entryfora Visa](../../doc/controllers/level-3-data.md#createanew-level-3-entryfora-visa)
+* [Deleteasinglelevel 3 Record](../../doc/controllers/level-3-data.md#deleteasinglelevel-3-record)
+* [Viewsinglelevel 3 Record](../../doc/controllers/level-3-data.md#viewsinglelevel-3-record)
 
 
-# Create a New Level 3 Entry for a Master Card
+# Createanew Level 3 Entryfora Master Card
 
 ```php
-function createANewLevel3EntryForAMasterCard(
+function createanewLevel3EntryforaMasterCard(
     string $transactionId,
     V1TransactionsLevel3MasterCardRequest $body
-): ResponseTransactionLevel3Master
+): ApiResponse
 ```
 
 ## Parameters
@@ -34,7 +34,7 @@ function createANewLevel3EntryForAMasterCard(
 
 ## Response Type
 
-[`ResponseTransactionLevel3Master`](../../doc/models/response-transaction-level-3-master.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransactionLevel3Master`](../../doc/models/response-transaction-level-3-master.md).
 
 ## Example Usage
 
@@ -42,7 +42,7 @@ function createANewLevel3EntryForAMasterCard(
 $transactionId = '11e95f8ec39de8fbdb0a4f1a';
 
 $body = V1TransactionsLevel3MasterCardRequestBuilder::init(
-    Level3Data5Builder::init(
+    Level3Data3Builder::init(
         [
             LineItem19Builder::init(
                 'cool drink',
@@ -51,7 +51,6 @@ $body = V1TransactionsLevel3MasterCardRequestBuilder::init(
                 10
             )
                 ->alternateTaxId('1234')
-                ->debitCredit(DebitCreditEnum::C)
                 ->discountAmount(10)
                 ->discountRate(11)
                 ->quantity(5)
@@ -70,25 +69,26 @@ $body = V1TransactionsLevel3MasterCardRequestBuilder::init(
         ->shipfromZipCode('AZ12345')
         ->shiptoZipCode('MI48335')
         ->taxAmount(0)
-        ->taxExempt(TaxExemptEnum::ENUM_0)
         ->build()
 )->build();
 
 $level3DataController = $client->getLevel3DataController();
+$apiResponse = $level3DataController->createanewLevel3EntryforaMasterCard(
+    $transactionId,
+    $body
+);
 
-try {
-    $result = $level3DataController->createANewLevel3EntryForAMasterCard(
-        $transactionId,
-        $body
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransactionLevel3Master:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -144,17 +144,17 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# Create a New Level 3 Entry for a Visa
+# Createanew Level 3 Entryfora Visa
 
 ```php
-function createANewLevel3EntryForAVisa(
+function createanewLevel3EntryforaVisa(
     string $transactionId,
     V1TransactionsLevel3VisaRequest $body
-): ResponseTransactionLevel3Visa
+): ApiResponse
 ```
 
 ## Parameters
@@ -166,7 +166,7 @@ function createANewLevel3EntryForAVisa(
 
 ## Response Type
 
-[`ResponseTransactionLevel3Visa`](../../doc/models/response-transaction-level-3-visa.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransactionLevel3Visa`](../../doc/models/response-transaction-level-3-visa.md).
 
 ## Example Usage
 
@@ -174,7 +174,7 @@ function createANewLevel3EntryForAVisa(
 $transactionId = '11e95f8ec39de8fbdb0a4f1a';
 
 $body = V1TransactionsLevel3VisaRequestBuilder::init(
-    Level3Data6Builder::init(
+    Level3Data4Builder::init(
         [
             LineItem20Builder::init(
                 'cool drink',
@@ -199,7 +199,6 @@ $body = V1TransactionsLevel3VisaRequestBuilder::init(
         ->shipfromZipCode('AZ1234')
         ->shiptoZipCode('FL1234')
         ->taxAmount(10)
-        ->taxExempt(TaxExemptEnum::ENUM_0)
         ->customerVatRegistration('12345678')
         ->merchantVatRegistration('123456')
         ->orderDate('171006')
@@ -210,20 +209,22 @@ $body = V1TransactionsLevel3VisaRequestBuilder::init(
 )->build();
 
 $level3DataController = $client->getLevel3DataController();
+$apiResponse = $level3DataController->createanewLevel3EntryforaVisa(
+    $transactionId,
+    $body
+);
 
-try {
-    $result = $level3DataController->createANewLevel3EntryForAVisa(
-        $transactionId,
-        $body
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransactionLevel3Visa:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -279,14 +280,14 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# Delete a Single Level 3 Record
+# Deleteasinglelevel 3 Record
 
 ```php
-function deleteASingleLevel3Record(string $transactionId, string $level3Id): ResponseTransactionLevel3
+function deleteasinglelevel3Record(string $transactionId, string $level3Id): ApiResponse
 ```
 
 ## Parameters
@@ -298,7 +299,7 @@ function deleteASingleLevel3Record(string $transactionId, string $level3Id): Res
 
 ## Response Type
 
-[`ResponseTransactionLevel3`](../../doc/models/response-transaction-level-3.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransactionLevel3`](../../doc/models/response-transaction-level-3.md).
 
 ## Example Usage
 
@@ -308,18 +309,22 @@ $transactionId = '11e95f8ec39de8fbdb0a4f1a';
 $level3Id = '11e95f8ec39de8fbdb0a4f1a';
 
 $level3DataController = $client->getLevel3DataController();
+$apiResponse = $level3DataController->deleteasinglelevel3Record(
+    $transactionId,
+    $level3Id
+);
 
-try {
-    $result = $level3DataController->deleteASingleLevel3Record(
-        $transactionId,
-        $level3Id
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransactionLevel3:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -375,13 +380,13 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# View Single Level 3 Record
+# Viewsinglelevel 3 Record
 
 ```php
-function viewSingleLevel3Record(string $transactionId, string $level3Id): ResponseTransactionLevel3
+function viewsinglelevel3Record(string $transactionId, string $level3Id): ApiResponse
 ```
 
 ## Parameters
@@ -393,7 +398,7 @@ function viewSingleLevel3Record(string $transactionId, string $level3Id): Respon
 
 ## Response Type
 
-[`ResponseTransactionLevel3`](../../doc/models/response-transaction-level-3.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransactionLevel3`](../../doc/models/response-transaction-level-3.md).
 
 ## Example Usage
 
@@ -403,18 +408,22 @@ $transactionId = '11e95f8ec39de8fbdb0a4f1a';
 $level3Id = '11e95f8ec39de8fbdb0a4f1a';
 
 $level3DataController = $client->getLevel3DataController();
+$apiResponse = $level3DataController->viewsinglelevel3Record(
+    $transactionId,
+    $level3Id
+);
 
-try {
-    $result = $level3DataController->viewSingleLevel3Record(
-        $transactionId,
-        $level3Id
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransactionLevel3:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -470,5 +479,5 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 

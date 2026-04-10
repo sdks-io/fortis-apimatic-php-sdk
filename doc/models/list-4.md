@@ -1,6 +1,8 @@
 
 # List 4
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `List4`
@@ -16,15 +18,16 @@
 | `termsConditions` | `?string` | Optional | This is the message that is displayed on the screen when prompting for a signature.<br><br>**Constraints**: *Maximum Length*: `4096` | getTermsConditions(): ?string | setTermsConditions(?string termsConditions): void |
 | `id` | `?string` | Optional | Device term ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` | getId(): ?string | setId(?string id): void |
 | `reasonCodeId` | `?int` | Optional | Reason code ID | getReasonCodeId(): ?int | setReasonCodeId(?int reasonCodeId): void |
-| `signature` | [`?Signature`](../../doc/models/signature.md) | Optional | Signature Information on `expand` | getSignature(): ?Signature | setSignature(?Signature signature): void |
+| `signature` | [`?Signature1`](../../doc/models/signature-1.md) | Optional | - | getSignature(): ?Signature1 | setSignature(?Signature1 signature): void |
 | `createdTs` | `?int` | Optional | Created Time Stamp | getCreatedTs(): ?int | setCreatedTs(?int createdTs): void |
 | `modifiedTs` | `?int` | Optional | Modified Time Stamp | getModifiedTs(): ?int | setModifiedTs(?int modifiedTs): void |
 | `createdUserId` | `?string` | Optional | System generated id for user who created record<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` | getCreatedUserId(): ?string | setCreatedUserId(?string createdUserId): void |
-| `createdUser` | [`?CreatedUser`](../../doc/models/created-user.md) | Optional | User Information on `expand` | getCreatedUser(): ?CreatedUser | setCreatedUser(?CreatedUser createdUser): void |
-| `location` | [`?Location`](../../doc/models/location.md) | Optional | Location Information on `expand` | getLocation(): ?Location | setLocation(?Location location): void |
-| `terminal` | [`?Terminal`](../../doc/models/terminal.md) | Optional | Terminal Information on `expand` | getTerminal(): ?Terminal | setTerminal(?Terminal terminal): void |
+| `createdUser` | [`?User9`](../../doc/models/user-9.md) | Optional | - | getCreatedUser(): ?User9 | setCreatedUser(?User9 createdUser): void |
+| `location` | [`?Location18`](../../doc/models/location-18.md) | Optional | - | getLocation(): ?Location18 | setLocation(?Location18 location): void |
+| `terminal` | [`?Terminal2`](../../doc/models/terminal-2.md) | Optional | - | getTerminal(): ?Terminal2 | setTerminal(?Terminal2 terminal): void |
 | `changelogs` | [`?(Changelog[])`](../../doc/models/changelog.md) | Optional | Changelog Information on `expand` | getChangelogs(): ?array | setChangelogs(?array changelogs): void |
-| `reasonCode` | [`?ReasonCode`](../../doc/models/reason-code.md) | Optional | Reason Code Information on `expand` | getReasonCode(): ?ReasonCode | setReasonCode(?ReasonCode reasonCode): void |
+| `reasonCode` | [`?ReasonCode1`](../../doc/models/reason-code-1.md) | Optional | - | getReasonCode(): ?ReasonCode1 | setReasonCode(?ReasonCode1 reasonCode): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -39,7 +42,11 @@
   "reason_code_id": 1000,
   "created_ts": 1422040992,
   "modified_ts": 1422040992,
-  "created_user_id": "11e95f8ec39de8fbdb0a4f1a"
+  "created_user_id": "11e95f8ec39de8fbdb0a4f1a",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

@@ -3,11 +3,11 @@
 
 ## Data Type
 
-`string(Operator1Enum)`
+`string(Operator1)`
 
 ## Cases
 
 | Type |
 |  --- |
-| [`string(Operator1Enum)`](../../../doc/models/operator-1-enum.md) |
+| [`string(Operator1)`](../../../doc/models/operator-1.md) |
 

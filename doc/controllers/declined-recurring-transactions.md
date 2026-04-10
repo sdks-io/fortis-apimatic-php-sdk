@@ -10,20 +10,20 @@ $declinedRecurringTransactionsController = $client->getDeclinedRecurringTransact
 
 ## Methods
 
-* [Get One Declined Recurring Transaction](../../doc/controllers/declined-recurring-transactions.md#get-one-declined-recurring-transaction)
-* [List All Declined Recurring Transactions](../../doc/controllers/declined-recurring-transactions.md#list-all-declined-recurring-transactions)
-* [Create a Payment](../../doc/controllers/declined-recurring-transactions.md#create-a-payment)
-* [Rerun the Transaction](../../doc/controllers/declined-recurring-transactions.md#rerun-the-transaction)
-* [Resend the Transaction](../../doc/controllers/declined-recurring-transactions.md#resend-the-transaction)
+* [Getone Declined Recurring Transaction](../../doc/controllers/declined-recurring-transactions.md#getone-declined-recurring-transaction)
+* [Listall Declined Recurring Transactions](../../doc/controllers/declined-recurring-transactions.md#listall-declined-recurring-transactions)
+* [Createapayment](../../doc/controllers/declined-recurring-transactions.md#createapayment)
+* [Rerunthetransaction](../../doc/controllers/declined-recurring-transactions.md#rerunthetransaction)
+* [Resendthetransaction](../../doc/controllers/declined-recurring-transactions.md#resendthetransaction)
 
 
-# Get One Declined Recurring Transaction
+# Getone Declined Recurring Transaction
 
 ```php
-function getOneDeclinedRecurringTransaction(
+function getoneDeclinedRecurringTransaction(
     string $declinedRecurringTransactionId,
     ?array $expand = null
-): ResponseDeclinedRecurringTransaction
+): ApiResponse
 ```
 
 ## Parameters
@@ -31,11 +31,11 @@ function getOneDeclinedRecurringTransaction(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `declinedRecurringTransactionId` | `string` | Template, Required | Id<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
-| `expand` | [`?(string(Expand5Enum)[])`](../../doc/models/expand-5-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand5)[])`](../../doc/models/expand-5.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseDeclinedRecurringTransaction`](../../doc/models/response-declined-recurring-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseDeclinedRecurringTransaction`](../../doc/models/response-declined-recurring-transaction.md).
 
 ## Example Usage
 
@@ -43,15 +43,19 @@ function getOneDeclinedRecurringTransaction(
 $declinedRecurringTransactionId = '11e95f8ec39de8fbdb0a4f1a';
 
 $declinedRecurringTransactionsController = $client->getDeclinedRecurringTransactionsController();
+$apiResponse = $declinedRecurringTransactionsController->getoneDeclinedRecurringTransaction($declinedRecurringTransactionId);
 
-try {
-    $result = $declinedRecurringTransactionsController->getOneDeclinedRecurringTransaction($declinedRecurringTransactionId);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseDeclinedRecurringTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -76,43 +80,43 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# List All Declined Recurring Transactions
+# Listall Declined Recurring Transactions
 
 ```php
-function listAllDeclinedRecurringTransactions(
-    ?Page $page = null,
+function listallDeclinedRecurringTransactions(
+    ?Page1 $page = null,
     ?array $order = null,
     ?array $filterBy = null,
     ?array $expand = null,
     ?string $format = null,
     ?string $typeahead = null,
     ?array $fields = null
-): ResponseDeclinedRecurringTransactionsCollection
+): ApiResponse
 ```
 
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `page` | [`?Page`](../../doc/models/page.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
+| `page` | [`?Page1`](../../doc/models/page-1.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
 | `order` | [`?(Order21[])`](../../doc/models/order-21.md) | Query, Optional | Criteria used in query string parameters to order results.  Most fields from the endpoint results can be used as a `key`.  Unsupported fields or operators will return a `412`.  Must be encoded, or use syntax that does not require encoding.<br><br>> /endpoint?order[0][key]=created_ts&order[0][operator]=asc<br>> <br>> /endpoint?order=[{ "key": "created_ts", "operator": "asc"}]<br>> <br>> /endpoint?order=[{ "key": "balance", "operator": "desc"},{ "key": "created_ts", "operator": "asc"}]<br><br>**Constraints**: *Minimum Items*: `1` |
 | `filterBy` | [`?(FilterBy[])`](../../doc/models/filter-by.md) | Query, Optional | Filter criteria that can be used in query string parameters.  Most fields from the endpoint results can be used as a `key`.  Unsupported fields or operators will return a `412`. Must be encoded, or use syntax that does not require encoding.<br><br>> ?filter_by[0][key]=first_name&filter_by[0][operator]==&filter_by[0][value]=Steve<br>> <br>> /endpoint?filter_by=[{ "key": "first_name", "operator": "=", "value": "Fred" }]<br>> <br>> /endpoint?filter_by=[{ "key": "account_type", "operator": "=", "value": "VISA" }]<br>> <br>> /endpoint?filter_by=[{ "key": "created_ts", "operator": ">=", "value": "946702799" }, { "key": "created_ts", "operator": "<=", value: "1695061891" }]<br>> <br>> /endpoint?filter_by=[{ "key": "last_name", "operator": "IN", "value": "Williams,Brown,Allman" }]<br><br>**Constraints**: *Minimum Items*: `1` |
-| `expand` | [`?(string(Expand5Enum)[])`](../../doc/models/expand-5-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `format` | [`?string(Format1Enum)`](../../doc/models/format-1-enum.md) | Query, Optional | Reporting format, valid values: csv, tsv |
+| `expand` | [`?(string(Expand5)[])`](../../doc/models/expand-5.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
+| `format` | [`?string(Format1)`](../../doc/models/format-1.md) | Query, Optional | Reporting format, valid values: csv, tsv |
 | `typeahead` | `?string` | Query, Optional | You can use any `field_name` from this endpoint results to order the list using the value provided as filter for the same `field_name`. It will be ordered using the following rules: 1) Exact match, 2) Starts with, 3) Contains.<br><br>> /endpoint?filter={ "field_name": "Value" }&_typeahead=field_name |
-| `fields` | [`?(string(Field30Enum)[])`](../../doc/models/field-30-enum.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
+| `fields` | [`?(string(Field30)[])`](../../doc/models/field-30.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
 
 ## Response Type
 
-[`ResponseDeclinedRecurringTransactionsCollection`](../../doc/models/response-declined-recurring-transactions-collection.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseDeclinedRecurringTransactionsCollection`](../../doc/models/response-declined-recurring-transactions-collection.md).
 
 ## Example Usage
 
 ```php
-$page = PageBuilder::init()
+$page = Page1Builder::init()
     ->number(1)
     ->size(50)
     ->build();
@@ -120,32 +124,36 @@ $page = PageBuilder::init()
 $order = [
     Order21Builder::init(
         'first_name',
-        OperatorEnum::ASC
+        Operator::ASC
     )->build()
 ];
 
 $filterBy = [
     FilterByBuilder::init(
         'first_name',
-        Operator1Enum::ENUM_1,
+        Operator1::ENUM_1,
         'Fred'
     )->build()
 ];
 
 $declinedRecurringTransactionsController = $client->getDeclinedRecurringTransactionsController();
+$apiResponse = $declinedRecurringTransactionsController->listallDeclinedRecurringTransactions(
+    $page,
+    $order,
+    $filterBy
+);
 
-try {
-    $result = $declinedRecurringTransactionsController->listAllDeclinedRecurringTransactions(
-        $page,
-        $order,
-        $filterBy
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseDeclinedRecurringTransactionsCollection:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -195,15 +203,13 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# Create a Payment
+# Createapayment
 
 ```php
-function createAPayment(
-    V1DeclinedRecurringTransactionPaymentsRequest $body
-): ResponseDeclinedRecurringTransactionPayment
+function createapayment(V1DeclinedRecurringTransactionPaymentsRequest $body): ApiResponse
 ```
 
 ## Parameters
@@ -214,7 +220,7 @@ function createAPayment(
 
 ## Response Type
 
-[`ResponseDeclinedRecurringTransactionPayment`](../../doc/models/response-declined-recurring-transaction-payment.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseDeclinedRecurringTransactionPayment`](../../doc/models/response-declined-recurring-transaction-payment.md).
 
 ## Example Usage
 
@@ -233,17 +239,19 @@ $body = V1DeclinedRecurringTransactionPaymentsRequestBuilder::init(
     ->build();
 
 $declinedRecurringTransactionsController = $client->getDeclinedRecurringTransactionsController();
+$apiResponse = $declinedRecurringTransactionsController->createapayment($body);
 
-try {
-    $result = $declinedRecurringTransactionsController->createAPayment($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseDeclinedRecurringTransactionPayment:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -284,17 +292,14 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# Rerun the Transaction
+# Rerunthetransaction
 
 ```php
-function rerunTheTransaction(
-    string $declinedRecurringTransactionId,
-    ?array $expand = null
-): ResponseDeclinedRecurringTransaction
+function rerunthetransaction(string $declinedRecurringTransactionId, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -302,11 +307,11 @@ function rerunTheTransaction(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `declinedRecurringTransactionId` | `string` | Template, Required | Id<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
-| `expand` | [`?(string(Expand5Enum)[])`](../../doc/models/expand-5-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand5)[])`](../../doc/models/expand-5.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseDeclinedRecurringTransaction`](../../doc/models/response-declined-recurring-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseDeclinedRecurringTransaction`](../../doc/models/response-declined-recurring-transaction.md).
 
 ## Example Usage
 
@@ -314,15 +319,19 @@ function rerunTheTransaction(
 $declinedRecurringTransactionId = '11e95f8ec39de8fbdb0a4f1a';
 
 $declinedRecurringTransactionsController = $client->getDeclinedRecurringTransactionsController();
+$apiResponse = $declinedRecurringTransactionsController->rerunthetransaction($declinedRecurringTransactionId);
 
-try {
-    $result = $declinedRecurringTransactionsController->rerunTheTransaction($declinedRecurringTransactionId);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseDeclinedRecurringTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -347,15 +356,13 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# Resend the Transaction
+# Resendthetransaction
 
 ```php
-function resendTheTransaction(
-    string $declinedRecurringTransactionId
-): ResponseDeclinedRecurringTransactionResend
+function resendthetransaction(string $declinedRecurringTransactionId): ApiResponse
 ```
 
 ## Parameters
@@ -366,7 +373,7 @@ function resendTheTransaction(
 
 ## Response Type
 
-[`ResponseDeclinedRecurringTransactionResend`](../../doc/models/response-declined-recurring-transaction-resend.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseDeclinedRecurringTransactionResend`](../../doc/models/response-declined-recurring-transaction-resend.md).
 
 ## Example Usage
 
@@ -374,15 +381,19 @@ function resendTheTransaction(
 $declinedRecurringTransactionId = '11e95f8ec39de8fbdb0a4f1a';
 
 $declinedRecurringTransactionsController = $client->getDeclinedRecurringTransactionsController();
+$apiResponse = $declinedRecurringTransactionsController->resendthetransaction($declinedRecurringTransactionId);
 
-try {
-    $result = $declinedRecurringTransactionsController->resendTheTransaction($declinedRecurringTransactionId);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseDeclinedRecurringTransactionResend:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -403,5 +414,5 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 

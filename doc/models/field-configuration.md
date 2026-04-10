@@ -3,6 +3,8 @@
 
 field_configuration
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `FieldConfiguration`
@@ -12,22 +14,27 @@ field_configuration
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `cssMini` | `?bool` | Optional | CSS Mini | getCssMini(): ?bool | setCssMini(?bool cssMini): void |
-| `stack` | [`?string(StackEnum)`](../../doc/models/stack-enum.md) | Optional | Stack | getStack(): ?string | setStack(?string stack): void |
-| `header` | [`?Header`](../../doc/models/header.md) | Optional | Header | getHeader(): ?Header | setHeader(?Header header): void |
-| `body` | [`?Body`](../../doc/models/body.md) | Optional | Body | getBody(): ?Body | setBody(?Body body): void |
-| `footer` | [`?Footer`](../../doc/models/footer.md) | Optional | Footer | getFooter(): ?Footer | setFooter(?Footer footer): void |
+| `stack` | [`?string(Stack)`](../../doc/models/stack.md) | Optional | - | getStack(): ?string | setStack(?string stack): void |
+| `header` | [`?Header2`](../../doc/models/header-2.md) | Optional | - | getHeader(): ?Header2 | setHeader(?Header2 header): void |
+| `body` | [`?Body2`](../../doc/models/body-2.md) | Optional | - | getBody(): ?Body2 | setBody(?Body2 body): void |
+| `footer` | [`?Footer2`](../../doc/models/footer-2.md) | Optional | - | getFooter(): ?Footer2 | setFooter(?Footer2 footer): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
 ```json
 {
   "css_mini": true,
-  "stack": "vertical",
+  "stack": "horizontal",
   "header": {
     "settings": {
       "enabled": false,
       "columns": 202.28,
-      "rows": 235.78
+      "rows": 235.78,
+      "exampleAdditionalProperty": {
+        "key1": "val1",
+        "key2": "val2"
+      }
     },
     "fields": [
       {
@@ -39,15 +46,27 @@ field_configuration
           "position8",
           "position9"
         ],
-        "required": false
+        "required": false,
+        "exampleAdditionalProperty": {
+          "key1": "val1",
+          "key2": "val2"
+        }
       }
-    ]
+    ],
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
   },
   "body": {
     "settings": {
       "enabled": false,
       "columns": 202.28,
-      "rows": 235.78
+      "rows": 235.78,
+      "exampleAdditionalProperty": {
+        "key1": "val1",
+        "key2": "val2"
+      }
     },
     "fields": [
       {
@@ -59,7 +78,11 @@ field_configuration
           "position8",
           "position9"
         ],
-        "required": false
+        "required": false,
+        "exampleAdditionalProperty": {
+          "key1": "val1",
+          "key2": "val2"
+        }
       },
       {
         "id": "id8",
@@ -70,7 +93,11 @@ field_configuration
           "position8",
           "position9"
         ],
-        "required": false
+        "required": false,
+        "exampleAdditionalProperty": {
+          "key1": "val1",
+          "key2": "val2"
+        }
       },
       {
         "id": "id8",
@@ -81,15 +108,27 @@ field_configuration
           "position8",
           "position9"
         ],
-        "required": false
+        "required": false,
+        "exampleAdditionalProperty": {
+          "key1": "val1",
+          "key2": "val2"
+        }
       }
-    ]
+    ],
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
   },
   "footer": {
     "settings": {
       "enabled": false,
       "columns": 202.28,
-      "rows": 235.78
+      "rows": 235.78,
+      "exampleAdditionalProperty": {
+        "key1": "val1",
+        "key2": "val2"
+      }
     },
     "fields": [
       {
@@ -101,7 +140,11 @@ field_configuration
           "position8",
           "position9"
         ],
-        "required": false
+        "required": false,
+        "exampleAdditionalProperty": {
+          "key1": "val1",
+          "key2": "val2"
+        }
       },
       {
         "id": "id8",
@@ -112,9 +155,21 @@ field_configuration
           "position8",
           "position9"
         ],
-        "required": false
+        "required": false,
+        "exampleAdditionalProperty": {
+          "key1": "val1",
+          "key2": "val2"
+        }
       }
-    ]
+    ],
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
+  },
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
   }
 }
 ```

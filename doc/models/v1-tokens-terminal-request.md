@@ -1,6 +1,8 @@
 
 # V1 Tokens Terminal Request
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `V1TokensTerminalRequest`
@@ -18,11 +20,11 @@
 | `tokenC1` | `?string` | Optional | Custom field 1 for API users to store custom data<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `128` | getTokenC1(): ?string | setTokenC1(?string tokenC1): void |
 | `tokenC2` | `?string` | Optional | Custom field 2 for API users to store custom data<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `128` | getTokenC2(): ?string | setTokenC2(?string tokenC2): void |
 | `tokenC3` | `?string` | Optional | Custom field 3 for API users to store custom data<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `128` | getTokenC3(): ?string | setTokenC3(?string tokenC3): void |
-| `achSecCode` | [`?string(AchSecCode3Enum)`](../../doc/models/ach-sec-code-3-enum.md) | Optional | SEC code for the account | getAchSecCode(): ?string | setAchSecCode(?string achSecCode): void |
-| `billingAddress` | [`?BillingAddress`](../../doc/models/billing-address.md) | Optional | Billing Address Object | getBillingAddress(): ?BillingAddress | setBillingAddress(?BillingAddress billingAddress): void |
+| `achSecCode` | `?array` | Optional | - | getAchSecCode(): ?array | setAchSecCode(?array achSecCode): void |
+| `billingAddress` | [`?BillingAddress7`](../../doc/models/billing-address-7.md) | Optional | - | getBillingAddress(): ?BillingAddress7 | setBillingAddress(?BillingAddress7 billingAddress): void |
 | `contactId` | `?string` | Optional | Used to associate the Token with a Contact.<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` | getContactId(): ?string | setContactId(?string contactId): void |
 | `customerId` | `?string` | Optional | Used to store a customer identification number.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `50` | getCustomerId(): ?string | setCustomerId(?string customerId): void |
-| `identityVerification` | [`?IdentityVerification2`](../../doc/models/identity-verification-2.md) | Optional | Identity verification | getIdentityVerification(): ?IdentityVerification2 | setIdentityVerification(?IdentityVerification2 identityVerification): void |
+| `identityVerification` | [`?IdentityVerification5`](../../doc/models/identity-verification-5.md) | Optional | - | getIdentityVerification(): ?IdentityVerification5 | setIdentityVerification(?IdentityVerification5 identityVerification): void |
 | `locationId` | `string` | Required | A valid Location Id associated with the Contact for this Token<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` | getLocationId(): string | setLocationId(string locationId): void |
 | `previousAccountVaultApiId` | `?string` | Optional | Can be used to pull payment info from a previous token api id.<br><br>**Constraints**: *Maximum Length*: `64` | getPreviousAccountVaultApiId(): ?string | setPreviousAccountVaultApiId(?string previousAccountVaultApiId): void |
 | `previousTokenApiId` | `?string` | Optional | Can be used to pull payment info from a previous token api id.<br><br>**Constraints**: *Maximum Length*: `64` | getPreviousTokenApiId(): ?string | setPreviousTokenApiId(?string previousTokenApiId): void |
@@ -43,6 +45,7 @@
 | `joi` | [`?Joi4`](../../doc/models/joi-4.md) | Optional | - | getJoi(): ?Joi4 | setJoi(?Joi4 joi): void |
 | `action` | `string` | Required, Constant | Used for the Create Terminal endpoint. Valid value 'store'<br><br>**Value**: `'store'` | getAction(): string | setAction(string action): void |
 | `terminalId` | `string` | Required | Terminal ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` | getTerminalId(): string | setTerminalId(string terminalId): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -57,7 +60,6 @@
   "token_c1": "token custom 1",
   "token_c2": "token custom 2",
   "token_c3": "token custom 3",
-  "ach_sec_code": "WEB",
   "contact_id": "11e95f8ec39de8fbdb0a4f1a",
   "customer_id": "123456",
   "location_id": "11e95f8ec39de8fbdb0a4f1a",
@@ -77,7 +79,11 @@
   "three_ds_server_trans_id": "d65e93c3-35ab-41ba-b307-767bfc19eae",
   "acs_transaction_id": "13c701a3-5a88-4c45-89e9-ef65e50a8bf9",
   "action": "store",
-  "terminal_id": "11e95f8ec39de8fbdb0a4f1a"
+  "terminal_id": "11e95f8ec39de8fbdb0a4f1a",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

@@ -3,6 +3,8 @@
 
 The Alternative Bank Account.
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `AltBankAccount`
@@ -15,6 +17,7 @@ The Alternative Bank Account.
 | `accountNumber` | `?string` | Optional | Bank account number.<br><br>**Constraints**: *Maximum Length*: `17` | getAccountNumber(): ?string | setAccountNumber(?string accountNumber): void |
 | `accountHolderName` | `?string` | Optional | Name on bank account.<br><br>**Constraints**: *Maximum Length*: `40` | getAccountHolderName(): ?string | setAccountHolderName(?string accountHolderName): void |
 | `depositType` | `?string` | Optional | Deposit type. | getDepositType(): ?string | setDepositType(?string depositType): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -23,7 +26,11 @@ The Alternative Bank Account.
   "routing_number": "011103093",
   "account_number": "01234567890123",
   "account_holder_name": "Bob Fairview",
-  "deposit_type": "fees_adjustments"
+  "deposit_type": "fees_adjustments",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

@@ -1,6 +1,8 @@
 
 # V1 Contacts Request 1
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `V1ContactsRequest1`
@@ -16,7 +18,7 @@
 | `lastName` | `?string` | Optional | Last Name<br><br>**Constraints**: *Maximum Length*: `64` | getLastName(): ?string | setLastName(?string lastName): void |
 | `cellPhone` | `?string` | Optional | Cell phone of contact<br><br>**Constraints**: *Minimum Length*: `10`, *Maximum Length*: `10`, *Pattern*: `^\d{10}$` | getCellPhone(): ?string | setCellPhone(?string cellPhone): void |
 | `balance` | `?float` | Optional | Balance<br><br>**Constraints**: `>= -99999999.99`, `<= 99999999.99` | getBalance(): ?float | setBalance(?float balance): void |
-| `address` | [`?Address`](../../doc/models/address.md) | Optional | Address of contact | getAddress(): ?Address | setAddress(?Address address): void |
+| `address` | [`?Address4`](../../doc/models/address-4.md) | Optional | - | getAddress(): ?Address4 | setAddress(?Address4 address): void |
 | `companyName` | `?string` | Optional | Company Name<br><br>**Constraints**: *Maximum Length*: `64` | getCompanyName(): ?string | setCompanyName(?string companyName): void |
 | `headerMessage` | `?string` | Optional | Header Message<br><br>**Constraints**: *Maximum Length*: `250` | getHeaderMessage(): ?string | setHeaderMessage(?string headerMessage): void |
 | `dateOfBirth` | `?string` | Optional | Contacts DOB, Format: yyyy-MM-dd<br><br>**Constraints**: *Maximum Length*: `10`, *Pattern*: `^[\d]{4}-[\d]{2}-[\d]{2}$` | getDateOfBirth(): ?string | setDateOfBirth(?string dateOfBirth): void |
@@ -28,13 +30,14 @@
 | `officePhoneCountryCode` | `?string` | Optional | Office phone country code<br><br>**Constraints**: *Maximum Length*: `6`, *Pattern*: `^\+([\d]+)$` | getOfficePhoneCountryCode(): ?string | setOfficePhoneCountryCode(?string officePhoneCountryCode): void |
 | `cellPhoneCountryCode` | `?string` | Optional | Cell phone country code<br><br>**Constraints**: *Maximum Length*: `6`, *Pattern*: `^\+([\d]+)$` | getCellPhoneCountryCode(): ?string | setCellPhoneCountryCode(?string cellPhoneCountryCode): void |
 | `headerMessageType` | `?int` | Optional | Header Message Type<br><br>**Constraints**: `>= 0`, `<= 4` | getHeaderMessageType(): ?int | setHeaderMessageType(?int headerMessageType): void |
-| `updateIfExists` | [`?int(UpdateIfExistsEnum)`](../../doc/models/update-if-exists-enum.md) | Optional | Update If Exists | getUpdateIfExists(): ?int | setUpdateIfExists(?int updateIfExists): void |
+| `updateIfExists` | `?array` | Optional | - | getUpdateIfExists(): ?array | setUpdateIfExists(?array updateIfExists): void |
 | `contactC1` | `?string` | Optional | Custom field 1 for api users to store custom data<br><br>**Constraints**: *Maximum Length*: `128` | getContactC1(): ?string | setContactC1(?string contactC1): void |
 | `contactC2` | `?string` | Optional | Custom field 2 for api users to store custom data<br><br>**Constraints**: *Maximum Length*: `128` | getContactC2(): ?string | setContactC2(?string contactC2): void |
 | `contactC3` | `?string` | Optional | Custom field 3 for api users to store custom data<br><br>**Constraints**: *Maximum Length*: `128` | getContactC3(): ?string | setContactC3(?string contactC3): void |
 | `parentId` | `?string` | Optional | Parent Id<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` | getParentId(): ?string | setParentId(?string parentId): void |
 | `email` | `?string` | Optional | Email of contact<br><br>**Constraints**: *Maximum Length*: `64` | getEmail(): ?string | setEmail(?string email): void |
 | `tokenImportId` | `?string` | Optional | Token Import Id<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` | getTokenImportId(): ?string | setTokenImportId(?string tokenImportId): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -58,13 +61,16 @@
   "office_phone_country_code": "+1",
   "cell_phone_country_code": "+1",
   "header_message_type": 0,
-  "update_if_exists": 1,
   "contact_c1": "any",
   "contact_c2": "anything",
   "contact_c3": "something",
   "parent_id": "11e95f8ec39de8fbdb0a4f1a",
   "email": "email@domain.com",
-  "token_import_id": "11e95f8ec39de8fbdb0a4f1a"
+  "token_import_id": "11e95f8ec39de8fbdb0a4f1a",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

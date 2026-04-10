@@ -17,21 +17,21 @@ $recurringController = $client->getRecurringController();
 
 ## Methods
 
-* [Create a New Recurring Record](../../doc/controllers/recurring.md#create-a-new-recurring-record)
-* [List All Recurring Record](../../doc/controllers/recurring.md#list-all-recurring-record)
-* [Delete Recurring Record](../../doc/controllers/recurring.md#delete-recurring-record)
-* [View Single Recurring Record](../../doc/controllers/recurring.md#view-single-recurring-record)
-* [Update Recurring Payment](../../doc/controllers/recurring.md#update-recurring-payment)
-* [Activate Recurring Payment](../../doc/controllers/recurring.md#activate-recurring-payment)
-* [Defer Recurring Payment](../../doc/controllers/recurring.md#defer-recurring-payment)
-* [Place on Hold Recurring Payment](../../doc/controllers/recurring.md#place-on-hold-recurring-payment)
-* [Skip Recurring Payment](../../doc/controllers/recurring.md#skip-recurring-payment)
+* [Createanewrecurringrecord](../../doc/controllers/recurring.md#createanewrecurringrecord)
+* [Listallrecurringrecord](../../doc/controllers/recurring.md#listallrecurringrecord)
+* [Deleterecurringrecord](../../doc/controllers/recurring.md#deleterecurringrecord)
+* [Viewsinglerecurringrecord](../../doc/controllers/recurring.md#viewsinglerecurringrecord)
+* [Updaterecurringpayment](../../doc/controllers/recurring.md#updaterecurringpayment)
+* [Activaterecurringpayment](../../doc/controllers/recurring.md#activaterecurringpayment)
+* [Deferrecurringpayment](../../doc/controllers/recurring.md#deferrecurringpayment)
+* [Placeonholdrecurringpayment](../../doc/controllers/recurring.md#placeonholdrecurringpayment)
+* [Skiprecurringpayment](../../doc/controllers/recurring.md#skiprecurringpayment)
 
 
-# Create a New Recurring Record
+# Createanewrecurringrecord
 
 ```php
-function createANewRecurringRecord(V1RecurringsRequest $body, ?array $expand = null): ResponseRecurring
+function createanewrecurringrecord(V1RecurringsRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -39,18 +39,18 @@ function createANewRecurringRecord(V1RecurringsRequest $body, ?array $expand = n
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1RecurringsRequest`](../../doc/models/v1-recurrings-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand26Enum)[])`](../../doc/models/expand-26-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand26)[])`](../../doc/models/expand-26.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseRecurring`](../../doc/models/response-recurring.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseRecurring`](../../doc/models/response-recurring.md).
 
 ## Example Usage
 
 ```php
 $body = V1RecurringsRequestBuilder::init(
     1,
-    IntervalTypeEnum::D,
+    IntervalType::M,
     '11e95f8ec39de8fbdb0a4f1a',
     '2021-12-01',
     300
@@ -65,11 +65,9 @@ $body = V1RecurringsRequestBuilder::init(
     ->endDate('2021-12-01')
     ->installmentTotalCount(20)
     ->notificationDays(2)
-    ->paymentMethod(PaymentMethod1Enum::CC)
     ->productTransactionId('11e95f8ec39de8fbdb0a4f1a')
     ->recurringId('11e95f8ec39de8fbdb0a4f1a')
     ->recurringApiId('recurring1234abcd')
-    ->status(StatusEnum::ACTIVE)
     ->termsAgree(true)
     ->termsAgreeIp('192.168.0.10')
     ->recurringC1('recurring custom data 1')
@@ -80,17 +78,19 @@ $body = V1RecurringsRequestBuilder::init(
     ->build();
 
 $recurringController = $client->getRecurringController();
+$apiResponse = $recurringController->createanewrecurringrecord($body);
 
-try {
-    $result = $recurringController->createANewRecurringRecord($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseRecurring:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -556,44 +556,44 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# List All Recurring Record
+# Listallrecurringrecord
 
 ```php
-function listAllRecurringRecord(
-    ?Page $page = null,
+function listallrecurringrecord(
+    ?Page1 $page = null,
     ?array $order = null,
     ?array $filterBy = null,
     ?array $expand = null,
     ?string $format = null,
     ?string $typeahead = null,
     ?array $fields = null
-): ResponseRecurringsCollection
+): ApiResponse
 ```
 
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `page` | [`?Page`](../../doc/models/page.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
+| `page` | [`?Page1`](../../doc/models/page-1.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
 | `order` | [`?(Order21[])`](../../doc/models/order-21.md) | Query, Optional | Criteria used in query string parameters to order results.  Most fields from the endpoint results can be used as a `key`.  Unsupported fields or operators will return a `412`.  Must be encoded, or use syntax that does not require encoding.<br><br>> /endpoint?order[0][key]=created_ts&order[0][operator]=asc<br>> <br>> /endpoint?order=[{ "key": "created_ts", "operator": "asc"}]<br>> <br>> /endpoint?order=[{ "key": "balance", "operator": "desc"},{ "key": "created_ts", "operator": "asc"}]<br><br>**Constraints**: *Minimum Items*: `1` |
 | `filterBy` | [`?(FilterBy[])`](../../doc/models/filter-by.md) | Query, Optional | Filter criteria that can be used in query string parameters.  Most fields from the endpoint results can be used as a `key`.  Unsupported fields or operators will return a `412`. Must be encoded, or use syntax that does not require encoding.<br><br>> ?filter_by[0][key]=first_name&filter_by[0][operator]==&filter_by[0][value]=Steve<br>> <br>> /endpoint?filter_by=[{ "key": "first_name", "operator": "=", "value": "Fred" }]<br>> <br>> /endpoint?filter_by=[{ "key": "account_type", "operator": "=", "value": "VISA" }]<br>> <br>> /endpoint?filter_by=[{ "key": "created_ts", "operator": ">=", "value": "946702799" }, { "key": "created_ts", "operator": "<=", value: "1695061891" }]<br>> <br>> /endpoint?filter_by=[{ "key": "last_name", "operator": "IN", "value": "Williams,Brown,Allman" }]<br><br>**Constraints**: *Minimum Items*: `1` |
-| `expand` | [`?(string(Expand26Enum)[])`](../../doc/models/expand-26-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `format` | [`?string(Format1Enum)`](../../doc/models/format-1-enum.md) | Query, Optional | Reporting format, valid values: csv, tsv |
+| `expand` | [`?(string(Expand26)[])`](../../doc/models/expand-26.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
+| `format` | [`?string(Format1)`](../../doc/models/format-1.md) | Query, Optional | Reporting format, valid values: csv, tsv |
 | `typeahead` | `?string` | Query, Optional | You can use any `field_name` from this endpoint results to order the list using the value provided as filter for the same `field_name`. It will be ordered using the following rules: 1) Exact match, 2) Starts with, 3) Contains.<br><br>> /endpoint?filter={ "field_name": "Value" }&_typeahead=field_name |
-| `fields` | [`?(string(Field43Enum)[])`](../../doc/models/field-43-enum.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
+| `fields` | [`?(string(Field43)[])`](../../doc/models/field-43.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
 
 ## Response Type
 
-[`ResponseRecurringsCollection`](../../doc/models/response-recurrings-collection.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseRecurringsCollection`](../../doc/models/response-recurrings-collection.md).
 
 ## Example Usage
 
 ```php
-$page = PageBuilder::init()
+$page = Page1Builder::init()
     ->number(1)
     ->size(50)
     ->build();
@@ -601,32 +601,36 @@ $page = PageBuilder::init()
 $order = [
     Order21Builder::init(
         'first_name',
-        OperatorEnum::ASC
+        Operator::ASC
     )->build()
 ];
 
 $filterBy = [
     FilterByBuilder::init(
         'first_name',
-        Operator1Enum::ENUM_1,
+        Operator1::ENUM_1,
         'Fred'
     )->build()
 ];
 
 $recurringController = $client->getRecurringController();
+$apiResponse = $recurringController->listallrecurringrecord(
+    $page,
+    $order,
+    $filterBy
+);
 
-try {
-    $result = $recurringController->listAllRecurringRecord(
-        $page,
-        $order,
-        $filterBy
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseRecurringsCollection:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -1117,13 +1121,13 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# Delete Recurring Record
+# Deleterecurringrecord
 
 ```php
-function deleteRecurringRecord(string $recurringId): ResponseRecurring
+function deleterecurringrecord(string $recurringId): ApiResponse
 ```
 
 ## Parameters
@@ -1134,7 +1138,7 @@ function deleteRecurringRecord(string $recurringId): ResponseRecurring
 
 ## Response Type
 
-[`ResponseRecurring`](../../doc/models/response-recurring.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseRecurring`](../../doc/models/response-recurring.md).
 
 ## Example Usage
 
@@ -1142,15 +1146,19 @@ function deleteRecurringRecord(string $recurringId): ResponseRecurring
 $recurringId = '11e95f8ec39de8fbdb0a4f1a';
 
 $recurringController = $client->getRecurringController();
+$apiResponse = $recurringController->deleterecurringrecord($recurringId);
 
-try {
-    $result = $recurringController->deleteRecurringRecord($recurringId);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseRecurring:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -1616,17 +1624,17 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# View Single Recurring Record
+# Viewsinglerecurringrecord
 
 ```php
-function viewSingleRecurringRecord(
+function viewsinglerecurringrecord(
     string $recurringId,
     ?array $expand = null,
     ?array $fields = null
-): ResponseRecurring
+): ApiResponse
 ```
 
 ## Parameters
@@ -1634,12 +1642,12 @@ function viewSingleRecurringRecord(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `recurringId` | `string` | Template, Required | Recurring ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
-| `expand` | [`?(string(Expand26Enum)[])`](../../doc/models/expand-26-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `fields` | [`?(string(Field43Enum)[])`](../../doc/models/field-43-enum.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
+| `expand` | [`?(string(Expand26)[])`](../../doc/models/expand-26.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
+| `fields` | [`?(string(Field43)[])`](../../doc/models/field-43.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
 
 ## Response Type
 
-[`ResponseRecurring`](../../doc/models/response-recurring.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseRecurring`](../../doc/models/response-recurring.md).
 
 ## Example Usage
 
@@ -1647,15 +1655,19 @@ function viewSingleRecurringRecord(
 $recurringId = '11e95f8ec39de8fbdb0a4f1a';
 
 $recurringController = $client->getRecurringController();
+$apiResponse = $recurringController->viewsinglerecurringrecord($recurringId);
 
-try {
-    $result = $recurringController->viewSingleRecurringRecord($recurringId);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseRecurring:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -2121,17 +2133,17 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# Update Recurring Payment
+# Updaterecurringpayment
 
 ```php
-function updateRecurringPayment(
+function updaterecurringpayment(
     string $recurringId,
     V1RecurringsRequest1 $body,
     ?array $expand = null
-): ResponseRecurring
+): ApiResponse
 ```
 
 ## Parameters
@@ -2140,11 +2152,11 @@ function updateRecurringPayment(
 |  --- | --- | --- | --- |
 | `recurringId` | `string` | Template, Required | Recurring ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
 | `body` | [`V1RecurringsRequest1`](../../doc/models/v1-recurrings-request-1.md) | Body, Required | - |
-| `expand` | [`?(string(Expand26Enum)[])`](../../doc/models/expand-26-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand26)[])`](../../doc/models/expand-26.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseRecurring`](../../doc/models/response-recurring.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseRecurring`](../../doc/models/response-recurring.md).
 
 ## Example Usage
 
@@ -2160,15 +2172,12 @@ $body = V1RecurringsRequest1Builder::init()
     ->endDate('2021-12-01')
     ->installmentTotalCount(20)
     ->interval(1)
-    ->intervalType(IntervalTypeEnum::D)
     ->locationId('11e95f8ec39de8fbdb0a4f1a')
     ->notificationDays(2)
-    ->paymentMethod(PaymentMethod1Enum::CC)
     ->productTransactionId('11e95f8ec39de8fbdb0a4f1a')
     ->recurringId('11e95f8ec39de8fbdb0a4f1a')
     ->recurringApiId('recurring1234abcd')
     ->startDate('2021-12-01')
-    ->status(StatusEnum::ACTIVE)
     ->transactionAmount(300)
     ->termsAgree(true)
     ->termsAgreeIp('192.168.0.10')
@@ -2180,20 +2189,22 @@ $body = V1RecurringsRequest1Builder::init()
     ->build();
 
 $recurringController = $client->getRecurringController();
+$apiResponse = $recurringController->updaterecurringpayment(
+    $recurringId,
+    $body
+);
 
-try {
-    $result = $recurringController->updateRecurringPayment(
-        $recurringId,
-        $body
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseRecurring:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -2659,14 +2670,14 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# Activate Recurring Payment
+# Activaterecurringpayment
 
 ```php
-function activateRecurringPayment(string $recurringId, ?array $expand = null): ResponseRecurring
+function activaterecurringpayment(string $recurringId, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -2674,11 +2685,11 @@ function activateRecurringPayment(string $recurringId, ?array $expand = null): R
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `recurringId` | `string` | Template, Required | Recurring ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
-| `expand` | [`?(string(Expand26Enum)[])`](../../doc/models/expand-26-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand26)[])`](../../doc/models/expand-26.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseRecurring`](../../doc/models/response-recurring.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseRecurring`](../../doc/models/response-recurring.md).
 
 ## Example Usage
 
@@ -2686,15 +2697,19 @@ function activateRecurringPayment(string $recurringId, ?array $expand = null): R
 $recurringId = '11e95f8ec39de8fbdb0a4f1a';
 
 $recurringController = $client->getRecurringController();
+$apiResponse = $recurringController->activaterecurringpayment($recurringId);
 
-try {
-    $result = $recurringController->activateRecurringPayment($recurringId);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseRecurring:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -3160,17 +3175,17 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# Defer Recurring Payment
+# Deferrecurringpayment
 
 ```php
-function deferRecurringPayment(
+function deferrecurringpayment(
     string $recurringId,
     V1RecurringsDeferPaymentRequest $body,
     ?array $expand = null
-): ResponseRecurring
+): ApiResponse
 ```
 
 ## Parameters
@@ -3179,11 +3194,11 @@ function deferRecurringPayment(
 |  --- | --- | --- | --- |
 | `recurringId` | `string` | Template, Required | Recurring ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
 | `body` | [`V1RecurringsDeferPaymentRequest`](../../doc/models/v1-recurrings-defer-payment-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand26Enum)[])`](../../doc/models/expand-26-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand26)[])`](../../doc/models/expand-26.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseRecurring`](../../doc/models/response-recurring.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseRecurring`](../../doc/models/response-recurring.md).
 
 ## Example Usage
 
@@ -3195,20 +3210,22 @@ $body = V1RecurringsDeferPaymentRequestBuilder::init(
 )->build();
 
 $recurringController = $client->getRecurringController();
+$apiResponse = $recurringController->deferrecurringpayment(
+    $recurringId,
+    $body
+);
 
-try {
-    $result = $recurringController->deferRecurringPayment(
-        $recurringId,
-        $body
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseRecurring:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -3674,14 +3691,14 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# Place on Hold Recurring Payment
+# Placeonholdrecurringpayment
 
 ```php
-function placeOnHoldRecurringPayment(string $recurringId, ?array $expand = null): ResponseRecurring
+function placeonholdrecurringpayment(string $recurringId, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -3689,11 +3706,11 @@ function placeOnHoldRecurringPayment(string $recurringId, ?array $expand = null)
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `recurringId` | `string` | Template, Required | Recurring ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
-| `expand` | [`?(string(Expand26Enum)[])`](../../doc/models/expand-26-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand26)[])`](../../doc/models/expand-26.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseRecurring`](../../doc/models/response-recurring.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseRecurring`](../../doc/models/response-recurring.md).
 
 ## Example Usage
 
@@ -3701,15 +3718,19 @@ function placeOnHoldRecurringPayment(string $recurringId, ?array $expand = null)
 $recurringId = '11e95f8ec39de8fbdb0a4f1a';
 
 $recurringController = $client->getRecurringController();
+$apiResponse = $recurringController->placeonholdrecurringpayment($recurringId);
 
-try {
-    $result = $recurringController->placeOnHoldRecurringPayment($recurringId);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseRecurring:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -4175,17 +4196,17 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# Skip Recurring Payment
+# Skiprecurringpayment
 
 ```php
-function skipRecurringPayment(
+function skiprecurringpayment(
     string $recurringId,
     V1RecurringsSkipPaymentRequest $body,
     ?array $expand = null
-): ResponseRecurring
+): ApiResponse
 ```
 
 ## Parameters
@@ -4194,11 +4215,11 @@ function skipRecurringPayment(
 |  --- | --- | --- | --- |
 | `recurringId` | `string` | Template, Required | Recurring ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
 | `body` | [`V1RecurringsSkipPaymentRequest`](../../doc/models/v1-recurrings-skip-payment-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand26Enum)[])`](../../doc/models/expand-26-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand26)[])`](../../doc/models/expand-26.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseRecurring`](../../doc/models/response-recurring.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseRecurring`](../../doc/models/response-recurring.md).
 
 ## Example Usage
 
@@ -4210,20 +4231,22 @@ $body = V1RecurringsSkipPaymentRequestBuilder::init(
 )->build();
 
 $recurringController = $client->getRecurringController();
+$apiResponse = $recurringController->skiprecurringpayment(
+    $recurringId,
+    $body
+);
 
-try {
-    $result = $recurringController->skipRecurringPayment(
-        $recurringId,
-        $body
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseRecurring:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -4689,6 +4712,6 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 

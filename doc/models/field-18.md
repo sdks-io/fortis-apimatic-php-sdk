@@ -1,6 +1,8 @@
 
 # Field 18
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `Field18`
@@ -17,6 +19,7 @@
 | `readonly` | `?bool` | Optional | Read Only | getReadonly(): ?bool | setReadonly(?bool readonly): void |
 | `visible` | `?bool` | Optional | Visible | getVisible(): ?bool | setVisible(?bool visible): void |
 | `value` | `?string` | Optional | Value | getValue(): ?string | setValue(?string value): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -33,7 +36,11 @@
   ],
   "required": true,
   "readonly": true,
-  "visible": true
+  "visible": true,
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

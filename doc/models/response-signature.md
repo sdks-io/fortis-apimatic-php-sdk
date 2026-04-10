@@ -1,6 +1,8 @@
 
 # Response Signature
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `ResponseSignature`
@@ -9,8 +11,9 @@
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `type` | [`?string(Type72Enum)`](../../doc/models/type-72-enum.md) | Optional | Resource Type<br><br>**Default**: `Type72Enum::SIGNATURE` | getType(): ?string | setType(?string type): void |
+| `type` | [`?string(Type72)`](../../doc/models/type-72.md) | Optional | - | getType(): ?string | setType(?string type): void |
 | `data` | [`?Data21`](../../doc/models/data-21.md) | Optional | - | getData(): ?Data21 | setData(?Data21 data): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -22,7 +25,15 @@
     "resource": "AccountVault",
     "resource_id": "resource_id6",
     "id": "id0",
-    "created_ts": 114
+    "created_ts": 114,
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
+  },
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
   }
 }
 ```

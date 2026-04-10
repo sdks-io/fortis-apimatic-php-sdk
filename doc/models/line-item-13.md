@@ -1,6 +1,8 @@
 
 # Line Item 13
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `LineItem13`
@@ -20,10 +22,11 @@
 | `unitCode` | `?string` | Optional | Units of measurement as used in international trade. (See Codes for Units of Measurement below for unit code abbreviations)<br><br>**Constraints**: *Minimum Length*: `3`, *Maximum Length*: `3` | getUnitCode(): ?string | setUnitCode(?string unitCode): void |
 | `unitCost` | `?int` | Optional | Unit cost of the item ,Can accept Four (4) decimal places.<br><br>**Constraints**: `<= 99999999999900` | getUnitCost(): ?int | setUnitCost(?int unitCost): void |
 | `alternateTaxId` | `?string` | Optional | Tax identification number of the merchant that reported the alternate tax amount.<br><br>**Constraints**: *Maximum Length*: `15` | getAlternateTaxId(): ?string | setAlternateTaxId(?string alternateTaxId): void |
-| `debitCredit` | [`?string(DebitCreditEnum)`](../../doc/models/debit-credit-enum.md) | Optional | Indicator used to reflect debit (D) or credit (C) transaction. Allowed values: “D”, “C”. | getDebitCredit(): ?string | setDebitCredit(?string debitCredit): void |
+| `debitCredit` | `?array` | Optional | - | getDebitCredit(): ?array | setDebitCredit(?array debitCredit): void |
 | `discountRate` | `?int` | Optional | Discount rate for the line item ,Can accept Two (2) decimal places.<br><br>**Constraints**: `<= 9999999` | getDiscountRate(): ?int | setDiscountRate(?int discountRate): void |
 | `taxTypeApplied` | `?string` | Optional | Type of value-added taxes that are being used (Conditional If tax amount is supplied)<br><br>> This field is only required when Merchant is directed to include by Mastercard.<br><br>**Constraints**: *Maximum Length*: `4` | getTaxTypeApplied(): ?string | setTaxTypeApplied(?string taxTypeApplied): void |
 | `taxTypeId` | `?string` | Optional | Indicates the type of tax collected in relationship to a specific tax amount (Conditional If tax amount is supplied)<br><br>**Constraints**: *Minimum Length*: `2`, *Maximum Length*: `2` | getTaxTypeId(): ?string | setTaxTypeId(?string taxTypeId): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -40,10 +43,13 @@
   "unit_code": "gll",
   "unit_cost": 3,
   "alternate_tax_id": "1234",
-  "debit_credit": "C",
   "discount_rate": 11,
   "tax_type_applied": "22",
-  "tax_type_id": "11"
+  "tax_type_id": "11",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

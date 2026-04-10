@@ -14,7 +14,7 @@ $asyncProcessingController = $client->getAsyncProcessingController();
 Retrieve the current status for a particular code.
 
 ```php
-function statusCheck(string $statusCode): ResponseAsyncStatus
+function statusCheck(string $statusCode): ApiResponse
 ```
 
 ## Parameters
@@ -25,7 +25,7 @@ function statusCheck(string $statusCode): ResponseAsyncStatus
 
 ## Response Type
 
-[`ResponseAsyncStatus`](../../doc/models/response-async-status.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseAsyncStatus`](../../doc/models/response-async-status.md).
 
 ## Example Usage
 
@@ -33,15 +33,19 @@ function statusCheck(string $statusCode): ResponseAsyncStatus
 $statusCode = '406c66c3-21cb-47fb-80fc-843bc42507fb';
 
 $asyncProcessingController = $client->getAsyncProcessingController();
+$apiResponse = $asyncProcessingController->statusCheck($statusCode);
 
-try {
-    $result = $asyncProcessingController->statusCheck($statusCode);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseAsyncStatus:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -65,5 +69,5 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 

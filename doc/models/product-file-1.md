@@ -1,6 +1,8 @@
 
 # Product File 1
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `ProductFile1`
@@ -23,6 +25,7 @@
 | `modifiedTs` | `?int` | Optional | Modified Time Stamp | getModifiedTs(): ?int | setModifiedTs(?int modifiedTs): void |
 | `active` | `?bool` | Optional | Active | getActive(): ?bool | setActive(?bool active): void |
 | `createdUserId` | `?string` | Optional | User ID Created the register<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` | getCreatedUserId(): ?string | setCreatedUserId(?string createdUserId): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -37,7 +40,11 @@
   "created_user_id": "11e95f8ec39de8fbdb0a4f1a",
   "free_bytes": 13.42,
   "byte_increment": 16.74,
-  "max_file_size_bytes": 221.86
+  "max_file_size_bytes": 221.86,
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

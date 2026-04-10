@@ -3,6 +3,8 @@
 
 Domain Information on `expand`
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `Domain`
@@ -18,7 +20,7 @@ Domain Information on `expand`
 | `allowContactSignup` | `?bool` | Optional | Allow Contact Signup. | getAllowContactSignup(): ?bool | setAllowContactSignup(?bool allowContactSignup): void |
 | `allowContactRegistration` | `?bool` | Optional | Allow Contact Registration. | getAllowContactRegistration(): ?bool | setAllowContactRegistration(?bool allowContactRegistration): void |
 | `allowContactLogin` | `?bool` | Optional | Allow Contact Login. | getAllowContactLogin(): ?bool | setAllowContactLogin(?bool allowContactLogin): void |
-| `registrationFields` | [`?(string(RegistrationFieldEnum)[])`](../../doc/models/registration-field-enum.md) | Optional | Registration Fields | getRegistrationFields(): ?array | setRegistrationFields(?array registrationFields): void |
+| `registrationFields` | [`?(string(RegistrationField)[])`](../../doc/models/registration-field.md) | Optional | Registration Fields | getRegistrationFields(): ?array | setRegistrationFields(?array registrationFields): void |
 | `companyName` | `?string` | Optional | Company Name.<br><br>**Constraints**: *Maximum Length*: `32` | getCompanyName(): ?string | setCompanyName(?string companyName): void |
 | `navColor` | `?string` | Optional | Nav Color.<br><br>**Constraints**: *Maximum Length*: `7` | getNavColor(): ?string | setNavColor(?string navColor): void |
 | `buttonPrimaryColor` | `?string` | Optional | Button Primary Color.<br><br>**Constraints**: *Maximum Length*: `7` | getButtonPrimaryColor(): ?string | setButtonPrimaryColor(?string buttonPrimaryColor): void |
@@ -38,12 +40,13 @@ Domain Information on `expand`
 | `customJavascript` | `?string` | Optional | Custom Javascript.<br><br>**Constraints**: *Maximum Length*: `2048`, *Pattern*: `^<script\b[^>]*>([\s\S]*?)<\/script>$` | getCustomJavascript(): ?string | setCustomJavascript(?string customJavascript): void |
 | `customTheme` | `?string` | Optional | Custom Theme<br><br>**Constraints**: *Maximum Length*: `48` | getCustomTheme(): ?string | setCustomTheme(?string customTheme): void |
 | `customCss` | `?string` | Optional | Custom CSS<br><br>**Constraints**: *Maximum Length*: `2048` | getCustomCss(): ?string | setCustomCss(?string customCss): void |
-| `contactUserDefaultEntryPage` | [`?string(ContactUserDefaultEntryPageEnum)`](../../doc/models/contact-user-default-entry-page-enum.md) | Optional | Contact User Default Entry Page | getContactUserDefaultEntryPage(): ?string | setContactUserDefaultEntryPage(?string contactUserDefaultEntryPage): void |
+| `contactUserDefaultEntryPage` | `?array` | Optional | - | getContactUserDefaultEntryPage(): ?array | setContactUserDefaultEntryPage(?array contactUserDefaultEntryPage): void |
 | `contactUserDefaultAuthRoles` | `?(array[])` | Optional | Contact User Default Auth Role | getContactUserDefaultAuthRoles(): ?array | setContactUserDefaultAuthRoles(?array contactUserDefaultAuthRoles): void |
 | `customStylesheetUrl` | `?string` | Optional | Custom Stylesheet URL<br><br>**Constraints**: *Maximum Length*: `256` | getCustomStylesheetUrl(): ?string | setCustomStylesheetUrl(?string customStylesheetUrl): void |
 | `id` | `?string` | Optional | Id<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` | getId(): ?string | setId(?string id): void |
 | `createdTs` | `?int` | Optional | Created Time Stamp | getCreatedTs(): ?int | setCreatedTs(?int createdTs): void |
 | `modifiedTs` | `?int` | Optional | Modified Time Stamp | getModifiedTs(): ?int | setModifiedTs(?int modifiedTs): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -61,12 +64,15 @@ Domain Information on `expand`
   ],
   "email_reply_to": "email@domain.com",
   "email": "email@domain.com",
-  "contact_user_default_entry_page": "dashboard",
   "custom_stylesheet_url": "https://127.0.0.1/receiver",
   "id": "11e95f8ec39de8fbdb0a4f1a",
   "created_ts": 1422040992,
   "modified_ts": 1422040992,
-  "logo": "logo0"
+  "logo": "logo0",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

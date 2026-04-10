@@ -22,10 +22,10 @@ Documentation for accessing and setting credentials for access-token.
 You must provide credentials in the client as shown in the following code snippet.
 
 ```php
-use FortisAPILib\Authentication\AccessTokenCredentialsBuilder;
-use FortisAPILib\FortisAPIClientBuilder;
+use FortisApiLib\Authentication\AccessTokenCredentialsBuilder;
+use FortisApiLib\FortisApiClientBuilder;
 
-$client = FortisAPIClientBuilder::init()
+$client = FortisApiClientBuilder::init()
     ->accessTokenCredentials(
         AccessTokenCredentialsBuilder::init(
             'access-token'

@@ -14,7 +14,7 @@ $merchantDetailsController = $client->getMerchantDetailsController();
 Merchant Details
 
 ```php
-function merchantDetails(V1WalletProviderMerchantDetailsRequest $body): ResponseMerchantDetails
+function merchantDetails(V1WalletProviderMerchantDetailsRequest $body): ApiResponse
 ```
 
 ## Parameters
@@ -25,7 +25,7 @@ function merchantDetails(V1WalletProviderMerchantDetailsRequest $body): Response
 
 ## Response Type
 
-[`ResponseMerchantDetails`](../../doc/models/response-merchant-details.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseMerchantDetails`](../../doc/models/response-merchant-details.md).
 
 ## Example Usage
 
@@ -35,17 +35,19 @@ $body = V1WalletProviderMerchantDetailsRequestBuilder::init(
 )->build();
 
 $merchantDetailsController = $client->getMerchantDetailsController();
+$apiResponse = $merchantDetailsController->merchantDetails($body);
 
-try {
-    $result = $merchantDetailsController->merchantDetails($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseMerchantDetails:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -72,6 +74,6 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 

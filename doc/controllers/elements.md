@@ -21,7 +21,7 @@ $elementsController = $client->getElementsController();
 Elements uses a `TicketIntention` object to represent your intent to obtain credit card information from a customer with the intent to tokenize the card or charge the card. Ticket Intention is great with online store checkouts.
 
 ```php
-function ticketIntention(V1ElementsTicketIntentionRequest $body): ResponseTicketIntention
+function ticketIntention(V1ElementsTicketIntentionRequest $body): ApiResponse
 ```
 
 ## Parameters
@@ -32,7 +32,7 @@ function ticketIntention(V1ElementsTicketIntentionRequest $body): ResponseTicket
 
 ## Response Type
 
-[`ResponseTicketIntention`](../../doc/models/response-ticket-intention.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTicketIntention`](../../doc/models/response-ticket-intention.md).
 
 ## Example Usage
 
@@ -45,17 +45,19 @@ $body = V1ElementsTicketIntentionRequestBuilder::init(
     ->build();
 
 $elementsController = $client->getElementsController();
+$apiResponse = $elementsController->ticketIntention($body);
 
-try {
-    $result = $elementsController->ticketIntention($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTicketIntention:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -77,7 +79,7 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
@@ -86,7 +88,7 @@ try {
 Elements uses a `TransactionIntention` object to represent your intent to collect payment from a customer, tracking charge attempts and payment state changes throughout the process.
 
 ```php
-function transactionIntention(V1ElementsTransactionIntentionRequest $body): ResponseTransactionIntention
+function transactionIntention(V1ElementsTransactionIntentionRequest $body): ApiResponse
 ```
 
 ## Parameters
@@ -97,32 +99,32 @@ function transactionIntention(V1ElementsTransactionIntentionRequest $body): Resp
 
 ## Response Type
 
-[`ResponseTransactionIntention`](../../doc/models/response-transaction-intention.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransactionIntention`](../../doc/models/response-transaction-intention.md).
 
 ## Example Usage
 
 ```php
 $body = V1ElementsTransactionIntentionRequestBuilder::init()
-    ->action(ActionEnum::SALE)
     ->digitalWalletsOnly(false)
     ->amount(1099)
     ->locationId('11e95f8ec39de8fbdb0a4f1a')
     ->contactId('11e95f8ec39de8fbdb0a4f1a')
-    ->achSecCode(AchSecCodeEnum::WEB)
     ->build();
 
 $elementsController = $client->getElementsController();
+$apiResponse = $elementsController->transactionIntention($body);
 
-try {
-    $result = $elementsController->transactionIntention($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransactionIntention:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -152,6 +154,6 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 

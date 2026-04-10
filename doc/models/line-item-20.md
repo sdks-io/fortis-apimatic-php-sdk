@@ -1,6 +1,8 @@
 
 # Line Item 20
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `LineItem20`
@@ -19,6 +21,7 @@
 | `taxRate` | `?int` | Optional | Tax rate used to calculate the sales tax amount, can accept 2 decimal places.<br><br>**Constraints**: `<= 999900` | getTaxRate(): ?int | setTaxRate(?int taxRate): void |
 | `unitCode` | `string` | Required | Units of measurement as used in international trade. (See Codes for Units of Measurement below for unit code abbreviations)<br><br>**Constraints**: *Maximum Length*: `3` | getUnitCode(): string | setUnitCode(string unitCode): void |
 | `unitCost` | `int` | Required | Unit cost of the item ,Can accept Four (4) decimal places.<br><br>**Constraints**: `<= 99999999999900` | getUnitCost(): int | setUnitCost(int unitCost): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -33,7 +36,11 @@
   "tax_amount": 4,
   "tax_rate": 0,
   "unit_code": "gll",
-  "unit_cost": 3
+  "unit_cost": 3,
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

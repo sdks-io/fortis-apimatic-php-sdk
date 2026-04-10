@@ -1,0 +1,34 @@
+
+# Expand 11
+
+*This model accepts additional fields of type array.*
+
+## Enumeration
+
+`Expand11`
+
+## Fields
+
+| Name |
+|  --- |
+| `USERS` |
+| `IS_DELETABLE` |
+| `BRANDING_DOMAIN` |
+| `PRODUCT_INVOICE` |
+| `PRODUCT_FILES` |
+| `PARENT_` |
+| `CREATED_USER` |
+| `CHANGELOGS` |
+| `PRODUCT_TRANSACTIONS` |
+| `TERMINALS` |
+| `TERMINAL_ROUTERS` |
+| `DEVELOPER_COMPANY` |
+| `DEVELOPER_COMPANY_ID` |
+| `HELPPAGES` |
+| `QUICK_INVOICE_SETTING` |
+| `LOCATION_BILLING_ACCOUNTS` |
+| `MARKETPLACES` |
+| `LOCATIONMARKETPLACES` |
+| `ADDONS` |
+| `ADDITIONAL_ACCESS` |
+

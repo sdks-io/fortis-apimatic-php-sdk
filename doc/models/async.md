@@ -3,6 +3,8 @@
 
 Do not store the Async Code for long term use, it expires after 30 days.
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `Async`
@@ -13,13 +15,18 @@ Do not store the Async Code for long term use, it expires after 30 days.
 |  --- | --- | --- | --- | --- | --- |
 | `code` | `?string` | Optional | A [UUID v4](https://datatracker.ietf.org/doc/html/rfc4122) that's unique for the Async Request | getCode(): ?string | setCode(?string code): void |
 | `link` | `?string` | Optional | Link to the status check endpoint | getLink(): ?string | setLink(?string link): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
 ```json
 {
   "code": "406c66c3-21cb-47fb-80fc-843bc42507fb",
-  "link": "/v1/async/status/406c66c3-21cb-47fb-80fc-843bc42507fb"
+  "link": "/v1/async/status/406c66c3-21cb-47fb-80fc-843bc42507fb",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

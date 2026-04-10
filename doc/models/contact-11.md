@@ -3,6 +3,8 @@
 
 The Contact.
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `Contact11`
@@ -15,6 +17,7 @@ The Contact.
 | `lastName` | `?string` | Optional | Contact's last name.<br><br>**Constraints**: *Maximum Length*: `20` | getLastName(): ?string | setLastName(?string lastName): void |
 | `email` | `?string` | Optional | Contact's email address.<br><br>**Constraints**: *Maximum Length*: `100` | getEmail(): ?string | setEmail(?string email): void |
 | `phoneNumber` | `string` | Required | Contact's phone.<br><br>**Constraints**: *Maximum Length*: `20` | getPhoneNumber(): string | setPhoneNumber(string phoneNumber): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -23,7 +26,11 @@ The Contact.
   "first_name": "Jeffery",
   "last_name": "Todd",
   "email": "jtodd@example.com",
-  "phone_number": "555-555-3456"
+  "phone_number": "555-555-3456",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

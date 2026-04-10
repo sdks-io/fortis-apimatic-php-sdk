@@ -3,6 +3,8 @@
 
 Billing Address Object
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `BillingAddress1`
@@ -17,6 +19,7 @@ Billing Address Object
 | `street` | `?string` | Optional | The Street portion of the address associated with the Credit Card (CC) or Bank Account (ACH).<br><br>> Required for CC transactions if vt_require_street is true on producttransaction(Merchant Deposit Account).<br><br>**Constraints**: *Maximum Length*: `32`, *Pattern*: `^[\w\#\,\.\-\'\&\s\/]+$` | getStreet(): ?string | setStreet(?string street): void |
 | `phone` | `?string` | Optional | The Phone # to be used to contact Payer if there are any issues processing a transaction. Country code not included<br><br>**Constraints**: *Minimum Length*: `10`, *Maximum Length*: `10`, *Pattern*: `^\d{10}$` | getPhone(): ?string | setPhone(?string phone): void |
 | `country` | `?string` | Optional | The alpha 3 format country code. | getCountry(): ?string | setCountry(?string country): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -27,7 +30,11 @@ Billing Address Object
   "postal_code": "48375",
   "phone": "3339998822",
   "country": "USA",
-  "street": "street6"
+  "street": "street6",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

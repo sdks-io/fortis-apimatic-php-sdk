@@ -3,6 +3,8 @@
 
 Resource Information on `expand`
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `Resources`
@@ -18,6 +20,7 @@ Resource Information on `expand`
 | `lastUsedDate` | `?int` | Optional | Last Used Date | getLastUsedDate(): ?int | setLastUsedDate(?int lastUsedDate): void |
 | `createdTs` | `?int` | Optional | Created Time Stamp | getCreatedTs(): ?int | setCreatedTs(?int createdTs): void |
 | `modifiedTs` | `?int` | Optional | Modified Time Stamp | getModifiedTs(): ?int | setModifiedTs(?int modifiedTs): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -29,7 +32,11 @@ Resource Information on `expand`
   "last_used_date": 1422040992,
   "created_ts": 1422040992,
   "modified_ts": 1422040992,
-  "priv": "priv0"
+  "priv": "priv0",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

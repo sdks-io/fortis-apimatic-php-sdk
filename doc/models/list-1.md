@@ -1,6 +1,8 @@
 
 # List 1
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `List1`
@@ -16,7 +18,7 @@
 | `lastName` | `?string` | Optional | Last Name<br><br>**Constraints**: *Maximum Length*: `64` | getLastName(): ?string | setLastName(?string lastName): void |
 | `cellPhone` | `?string` | Optional | Cell phone of contact<br><br>**Constraints**: *Minimum Length*: `10`, *Maximum Length*: `10`, *Pattern*: `^\d{10}$` | getCellPhone(): ?string | setCellPhone(?string cellPhone): void |
 | `balance` | `?float` | Optional | Balance<br><br>**Constraints**: `>= -99999999.99`, `<= 99999999.99` | getBalance(): ?float | setBalance(?float balance): void |
-| `address` | [`?Address`](../../doc/models/address.md) | Optional | Address of contact | getAddress(): ?Address | setAddress(?Address address): void |
+| `address` | [`?Address4`](../../doc/models/address-4.md) | Optional | - | getAddress(): ?Address4 | setAddress(?Address4 address): void |
 | `companyName` | `?string` | Optional | Company Name<br><br>**Constraints**: *Maximum Length*: `64` | getCompanyName(): ?string | setCompanyName(?string companyName): void |
 | `headerMessage` | `?string` | Optional | Header Message<br><br>**Constraints**: *Maximum Length*: `250` | getHeaderMessage(): ?string | setHeaderMessage(?string headerMessage): void |
 | `dateOfBirth` | `?string` | Optional | Contacts DOB, Format: yyyy-MM-dd<br><br>**Constraints**: *Maximum Length*: `10`, *Pattern*: `^[\d]{4}-[\d]{2}-[\d]{2}$` | getDateOfBirth(): ?string | setDateOfBirth(?string dateOfBirth): void |
@@ -28,7 +30,7 @@
 | `officePhoneCountryCode` | `?string` | Optional | Office phone country code<br><br>**Constraints**: *Maximum Length*: `6`, *Pattern*: `^\+([\d]+)$` | getOfficePhoneCountryCode(): ?string | setOfficePhoneCountryCode(?string officePhoneCountryCode): void |
 | `cellPhoneCountryCode` | `?string` | Optional | Cell phone country code<br><br>**Constraints**: *Maximum Length*: `6`, *Pattern*: `^\+([\d]+)$` | getCellPhoneCountryCode(): ?string | setCellPhoneCountryCode(?string cellPhoneCountryCode): void |
 | `headerMessageType` | `?int` | Optional | Header Message Type<br><br>**Constraints**: `>= 0`, `<= 4` | getHeaderMessageType(): ?int | setHeaderMessageType(?int headerMessageType): void |
-| `updateIfExists` | [`?int(UpdateIfExistsEnum)`](../../doc/models/update-if-exists-enum.md) | Optional | Update If Exists | getUpdateIfExists(): ?int | setUpdateIfExists(?int updateIfExists): void |
+| `updateIfExists` | `?array` | Optional | - | getUpdateIfExists(): ?array | setUpdateIfExists(?array updateIfExists): void |
 | `contactC1` | `?string` | Optional | Custom field 1 for api users to store custom data<br><br>**Constraints**: *Maximum Length*: `128` | getContactC1(): ?string | setContactC1(?string contactC1): void |
 | `contactC2` | `?string` | Optional | Custom field 2 for api users to store custom data<br><br>**Constraints**: *Maximum Length*: `128` | getContactC2(): ?string | setContactC2(?string contactC2): void |
 | `contactC3` | `?string` | Optional | Custom field 3 for api users to store custom data<br><br>**Constraints**: *Maximum Length*: `128` | getContactC3(): ?string | setContactC3(?string contactC3): void |
@@ -42,16 +44,17 @@
 | `createdUserId` | `?string` | Optional | User ID Created the register<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` | getCreatedUserId(): ?string | setCreatedUserId(?string createdUserId): void |
 | `receivedEmails` | [`?(ReceivedEmail[])`](../../doc/models/received-email.md) | Optional | Received Email Information on `expand` | getReceivedEmails(): ?array | setReceivedEmails(?array receivedEmails): void |
 | `isDeletable` | `?bool` | Optional | Is Deletable Information on `expand` | getIsDeletable(): ?bool | setIsDeletable(?bool isDeletable): void |
-| `location` | [`?Location`](../../doc/models/location.md) | Optional | Location Information on `expand` | getLocation(): ?Location | setLocation(?Location location): void |
-| `user` | [`?User1`](../../doc/models/user-1.md) | Optional | User Information on `expand` | getUser(): ?User1 | setUser(?User1 user): void |
+| `location` | [`?Location18`](../../doc/models/location-18.md) | Optional | - | getLocation(): ?Location18 | setLocation(?Location18 location): void |
+| `user` | [`?User9`](../../doc/models/user-9.md) | Optional | - | getUser(): ?User9 | setUser(?User9 user): void |
 | `recurrings` | [`?(Recurring[])`](../../doc/models/recurring.md) | Optional | Recurring Information on `expand` | getRecurrings(): ?array | setRecurrings(?array recurrings): void |
-| `emailBlacklist` | [`?EmailBlacklist`](../../doc/models/email-blacklist.md) | Optional | Email Blacklist Information on `expand` | getEmailBlacklist(): ?EmailBlacklist | setEmailBlacklist(?EmailBlacklist emailBlacklist): void |
-| `smsBlacklist` | [`?SmsBlacklist`](../../doc/models/sms-blacklist.md) | Optional | Sms Blacklist Information on `expand` | getSmsBlacklist(): ?SmsBlacklist | setSmsBlacklist(?SmsBlacklist smsBlacklist): void |
+| `emailBlacklist` | [`?EmailBlacklist1`](../../doc/models/email-blacklist-1.md) | Optional | - | getEmailBlacklist(): ?EmailBlacklist1 | setEmailBlacklist(?EmailBlacklist1 emailBlacklist): void |
+| `smsBlacklist` | [`?SmsBlacklist1`](../../doc/models/sms-blacklist-1.md) | Optional | - | getSmsBlacklist(): ?SmsBlacklist1 | setSmsBlacklist(?SmsBlacklist1 smsBlacklist): void |
 | `changelogs` | [`?(Changelog[])`](../../doc/models/changelog.md) | Optional | Changelog Information on `expand` | getChangelogs(): ?array | setChangelogs(?array changelogs): void |
 | `postbackLogs` | [`?(PostbackLog[])`](../../doc/models/postback-log.md) | Optional | Postback Log Information on `expand` | getPostbackLogs(): ?array | setPostbackLogs(?array postbackLogs): void |
-| `createdUser` | [`?CreatedUser`](../../doc/models/created-user.md) | Optional | User Information on `expand` | getCreatedUser(): ?CreatedUser | setCreatedUser(?CreatedUser createdUser): void |
-| `parent` | [`?MParent`](../../doc/models/m-parent.md) | Optional | Parent Information on `expand` | getParent(): ?MParent | setParent(?MParent parent): void |
-| `children` | [`?Children`](../../doc/models/children.md) | Optional | Children Information on `expand` | getChildren(): ?Children | setChildren(?Children children): void |
+| `createdUser` | [`?User9`](../../doc/models/user-9.md) | Optional | - | getCreatedUser(): ?User9 | setCreatedUser(?User9 createdUser): void |
+| `parent` | [`?Parent5`](../../doc/models/parent-5.md) | Optional | - | getParent(): ?Parent5 | setParent(?Parent5 parent): void |
+| `children` | [`?Children1`](../../doc/models/children-1.md) | Optional | - | getChildren(): ?Children1 | setChildren(?Children1 children): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -75,7 +78,6 @@
   "office_phone_country_code": "+1",
   "cell_phone_country_code": "+1",
   "header_message_type": 0,
-  "update_if_exists": 1,
   "contact_c1": "any",
   "contact_c2": "anything",
   "contact_c3": "something",
@@ -87,7 +89,11 @@
   "modified_ts": 1422040992,
   "active": true,
   "created_user_id": "11e95f8ec39de8fbdb0a4f1a",
-  "is_deletable": true
+  "is_deletable": true,
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

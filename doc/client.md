@@ -5,7 +5,7 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
-| environment | [`Environment`](../README.md#environments) | The API environment. <br> **Default: `Environment.SANDBOX`** |
+| environment | [`Environment`](../README.md#environments) | The API environment. <br> **Default: `Environment.PRODUCTION`** |
 | timeout | `int` | Timeout for API calls in seconds.<br>*Default*: `0` |
 | enableRetries | `bool` | Whether to enable retries and backoff feature.<br>*Default*: `false` |
 | numberOfRetries | `int` | The number of retries to make.<br>*Default*: `0` |
@@ -15,6 +15,7 @@ The following parameters are configurable for the API Client:
 | retryOnTimeout | `bool` | Whether to retry on request timeout.<br>*Default*: `true` |
 | httpStatusCodesToRetry | `array` | Http status codes to retry against.<br>*Default*: `408, 413, 429, 500, 502, 503, 504, 521, 522, 524` |
 | httpMethodsToRetry | `array` | Http methods to retry against.<br>*Default*: `'GET', 'PUT'` |
+| loggingConfiguration | [`LoggingConfigurationBuilder`](../doc/logging-configuration-builder.md) | Represents the logging configurations for API calls |
 | proxyConfiguration | [`ProxyConfigurationBuilder`](../doc/proxy-configuration-builder.md) | Represents the proxy configurations for API calls |
 | userIdCredentials | [`UserIdCredentials`](auth/custom-header-signature.md) | The Credentials Setter for Custom Header Signature |
 | userApiKeyCredentials | [`UserApiKeyCredentials`](auth/custom-header-signature-1.md) | The Credentials Setter for Custom Header Signature |
@@ -24,14 +25,18 @@ The following parameters are configurable for the API Client:
 The API client can be initialized as follows:
 
 ```php
-use FortisAPILib\Environment;
-use FortisAPILib\Authentication\UserIdCredentialsBuilder;
-use FortisAPILib\Authentication\UserApiKeyCredentialsBuilder;
-use FortisAPILib\Authentication\DeveloperIdCredentialsBuilder;
-use FortisAPILib\Authentication\AccessTokenCredentialsBuilder;
-use FortisAPILib\FortisAPIClientBuilder;
+use FortisApiLib\Logging\LoggingConfigurationBuilder;
+use FortisApiLib\Logging\RequestLoggingConfigurationBuilder;
+use FortisApiLib\Logging\ResponseLoggingConfigurationBuilder;
+use Psr\Log\LogLevel;
+use FortisApiLib\Environment;
+use FortisApiLib\Authentication\UserIdCredentialsBuilder;
+use FortisApiLib\Authentication\UserApiKeyCredentialsBuilder;
+use FortisApiLib\Authentication\DeveloperIdCredentialsBuilder;
+use FortisApiLib\Authentication\AccessTokenCredentialsBuilder;
+use FortisApiLib\FortisApiClientBuilder;
 
-$client = FortisAPIClientBuilder::init()
+$client = FortisApiClientBuilder::init()
     ->userIdCredentials(
         UserIdCredentialsBuilder::init(
             'user-id'
@@ -52,7 +57,13 @@ $client = FortisAPIClientBuilder::init()
             'access-token'
         )
     )
-    ->environment(Environment::SANDBOX)
+    ->environment(Environment::PRODUCTION)
+    ->loggingConfiguration(
+        LoggingConfigurationBuilder::init()
+            ->level(LogLevel::INFO)
+            ->requestConfiguration(RequestLoggingConfigurationBuilder::init()->body(true))
+            ->responseConfiguration(ResponseLoggingConfigurationBuilder::init()->headers(true))
+    )
     ->build();
 ```
 
@@ -72,8 +83,8 @@ The gateway for the SDK. This class acts as a factory for the Controllers and al
 | getElementsController() | Gets ElementsController |
 | getFullBoardingController() | Gets FullBoardingController |
 | getLocationsController() | Gets LocationsController |
-| getM3DSAuthenticationController() | Gets M3DSAuthenticationController |
-| getM3DSTransactionsController() | Gets M3DSTransactionsController |
+| getM3DsAuthenticationController() | Gets M3DsAuthenticationController |
+| getM3DsTransactionsController() | Gets M3DsTransactionsController |
 | getMerchantDepositsController() | Gets MerchantDepositsController |
 | getOnBoardingController() | Gets OnBoardingController |
 | getPaylinksController() | Gets PaylinksController |
@@ -85,11 +96,11 @@ The gateway for the SDK. This class acts as a factory for the Controllers and al
 | getTerminalsController() | Gets TerminalsController |
 | getTicketsController() | Gets TicketsController |
 | getTokensController() | Gets TokensController |
-| getTransactionACHRetriesController() | Gets TransactionACHRetriesController |
-| getTransactionsACHController() | Gets TransactionsACHController |
+| getTransactionAchRetriesController() | Gets TransactionAchRetriesController |
+| getTransactionsAchController() | Gets TransactionsAchController |
 | getTransactionsCashController() | Gets TransactionsCashController |
 | getTransactionsCreditCardController() | Gets TransactionsCreditCardController |
-| getTransactionsEBTCardController() | Gets TransactionsEBTCardController |
+| getTransactionsEbtCardController() | Gets TransactionsEbtCardController |
 | getTransactionsReadController() | Gets TransactionsReadController |
 | getLevel3DataController() | Gets Level3DataController |
 | getTransactionsUpdatesController() | Gets TransactionsUpdatesController |

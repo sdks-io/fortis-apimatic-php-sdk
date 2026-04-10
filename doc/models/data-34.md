@@ -1,6 +1,8 @@
 
 # Data 34
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `Data34`
@@ -28,20 +30,20 @@
 | `requiresNewPassword` | `?string` | Optional | Requires New Password<br><br>**Constraints**: *Maximum Length*: `1` | getRequiresNewPassword(): ?string | setRequiresNewPassword(?string requiresNewPassword): void |
 | `termsConditionCode` | `?string` | Optional | Terms Condition (This field is required when updating your own password). | getTermsConditionCode(): ?string | setTermsConditionCode(?string termsConditionCode): void |
 | `tz` | `?string` | Optional | Time zone<br><br>**Constraints**: *Maximum Length*: `30` | getTz(): ?string | setTz(?string tz): void |
-| `uiPrefs` | [`?UiPrefs`](../../doc/models/ui-prefs.md) | Optional | Ui Prefs | getUiPrefs(): ?UiPrefs | setUiPrefs(?UiPrefs uiPrefs): void |
+| `uiPrefs` | [`?UiPrefs1`](../../doc/models/ui-prefs-1.md) | Optional | - | getUiPrefs(): ?UiPrefs1 | setUiPrefs(?UiPrefs1 uiPrefs): void |
 | `username` | `?string` | Optional | Username<br><br>**Constraints**: *Minimum Length*: `2`, *Maximum Length*: `64` | getUsername(): ?string | setUsername(?string username): void |
 | `userApiKey` | `?string` | Optional | User Api Key<br><br>**Constraints**: *Minimum Length*: `16`, *Maximum Length*: `64` | getUserApiKey(): ?string | setUserApiKey(?string userApiKey): void |
 | `userHashKey` | `?string` | Optional | User Hash Key<br><br>**Constraints**: *Minimum Length*: `24`, *Maximum Length*: `36` | getUserHashKey(): ?string | setUserHashKey(?string userHashKey): void |
-| `userTypeCode` | [`?int(UserTypeCodeEnum)`](../../doc/models/user-type-code-enum.md) | Optional | User Type | getUserTypeCode(): ?int | setUserTypeCode(?int userTypeCode): void |
+| `userTypeCode` | [`?int(UserTypeCode)`](../../doc/models/user-type-code.md) | Optional | - | getUserTypeCode(): ?int | setUserTypeCode(?int userTypeCode): void |
 | `password` | `?string` | Optional | Password<br><br>**Constraints**: *Minimum Length*: `8`, *Maximum Length*: `128`, *Pattern*: ``^(?=.*[`!@#$%^&*()_+\-=\[\]{};':"\\\|,.<>\/?~])(?=.*[0-9])(?=.*[a-zA-Z]).*$`` | getPassword(): ?string | setPassword(?string password): void |
 | `zip` | `?string` | Optional | Zip<br><br>**Constraints**: *Minimum Length*: `3`, *Maximum Length*: `10`, *Pattern*: `^[a-zA-Z0-9\-\s]+$` | getZip(): ?string | setZip(?string zip): void |
 | `locationId` | `?string` | Optional | Location ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` | getLocationId(): ?string | setLocationId(?string locationId): void |
 | `contactApiId` | `?string` | Optional | ContactApi Id | getContactApiId(): ?string | setContactApiId(?string contactApiId): void |
 | `primaryLocationApiId` | `?string` | Optional | Primary LocationApi ID | getPrimaryLocationApiId(): ?string | setPrimaryLocationApiId(?string primaryLocationApiId): void |
-| `statusCode` | [`?int(StatusCodeEnum)`](../../doc/models/status-code-enum.md) | Optional | Status Code | getStatusCode(): ?int | setStatusCode(?int statusCode): void |
+| `statusCode` | `?array` | Optional | - | getStatusCode(): ?array | setStatusCode(?array statusCode): void |
 | `apiOnly` | `?bool` | Optional | API Only | getApiOnly(): ?bool | setApiOnly(?bool apiOnly): void |
 | `isInvitation` | `?bool` | Optional | Is Invitation | getIsInvitation(): ?bool | setIsInvitation(?bool isInvitation): void |
-| `address` | [`?Address2`](../../doc/models/address-2.md) | Optional | Address | getAddress(): ?Address2 | setAddress(?Address2 address): void |
+| `address` | [`?Address3`](../../doc/models/address-3.md) | Optional | - | getAddress(): ?Address3 | setAddress(?Address3 address): void |
 | `id` | `?string` | Optional | User ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` | getId(): ?string | setId(?string id): void |
 | `status` | `?bool` | Optional | Status | getStatus(): ?bool | setStatus(?bool status): void |
 | `loginAttempts` | `?int` | Optional | Login Attempts | getLoginAttempts(): ?int | setLoginAttempts(?int loginAttempts): void |
@@ -57,20 +59,21 @@
 | `sftpAccess` | `?bool` | Optional | SFTP Access | getSftpAccess(): ?bool | setSftpAccess(?bool sftpAccess): void |
 | `logApiResponseBodyTs` | `?int` | Optional | Log Api Response Body | getLogApiResponseBodyTs(): ?int | setLogApiResponseBodyTs(?int logApiResponseBodyTs): void |
 | `locations` | [`?(Location18[])`](../../doc/models/location-18.md) | Optional | Location Information on `expand` | getLocations(): ?array | setLocations(?array locations): void |
-| `primaryLocation` | [`?PrimaryLocation`](../../doc/models/primary-location.md) | Optional | Primary Location Information on `expand` | getPrimaryLocation(): ?PrimaryLocation | setPrimaryLocation(?PrimaryLocation primaryLocation): void |
+| `primaryLocation` | [`?AccountVaultCauProductTransaction`](../../doc/models/account-vault-cau-product-transaction.md) | Optional | - | getPrimaryLocation(): ?AccountVaultCauProductTransaction | setPrimaryLocation(?AccountVaultCauProductTransaction primaryLocation): void |
 | `receivedEmails` | [`?(ReceivedEmail[])`](../../doc/models/received-email.md) | Optional | Received Email Information on `expand` | getReceivedEmails(): ?array | setReceivedEmails(?array receivedEmails): void |
-| `contact` | [`?Contact1`](../../doc/models/contact-1.md) | Optional | Contact Information on `expand` | getContact(): ?Contact1 | setContact(?Contact1 contact): void |
+| `contact` | [`?Contact3`](../../doc/models/contact-3.md) | Optional | - | getContact(): ?Contact3 | setContact(?Contact3 contact): void |
 | `isDeletable` | `?bool` | Optional | Is Deletable Information on `expand` | getIsDeletable(): ?bool | setIsDeletable(?bool isDeletable): void |
 | `activeNotificationAlerts` | [`?(ActiveNotificationAlert[])`](../../doc/models/active-notification-alert.md) | Optional | Active Notification Alert Information on `expand` | getActiveNotificationAlerts(): ?array | setActiveNotificationAlerts(?array activeNotificationAlerts): void |
 | `locationUsers` | [`?(LocationUser[])`](../../doc/models/location-user.md) | Optional | Location User Information on `expand` | getLocationUsers(): ?array | setLocationUsers(?array locationUsers): void |
 | `authRoles` | [`?(AuthRole[])`](../../doc/models/auth-role.md) | Optional | Auth Role Information on `expand` | getAuthRoles(): ?array | setAuthRoles(?array authRoles): void |
 | `changelogs` | [`?(Changelog[])`](../../doc/models/changelog.md) | Optional | Changelog Information on `expand` | getChangelogs(): ?array | setChangelogs(?array changelogs): void |
-| `resources` | [`?Resources`](../../doc/models/resources.md) | Optional | Resource Information on `expand` | getResources(): ?Resources | setResources(?Resources resources): void |
-| `domain` | [`?Domain`](../../doc/models/domain.md) | Optional | Domain Information on `expand` | getDomain(): ?Domain | setDomain(?Domain domain): void |
-| `createdUser` | [`?CreatedUser`](../../doc/models/created-user.md) | Optional | User Information on `expand` | getCreatedUser(): ?CreatedUser | setCreatedUser(?CreatedUser createdUser): void |
+| `resources` | [`?Resources1`](../../doc/models/resources-1.md) | Optional | - | getResources(): ?Resources1 | setResources(?Resources1 resources): void |
+| `domain` | [`?Domain1`](../../doc/models/domain-1.md) | Optional | - | getDomain(): ?Domain1 | setDomain(?Domain1 domain): void |
+| `createdUser` | [`?User9`](../../doc/models/user-9.md) | Optional | - | getCreatedUser(): ?User9 | setCreatedUser(?User9 createdUser): void |
 | `locationMarketplaces` | [`?(Locationmarketplace[])`](../../doc/models/locationmarketplace.md) | Optional | Locationmarketplaces Information on `expand` | getLocationMarketplaces(): ?array | setLocationMarketplaces(?array locationMarketplaces): void |
-| `emailBlacklist` | [`?EmailBlacklist`](../../doc/models/email-blacklist.md) | Optional | Email Blacklist Information on `expand` | getEmailBlacklist(): ?EmailBlacklist | setEmailBlacklist(?EmailBlacklist emailBlacklist): void |
-| `helppage` | [`?Helppage2`](../../doc/models/helppage-2.md) | Optional | Helppage Information on `expand` | getHelppage(): ?Helppage2 | setHelppage(?Helppage2 helppage): void |
+| `emailBlacklist` | [`?EmailBlacklist1`](../../doc/models/email-blacklist-1.md) | Optional | - | getEmailBlacklist(): ?EmailBlacklist1 | setEmailBlacklist(?EmailBlacklist1 emailBlacklist): void |
+| `helppage` | [`?Helppage`](../../doc/models/helppage.md) | Optional | - | getHelppage(): ?Helppage | setHelppage(?Helppage helppage): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -96,10 +99,8 @@
   "tz": "America/New_York",
   "username": "{user_name}",
   "user_api_key": "234bas8dfn8238f923w2",
-  "user_type_code": 100,
   "zip": "48375",
   "location_id": "11e95f8ec39de8fbdb0a4f1a",
-  "status_code": 1,
   "api_only": false,
   "is_invitation": false,
   "id": "11e95f8ec39de8fbdb0a4f1a",
@@ -113,7 +114,11 @@
   "terms_agree_ip": "192.168.0.10",
   "current_login": 1422040992,
   "log_api_response_body_ts": 1422040992,
-  "isDeletable": true
+  "isDeletable": true,
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

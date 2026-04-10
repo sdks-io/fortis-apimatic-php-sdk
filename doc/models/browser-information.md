@@ -5,6 +5,8 @@ Contains browser information.
 
 This field is required when device_channel=02 (BRW).
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `BrowserInformation`
@@ -21,9 +23,10 @@ This field is required when device_channel=02 (BRW).
 | `browserScreenWidth` | `?int` | Optional | Total width of the Cardholder's screen in pixels. Value is returned from the screen.width property. The value is limited to 1-6 characters.<br><br>Depending on the message version, the field is required for requests:<br><br>- with message version = 2.1.0 and device_channel = 02 (BRW).<br>- with message version = 2.2.0 and device_channel = 02 (BRW) and browser_javascript_enabled = true.<br><br>**Constraints**: `>= 0`, `<= 999999` | getBrowserScreenWidth(): ?int | setBrowserScreenWidth(?int browserScreenWidth): void |
 | `browserTz` | `?int` | Optional | Time difference between UTC time and the Cardholder browser local time, in minutes. The field is limited to 1-5 characters where the values is returned from the getTimezoneOffset() method.<br><br>Depending on the message version, the field is required for requests:<br><br>- with message version = 2.1.0 and device_channel = 02 (BRW).<br>- with message version = 2.2.0 and device_channel = 02 (BRW) and browser_javascript_enabled = true.<br><br>**Constraints**: `>= 0`, `<= 99999` | getBrowserTz(): ?int | setBrowserTz(?int browserTz): void |
 | `browserUserAgent` | `?string` | Optional | Exact content of the HTTP user-agent header. The field is limited to maximum 2048 caracters. If the total length of the User-Agent sent by the browser exceeds 2048 characters, the 3DS Server truncates the excess portion.<br><br>This field is required for requests where device_channel = 02 (BRW). | getBrowserUserAgent(): ?string | setBrowserUserAgent(?string browserUserAgent): void |
-| `challengeWindowSize` | [`?string(ChallengeWindowSizeEnum)`](../../doc/models/challenge-window-size-enum.md) | Optional | Dimensions of the challenge window that has been displayed to the Cardholder. The ACS shall reply with content that is formatted to appropriately render in this window to provide the best possible user experience.<br><br>Preconfigured sizes are width X height in pixels of the window displayed in the Cardholder browser window. This is used only to prepare the CReq request and it is not part of the AReq flow. If not present it will be omitted.<br><br>However, when sending the Challenge Request, this field is required when device_channel = 02 (BRW).<br><br>> 01 - 250 x 400<br>> <br>> 02 - 390 x 400<br>> <br>> 03 - 500 x 600<br>> <br>> 04 - 600 x 400<br>> <br>> 05 - Full screen | getChallengeWindowSize(): ?string | setChallengeWindowSize(?string challengeWindowSize): void |
+| `challengeWindowSize` | [`?string(ChallengeWindowSize)`](../../doc/models/challenge-window-size.md) | Optional | - | getChallengeWindowSize(): ?string | setChallengeWindowSize(?string challengeWindowSize): void |
 | `browserJavascriptEnabled` | `?bool` | Optional | Boolean that represents the ability of the cardholder browser to execute JavaScript.<br><br>This field is required for requests where device_channel = 02 (BRW).<br>Available for supporting EMV 3DS 2.2.0 and later versions. | getBrowserJavascriptEnabled(): ?bool | setBrowserJavascriptEnabled(?bool browserJavascriptEnabled): void |
 | `acceptLanguage` | `?(string[])` | Optional | Value representing the browser language preference present in the http header, as defined in IETF BCP 47.<br><br>The value is limited to 1-99 elements. Each element should contain a maximum of 100 characters.<br><br>This field is required for requests where device_channel = 02 (BRW).<br>Available for supporting EMV 3DS 2.3.1 and later versions.<br><br>**Constraints**: *Minimum Items*: `1`, *Maximum Items*: `99`, *Maximum Length*: `100` | getAcceptLanguage(): ?array | setAcceptLanguage(?array acceptLanguage): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -37,8 +40,11 @@ This field is required when device_channel=02 (BRW).
   "browser_screen_width": 1920,
   "browser_tz": 1,
   "browser_user_agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0",
-  "challenge_window_size": "01",
-  "browser_javascript_enabled": true
+  "browser_javascript_enabled": true,
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

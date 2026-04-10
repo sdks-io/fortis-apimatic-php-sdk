@@ -1,0 +1,34 @@
+
+# Field 27
+
+*This model accepts additional fields of type array.*
+
+## Enumeration
+
+`Field27`
+
+## Fields
+
+| Name |
+|  --- |
+| `ID` |
+| `CREATED_TS` |
+| `PRODUCT_TRANSACTION_ID` |
+| `PROCESSING_STATUS_ID` |
+| `BATCH_NUM` |
+| `IS_OPEN` |
+| `SETTLEMENT_FILE_NAME` |
+| `BATCH_CLOSE_TS` |
+| `BATCH_CLOSE_DETAIL` |
+| `TOTAL_SALE_AMOUNT` |
+| `TOTAL_SALE_COUNT` |
+| `TOTAL_REFUND_AMOUNT` |
+| `TOTAL_REFUND_COUNT` |
+| `TOTAL_VOID_AMOUNT` |
+| `TOTAL_VOID_COUNT` |
+| `TOTAL_BLIND_REFUND_AMOUNT` |
+| `TOTAL_BLIND_REFUND_COUNT` |
+| `CHANGELOGS` |
+| `POSTBACK_LOGS` |
+| `PRODUCT_TRANSACTION` |
+

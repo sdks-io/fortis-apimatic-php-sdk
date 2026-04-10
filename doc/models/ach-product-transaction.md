@@ -3,6 +3,8 @@
 
 Ach Product Transaction Information on `expand`
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `AchProductTransaction`
@@ -12,14 +14,14 @@ Ach Product Transaction Information on `expand`
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `processorVersion` | `?string` | Optional | Processor Version | getProcessorVersion(): ?string | setProcessorVersion(?string processorVersion): void |
-| `industryType` | [`?string(IndustryTypeEnum)`](../../doc/models/industry-type-enum.md) | Optional | Industry Type<br><br>**Constraints**: *Maximum Length*: `45` | getIndustryType(): ?string | setIndustryType(?string industryType): void |
+| `industryType` | `?array` | Optional | - | getIndustryType(): ?array | setIndustryType(?array industryType): void |
 | `title` | `?string` | Optional | Title<br><br>**Constraints**: *Maximum Length*: `64` | getTitle(): ?string | setTitle(?string title): void |
-| `paymentMethod` | [`?string(PaymentMethodEnum)`](../../doc/models/payment-method-enum.md) | Optional | Payment method | getPaymentMethod(): ?string | setPaymentMethod(?string paymentMethod): void |
-| `processor` | [`?string(ProcessorEnum)`](../../doc/models/processor-enum.md) | Optional | Processor | getProcessor(): ?string | setProcessor(?string processor): void |
+| `paymentMethod` | [`?string(PaymentMethod)`](../../doc/models/payment-method.md) | Optional | - | getPaymentMethod(): ?string | setPaymentMethod(?string paymentMethod): void |
+| `processor` | `?array` | Optional | - | getProcessor(): ?array | setProcessor(?array processor): void |
 | `mcc` | `?string` | Optional | MCC<br><br>**Constraints**: *Maximum Length*: `4`, *Pattern*: `^\d+$` | getMcc(): ?string | setMcc(?string mcc): void |
-| `taxSurchargeConfig` | [`?int(TaxSurchargeConfigEnum)`](../../doc/models/tax-surcharge-config-enum.md) | Optional | Tax Surcharge Config<br><br>**Default**: `TaxSurchargeConfigEnum::ENUM_2` | getTaxSurchargeConfig(): ?int | setTaxSurchargeConfig(?int taxSurchargeConfig): void |
+| `taxSurchargeConfig` | `?array` | Optional | - | getTaxSurchargeConfig(): ?array | setTaxSurchargeConfig(?array taxSurchargeConfig): void |
 | `terminalId` | `?string` | Optional | Terminal ID<br><br>**Constraints**: *Maximum Length*: `24` | getTerminalId(): ?string | setTerminalId(?string terminalId): void |
-| `partner` | [`?string(PartnerEnum)`](../../doc/models/partner-enum.md) | Optional | Partner<br><br>**Constraints**: *Maximum Length*: `24` | getPartner(): ?string | setPartner(?string partner): void |
+| `partner` | `?array` | Optional | - | getPartner(): ?array | setPartner(?array partner): void |
 | `productAchPvStoreId` | `?string` | Optional | Product Ach Pv Store ID | getProductAchPvStoreId(): ?string | setProductAchPvStoreId(?string productAchPvStoreId): void |
 | `invoiceAdjustmentTitle` | `?string` | Optional | Invoice Adjustment Title | getInvoiceAdjustmentTitle(): ?string | setInvoiceAdjustmentTitle(?string invoiceAdjustmentTitle): void |
 | `locationId` | `?string` | Optional | Location ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` | getLocationId(): ?string | setLocationId(?string locationId): void |
@@ -72,7 +74,7 @@ Ach Product Transaction Information on `expand`
 | `receiptAddAccountAboveSignature` | `?string` | Optional | Receipt Add Account Above Signature<br><br>**Constraints**: *Maximum Length*: `1032` | getReceiptAddAccountAboveSignature(): ?string | setReceiptAddAccountAboveSignature(?string receiptAddAccountAboveSignature): void |
 | `receiptAddRecurringAboveSignature` | `?string` | Optional | Receipt Add Recurring Above Signature<br><br>**Constraints**: *Maximum Length*: `1032` | getReceiptAddRecurringAboveSignature(): ?string | setReceiptAddRecurringAboveSignature(?string receiptAddRecurringAboveSignature): void |
 | `receiptVtAboveSignature` | `?string` | Optional | Receipt VT Above Signature<br><br>**Constraints**: *Maximum Length*: `1032` | getReceiptVtAboveSignature(): ?string | setReceiptVtAboveSignature(?string receiptVtAboveSignature): void |
-| `defaultTransactionType` | [`?string(DefaultTransactionTypeEnum)`](../../doc/models/default-transaction-type-enum.md) | Optional | Default Transaction Type | getDefaultTransactionType(): ?string | setDefaultTransactionType(?string defaultTransactionType): void |
+| `defaultTransactionType` | `?array` | Optional | - | getDefaultTransactionType(): ?array | setDefaultTransactionType(?array defaultTransactionType): void |
 | `username` | `?string` | Optional | Username<br><br>**Constraints**: *Maximum Length*: `512` | getUsername(): ?string | setUsername(?string username): void |
 | `password` | `?string` | Optional | Passowrd<br><br>**Constraints**: *Maximum Length*: `512` | getPassword(): ?string | setPassword(?string password): void |
 | `currentBatch` | `?float` | Optional | Current Batch<br><br>**Default**: `1`<br><br>**Constraints**: `>= 1`, `<= 9999` | getCurrentBatch(): ?float | setCurrentBatch(?float currentBatch): void |
@@ -82,14 +84,14 @@ Ach Product Transaction Information on `expand`
 | `quickInvoiceAllow` | `?bool` | Optional | Quick Invoice Allow | getQuickInvoiceAllow(): ?bool | setQuickInvoiceAllow(?bool quickInvoiceAllow): void |
 | `level3Allow` | `?bool` | Optional | Level3 Allow | getLevel3Allow(): ?bool | setLevel3Allow(?bool level3Allow): void |
 | `payfacEnable` | `?bool` | Optional | Payfac Enable | getPayfacEnable(): ?bool | setPayfacEnable(?bool payfacEnable): void |
-| `enable3ds` | `?bool` | Optional | Enable 3DS | getEnable3ds(): ?bool | setEnable3ds(?bool enable3ds): void |
+| `enable3Ds` | `?bool` | Optional | Enable 3DS | getEnable3Ds(): ?bool | setEnable3Ds(?bool enable3Ds): void |
 | `salesOfficeId` | `?string` | Optional | Sales Office ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` | getSalesOfficeId(): ?string | setSalesOfficeId(?string salesOfficeId): void |
 | `hostedPaymentPageMaxAllowed` | `?float` | Optional | Hosted Payment Page Max Allowed<br><br>**Default**: `5`<br><br>**Constraints**: `>= 1`, `<= 999` | getHostedPaymentPageMaxAllowed(): ?float | setHostedPaymentPageMaxAllowed(?float hostedPaymentPageMaxAllowed): void |
 | `hostedPaymentPageAllow` | `?bool` | Optional | Hosted Payment Page Allow | getHostedPaymentPageAllow(): ?bool | setHostedPaymentPageAllow(?bool hostedPaymentPageAllow): void |
 | `surchargeId` | `?string` | Optional | Surcharge ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` | getSurchargeId(): ?string | setSurchargeId(?string surchargeId): void |
 | `allowBigCommerce` | `?bool` | Optional | Allow Big Commerce | getAllowBigCommerce(): ?bool | setAllowBigCommerce(?bool allowBigCommerce): void |
-| `level3Default` | [`?Level3Default`](../../doc/models/level-3-default.md) | Optional | Level3 Default | getLevel3Default(): ?Level3Default | setLevel3Default(?Level3Default level3Default): void |
-| `cauSubscribeTypeId` | [`?int(CauSubscribeTypeIdEnum)`](../../doc/models/cau-subscribe-type-id-enum.md) | Optional | Cau Subscribe Type ID | getCauSubscribeTypeId(): ?int | setCauSubscribeTypeId(?int cauSubscribeTypeId): void |
+| `level3Default` | [`?Level3Default1`](../../doc/models/level-3-default-1.md) | Optional | - | getLevel3Default(): ?Level3Default1 | setLevel3Default(?Level3Default1 level3Default): void |
+| `cauSubscribeTypeId` | `?array` | Optional | - | getCauSubscribeTypeId(): ?array | setCauSubscribeTypeId(?array cauSubscribeTypeId): void |
 | `cauAccountNumber` | `?string` | Optional | Cau Account Number<br><br>**Constraints**: *Minimum Length*: `32`, *Maximum Length*: `32`, *Pattern*: `^[a-zA-Z0-9\-]+$` | getCauAccountNumber(): ?string | setCauAccountNumber(?string cauAccountNumber): void |
 | `locationBillingAccountId` | `?string` | Optional | Location Billing Account ID | getLocationBillingAccountId(): ?string | setLocationBillingAccountId(?string locationBillingAccountId): void |
 | `productBillingGroupId` | `?string` | Optional | Product Billing Group ID | getProductBillingGroupId(): ?string | setProductBillingGroupId(?string productBillingGroupId): void |
@@ -112,7 +114,7 @@ Ach Product Transaction Information on `expand`
 | `allowSecondaryAmount` | `?bool` | Optional | Allow Retained Amount | getAllowSecondaryAmount(): ?bool | setAllowSecondaryAmount(?bool allowSecondaryAmount): void |
 | `showGooglePay` | `?bool` | Optional | Vt Require Street | getShowGooglePay(): ?bool | setShowGooglePay(?bool showGooglePay): void |
 | `showApplePay` | `?bool` | Optional | Vt Require Street | getShowApplePay(): ?bool | setShowApplePay(?bool showApplePay): void |
-| `batchRiskConfig` | [`?BatchRiskConfig`](../../doc/models/batch-risk-config.md) | Optional | Batch Risk Config | getBatchRiskConfig(): ?BatchRiskConfig | setBatchRiskConfig(?BatchRiskConfig batchRiskConfig): void |
+| `batchRiskConfig` | [`?BatchRiskConfig1`](../../doc/models/batch-risk-config-1.md) | Optional | - | getBatchRiskConfig(): ?BatchRiskConfig1 | setBatchRiskConfig(?BatchRiskConfig1 batchRiskConfig): void |
 | `currencyCode` | `?float` | Optional | Currency Code | getCurrencyCode(): ?float | setCurrencyCode(?float currencyCode): void |
 | `enableAchValidation` | `?bool` | Optional | Enable ACH Validation | getEnableAchValidation(): ?bool | setEnableAchValidation(?bool enableAchValidation): void |
 | `enableAchRetry` | `?bool` | Optional | Enable ACH Retry | getEnableAchRetry(): ?bool | setEnableAchRetry(?bool enableAchRetry): void |
@@ -131,8 +133,9 @@ Ach Product Transaction Information on `expand`
 | `isSecondaryAmountAllowed` | `?bool` | Optional | Allow Retained Amount | getIsSecondaryAmountAllowed(): ?bool | setIsSecondaryAmountAllowed(?bool isSecondaryAmountAllowed): void |
 | `fortisId` | `?string` | Optional | - | getFortisId(): ?string | setFortisId(?string fortisId): void |
 | `productBillingGroupCode` | `?string` | Optional | Product Billing Group Code | getProductBillingGroupCode(): ?string | setProductBillingGroupCode(?string productBillingGroupCode): void |
-| `cauSubscribeTypeCode` | [`?int(CauSubscribeTypeCodeEnum)`](../../doc/models/cau-subscribe-type-code-enum.md) | Optional | Cau Subscribe Type Code | getCauSubscribeTypeCode(): ?int | setCauSubscribeTypeCode(?int cauSubscribeTypeCode): void |
+| `cauSubscribeTypeCode` | `?array` | Optional | - | getCauSubscribeTypeCode(): ?array | setCauSubscribeTypeCode(?array cauSubscribeTypeCode): void |
 | `merchantCode` | `?string` | Optional | Merchant Code<br><br>**Constraints**: *Maximum Length*: `24` | getMerchantCode(): ?string | setMerchantCode(?string merchantCode): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -140,11 +143,7 @@ Ach Product Transaction Information on `expand`
 {
   "processor_version": "1_0_0",
   "title": "My terminal",
-  "payment_method": "cc",
-  "processor": "zgate",
   "mcc": "1111",
-  "tax_surcharge_config": 2,
-  "partner": "standalone",
   "location_id": "11e95f8ec39de8fbdb0a4f1a",
   "vt_clerk_number": true,
   "vt_billing_phone": true,
@@ -193,7 +192,6 @@ Ach Product Transaction Information on `expand`
   "hosted_payment_page_allow": false,
   "surcharge_id": "11e95f8ec39de8fbdb0a4f1a",
   "allow_big_commerce": false,
-  "cau_subscribe_type_id": 0,
   "location_billing_account_id": "11eb88b873980c64a21e5fd2",
   "product_billing_group_id": "nofees",
   "account_number": "12345678",
@@ -229,8 +227,19 @@ Ach Product Transaction Information on `expand`
   "is_secondary_amount_allowed": false,
   "fortis_id": "8149742",
   "product_billing_group_code": "nofees",
-  "cau_subscribe_type_code": 0,
-  "industry_type": "retail"
+  "industry_type": {
+    "key1": "val1",
+    "key2": "val2"
+  },
+  "payment_method": "cash",
+  "processor": {
+    "key1": "val1",
+    "key2": "val2"
+  },
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

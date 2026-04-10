@@ -7,6 +7,8 @@ The following options outlines some configurable timeout values that can be used
 > 
 > These timeouts are specific to Ingenico devices only.
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `TerminalTimeouts`
@@ -24,6 +26,7 @@ The following options outlines some configurable timeout values that can be used
 | `statusDisplayTime` | `?int` | Optional | How long the approve/decline status message stays on screen.<br><br>> Message on timeout:<br>> N/A - Not actually a "timeout".  This is a time to display the status on the screen.<br><br>**Default**: `7`<br><br>**Constraints**: `>= 1`, `<= 30` | getStatusDisplayTime(): ?int | setStatusDisplayTime(?int statusDisplayTime): void |
 | `tipCashbackTimeout` | `?int` | Optional | How long to wait for input on a tip or cashback screen.<br><br>> Message on timeout:<br>> Tip/Cashback Timeout<br><br>**Default**: `30`<br><br>**Constraints**: `>= 20`, `<= 50` | getTipCashbackTimeout(): ?int | setTipCashbackTimeout(?int tipCashbackTimeout): void |
 | `transactionTimeout` | `?int` | Optional | How long to wait for response from the processor.<br><br>> Message on timeout:<br>> Transaction Timeout<br><br>**Default**: `10`<br><br>**Constraints**: `>= 10`, `<= 20` | getTransactionTimeout(): ?int | setTransactionTimeout(?int transactionTimeout): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -37,7 +40,11 @@ The following options outlines some configurable timeout values that can be used
   "signature_submit_timeout": 38,
   "status_display_time": 12,
   "tip_cashback_timeout": 25,
-  "transaction_timeout": 17
+  "transaction_timeout": 17,
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

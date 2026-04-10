@@ -22,10 +22,10 @@ To configure the SDK to use a proxy server, initialize the proxy configuration d
 ```php
 <?php
 
-use FortisAPILib\FortisAPIClientBuilder;
-use FortisAPILib\Proxy\ProxyConfigurationBuilder;
+use FortisApiLib\FortisApiClientBuilder;
+use FortisApiLib\Proxy\ProxyConfigurationBuilder;
 // initialize the sdk client using a proxy configuration
-$client = FortisAPIClientBuilder::init()
+$client = FortisApiClientBuilder::init()
     ->proxyConfiguration(
         ProxyConfigurationBuilder::init('http://localhost')
             ->port(8080)

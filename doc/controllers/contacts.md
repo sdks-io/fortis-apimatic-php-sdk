@@ -13,8 +13,8 @@ $contactsController = $client->getContactsController();
 ## Methods
 
 * [Contacts Search](../../doc/controllers/contacts.md#contacts-search)
-* [Create a New Contact](../../doc/controllers/contacts.md#create-a-new-contact)
-* [List All Contacts](../../doc/controllers/contacts.md#list-all-contacts)
+* [Createanew Contact](../../doc/controllers/contacts.md#createanew-contact)
+* [Listall Contacts](../../doc/controllers/contacts.md#listall-contacts)
 * [Delete Contact](../../doc/controllers/contacts.md#delete-contact)
 * [View Single Contact](../../doc/controllers/contacts.md#view-single-contact)
 * [Update Contact](../../doc/controllers/contacts.md#update-contact)
@@ -25,10 +25,10 @@ $contactsController = $client->getContactsController();
 ```php
 function contactsSearch(
     string $locationId,
-    ?Page $page = null,
+    ?Page1 $page = null,
     ?string $keyword = null,
     ?bool $active = null
-): ResponseContactSearchsCollection
+): ApiResponse
 ```
 
 ## Parameters
@@ -36,37 +36,41 @@ function contactsSearch(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `locationId` | `string` | Query, Required | Location ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
-| `page` | [`?Page`](../../doc/models/page.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
+| `page` | [`?Page1`](../../doc/models/page-1.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
 | `keyword` | `?string` | Query, Optional | You can use any value to search on specific fields of this endpoint results. You can not specify the fields that are used. |
 | `active` | `?bool` | Query, Optional | Active |
 
 ## Response Type
 
-[`ResponseContactSearchsCollection`](../../doc/models/response-contact-searchs-collection.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseContactSearchsCollection`](../../doc/models/response-contact-searchs-collection.md).
 
 ## Example Usage
 
 ```php
 $locationId = '11e95f8ec39de8fbdb0a4f1a';
 
-$page = PageBuilder::init()
+$page = Page1Builder::init()
     ->number(1)
     ->size(50)
     ->build();
 
 $contactsController = $client->getContactsController();
+$apiResponse = $contactsController->contactsSearch(
+    $locationId,
+    $page
+);
 
-try {
-    $result = $contactsController->contactsSearch(
-        $locationId,
-        $page
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseContactSearchsCollection:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -475,13 +479,13 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# Create a New Contact
+# Createanew Contact
 
 ```php
-function createANewContact(V1ContactsRequest $body, ?array $expand = null): ResponseContact
+function createanewContact(V1ContactsRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -489,11 +493,11 @@ function createANewContact(V1ContactsRequest $body, ?array $expand = null): Resp
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1ContactsRequest`](../../doc/models/v1-contacts-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand1Enum)[])`](../../doc/models/expand-1-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand1)[])`](../../doc/models/expand-1.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseContact`](../../doc/models/response-contact.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseContact`](../../doc/models/response-contact.md).
 
 ## Example Usage
 
@@ -518,7 +522,6 @@ $body = V1ContactsRequestBuilder::init(
     ->officePhoneCountryCode('+1')
     ->cellPhoneCountryCode('+1')
     ->headerMessageType(0)
-    ->updateIfExists(UpdateIfExistsEnum::ENUM_1)
     ->contactC1('any')
     ->contactC2('anything')
     ->contactC3('something')
@@ -528,17 +531,19 @@ $body = V1ContactsRequestBuilder::init(
     ->build();
 
 $contactsController = $client->getContactsController();
+$apiResponse = $contactsController->createanewContact($body);
 
-try {
-    $result = $contactsController->createANewContact($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseContact:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -922,44 +927,44 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# List All Contacts
+# Listall Contacts
 
 ```php
-function listAllContacts(
-    ?Page $page = null,
+function listallContacts(
+    ?Page1 $page = null,
     ?array $order = null,
     ?array $filterBy = null,
     ?array $expand = null,
     ?string $format = null,
     ?string $typeahead = null,
     ?array $fields = null
-): ResponseContactsCollection
+): ApiResponse
 ```
 
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `page` | [`?Page`](../../doc/models/page.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
+| `page` | [`?Page1`](../../doc/models/page-1.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
 | `order` | [`?(Order21[])`](../../doc/models/order-21.md) | Query, Optional | Criteria used in query string parameters to order results.  Most fields from the endpoint results can be used as a `key`.  Unsupported fields or operators will return a `412`.  Must be encoded, or use syntax that does not require encoding.<br><br>> /endpoint?order[0][key]=created_ts&order[0][operator]=asc<br>> <br>> /endpoint?order=[{ "key": "created_ts", "operator": "asc"}]<br>> <br>> /endpoint?order=[{ "key": "balance", "operator": "desc"},{ "key": "created_ts", "operator": "asc"}]<br><br>**Constraints**: *Minimum Items*: `1` |
 | `filterBy` | [`?(FilterBy[])`](../../doc/models/filter-by.md) | Query, Optional | Filter criteria that can be used in query string parameters.  Most fields from the endpoint results can be used as a `key`.  Unsupported fields or operators will return a `412`. Must be encoded, or use syntax that does not require encoding.<br><br>> ?filter_by[0][key]=first_name&filter_by[0][operator]==&filter_by[0][value]=Steve<br>> <br>> /endpoint?filter_by=[{ "key": "first_name", "operator": "=", "value": "Fred" }]<br>> <br>> /endpoint?filter_by=[{ "key": "account_type", "operator": "=", "value": "VISA" }]<br>> <br>> /endpoint?filter_by=[{ "key": "created_ts", "operator": ">=", "value": "946702799" }, { "key": "created_ts", "operator": "<=", value: "1695061891" }]<br>> <br>> /endpoint?filter_by=[{ "key": "last_name", "operator": "IN", "value": "Williams,Brown,Allman" }]<br><br>**Constraints**: *Minimum Items*: `1` |
-| `expand` | [`?(string(Expand1Enum)[])`](../../doc/models/expand-1-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `format` | [`?string(Format1Enum)`](../../doc/models/format-1-enum.md) | Query, Optional | Reporting format, valid values: csv, tsv |
+| `expand` | [`?(string(Expand1)[])`](../../doc/models/expand-1.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
+| `format` | [`?string(Format1)`](../../doc/models/format-1.md) | Query, Optional | Reporting format, valid values: csv, tsv |
 | `typeahead` | `?string` | Query, Optional | You can use any `field_name` from this endpoint results to order the list using the value provided as filter for the same `field_name`. It will be ordered using the following rules: 1) Exact match, 2) Starts with, 3) Contains.<br><br>> /endpoint?filter={ "field_name": "Value" }&_typeahead=field_name |
-| `fields` | [`?(string(Field28Enum)[])`](../../doc/models/field-28-enum.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
+| `fields` | [`?(string(Field28)[])`](../../doc/models/field-28.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
 
 ## Response Type
 
-[`ResponseContactsCollection`](../../doc/models/response-contacts-collection.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseContactsCollection`](../../doc/models/response-contacts-collection.md).
 
 ## Example Usage
 
 ```php
-$page = PageBuilder::init()
+$page = Page1Builder::init()
     ->number(1)
     ->size(50)
     ->build();
@@ -967,32 +972,36 @@ $page = PageBuilder::init()
 $order = [
     Order21Builder::init(
         'first_name',
-        OperatorEnum::ASC
+        Operator::ASC
     )->build()
 ];
 
 $filterBy = [
     FilterByBuilder::init(
         'first_name',
-        Operator1Enum::ENUM_1,
+        Operator1::ENUM_1,
         'Fred'
     )->build()
 ];
 
 $contactsController = $client->getContactsController();
+$apiResponse = $contactsController->listallContacts(
+    $page,
+    $order,
+    $filterBy
+);
 
-try {
-    $result = $contactsController->listAllContacts(
-        $page,
-        $order,
-        $filterBy
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseContactsCollection:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -1401,13 +1410,13 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
 # Delete Contact
 
 ```php
-function deleteContact(string $contactId): ResponseContact
+function deleteContact(string $contactId): ApiResponse
 ```
 
 ## Parameters
@@ -1418,7 +1427,7 @@ function deleteContact(string $contactId): ResponseContact
 
 ## Response Type
 
-[`ResponseContact`](../../doc/models/response-contact.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseContact`](../../doc/models/response-contact.md).
 
 ## Example Usage
 
@@ -1426,15 +1435,19 @@ function deleteContact(string $contactId): ResponseContact
 $contactId = '11e95f8ec39de8fbdb0a4f1a';
 
 $contactsController = $client->getContactsController();
+$apiResponse = $contactsController->deleteContact($contactId);
 
-try {
-    $result = $contactsController->deleteContact($contactId);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseContact:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -1818,13 +1831,13 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
 # View Single Contact
 
 ```php
-function viewSingleContact(string $contactId, ?array $expand = null, ?array $fields = null): ResponseContact
+function viewSingleContact(string $contactId, ?array $expand = null, ?array $fields = null): ApiResponse
 ```
 
 ## Parameters
@@ -1832,12 +1845,12 @@ function viewSingleContact(string $contactId, ?array $expand = null, ?array $fie
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `contactId` | `string` | Template, Required | Contact ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
-| `expand` | [`?(string(Expand1Enum)[])`](../../doc/models/expand-1-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `fields` | [`?(string(Field28Enum)[])`](../../doc/models/field-28-enum.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
+| `expand` | [`?(string(Expand1)[])`](../../doc/models/expand-1.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
+| `fields` | [`?(string(Field28)[])`](../../doc/models/field-28.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
 
 ## Response Type
 
-[`ResponseContact`](../../doc/models/response-contact.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseContact`](../../doc/models/response-contact.md).
 
 ## Example Usage
 
@@ -1845,15 +1858,19 @@ function viewSingleContact(string $contactId, ?array $expand = null, ?array $fie
 $contactId = '11e95f8ec39de8fbdb0a4f1a';
 
 $contactsController = $client->getContactsController();
+$apiResponse = $contactsController->viewSingleContact($contactId);
 
-try {
-    $result = $contactsController->viewSingleContact($contactId);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseContact:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -2237,13 +2254,13 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
 # Update Contact
 
 ```php
-function updateContact(string $contactId, V1ContactsRequest1 $body, ?array $expand = null): ResponseContact
+function updateContact(string $contactId, V1ContactsRequest1 $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -2252,11 +2269,11 @@ function updateContact(string $contactId, V1ContactsRequest1 $body, ?array $expa
 |  --- | --- | --- | --- |
 | `contactId` | `string` | Template, Required | Contact ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
 | `body` | [`V1ContactsRequest1`](../../doc/models/v1-contacts-request-1.md) | Body, Required | - |
-| `expand` | [`?(string(Expand1Enum)[])`](../../doc/models/expand-1-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand1)[])`](../../doc/models/expand-1.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseContact`](../../doc/models/response-contact.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseContact`](../../doc/models/response-contact.md).
 
 ## Example Usage
 
@@ -2282,7 +2299,6 @@ $body = V1ContactsRequest1Builder::init()
     ->officePhoneCountryCode('+1')
     ->cellPhoneCountryCode('+1')
     ->headerMessageType(0)
-    ->updateIfExists(UpdateIfExistsEnum::ENUM_1)
     ->contactC1('any')
     ->contactC2('anything')
     ->contactC3('something')
@@ -2292,20 +2308,22 @@ $body = V1ContactsRequest1Builder::init()
     ->build();
 
 $contactsController = $client->getContactsController();
+$apiResponse = $contactsController->updateContact(
+    $contactId,
+    $body
+);
 
-try {
-    $result = $contactsController->updateContact(
-        $contactId,
-        $body
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseContact:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -2689,6 +2707,6 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 

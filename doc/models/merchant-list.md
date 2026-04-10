@@ -1,6 +1,8 @@
 
 # Merchant List
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `MerchantList`
@@ -14,6 +16,7 @@
 | `merchantAmount` | `?string` | Optional | Purchase amount for the merchant in minor units of currency with all punctuation removed.<br>When used in conjunction with the Purchase Currency Exponent field, proper punctuation can be calculated.<br><br>**Constraints**: *Maximum Length*: `48` | getMerchantAmount(): ?string | setMerchantAmount(?string merchantAmount): void |
 | `merchantCurrency` | `?string` | Optional | Currency Code in which purchase Merchant Amount is expressed. Must be provided as ISO 4217 three-digit currency code except values 955-964 and 999.<br><br>**Constraints**: *Minimum Length*: `3`, *Maximum Length*: `3` | getMerchantCurrency(): ?string | setMerchantCurrency(?string merchantCurrency): void |
 | `merchantExponent` | `?string` | Optional | Minor units of Merchant Currency as specified in the ISO 4217 currency exponent.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `1` | getMerchantExponent(): ?string | setMerchantExponent(?string merchantExponent): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -23,7 +26,11 @@
   "acquirer_merchant_id_listed": "acquirer_merchant_id_listed4",
   "merchant_amount": "merchant_amount2",
   "merchant_currency": "merchant_currency0",
-  "merchant_exponent": "merchant_exponent4"
+  "merchant_exponent": "merchant_exponent4",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

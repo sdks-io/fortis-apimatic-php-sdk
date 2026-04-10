@@ -5,6 +5,8 @@ Additional transaction information in case of multiple transactions or merchants
 
 Available for supporting EMV 3DS 2.3.1 and later versions.
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `MultiTransaction`
@@ -16,6 +18,7 @@ Available for supporting EMV 3DS 2.3.1 and later versions.
 | `merchantList` | [`MerchantList[]`](../../doc/models/merchant-list.md) | Required | Contains the details of each merchant involved in the transaction<br><br>**Constraints**: *Minimum Items*: `1`, *Maximum Items*: `50` | getMerchantList(): array | setMerchantList(array merchantList): void |
 | `avValidityTime` | `?int` | Optional | Number of days that the AV (Authentication Value) is valid.<br><br>**Constraints**: `>= 0`, `<= 999` | getAvValidityTime(): ?int | setAvValidityTime(?int avValidityTime): void |
 | `avNumberUse` | `?int` | Optional | Number of times that the AV (Authentication Value) is valid.<br><br>**Constraints**: `>= 0`, `<= 99` | getAvNumberUse(): ?int | setAvNumberUse(?int avNumberUse): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -27,11 +30,19 @@ Available for supporting EMV 3DS 2.3.1 and later versions.
       "acquirer_merchant_id_listed": "acquirer_merchant_id_listed0",
       "merchant_amount": "merchant_amount8",
       "merchant_currency": "merchant_currency6",
-      "merchant_exponent": "merchant_exponent0"
+      "merchant_exponent": "merchant_exponent0",
+      "exampleAdditionalProperty": {
+        "key1": "val1",
+        "key2": "val2"
+      }
     }
   ],
   "av_validity_time": 168,
-  "av_number_use": 8
+  "av_number_use": 8,
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

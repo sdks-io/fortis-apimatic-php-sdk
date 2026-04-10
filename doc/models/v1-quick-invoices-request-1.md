@@ -1,6 +1,8 @@
 
 # V1 Quick Invoices Request 1
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `V1QuickInvoicesRequest1`
@@ -48,6 +50,7 @@
 | `quickInvoiceC2` | `?string` | Optional | Custom field 2 for api users to store custom data<br><br>**Constraints**: *Maximum Length*: `128` | getQuickInvoiceC2(): ?string | setQuickInvoiceC2(?string quickInvoiceC2): void |
 | `quickInvoiceC3` | `?string` | Optional | Custom field 1 for api users to store custom data<br><br>**Constraints**: *Maximum Length*: `128` | getQuickInvoiceC3(): ?string | setQuickInvoiceC3(?string quickInvoiceC3): void |
 | `autoReopen` | `?bool` | Optional | Auto Reopen. If set to true, a void, refund or detachment of a Transaction Payment will cause the QuickInvoice to be opened again | getAutoReopen(): ?bool | setAutoReopen(?bool autoReopen): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -88,7 +91,11 @@
   "quick_invoice_c1": "custom-data-1",
   "quick_invoice_c2": "custom-data-2",
   "quick_invoice_c3": "custom-data-3",
-  "auto_reopen": true
+  "auto_reopen": true,
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

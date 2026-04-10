@@ -1,6 +1,8 @@
 
 # Response Transaction Level 3 Master
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `ResponseTransactionLevel3Master`
@@ -9,8 +11,9 @@
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `type` | [`?string(Type114Enum)`](../../doc/models/type-114-enum.md) | Optional | Resource Type<br><br>**Default**: `Type114Enum::TRANSACTIONLEVEL3MASTER` | getType(): ?string | setType(?string type): void |
+| `type` | [`?string(Type114)`](../../doc/models/type-114.md) | Optional | - | getType(): ?string | setType(?string type): void |
 | `data` | [`?Data29`](../../doc/models/data-29.md) | Optional | - | getData(): ?Data29 | setData(?Data29 data): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -25,8 +28,20 @@
       "duty_amount": 182,
       "freight_amount": 60,
       "national_tax": 999999998900,
-      "sales_tax": 999999998900
+      "sales_tax": 999999998900,
+      "exampleAdditionalProperty": {
+        "key1": "val1",
+        "key2": "val2"
+      }
+    },
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
     }
+  },
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
   }
 }
 ```

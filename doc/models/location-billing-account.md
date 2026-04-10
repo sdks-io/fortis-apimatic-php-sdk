@@ -1,6 +1,8 @@
 
 # Location Billing Account
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `LocationBillingAccount`
@@ -27,6 +29,7 @@
 | `billingDescriptor` | `?string` | Optional | Billing Descriptor | getBillingDescriptor(): ?string | setBillingDescriptor(?string billingDescriptor): void |
 | `paymentMethod` | `?string` | Optional | Billing Descriptor | getPaymentMethod(): ?string | setPaymentMethod(?string paymentMethod): void |
 | `portfolioId` | `?string` | Optional | Portfolio Id<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` | getPortfolioId(): ?string | setPortfolioId(?string portfolioId): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -45,7 +48,11 @@
   "portfolio_id": "11e95f8ec39de8fbdb0a4f1a",
   "location_api_id": "location_api_id4",
   "ach_sec_code": "ach_sec_code6",
-  "account_number": "account_number4"
+  "account_number": "account_number4",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

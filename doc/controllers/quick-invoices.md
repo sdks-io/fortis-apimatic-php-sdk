@@ -10,21 +10,21 @@ $quickInvoicesController = $client->getQuickInvoicesController();
 
 ## Methods
 
-* [Create a New Quick Invoice](../../doc/controllers/quick-invoices.md#create-a-new-quick-invoice)
-* [List All Quick Invoices Related](../../doc/controllers/quick-invoices.md#list-all-quick-invoices-related)
+* [Createanewquickinvoice](../../doc/controllers/quick-invoices.md#createanewquickinvoice)
+* [Listallquickinvoicesrelated](../../doc/controllers/quick-invoices.md#listallquickinvoicesrelated)
 * [Resend](../../doc/controllers/quick-invoices.md#resend)
-* [Associate Transaction with Ouick Invoice](../../doc/controllers/quick-invoices.md#associate-transaction-with-ouick-invoice)
-* [Remove Transaction from Quick Invoice](../../doc/controllers/quick-invoices.md#remove-transaction-from-quick-invoice)
-* [Delete Quick Invoice](../../doc/controllers/quick-invoices.md#delete-quick-invoice)
-* [View Single Quick Invoice Record](../../doc/controllers/quick-invoices.md#view-single-quick-invoice-record)
-* [Update Quick Invoice](../../doc/controllers/quick-invoices.md#update-quick-invoice)
-* [Reopen Quick Invoice](../../doc/controllers/quick-invoices.md#reopen-quick-invoice)
+* [Associate Transactionwith Ouick Invoice](../../doc/controllers/quick-invoices.md#associate-transactionwith-ouick-invoice)
+* [Removetransactionfrom Quick Invoice](../../doc/controllers/quick-invoices.md#removetransactionfrom-quick-invoice)
+* [Deletequick Invoice](../../doc/controllers/quick-invoices.md#deletequick-invoice)
+* [Viewsinglequickinvoicerecord](../../doc/controllers/quick-invoices.md#viewsinglequickinvoicerecord)
+* [Updatequickinvoice](../../doc/controllers/quick-invoices.md#updatequickinvoice)
+* [Reopenquickinvoice](../../doc/controllers/quick-invoices.md#reopenquickinvoice)
 
 
-# Create a New Quick Invoice
+# Createanewquickinvoice
 
 ```php
-function createANewQuickInvoice(V1QuickInvoicesRequest $body, ?array $expand = null): ResponseQuickInvoice
+function createanewquickinvoice(V1QuickInvoicesRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -32,11 +32,11 @@ function createANewQuickInvoice(V1QuickInvoicesRequest $body, ?array $expand = n
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1QuickInvoicesRequest`](../../doc/models/v1-quick-invoices-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand17Enum)[])`](../../doc/models/expand-17-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand17)[])`](../../doc/models/expand-17.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseQuickInvoice`](../../doc/models/response-quick-invoice.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseQuickInvoice`](../../doc/models/response-quick-invoice.md).
 
 ## Example Usage
 
@@ -88,17 +88,19 @@ $body = V1QuickInvoicesRequestBuilder::init(
     ->build();
 
 $quickInvoicesController = $client->getQuickInvoicesController();
+$apiResponse = $quickInvoicesController->createanewquickinvoice($body);
 
-try {
-    $result = $quickInvoicesController->createANewQuickInvoice($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseQuickInvoice:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -854,44 +856,44 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# List All Quick Invoices Related
+# Listallquickinvoicesrelated
 
 ```php
-function listAllQuickInvoicesRelated(
-    ?Page $page = null,
+function listallquickinvoicesrelated(
+    ?Page1 $page = null,
     ?array $order = null,
     ?array $filterBy = null,
     ?array $expand = null,
     ?string $format = null,
     ?string $typeahead = null,
     ?array $fields = null
-): ResponseQuickInvoicesCollection
+): ApiResponse
 ```
 
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `page` | [`?Page`](../../doc/models/page.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
+| `page` | [`?Page1`](../../doc/models/page-1.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
 | `order` | [`?(Order21[])`](../../doc/models/order-21.md) | Query, Optional | Criteria used in query string parameters to order results.  Most fields from the endpoint results can be used as a `key`.  Unsupported fields or operators will return a `412`.  Must be encoded, or use syntax that does not require encoding.<br><br>> /endpoint?order[0][key]=created_ts&order[0][operator]=asc<br>> <br>> /endpoint?order=[{ "key": "created_ts", "operator": "asc"}]<br>> <br>> /endpoint?order=[{ "key": "balance", "operator": "desc"},{ "key": "created_ts", "operator": "asc"}]<br><br>**Constraints**: *Minimum Items*: `1` |
 | `filterBy` | [`?(FilterBy[])`](../../doc/models/filter-by.md) | Query, Optional | Filter criteria that can be used in query string parameters.  Most fields from the endpoint results can be used as a `key`.  Unsupported fields or operators will return a `412`. Must be encoded, or use syntax that does not require encoding.<br><br>> ?filter_by[0][key]=first_name&filter_by[0][operator]==&filter_by[0][value]=Steve<br>> <br>> /endpoint?filter_by=[{ "key": "first_name", "operator": "=", "value": "Fred" }]<br>> <br>> /endpoint?filter_by=[{ "key": "account_type", "operator": "=", "value": "VISA" }]<br>> <br>> /endpoint?filter_by=[{ "key": "created_ts", "operator": ">=", "value": "946702799" }, { "key": "created_ts", "operator": "<=", value: "1695061891" }]<br>> <br>> /endpoint?filter_by=[{ "key": "last_name", "operator": "IN", "value": "Williams,Brown,Allman" }]<br><br>**Constraints**: *Minimum Items*: `1` |
-| `expand` | [`?(string(Expand17Enum)[])`](../../doc/models/expand-17-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `format` | [`?string(Format1Enum)`](../../doc/models/format-1-enum.md) | Query, Optional | Reporting format, valid values: csv, tsv |
+| `expand` | [`?(string(Expand17)[])`](../../doc/models/expand-17.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
+| `format` | [`?string(Format1)`](../../doc/models/format-1.md) | Query, Optional | Reporting format, valid values: csv, tsv |
 | `typeahead` | `?string` | Query, Optional | You can use any `field_name` from this endpoint results to order the list using the value provided as filter for the same `field_name`. It will be ordered using the following rules: 1) Exact match, 2) Starts with, 3) Contains.<br><br>> /endpoint?filter={ "field_name": "Value" }&_typeahead=field_name |
-| `fields` | [`?(string(Field41Enum)[])`](../../doc/models/field-41-enum.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
+| `fields` | [`?(string(Field41)[])`](../../doc/models/field-41.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
 
 ## Response Type
 
-[`ResponseQuickInvoicesCollection`](../../doc/models/response-quick-invoices-collection.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseQuickInvoicesCollection`](../../doc/models/response-quick-invoices-collection.md).
 
 ## Example Usage
 
 ```php
-$page = PageBuilder::init()
+$page = Page1Builder::init()
     ->number(1)
     ->size(50)
     ->build();
@@ -899,32 +901,36 @@ $page = PageBuilder::init()
 $order = [
     Order21Builder::init(
         'first_name',
-        OperatorEnum::ASC
+        Operator::ASC
     )->build()
 ];
 
 $filterBy = [
     FilterByBuilder::init(
         'first_name',
-        Operator1Enum::ENUM_1,
+        Operator1::ENUM_1,
         'Fred'
     )->build()
 ];
 
 $quickInvoicesController = $client->getQuickInvoicesController();
+$apiResponse = $quickInvoicesController->listallquickinvoicesrelated(
+    $page,
+    $order,
+    $filterBy
+);
 
-try {
-    $result = $quickInvoicesController->listAllQuickInvoicesRelated(
-        $page,
-        $order,
-        $filterBy
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseQuickInvoicesCollection:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -1705,7 +1711,7 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
 # Resend
@@ -1716,7 +1722,7 @@ function resend(
     ?array $expand = null,
     ?int $email = null,
     ?int $sms = null
-): ResponseQuickInvoiceResend
+): ApiResponse
 ```
 
 ## Parameters
@@ -1725,12 +1731,12 @@ function resend(
 |  --- | --- | --- | --- |
 | `quickInvoiceId` | `string` | Template, Required | Quick Invoice ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
 | `expand` | `?(string[])` | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `email` | [`?int(EmailEnum)`](../../doc/models/email-enum.md) | Query, Optional | Resend Email |
-| `sms` | [`?int(SmsEnum)`](../../doc/models/sms-enum.md) | Query, Optional | Resend SMS |
+| `email` | [`?int(Email)`](../../doc/models/email.md) | Query, Optional | Resend Email |
+| `sms` | [`?int(Sms)`](../../doc/models/sms.md) | Query, Optional | Resend SMS |
 
 ## Response Type
 
-[`ResponseQuickInvoiceResend`](../../doc/models/response-quick-invoice-resend.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseQuickInvoiceResend`](../../doc/models/response-quick-invoice-resend.md).
 
 ## Example Usage
 
@@ -1738,15 +1744,19 @@ function resend(
 $quickInvoiceId = '11e95f8ec39de8fbdb0a4f1a';
 
 $quickInvoicesController = $client->getQuickInvoicesController();
+$apiResponse = $quickInvoicesController->resend($quickInvoiceId);
 
-try {
-    $result = $quickInvoicesController->resend($quickInvoiceId);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseQuickInvoiceResend:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -1770,16 +1780,16 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# Associate Transaction with Ouick Invoice
+# Associate Transactionwith Ouick Invoice
 
 ```php
-function associateTransactionWithOuickInvoice(
+function associateTransactionwithOuickInvoice(
     string $quickInvoiceId,
     V1QuickInvoicesTransactionRequest $body
-): ResponseQuickInvoice
+): ApiResponse
 ```
 
 ## Parameters
@@ -1791,7 +1801,7 @@ function associateTransactionWithOuickInvoice(
 
 ## Response Type
 
-[`ResponseQuickInvoice`](../../doc/models/response-quick-invoice.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseQuickInvoice`](../../doc/models/response-quick-invoice.md).
 
 ## Example Usage
 
@@ -1803,20 +1813,22 @@ $body = V1QuickInvoicesTransactionRequestBuilder::init(
 )->build();
 
 $quickInvoicesController = $client->getQuickInvoicesController();
+$apiResponse = $quickInvoicesController->associateTransactionwithOuickInvoice(
+    $quickInvoiceId,
+    $body
+);
 
-try {
-    $result = $quickInvoicesController->associateTransactionWithOuickInvoice(
-        $quickInvoiceId,
-        $body
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseQuickInvoice:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -2572,17 +2584,17 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# Remove Transaction from Quick Invoice
+# Removetransactionfrom Quick Invoice
 
 ```php
-function removeTransactionFromQuickInvoice(
+function removetransactionfromQuickInvoice(
     string $quickInvoiceId,
     V1QuickInvoicesTransactionRequest $body
-): ResponseQuickInvoice
+): ApiResponse
 ```
 
 ## Parameters
@@ -2594,7 +2606,7 @@ function removeTransactionFromQuickInvoice(
 
 ## Response Type
 
-[`ResponseQuickInvoice`](../../doc/models/response-quick-invoice.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseQuickInvoice`](../../doc/models/response-quick-invoice.md).
 
 ## Example Usage
 
@@ -2606,20 +2618,22 @@ $body = V1QuickInvoicesTransactionRequestBuilder::init(
 )->build();
 
 $quickInvoicesController = $client->getQuickInvoicesController();
+$apiResponse = $quickInvoicesController->removetransactionfromQuickInvoice(
+    $quickInvoiceId,
+    $body
+);
 
-try {
-    $result = $quickInvoicesController->removeTransactionFromQuickInvoice(
-        $quickInvoiceId,
-        $body
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseQuickInvoice:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -3375,14 +3389,14 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# Delete Quick Invoice
+# Deletequick Invoice
 
 ```php
-function deleteQuickInvoice(string $quickInvoiceId): ResponseQuickInvoice
+function deletequickInvoice(string $quickInvoiceId): ApiResponse
 ```
 
 ## Parameters
@@ -3393,7 +3407,7 @@ function deleteQuickInvoice(string $quickInvoiceId): ResponseQuickInvoice
 
 ## Response Type
 
-[`ResponseQuickInvoice`](../../doc/models/response-quick-invoice.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseQuickInvoice`](../../doc/models/response-quick-invoice.md).
 
 ## Example Usage
 
@@ -3401,15 +3415,19 @@ function deleteQuickInvoice(string $quickInvoiceId): ResponseQuickInvoice
 $quickInvoiceId = '11e95f8ec39de8fbdb0a4f1a';
 
 $quickInvoicesController = $client->getQuickInvoicesController();
+$apiResponse = $quickInvoicesController->deletequickInvoice($quickInvoiceId);
 
-try {
-    $result = $quickInvoicesController->deleteQuickInvoice($quickInvoiceId);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseQuickInvoice:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -4165,17 +4183,17 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# View Single Quick Invoice Record
+# Viewsinglequickinvoicerecord
 
 ```php
-function viewSingleQuickInvoiceRecord(
+function viewsinglequickinvoicerecord(
     string $quickInvoiceId,
     ?array $expand = null,
     ?array $fields = null
-): ResponseQuickInvoice
+): ApiResponse
 ```
 
 ## Parameters
@@ -4183,12 +4201,12 @@ function viewSingleQuickInvoiceRecord(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `quickInvoiceId` | `string` | Template, Required | Quick Invoice ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
-| `expand` | [`?(string(Expand17Enum)[])`](../../doc/models/expand-17-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `fields` | [`?(string(Field41Enum)[])`](../../doc/models/field-41-enum.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
+| `expand` | [`?(string(Expand17)[])`](../../doc/models/expand-17.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
+| `fields` | [`?(string(Field41)[])`](../../doc/models/field-41.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
 
 ## Response Type
 
-[`ResponseQuickInvoice`](../../doc/models/response-quick-invoice.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseQuickInvoice`](../../doc/models/response-quick-invoice.md).
 
 ## Example Usage
 
@@ -4196,15 +4214,19 @@ function viewSingleQuickInvoiceRecord(
 $quickInvoiceId = '11e95f8ec39de8fbdb0a4f1a';
 
 $quickInvoicesController = $client->getQuickInvoicesController();
+$apiResponse = $quickInvoicesController->viewsinglequickinvoicerecord($quickInvoiceId);
 
-try {
-    $result = $quickInvoicesController->viewSingleQuickInvoiceRecord($quickInvoiceId);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseQuickInvoice:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -4960,20 +4982,20 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# Update Quick Invoice
+# Updatequickinvoice
 
 NOTE: A quick invoice can not be updated if it is already closed.
 Once a partial payment is made, the item list should not be editable.
 
 ```php
-function updateQuickInvoice(
+function updatequickinvoice(
     string $quickInvoiceId,
     V1QuickInvoicesRequest1 $body,
     ?array $expand = null
-): ResponseQuickInvoice
+): ApiResponse
 ```
 
 ## Parameters
@@ -4982,11 +5004,11 @@ function updateQuickInvoice(
 |  --- | --- | --- | --- |
 | `quickInvoiceId` | `string` | Template, Required | Quick Invoice ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
 | `body` | [`V1QuickInvoicesRequest1`](../../doc/models/v1-quick-invoices-request-1.md) | Body, Required | - |
-| `expand` | [`?(string(Expand17Enum)[])`](../../doc/models/expand-17-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand17)[])`](../../doc/models/expand-17.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseQuickInvoice`](../../doc/models/response-quick-invoice.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseQuickInvoice`](../../doc/models/response-quick-invoice.md).
 
 ## Example Usage
 
@@ -5033,20 +5055,22 @@ $body = V1QuickInvoicesRequest1Builder::init()
     ->build();
 
 $quickInvoicesController = $client->getQuickInvoicesController();
+$apiResponse = $quickInvoicesController->updatequickinvoice(
+    $quickInvoiceId,
+    $body
+);
 
-try {
-    $result = $quickInvoicesController->updateQuickInvoice(
-        $quickInvoiceId,
-        $body
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseQuickInvoice:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -5802,14 +5826,14 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# Reopen Quick Invoice
+# Reopenquickinvoice
 
 ```php
-function reopenQuickInvoice(string $quickInvoiceId): ResponseQuickInvoice
+function reopenquickinvoice(string $quickInvoiceId): ApiResponse
 ```
 
 ## Parameters
@@ -5820,7 +5844,7 @@ function reopenQuickInvoice(string $quickInvoiceId): ResponseQuickInvoice
 
 ## Response Type
 
-[`ResponseQuickInvoice`](../../doc/models/response-quick-invoice.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseQuickInvoice`](../../doc/models/response-quick-invoice.md).
 
 ## Example Usage
 
@@ -5828,15 +5852,19 @@ function reopenQuickInvoice(string $quickInvoiceId): ResponseQuickInvoice
 $quickInvoiceId = '11e95f8ec39de8fbdb0a4f1a';
 
 $quickInvoicesController = $client->getQuickInvoicesController();
+$apiResponse = $quickInvoicesController->reopenquickinvoice($quickInvoiceId);
 
-try {
-    $result = $quickInvoicesController->reopenQuickInvoice($quickInvoiceId);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseQuickInvoice:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -6592,5 +6620,5 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 

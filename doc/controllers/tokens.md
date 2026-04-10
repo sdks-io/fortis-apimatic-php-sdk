@@ -14,24 +14,24 @@ $tokensController = $client->getTokensController();
 
 ## Methods
 
-* [Create a New ACH Token](../../doc/controllers/tokens.md#create-a-new-ach-token)
-* [Create a New Credit Card Token](../../doc/controllers/tokens.md#create-a-new-credit-card-token)
-* [Create a New Previous Transaction Token](../../doc/controllers/tokens.md#create-a-new-previous-transaction-token)
-* [Create a New Terminal Token with Async Method](../../doc/controllers/tokens.md#create-a-new-terminal-token-with-async-method)
-* [Create a New Terminal Token](../../doc/controllers/tokens.md#create-a-new-terminal-token)
-* [Create a New Ticket Token](../../doc/controllers/tokens.md#create-a-new-ticket-token)
-* [Create a New Wallet Token](../../doc/controllers/tokens.md#create-a-new-wallet-token)
-* [Delete a Single Token Record](../../doc/controllers/tokens.md#delete-a-single-token-record)
-* [View Single Token Record](../../doc/controllers/tokens.md#view-single-token-record)
-* [List All Tokens Related](../../doc/controllers/tokens.md#list-all-tokens-related)
+* [Createanew ACH Token](../../doc/controllers/tokens.md#createanew-ach-token)
+* [Createanew Credit Card Token](../../doc/controllers/tokens.md#createanew-credit-card-token)
+* [Createanew Previous Transaction Token](../../doc/controllers/tokens.md#createanew-previous-transaction-token)
+* [Createanew Terminal Tokenwith Asyncmethod](../../doc/controllers/tokens.md#createanew-terminal-tokenwith-asyncmethod)
+* [Createanew Terminal Token](../../doc/controllers/tokens.md#createanew-terminal-token)
+* [Createanew Ticket Token](../../doc/controllers/tokens.md#createanew-ticket-token)
+* [Createanew Wallet Token](../../doc/controllers/tokens.md#createanew-wallet-token)
+* [Deleteasingletokenrecord](../../doc/controllers/tokens.md#deleteasingletokenrecord)
+* [Viewsingletokenrecord](../../doc/controllers/tokens.md#viewsingletokenrecord)
+* [Listalltokensrelated](../../doc/controllers/tokens.md#listalltokensrelated)
 * [Update ACH Token](../../doc/controllers/tokens.md#update-ach-token)
 * [Update CC Token](../../doc/controllers/tokens.md#update-cc-token)
 
 
-# Create a New ACH Token
+# Createanew ACH Token
 
 ```php
-function createANewACHToken(V1TokensAchRequest $body, ?array $expand = null): ResponseToken
+function createanewAchToken(V1TokensAchRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -39,11 +39,11 @@ function createANewACHToken(V1TokensAchRequest $body, ?array $expand = null): Re
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TokensAchRequest`](../../doc/models/v1-tokens-ach-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand47Enum)[])`](../../doc/models/expand-47-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand47)[])`](../../doc/models/expand-47.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseToken`](../../doc/models/response-token.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseToken`](../../doc/models/response-token.md).
 
 ## Example Usage
 
@@ -61,7 +61,6 @@ $body = V1TokensAchRequestBuilder::init(
     ->tokenC1('token custom 1')
     ->tokenC2('token custom 2')
     ->tokenC3('token custom 3')
-    ->achSecCode(AchSecCode3Enum::WEB)
     ->contactId('11e95f8ec39de8fbdb0a4f1a')
     ->customerId('123456')
     ->previousAccountVaultApiId('previousaccountvault123456')
@@ -78,23 +77,24 @@ $body = V1TokensAchRequestBuilder::init(
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->acsTransactionId('13c701a3-5a88-4c45-89e9-ef65e50a8bf9')
-    ->accountType(AccountType13Enum::SAVINGS)
     ->isCompany(false)
     ->routingNumber('100020200')
     ->build();
 
 $tokensController = $client->getTokensController();
+$apiResponse = $tokensController->createanewAchToken($body);
 
-try {
-    $result = $tokensController->createANewACHToken($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseToken:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -562,14 +562,14 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# Create a New Credit Card Token
+# Createanew Credit Card Token
 
 ```php
-function createANewCreditCardToken(V1TokensCcRequest $body, ?array $expand = null): ResponseToken
+function createanewCreditCardToken(V1TokensCcRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -577,11 +577,11 @@ function createANewCreditCardToken(V1TokensCcRequest $body, ?array $expand = nul
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TokensCcRequest`](../../doc/models/v1-tokens-cc-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand47Enum)[])`](../../doc/models/expand-47-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand47)[])`](../../doc/models/expand-47.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseToken`](../../doc/models/response-token.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseToken`](../../doc/models/response-token.md).
 
 ## Example Usage
 
@@ -599,7 +599,6 @@ $body = V1TokensCcRequestBuilder::init(
     ->tokenC1('token custom 1')
     ->tokenC2('token custom 2')
     ->tokenC3('token custom 3')
-    ->achSecCode(AchSecCode3Enum::WEB)
     ->contactId('11e95f8ec39de8fbdb0a4f1a')
     ->customerId('123456')
     ->previousAccountVaultApiId('previousaccountvault123456')
@@ -627,17 +626,19 @@ $body = V1TokensCcRequestBuilder::init(
     ->build();
 
 $tokensController = $client->getTokensController();
+$apiResponse = $tokensController->createanewCreditCardToken($body);
 
-try {
-    $result = $tokensController->createANewCreditCardToken($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseToken:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -1105,17 +1106,17 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# Create a New Previous Transaction Token
+# Createanew Previous Transaction Token
 
 ```php
-function createANewPreviousTransactionToken(
+function createanewPreviousTransactionToken(
     V1TokensPreviousTransactionRequest $body,
     ?array $expand = null
-): ResponseToken
+): ApiResponse
 ```
 
 ## Parameters
@@ -1123,11 +1124,11 @@ function createANewPreviousTransactionToken(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TokensPreviousTransactionRequest`](../../doc/models/v1-tokens-previous-transaction-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand47Enum)[])`](../../doc/models/expand-47-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand47)[])`](../../doc/models/expand-47.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseToken`](../../doc/models/response-token.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseToken`](../../doc/models/response-token.md).
 
 ## Example Usage
 
@@ -1145,7 +1146,6 @@ $body = V1TokensPreviousTransactionRequestBuilder::init(
     ->tokenC1('token custom 1')
     ->tokenC2('token custom 2')
     ->tokenC3('token custom 3')
-    ->achSecCode(AchSecCode3Enum::WEB)
     ->contactId('11e95f8ec39de8fbdb0a4f1a')
     ->customerId('123456')
     ->previousAccountVaultApiId('previousaccountvault123456')
@@ -1165,17 +1165,19 @@ $body = V1TokensPreviousTransactionRequestBuilder::init(
     ->build();
 
 $tokensController = $client->getTokensController();
+$apiResponse = $tokensController->createanewPreviousTransactionToken($body);
 
-try {
-    $result = $tokensController->createANewPreviousTransactionToken($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseToken:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -1643,14 +1645,14 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# Create a New Terminal Token with Async Method
+# Createanew Terminal Tokenwith Asyncmethod
 
 ```php
-function createANewTerminalTokenWithAsyncMethod(V1TokensTerminalAsyncRequest $body): ResponseToken
+function createanewTerminalTokenwithAsyncmethod(V1TokensTerminalAsyncRequest $body): ApiResponse
 ```
 
 ## Parameters
@@ -1661,7 +1663,7 @@ function createANewTerminalTokenWithAsyncMethod(V1TokensTerminalAsyncRequest $bo
 
 ## Response Type
 
-[`ResponseToken`](../../doc/models/response-token.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseToken`](../../doc/models/response-token.md).
 
 ## Example Usage
 
@@ -1679,7 +1681,6 @@ $body = V1TokensTerminalAsyncRequestBuilder::init(
     ->tokenC1('token custom 1')
     ->tokenC2('token custom 2')
     ->tokenC3('token custom 3')
-    ->achSecCode(AchSecCode3Enum::WEB)
     ->contactId('11e95f8ec39de8fbdb0a4f1a')
     ->customerId('123456')
     ->previousAccountVaultApiId('previousaccountvault123456')
@@ -1700,17 +1701,19 @@ $body = V1TokensTerminalAsyncRequestBuilder::init(
     ->build();
 
 $tokensController = $client->getTokensController();
+$apiResponse = $tokensController->createanewTerminalTokenwithAsyncmethod($body);
 
-try {
-    $result = $tokensController->createANewTerminalTokenWithAsyncMethod($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseToken:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -1732,14 +1735,14 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# Create a New Terminal Token
+# Createanew Terminal Token
 
 ```php
-function createANewTerminalToken(V1TokensTerminalRequest $body, ?array $expand = null): ResponseToken
+function createanewTerminalToken(V1TokensTerminalRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -1747,11 +1750,11 @@ function createANewTerminalToken(V1TokensTerminalRequest $body, ?array $expand =
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TokensTerminalRequest`](../../doc/models/v1-tokens-terminal-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand47Enum)[])`](../../doc/models/expand-47-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand47)[])`](../../doc/models/expand-47.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseToken`](../../doc/models/response-token.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseToken`](../../doc/models/response-token.md).
 
 ## Example Usage
 
@@ -1769,7 +1772,6 @@ $body = V1TokensTerminalRequestBuilder::init(
     ->tokenC1('token custom 1')
     ->tokenC2('token custom 2')
     ->tokenC3('token custom 3')
-    ->achSecCode(AchSecCode3Enum::WEB)
     ->contactId('11e95f8ec39de8fbdb0a4f1a')
     ->customerId('123456')
     ->previousAccountVaultApiId('previousaccountvault123456')
@@ -1790,17 +1792,19 @@ $body = V1TokensTerminalRequestBuilder::init(
     ->build();
 
 $tokensController = $client->getTokensController();
+$apiResponse = $tokensController->createanewTerminalToken($body);
 
-try {
-    $result = $tokensController->createANewTerminalToken($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseToken:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -2268,14 +2272,14 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# Create a New Ticket Token
+# Createanew Ticket Token
 
 ```php
-function createANewTicketToken(V1TokensTicketRequest $body, ?array $expand = null): ResponseToken
+function createanewTicketToken(V1TokensTicketRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -2283,11 +2287,11 @@ function createANewTicketToken(V1TokensTicketRequest $body, ?array $expand = nul
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TokensTicketRequest`](../../doc/models/v1-tokens-ticket-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand47Enum)[])`](../../doc/models/expand-47-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand47)[])`](../../doc/models/expand-47.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseToken`](../../doc/models/response-token.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseToken`](../../doc/models/response-token.md).
 
 ## Example Usage
 
@@ -2305,7 +2309,6 @@ $body = V1TokensTicketRequestBuilder::init(
     ->tokenC1('token custom 1')
     ->tokenC2('token custom 2')
     ->tokenC3('token custom 3')
-    ->achSecCode(AchSecCode3Enum::WEB)
     ->contactId('11e95f8ec39de8fbdb0a4f1a')
     ->customerId('123456')
     ->previousAccountVaultApiId('previousaccountvault123456')
@@ -2326,17 +2329,19 @@ $body = V1TokensTicketRequestBuilder::init(
     ->build();
 
 $tokensController = $client->getTokensController();
+$apiResponse = $tokensController->createanewTicketToken($body);
 
-try {
-    $result = $tokensController->createANewTicketToken($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseToken:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -2804,14 +2809,14 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# Create a New Wallet Token
+# Createanew Wallet Token
 
 ```php
-function createANewWalletToken(V1TokensWalletRequest $body, ?array $expand = null): ResponseToken
+function createanewWalletToken(V1TokensWalletRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -2819,11 +2824,11 @@ function createANewWalletToken(V1TokensWalletRequest $body, ?array $expand = nul
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TokensWalletRequest`](../../doc/models/v1-tokens-wallet-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand47Enum)[])`](../../doc/models/expand-47-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand47)[])`](../../doc/models/expand-47.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseToken`](../../doc/models/response-token.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseToken`](../../doc/models/response-token.md).
 
 ## Example Usage
 
@@ -2831,7 +2836,7 @@ function createANewWalletToken(V1TokensWalletRequest $body, ?array $expand = nul
 $body = V1TokensWalletRequestBuilder::init(
     '11e95f8ec39de8fbdb0a4f1a',
     'wallet_data2',
-    WalletProviderEnum::GOOGLEPAY
+    WalletProvider::GOOGLEPAY
 )
     ->accountHolderName('John Smith')
     ->accountVaultApiId('accountvaultabcd')
@@ -2842,7 +2847,6 @@ $body = V1TokensWalletRequestBuilder::init(
     ->tokenC1('token custom 1')
     ->tokenC2('token custom 2')
     ->tokenC3('token custom 3')
-    ->achSecCode(AchSecCode3Enum::WEB)
     ->contactId('11e95f8ec39de8fbdb0a4f1a')
     ->customerId('123456')
     ->previousAccountVaultApiId('previousaccountvault123456')
@@ -2864,17 +2868,19 @@ $body = V1TokensWalletRequestBuilder::init(
     ->build();
 
 $tokensController = $client->getTokensController();
+$apiResponse = $tokensController->createanewWalletToken($body);
 
-try {
-    $result = $tokensController->createANewWalletToken($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseToken:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -3342,14 +3348,14 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# Delete a Single Token Record
+# Deleteasingletokenrecord
 
 ```php
-function deleteASingleTokenRecord(string $tokenId): ResponseToken
+function deleteasingletokenrecord(string $tokenId): ApiResponse
 ```
 
 ## Parameters
@@ -3360,7 +3366,7 @@ function deleteASingleTokenRecord(string $tokenId): ResponseToken
 
 ## Response Type
 
-[`ResponseToken`](../../doc/models/response-token.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseToken`](../../doc/models/response-token.md).
 
 ## Example Usage
 
@@ -3368,15 +3374,19 @@ function deleteASingleTokenRecord(string $tokenId): ResponseToken
 $tokenId = '11e95f8ec39de8fbdb0a4f1a';
 
 $tokensController = $client->getTokensController();
+$apiResponse = $tokensController->deleteasingletokenrecord($tokenId);
 
-try {
-    $result = $tokensController->deleteASingleTokenRecord($tokenId);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseToken:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -3844,13 +3854,13 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# View Single Token Record
+# Viewsingletokenrecord
 
 ```php
-function viewSingleTokenRecord(string $tokenId, ?array $expand = null, ?array $fields = null): ResponseToken
+function viewsingletokenrecord(string $tokenId, ?array $expand = null, ?array $fields = null): ApiResponse
 ```
 
 ## Parameters
@@ -3858,12 +3868,12 @@ function viewSingleTokenRecord(string $tokenId, ?array $expand = null, ?array $f
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `tokenId` | `string` | Template, Required | A unique, system-generated identifier for the Token.<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
-| `expand` | [`?(string(Expand47Enum)[])`](../../doc/models/expand-47-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `fields` | [`?(string(Field53Enum)[])`](../../doc/models/field-53-enum.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
+| `expand` | [`?(string(Expand47)[])`](../../doc/models/expand-47.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
+| `fields` | [`?(string(Field53)[])`](../../doc/models/field-53.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
 
 ## Response Type
 
-[`ResponseToken`](../../doc/models/response-token.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseToken`](../../doc/models/response-token.md).
 
 ## Example Usage
 
@@ -3871,15 +3881,19 @@ function viewSingleTokenRecord(string $tokenId, ?array $expand = null, ?array $f
 $tokenId = '11e95f8ec39de8fbdb0a4f1a';
 
 $tokensController = $client->getTokensController();
+$apiResponse = $tokensController->viewsingletokenrecord($tokenId);
 
-try {
-    $result = $tokensController->viewSingleTokenRecord($tokenId);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseToken:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -4347,43 +4361,43 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# List All Tokens Related
+# Listalltokensrelated
 
 ```php
-function listAllTokensRelated(
-    ?Page $page = null,
+function listalltokensrelated(
+    ?Page1 $page = null,
     ?array $order = null,
     ?array $filterBy = null,
     ?array $expand = null,
     ?string $format = null,
     ?string $typeahead = null,
     ?array $fields = null
-): ResponseTokensCollection
+): ApiResponse
 ```
 
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `page` | [`?Page`](../../doc/models/page.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
+| `page` | [`?Page1`](../../doc/models/page-1.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
 | `order` | [`?(Order21[])`](../../doc/models/order-21.md) | Query, Optional | Criteria used in query string parameters to order results.  Most fields from the endpoint results can be used as a `key`.  Unsupported fields or operators will return a `412`.  Must be encoded, or use syntax that does not require encoding.<br><br>> /endpoint?order[0][key]=created_ts&order[0][operator]=asc<br>> <br>> /endpoint?order=[{ "key": "created_ts", "operator": "asc"}]<br>> <br>> /endpoint?order=[{ "key": "balance", "operator": "desc"},{ "key": "created_ts", "operator": "asc"}]<br><br>**Constraints**: *Minimum Items*: `1` |
 | `filterBy` | [`?(FilterBy[])`](../../doc/models/filter-by.md) | Query, Optional | Filter criteria that can be used in query string parameters.  Most fields from the endpoint results can be used as a `key`.  Unsupported fields or operators will return a `412`. Must be encoded, or use syntax that does not require encoding.<br><br>> ?filter_by[0][key]=first_name&filter_by[0][operator]==&filter_by[0][value]=Steve<br>> <br>> /endpoint?filter_by=[{ "key": "first_name", "operator": "=", "value": "Fred" }]<br>> <br>> /endpoint?filter_by=[{ "key": "account_type", "operator": "=", "value": "VISA" }]<br>> <br>> /endpoint?filter_by=[{ "key": "created_ts", "operator": ">=", "value": "946702799" }, { "key": "created_ts", "operator": "<=", value: "1695061891" }]<br>> <br>> /endpoint?filter_by=[{ "key": "last_name", "operator": "IN", "value": "Williams,Brown,Allman" }]<br><br>**Constraints**: *Minimum Items*: `1` |
-| `expand` | [`?(string(Expand47Enum)[])`](../../doc/models/expand-47-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `format` | [`?string(Format1Enum)`](../../doc/models/format-1-enum.md) | Query, Optional | Reporting format, valid values: csv, tsv |
+| `expand` | [`?(string(Expand47)[])`](../../doc/models/expand-47.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
+| `format` | [`?string(Format1)`](../../doc/models/format-1.md) | Query, Optional | Reporting format, valid values: csv, tsv |
 | `typeahead` | `?string` | Query, Optional | You can use any `field_name` from this endpoint results to order the list using the value provided as filter for the same `field_name`. It will be ordered using the following rules: 1) Exact match, 2) Starts with, 3) Contains.<br><br>> /endpoint?filter={ "field_name": "Value" }&_typeahead=field_name |
-| `fields` | [`?(string(Field53Enum)[])`](../../doc/models/field-53-enum.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
+| `fields` | [`?(string(Field53)[])`](../../doc/models/field-53.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
 
 ## Response Type
 
-[`ResponseTokensCollection`](../../doc/models/response-tokens-collection.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTokensCollection`](../../doc/models/response-tokens-collection.md).
 
 ## Example Usage
 
 ```php
-$page = PageBuilder::init()
+$page = Page1Builder::init()
     ->number(1)
     ->size(50)
     ->build();
@@ -4391,32 +4405,36 @@ $page = PageBuilder::init()
 $order = [
     Order21Builder::init(
         'first_name',
-        OperatorEnum::ASC
+        Operator::ASC
     )->build()
 ];
 
 $filterBy = [
     FilterByBuilder::init(
         'first_name',
-        Operator1Enum::ENUM_1,
+        Operator1::ENUM_1,
         'Fred'
     )->build()
 ];
 
 $tokensController = $client->getTokensController();
+$apiResponse = $tokensController->listalltokensrelated(
+    $page,
+    $order,
+    $filterBy
+);
 
-try {
-    $result = $tokensController->listAllTokensRelated(
-        $page,
-        $order,
-        $filterBy
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTokensCollection:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -4909,13 +4927,13 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
 # Update ACH Token
 
 ```php
-function updateACHToken(string $tokenId, V1TokensAchRequest1 $body, ?array $expand = null): ResponseToken
+function updateAchToken(string $tokenId, V1TokensAchRequest1 $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -4924,11 +4942,11 @@ function updateACHToken(string $tokenId, V1TokensAchRequest1 $body, ?array $expa
 |  --- | --- | --- | --- |
 | `tokenId` | `string` | Template, Required | A unique, system-generated identifier for the Token.<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
 | `body` | [`V1TokensAchRequest1`](../../doc/models/v1-tokens-ach-request-1.md) | Body, Required | - |
-| `expand` | [`?(string(Expand47Enum)[])`](../../doc/models/expand-47-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand47)[])`](../../doc/models/expand-47.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseToken`](../../doc/models/response-token.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseToken`](../../doc/models/response-token.md).
 
 ## Example Usage
 
@@ -4945,7 +4963,6 @@ $body = V1TokensAchRequest1Builder::init()
     ->tokenC1('token custom 1')
     ->tokenC2('token custom 2')
     ->tokenC3('token custom 3')
-    ->achSecCode(AchSecCode3Enum::WEB)
     ->contactId('11e95f8ec39de8fbdb0a4f1a')
     ->customerId('123456')
     ->locationId('11e95f8ec39de8fbdb0a4f1a')
@@ -4964,24 +4981,25 @@ $body = V1TokensAchRequest1Builder::init()
     ->secureAuthData('vVwL7UNHCf8W8M2LAfvRChNHN7c%3D')
     ->threeDsServerTransId('d65e93c3-35ab-41ba-b307-767bfc19eae')
     ->acsTransactionId('13c701a3-5a88-4c45-89e9-ef65e50a8bf9')
-    ->accountType(AccountType13Enum::SAVINGS)
     ->build();
 
 $tokensController = $client->getTokensController();
+$apiResponse = $tokensController->updateAchToken(
+    $tokenId,
+    $body
+);
 
-try {
-    $result = $tokensController->updateACHToken(
-        $tokenId,
-        $body
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseToken:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -5449,14 +5467,14 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
 # Update CC Token
 
 ```php
-function updateCCToken(string $tokenId, V1TokensCcRequest1 $body, ?array $expand = null): ResponseToken
+function updateCcToken(string $tokenId, V1TokensCcRequest1 $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -5465,11 +5483,11 @@ function updateCCToken(string $tokenId, V1TokensCcRequest1 $body, ?array $expand
 |  --- | --- | --- | --- |
 | `tokenId` | `string` | Template, Required | A unique, system-generated identifier for the Token.<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
 | `body` | [`V1TokensCcRequest1`](../../doc/models/v1-tokens-cc-request-1.md) | Body, Required | - |
-| `expand` | [`?(string(Expand47Enum)[])`](../../doc/models/expand-47-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand47)[])`](../../doc/models/expand-47.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseToken`](../../doc/models/response-token.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseToken`](../../doc/models/response-token.md).
 
 ## Example Usage
 
@@ -5486,7 +5504,6 @@ $body = V1TokensCcRequest1Builder::init()
     ->tokenC1('token custom 1')
     ->tokenC2('token custom 2')
     ->tokenC3('token custom 3')
-    ->achSecCode(AchSecCode3Enum::WEB)
     ->contactId('11e95f8ec39de8fbdb0a4f1a')
     ->customerId('123456')
     ->locationId('11e95f8ec39de8fbdb0a4f1a')
@@ -5509,20 +5526,22 @@ $body = V1TokensCcRequest1Builder::init()
     ->build();
 
 $tokensController = $client->getTokensController();
+$apiResponse = $tokensController->updateCcToken(
+    $tokenId,
+    $body
+);
 
-try {
-    $result = $tokensController->updateCCToken(
-        $tokenId,
-        $body
-    );
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseToken:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -5990,6 +6009,6 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 

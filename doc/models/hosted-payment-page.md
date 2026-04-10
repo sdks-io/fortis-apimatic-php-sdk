@@ -3,6 +3,8 @@
 
 Hosted Payment Page Information on `expand`
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `HostedPaymentPage`
@@ -21,7 +23,7 @@ Hosted Payment Page Information on `expand`
 | `maxPaymentAmount` | `?int` | Optional | Max Payment Amount<br><br>**Default**: `9999999999`<br><br>**Constraints**: `<= 9999999999` | getMaxPaymentAmount(): ?int | setMaxPaymentAmount(?int maxPaymentAmount): void |
 | `redirectUrlOnApprove` | `?string` | Optional | Redirect Url On Approval | getRedirectUrlOnApprove(): ?string | setRedirectUrlOnApprove(?string redirectUrlOnApprove): void |
 | `redirectUrlOnDecline` | `?string` | Optional | Redirect Url On Decline | getRedirectUrlOnDecline(): ?string | setRedirectUrlOnDecline(?string redirectUrlOnDecline): void |
-| `fieldConfiguration` | [`?FieldConfiguration`](../../doc/models/field-configuration.md) | Optional | field_configuration | getFieldConfiguration(): ?FieldConfiguration | setFieldConfiguration(?FieldConfiguration fieldConfiguration): void |
+| `fieldConfiguration` | [`?FieldConfiguration2`](../../doc/models/field-configuration-2.md) | Optional | - | getFieldConfiguration(): ?FieldConfiguration2 | setFieldConfiguration(?FieldConfiguration2 fieldConfiguration): void |
 | `encryptionKey` | `?string` | Optional | Encryption Key<br><br>**Constraints**: *Minimum Length*: `32`, *Maximum Length*: `32` | getEncryptionKey(): ?string | setEncryptionKey(?string encryptionKey): void |
 | `stylesheetUrl` | `?string` | Optional | Stylesheet Url | getStylesheetUrl(): ?string | setStylesheetUrl(?string stylesheetUrl): void |
 | `parentSendMessage` | `?bool` | Optional | Parent Send Message | getParentSendMessage(): ?bool | setParentSendMessage(?bool parentSendMessage): void |
@@ -31,6 +33,7 @@ Hosted Payment Page Information on `expand`
 | `modifiedTs` | `?int` | Optional | Modified Time Stamp | getModifiedTs(): ?int | setModifiedTs(?int modifiedTs): void |
 | `createdUserId` | `?string` | Optional | System generated id for user who created record<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` | getCreatedUserId(): ?string | setCreatedUserId(?string createdUserId): void |
 | `modifiedUserId` | `?string` | Optional | System generated id for user who created record<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` | getModifiedUserId(): ?string | setModifiedUserId(?string modifiedUserId): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -50,7 +53,11 @@ Hosted Payment Page Information on `expand`
   "modified_ts": 1422040992,
   "created_user_id": "11e95f8ec39de8fbdb0a4f1a",
   "modified_user_id": "11e95f8ec39de8fbdb0a4f1a",
-  "location_api_id": "location_api_id2"
+  "location_api_id": "location_api_id2",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

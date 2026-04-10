@@ -3,6 +3,8 @@
 
 Cardholder shipping address object
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `ShippingAddress`
@@ -18,6 +20,7 @@ Cardholder shipping address object
 | `addressLine3` | `?string` | Optional | Third line of the street address or equivalent local portion of the Cardholder shipping address associated with the card use for this purchase.<br><br>This field is required unless market or regional mandate restricts sending this information.<br><br>**Constraints**: *Maximum Length*: `50` | getAddressLine3(): ?string | setAddressLine3(?string addressLine3): void |
 | `postalCode` | `?string` | Optional | ZIP or other postal code of the Cardholder shipping address associated with the card used for this purchase.<br><br>This field is required unless market or regional mandate restricts sending this information.<br><br>**Constraints**: *Maximum Length*: `16` | getPostalCode(): ?string | setPostalCode(?string postalCode): void |
 | `state` | `?string` | Optional | The state or province of the Cardholder shipping address associated with the card used for this purchase. The value should be the country subdivision code defined in ISO 3166-2.<br><br>This field is required unless State is not applicable for this country and unless market or regional mandate restricts sending this information.<br><br>**Constraints**: *Maximum Length*: `3` | getState(): ?string | setState(?string state): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -29,7 +32,11 @@ Cardholder shipping address object
   "address_line_2": "Suite 2700",
   "postal_code": "75093",
   "state": "TX",
-  "address_line_3": "address_line_36"
+  "address_line_3": "address_line_36",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

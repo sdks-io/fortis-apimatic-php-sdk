@@ -1,22 +1,22 @@
 # Transactions-ACH
 
 ```php
-$transactionsACHController = $client->getTransactionsACHController();
+$transactionsAchController = $client->getTransactionsAchController();
 ```
 
 ## Class Name
 
-`TransactionsACHController`
+`TransactionsAchController`
 
 ## Methods
 
 * [ACH Credit](../../doc/controllers/transactions-ach.md#ach-credit)
-* [ACH Credit - Previous Transaction](../../doc/controllers/transactions-ach.md#ach-credit---previous-transaction)
-* [ACH Credit - Tokenized](../../doc/controllers/transactions-ach.md#ach-credit---tokenized)
+* [ACH Credit-Previous Transaction](../../doc/controllers/transactions-ach.md#ach-credit-previous-transaction)
+* [ACH Credit-Tokenized](../../doc/controllers/transactions-ach.md#ach-credit-tokenized)
 * [ACH Debit](../../doc/controllers/transactions-ach.md#ach-debit)
-* [ACH Debit - Previous Transaction](../../doc/controllers/transactions-ach.md#ach-debit---previous-transaction)
-* [ACH Debit - Tokenized](../../doc/controllers/transactions-ach.md#ach-debit---tokenized)
-* [ACH Refund - Previous Transaction](../../doc/controllers/transactions-ach.md#ach-refund---previous-transaction)
+* [ACH Debit-Previous Transaction](../../doc/controllers/transactions-ach.md#ach-debit-previous-transaction)
+* [ACH Debit-Tokenized](../../doc/controllers/transactions-ach.md#ach-debit-tokenized)
+* [ACH Refund-Previous Transaction](../../doc/controllers/transactions-ach.md#ach-refund-previous-transaction)
 
 
 # ACH Credit
@@ -24,7 +24,7 @@ $transactionsACHController = $client->getTransactionsACHController();
 ACH Transaction that is intended for a Blind Refund, where a previous transaction id is not known. Must have Fortis approval prior to use.
 
 ```php
-function aCHCredit(V1TransactionsAchCreditKeyedRequest $body, ?array $expand = null): ResponseTransaction
+function achCredit(V1TransactionsAchCreditKeyedRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -32,11 +32,11 @@ function aCHCredit(V1TransactionsAchCreditKeyedRequest $body, ?array $expand = n
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsAchCreditKeyedRequest`](../../doc/models/v1-transactions-ach-credit-keyed-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -45,7 +45,7 @@ $body = V1TransactionsAchCreditKeyedRequestBuilder::init(
     1,
     'smith',
     '24345',
-    AccountType16Enum::CHECKING,
+    AccountType16::CHECKING,
     '051904524'
 )
     ->checkinDate('2021-12-01')
@@ -55,13 +55,11 @@ $body = V1TransactionsAchCreditKeyedRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -95,25 +93,25 @@ $body = V1TransactionsAchCreditKeyedRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->achIdentifier('P')
-    ->achSecCode(AchSecCode31Enum::C21)
     ->effectiveDate('2021-12-01')
     ->checkNumber('8520748520963')
     ->build();
 
-$transactionsACHController = $client->getTransactionsACHController();
+$transactionsAchController = $client->getTransactionsAchController();
+$apiResponse = $transactionsAchController->achCredit($body);
 
-try {
-    $result = $transactionsACHController->aCHCredit($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -1168,19 +1166,19 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# ACH Credit - Previous Transaction
+# ACH Credit-Previous Transaction
 
 ACH Transaction that is intended for a Blind Refund, where using a previous transaction id to re process. Must have Fortis approval prior to use.
 
 ```php
-function aCHCreditPreviousTransaction(
+function achCreditPreviousTransaction(
     V1TransactionsAchCreditPrevTrxnRequest $body,
     ?array $expand = null
-): ResponseTransaction
+): ApiResponse
 ```
 
 ## Parameters
@@ -1188,11 +1186,11 @@ function aCHCreditPreviousTransaction(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsAchCreditPrevTrxnRequest`](../../doc/models/v1-transactions-ach-credit-prev-trxn-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -1207,13 +1205,11 @@ $body = V1TransactionsAchCreditPrevTrxnRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -1247,26 +1243,26 @@ $body = V1TransactionsAchCreditPrevTrxnRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->achIdentifier('P')
-    ->achSecCode(AchSecCode31Enum::C21)
     ->effectiveDate('2021-12-01')
     ->accountHolderName('smith')
     ->previousTransactionId('11e95f8ec39de8fbdb0a4f1a')
     ->build();
 
-$transactionsACHController = $client->getTransactionsACHController();
+$transactionsAchController = $client->getTransactionsAchController();
+$apiResponse = $transactionsAchController->achCreditPreviousTransaction($body);
 
-try {
-    $result = $transactionsACHController->aCHCreditPreviousTransaction($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -2321,19 +2317,16 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# ACH Credit - Tokenized
+# ACH Credit-Tokenized
 
 ACH Transaction using an ACH Token_id that is intended for a Blind Refund, where a previous transaction id is not known. Must have approval prior to use.
 
 ```php
-function aCHCreditTokenized(
-    V1TransactionsAchCreditTokenRequest $body,
-    ?array $expand = null
-): ResponseTransaction
+function achCreditTokenized(V1TransactionsAchCreditTokenRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -2341,11 +2334,11 @@ function aCHCreditTokenized(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsAchCreditTokenRequest`](../../doc/models/v1-transactions-ach-credit-token-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -2360,13 +2353,11 @@ $body = V1TransactionsAchCreditTokenRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -2400,27 +2391,27 @@ $body = V1TransactionsAchCreditTokenRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->achIdentifier('P')
-    ->achSecCode(AchSecCode31Enum::C21)
     ->effectiveDate('2021-12-01')
     ->accountHolderName('smith')
     ->accountVaultId('11e95f8ec39de8fbdb0a4f1a')
     ->tokenId('11e95f8ec39de8fbdb0a4f1a')
     ->build();
 
-$transactionsACHController = $client->getTransactionsACHController();
+$transactionsAchController = $client->getTransactionsAchController();
+$apiResponse = $transactionsAchController->achCreditTokenized($body);
 
-try {
-    $result = $transactionsACHController->aCHCreditTokenized($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -3475,7 +3466,7 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
@@ -3484,7 +3475,7 @@ try {
 Creates an ACH Sale transaction to debit the customers bank account.
 
 ```php
-function aCHDebit(V1TransactionsAchDebitKeyedRequest $body, ?array $expand = null): ResponseTransaction
+function achDebit(V1TransactionsAchDebitKeyedRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -3492,11 +3483,11 @@ function aCHDebit(V1TransactionsAchDebitKeyedRequest $body, ?array $expand = nul
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsAchDebitKeyedRequest`](../../doc/models/v1-transactions-ach-debit-keyed-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -3505,7 +3496,7 @@ $body = V1TransactionsAchDebitKeyedRequestBuilder::init(
     1,
     'smith',
     '24345',
-    AccountType16Enum::CHECKING,
+    AccountType16::CHECKING,
     '051904524'
 )
     ->checkinDate('2021-12-01')
@@ -3515,13 +3506,11 @@ $body = V1TransactionsAchDebitKeyedRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -3555,25 +3544,25 @@ $body = V1TransactionsAchDebitKeyedRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->achIdentifier('P')
-    ->achSecCode(AchSecCode31Enum::C21)
     ->effectiveDate('2021-12-01')
     ->checkNumber('8520748520963')
     ->build();
 
-$transactionsACHController = $client->getTransactionsACHController();
+$transactionsAchController = $client->getTransactionsAchController();
+$apiResponse = $transactionsAchController->achDebit($body);
 
-try {
-    $result = $transactionsACHController->aCHDebit($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -4628,19 +4617,19 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# ACH Debit - Previous Transaction
+# ACH Debit-Previous Transaction
 
 Create an ACH Sale transaction with a previous ACH transaction_id.
 
 ```php
-function aCHDebitPreviousTransaction(
+function achDebitPreviousTransaction(
     V1TransactionsAchDebitPrevTrxnRequest $body,
     ?array $expand = null
-): ResponseTransaction
+): ApiResponse
 ```
 
 ## Parameters
@@ -4648,11 +4637,11 @@ function aCHDebitPreviousTransaction(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsAchDebitPrevTrxnRequest`](../../doc/models/v1-transactions-ach-debit-prev-trxn-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -4667,13 +4656,11 @@ $body = V1TransactionsAchDebitPrevTrxnRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -4707,26 +4694,26 @@ $body = V1TransactionsAchDebitPrevTrxnRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->achIdentifier('P')
-    ->achSecCode(AchSecCode31Enum::C21)
     ->effectiveDate('2021-12-01')
     ->accountHolderName('smith')
     ->previousTransactionId('11e95f8ec39de8fbdb0a4f1a')
     ->build();
 
-$transactionsACHController = $client->getTransactionsACHController();
+$transactionsAchController = $client->getTransactionsAchController();
+$apiResponse = $transactionsAchController->achDebitPreviousTransaction($body);
 
-try {
-    $result = $transactionsACHController->aCHDebitPreviousTransaction($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -5781,16 +5768,16 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# ACH Debit - Tokenized
+# ACH Debit-Tokenized
 
 Utilize an ACH Token_id previously created to process an ACH Sale transaction.
 
 ```php
-function aCHDebitTokenized(V1TransactionsAchDebitTokenRequest $body, ?array $expand = null): ResponseTransaction
+function achDebitTokenized(V1TransactionsAchDebitTokenRequest $body, ?array $expand = null): ApiResponse
 ```
 
 ## Parameters
@@ -5798,11 +5785,11 @@ function aCHDebitTokenized(V1TransactionsAchDebitTokenRequest $body, ?array $exp
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsAchDebitTokenRequest`](../../doc/models/v1-transactions-ach-debit-token-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -5817,13 +5804,11 @@ $body = V1TransactionsAchDebitTokenRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -5857,27 +5842,27 @@ $body = V1TransactionsAchDebitTokenRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->achIdentifier('P')
-    ->achSecCode(AchSecCode31Enum::C21)
     ->effectiveDate('2021-12-01')
     ->accountHolderName('smith')
     ->accountVaultId('11e95f8ec39de8fbdb0a4f1a')
     ->tokenId('11e95f8ec39de8fbdb0a4f1a')
     ->build();
 
-$transactionsACHController = $client->getTransactionsACHController();
+$transactionsAchController = $client->getTransactionsAchController();
+$apiResponse = $transactionsAchController->achDebitTokenized($body);
 
-try {
-    $result = $transactionsACHController->aCHDebitTokenized($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -6932,19 +6917,19 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# ACH Refund - Previous Transaction
+# ACH Refund-Previous Transaction
 
 Create a new ACH refund transaction using previous transaction id
 
 ```php
-function aCHRefundPreviousTransaction(
+function achRefundPreviousTransaction(
     V1TransactionsAchRefundPrevTrxnRequest $body,
     ?array $expand = null
-): ResponseTransaction
+): ApiResponse
 ```
 
 ## Parameters
@@ -6952,11 +6937,11 @@ function aCHRefundPreviousTransaction(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsAchRefundPrevTrxnRequest`](../../doc/models/v1-transactions-ach-refund-prev-trxn-request.md) | Body, Required | - |
-| `expand` | [`?(string(Expand60Enum)[])`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`?(string(Expand60)[])`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `getResult()` method on this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -6971,13 +6956,11 @@ $body = V1TransactionsAchRefundPrevTrxnRequestBuilder::init(
     ->customData(ApiHelper::deserialize('{"data1":"custom1","data2":"custom2"}'))
     ->customerId('customerid')
     ->description('some description')
-    ->iiasInd(IiasIndEnum::ENUM_1)
     ->imageFront('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->imageBack('U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=')
     ->installment(true)
     ->installmentNumber(1)
     ->installmentCount(1)
-    ->recurringFlag(RecurringFlagEnum::YES)
     ->installmentCounter(1)
     ->installmentTotal(1)
     ->subscription(false)
@@ -7011,26 +6994,26 @@ $body = V1TransactionsAchRefundPrevTrxnRequestBuilder::init(
     ->autoDeclineCvvOverride(false)
     ->autoDeclineStreetOverride(false)
     ->autoDeclineZipOverride(false)
-    ->ebtType(EbtTypeEnum::FOOD_STAMP)
     ->achIdentifier('P')
-    ->achSecCode(AchSecCode31Enum::C21)
     ->effectiveDate('2021-12-01')
     ->accountHolderName('smith')
     ->previousTransactionId('11e95f8ec39de8fbdb0a4f1a')
     ->build();
 
-$transactionsACHController = $client->getTransactionsACHController();
+$transactionsAchController = $client->getTransactionsAchController();
+$apiResponse = $transactionsAchController->achRefundPreviousTransaction($body);
 
-try {
-    $result = $transactionsACHController->aCHRefundPreviousTransaction($body);
+// Extracting response status code
+var_dump($apiResponse->getStatusCode());
+// Extracting response headers
+var_dump($apiResponse->getHeaders());
+
+if ($apiResponse->isSuccess()) {
     echo 'ResponseTransaction:';
-    var_dump($result);
-} catch (Response401tokenException $exp) {
-    echo 'Caught Response401tokenException:', $exp;
-} catch (Response412Exception $exp) {
-    echo 'Caught Response412Exception:', $exp;
-} catch (ApiException $exp) {
-    echo 'Caught:', $exp;
+    var_dump($apiResponse->getResult());
+} else {
+    $error = $apiResponse->getResult();
+    var_dump($error);
 }
 ```
 
@@ -8085,6 +8068,6 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 

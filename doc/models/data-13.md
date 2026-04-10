@@ -1,6 +1,8 @@
 
 # Data 13
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `Data13`
@@ -16,6 +18,7 @@
 | `messageVersion` | `?string` | Optional | Protocol version identifier This shall be the Protocol Version Number of the specification utilised by the system creating this message.<br><br>The Message Version Number is set by the 3DS Server which originates the protocol with the AReq message. The Message Version Number does not change during a 3DS transaction. | getMessageVersion(): ?string | setMessageVersion(?string messageVersion): void |
 | `authenticationValue` | `?string` | Optional | Payment System-specific value provided as part of the ACS registration for each supported DS. Authentication Value may be used to provide proof of authentication. | getAuthenticationValue(): ?string | setAuthenticationValue(?string authenticationValue): void |
 | `eci` | `?string` | Optional | Payment System-specific value provided by the ACS to indicate the results of the attempt to authenticate the Cardholder. | getEci(): ?string | setEci(?string eci): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -27,7 +30,11 @@
   "acs_trans_id": "d7c1ee99-9478-44a6-b1f2-391e29c6b340",
   "message_version": "2.2.0",
   "authentication_value": "MTIzNDU2Nzg5MDA5ODc2NTQzMjE=",
-  "eci": "05"
+  "eci": "05",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

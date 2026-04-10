@@ -1,6 +1,8 @@
 
 # Response 412 Exception
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `Response412Exception`
@@ -15,6 +17,7 @@
 | `title` | `?string` | Optional | Error description | getTitle(): ?string | setTitle(?string title): void |
 | `detail` | `?string` | Optional | Error details | getDetail(): ?string | setDetail(?string detail): void |
 | `meta` | [`?Meta`](../../doc/models/meta.md) | Optional | - | getMeta(): ?Meta | setMeta(?Meta meta): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -24,7 +27,11 @@
   "id": "clj4ge1234004t9ptdoz34567",
   "statusCode": 412,
   "title": "Precondition Failed",
-  "detail": "\"fieldName\" is required"
+  "detail": "\"fieldName\" is required",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

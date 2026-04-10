@@ -1,6 +1,8 @@
 
 # Changelog
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `Changelog`
@@ -16,7 +18,8 @@
 | `modelId` | `?string` | Optional | Model ID<br><br>**Constraints**: *Maximum Length*: `255` | getModelId(): ?string | setModelId(?string modelId): void |
 | `userId` | `?string` | Optional | User ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` | getUserId(): ?string | setUserId(?string userId): void |
 | `changelogDetails` | [`?(ChangelogDetail[])`](../../doc/models/changelog-detail.md) | Optional | Change Log Details | getChangelogDetails(): ?array | setChangelogDetails(?array changelogDetails): void |
-| `user` | [`?User`](../../doc/models/user.md) | Optional | User | getUser(): ?User | setUser(?User user): void |
+| `user` | [`?User4`](../../doc/models/user-4.md) | Optional | - | getUser(): ?User4 | setUser(?User4 user): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -27,7 +30,11 @@
   "action": "CREATE",
   "model": "TransactionRequest",
   "model_id": "11ec829598f0d4008be9aba4",
-  "user_id": "11e95f8ec39de8fbdb0a4f1a"
+  "user_id": "11e95f8ec39de8fbdb0a4f1a",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

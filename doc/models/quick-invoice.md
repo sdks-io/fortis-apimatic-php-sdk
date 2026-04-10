@@ -3,6 +3,8 @@
 
 Quick Invoice Information on `expand`
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `QuickInvoice`
@@ -33,8 +35,8 @@ Quick Invoice Information on `expand`
 | `itemFooter` | `?string` | Optional | Item footer<br><br>**Constraints**: *Maximum Length*: `250` | getItemFooter(): ?string | setItemFooter(?string itemFooter): void |
 | `amountDue` | `?float` | Optional | Amount Due | getAmountDue(): ?float | setAmountDue(?float amountDue): void |
 | `notificationEmail` | `?string` | Optional | Notification email<br><br>**Constraints**: *Maximum Length*: `640` | getNotificationEmail(): ?string | setNotificationEmail(?string notificationEmail): void |
-| `statusId` | [`?int(StatusIdEnum)`](../../doc/models/status-id-enum.md) | Optional | (DEPRECATED) Status Id | getStatusId(): ?int | setStatusId(?int statusId): void |
-| `statusCode` | [`?int(StatusCode14Enum)`](../../doc/models/status-code-14-enum.md) | Optional | Status Code | getStatusCode(): ?int | setStatusCode(?int statusCode): void |
+| `statusId` | `?array` | Optional | - | getStatusId(): ?array | setStatusId(?array statusId): void |
+| `statusCode` | `?array` | Optional | - | getStatusCode(): ?array | setStatusCode(?array statusCode): void |
 | `note` | `?string` | Optional | Note<br><br>**Constraints**: *Maximum Length*: `200` | getNote(): ?string | setNote(?string note): void |
 | `notificationDaysBeforeDueDate` | `?int` | Optional | Notification days before due date<br><br>**Constraints**: `>= 0`, `<= 99` | getNotificationDaysBeforeDueDate(): ?int | setNotificationDaysBeforeDueDate(?int notificationDaysBeforeDueDate): void |
 | `notificationDaysAfterDueDate` | `?int` | Optional | Notification days after due date<br><br>**Constraints**: `>= 0`, `<= 99` | getNotificationDaysAfterDueDate(): ?int | setNotificationDaysAfterDueDate(?int notificationDaysAfterDueDate): void |
@@ -58,6 +60,7 @@ Quick Invoice Information on `expand`
 | `active` | `?bool` | Optional | Active status | getActive(): ?bool | setActive(?bool active): void |
 | `paymentStatusId` | `?int` | Optional | Payment Status Id<br><br>**Constraints**: `>= 1`, `<= 3` | getPaymentStatusId(): ?int | setPaymentStatusId(?int paymentStatusId): void |
 | `isActive` | `?bool` | Optional | Register is active | getIsActive(): ?bool | setIsActive(?bool isActive): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -84,8 +87,6 @@ Quick Invoice Information on `expand`
   "item_footer": "Thank you",
   "amount_due": 245.36,
   "notification_email": "email@domain.com",
-  "status_id": 1,
-  "status_code": 1,
   "note": "some note",
   "notification_days_before_due_date": 3,
   "notification_days_after_due_date": 7,
@@ -106,7 +107,11 @@ Quick Invoice Information on `expand`
   "modified_user_id": "11e95f8ec39de8fbdb0a4f1a",
   "active": true,
   "payment_status_id": 1,
-  "is_active": true
+  "is_active": true,
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

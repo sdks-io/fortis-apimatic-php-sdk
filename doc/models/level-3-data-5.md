@@ -3,6 +3,8 @@
 
 Level 3 data object
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `Level3Data5`
@@ -19,8 +21,9 @@ Level 3 data object
 | `shipfromZipCode` | `?string` | Optional | Postal/ZIP code of the address from where the purchased goods are being shipped.<br><br>**Constraints**: *Maximum Length*: `10` | getShipfromZipCode(): ?string | setShipfromZipCode(?string shipfromZipCode): void |
 | `shiptoZipCode` | `?string` | Optional | Postal/ZIP code of the address where purchased goods will be delivered.<br><br>**Constraints**: *Maximum Length*: `10` | getShiptoZipCode(): ?string | setShiptoZipCode(?string shiptoZipCode): void |
 | `taxAmount` | `?int` | Optional | Amount of any value added taxes ,Can accept Two (2) decimal places.<br><br>**Constraints**: `>= 0`, `<= 99999999900` | getTaxAmount(): ?int | setTaxAmount(?int taxAmount): void |
-| `taxExempt` | [`?string(TaxExemptEnum)`](../../doc/models/tax-exempt-enum.md) | Optional | Sales Tax Exempt. Allowed values: “1”, “0”. | getTaxExempt(): ?string | setTaxExempt(?string taxExempt): void |
+| `taxExempt` | `?array` | Optional | - | getTaxExempt(): ?array | setTaxExempt(?array taxExempt): void |
 | `lineItems` | [`LineItem19[]`](../../doc/models/line-item-19.md) | Required | Array of line items in transaction | getLineItems(): array | setLineItems(array lineItems): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -34,11 +37,9 @@ Level 3 data object
   "shipfrom_zip_code": "AZ12345",
   "shipto_zip_code": "MI48335",
   "tax_amount": 0,
-  "tax_exempt": "0",
   "line_items": [
     {
       "alternate_tax_id": "1234",
-      "debit_credit": "C",
       "description": "cool drink",
       "discount_amount": 10,
       "discount_rate": 11,
@@ -49,9 +50,21 @@ Level 3 data object
       "tax_type_applied": "22",
       "tax_type_id": "a1",
       "unit_code": "gll",
-      "unit_cost": 10
+      "unit_cost": 10,
+      "debit_credit": {
+        "key1": "val1",
+        "key2": "val2"
+      },
+      "exampleAdditionalProperty": {
+        "key1": "val1",
+        "key2": "val2"
+      }
     }
-  ]
+  ],
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

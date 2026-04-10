@@ -1,6 +1,8 @@
 
 # V1 Declined Recurring Transaction Payments Request
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `V1DeclinedRecurringTransactionPaymentsRequest`
@@ -15,13 +17,14 @@
 | `expDate` | `string` | Required | Exp Date<br><br>**Constraints**: *Maximum Length*: `4` | getExpDate(): string | setExpDate(string expDate): void |
 | `transactionAmount` | `int` | Required | Transaction Amount<br><br>**Constraints**: `>= 0`, `<= 999999999` | getTransactionAmount(): int | setTransactionAmount(int transactionAmount): void |
 | `description` | `?string` | Optional | Description<br><br>**Constraints**: *Maximum Length*: `255` | getDescription(): ?string | setDescription(?string description): void |
-| `billingAddress` | [`?BillingAddress`](../../doc/models/billing-address.md) | Optional | Billing Address Object | getBillingAddress(): ?BillingAddress | setBillingAddress(?BillingAddress billingAddress): void |
+| `billingAddress` | [`?BillingAddress7`](../../doc/models/billing-address-7.md) | Optional | - | getBillingAddress(): ?BillingAddress7 | setBillingAddress(?BillingAddress7 billingAddress): void |
 | `tags` | `?(string[])` | Optional | Tags | getTags(): ?array | setTags(?array tags): void |
 | `replaceAccountVault` | `?bool` | Optional | Replace AccountVault | getReplaceAccountVault(): ?bool | setReplaceAccountVault(?bool replaceAccountVault): void |
 | `saveAccount` | `?bool` | Optional | Specifies to save account to contacts profile if account_number/track_data is present with either contact_id or contact_api_id in params. | getSaveAccount(): ?bool | setSaveAccount(?bool saveAccount): void |
 | `saveAccountTitle` | `?string` | Optional | If saving token while running a transaction, this will be the title of the token.<br><br>**Constraints**: *Maximum Length*: `16` | getSaveAccountTitle(): ?string | setSaveAccountTitle(?string saveAccountTitle): void |
 | `subtotalAmount` | `?int` | Optional | Subtotal Amount<br><br>**Constraints**: `>= 0`, `<= 999999999` | getSubtotalAmount(): ?int | setSubtotalAmount(?int subtotalAmount): void |
 | `surchargeAmount` | `?int` | Optional | Surcharge Amount<br><br>**Constraints**: `>= 0`, `<= 999999999` | getSurchargeAmount(): ?int | setSurchargeAmount(?int surchargeAmount): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -41,12 +44,21 @@
     "street": "street8",
     "city": "city2",
     "state": "state6",
-    "phone": "phone2"
+    "phone": "phone2",
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
   },
   "tags": [
-    "tags3"
+    "tags3",
+    "tags4"
   ],
-  "replace_account_vault": false
+  "replace_account_vault": false,
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

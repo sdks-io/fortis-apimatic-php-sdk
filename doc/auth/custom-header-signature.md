@@ -22,10 +22,10 @@ Documentation for accessing and setting credentials for user-id.
 You must provide credentials in the client as shown in the following code snippet.
 
 ```php
-use FortisAPILib\Authentication\UserIdCredentialsBuilder;
-use FortisAPILib\FortisAPIClientBuilder;
+use FortisApiLib\Authentication\UserIdCredentialsBuilder;
+use FortisApiLib\FortisApiClientBuilder;
 
-$client = FortisAPIClientBuilder::init()
+$client = FortisApiClientBuilder::init()
     ->userIdCredentials(
         UserIdCredentialsBuilder::init(
             'user-id'

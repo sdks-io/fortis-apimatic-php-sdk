@@ -1,6 +1,8 @@
 
 # Additional Amount
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `AdditionalAmount`
@@ -9,19 +11,30 @@
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `type` | [`?string(Type60Enum)`](../../doc/models/type-60-enum.md) | Optional | type of the amount [4S-Healthcare(Visa and MC Only), 4U-Prescription/Rx(Visa and MC Only), 4V-Vision/Optical(Visa Only), 4W-clinic/other qualified medical(Visa Only) ,4X-Dental(Visa Only)]. | getType(): ?string | setType(?string type): void |
+| `type` | `?array` | Optional | - | getType(): ?array | setType(?array type): void |
 | `amount` | `?int` | Optional | The amount of additional amount. | getAmount(): ?int | setAmount(?int amount): void |
-| `accountType` | [`?string(AccountTypeEnum)`](../../doc/models/account-type-enum.md) | Optional | Account Type | getAccountType(): ?string | setAccountType(?string accountType): void |
+| `accountType` | `?array` | Optional | - | getAccountType(): ?array | setAccountType(?array accountType): void |
 | `currency` | `?float` | Optional | Currency Code | getCurrency(): ?float | setCurrency(?float currency): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
 ```json
 {
-  "type": "cashback",
   "amount": 10,
-  "account_type": "credit",
-  "currency": 840.0
+  "currency": 840.0,
+  "type": {
+    "key1": "val1",
+    "key2": "val2"
+  },
+  "account_type": {
+    "key1": "val1",
+    "key2": "val2"
+  },
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

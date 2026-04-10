@@ -3,6 +3,8 @@
 
 This field is a read only field. This field will only be populated for EMV transactions and will contain proper JSON formatted data with some or all of the following fields: TC,TVR,AID,TSI,ATC,APPLAB,APPN,CVM
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `EmvReceiptData`
@@ -11,12 +13,13 @@ This field is a read only field. This field will only be populated for EMV trans
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `aID` | `?string` | Optional | This field is a read only field. This field will only be populated for EMV transactions and will contain proper JSON formatted data with some or all of the following fields: TC,TVR,AID,TSI,ATC,APPLAB,APPN,CVM | getAID(): ?string | setAID(?string aID): void |
-| `aPPLAB` | `?string` | Optional | This field is a read only field. This field will only be populated for EMV transactions and will contain proper JSON formatted data with some or all of the following fields: TC,TVR,AID,TSI,ATC,APPLAB,APPN,CVM | getAPPLAB(): ?string | setAPPLAB(?string aPPLAB): void |
-| `aPPN` | `?string` | Optional | This field is a read only field. This field will only be populated for EMV transactions and will contain proper JSON formatted data with some or all of the following fields: TC,TVR,AID,TSI,ATC,APPLAB,APPN,CVM | getAPPN(): ?string | setAPPN(?string aPPN): void |
-| `cVM` | `?string` | Optional | This field is a read only field. This field will only be populated for EMV transactions and will contain proper JSON formatted data with some or all of the following fields: TC,TVR,AID,TSI,ATC,APPLAB,APPN,CVM | getCVM(): ?string | setCVM(?string cVM): void |
-| `tSI` | `?string` | Optional | This field is a read only field. This field will only be populated for EMV transactions and will contain proper JSON formatted data with some or all of the following fields: TC,TVR,AID,TSI,ATC,APPLAB,APPN,CVM | getTSI(): ?string | setTSI(?string tSI): void |
-| `tVR` | `?string` | Optional | This field is a read only field. This field will only be populated for EMV transactions and will contain proper JSON formatted data with some or all of the following fields: TC,TVR,AID,TSI,ATC,APPLAB,APPN,CVM | getTVR(): ?string | setTVR(?string tVR): void |
+| `aid` | `?string` | Optional | This field is a read only field. This field will only be populated for EMV transactions and will contain proper JSON formatted data with some or all of the following fields: TC,TVR,AID,TSI,ATC,APPLAB,APPN,CVM | getAid(): ?string | setAid(?string aid): void |
+| `applab` | `?string` | Optional | This field is a read only field. This field will only be populated for EMV transactions and will contain proper JSON formatted data with some or all of the following fields: TC,TVR,AID,TSI,ATC,APPLAB,APPN,CVM | getApplab(): ?string | setApplab(?string applab): void |
+| `appn` | `?string` | Optional | This field is a read only field. This field will only be populated for EMV transactions and will contain proper JSON formatted data with some or all of the following fields: TC,TVR,AID,TSI,ATC,APPLAB,APPN,CVM | getAppn(): ?string | setAppn(?string appn): void |
+| `cvm` | `?string` | Optional | This field is a read only field. This field will only be populated for EMV transactions and will contain proper JSON formatted data with some or all of the following fields: TC,TVR,AID,TSI,ATC,APPLAB,APPN,CVM | getCvm(): ?string | setCvm(?string cvm): void |
+| `tsi` | `?string` | Optional | This field is a read only field. This field will only be populated for EMV transactions and will contain proper JSON formatted data with some or all of the following fields: TC,TVR,AID,TSI,ATC,APPLAB,APPN,CVM | getTsi(): ?string | setTsi(?string tsi): void |
+| `tvr` | `?string` | Optional | This field is a read only field. This field will only be populated for EMV transactions and will contain proper JSON formatted data with some or all of the following fields: TC,TVR,AID,TSI,ATC,APPLAB,APPN,CVM | getTvr(): ?string | setTvr(?string tvr): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -27,7 +30,11 @@ This field is a read only field. This field will only be populated for EMV trans
   "APPN": "US Maestro",
   "CVM": "Pin Verified",
   "TSI": "e800",
-  "TVR": "0800008000"
+  "TVR": "0800008000",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

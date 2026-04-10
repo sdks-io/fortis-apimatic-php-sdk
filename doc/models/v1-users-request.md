@@ -1,6 +1,8 @@
 
 # V1 Users Request
 
+*This model accepts additional fields of type array.*
+
 ## Structure
 
 `V1UsersRequest`
@@ -28,20 +30,21 @@
 | `requiresNewPassword` | `?string` | Optional | Requires New Password<br><br>**Constraints**: *Maximum Length*: `1` | getRequiresNewPassword(): ?string | setRequiresNewPassword(?string requiresNewPassword): void |
 | `termsConditionCode` | `?string` | Optional | Terms Condition (This field is required when updating your own password). | getTermsConditionCode(): ?string | setTermsConditionCode(?string termsConditionCode): void |
 | `tz` | `?string` | Optional | Time zone<br><br>**Constraints**: *Maximum Length*: `30` | getTz(): ?string | setTz(?string tz): void |
-| `uiPrefs` | [`?UiPrefs`](../../doc/models/ui-prefs.md) | Optional | Ui Prefs | getUiPrefs(): ?UiPrefs | setUiPrefs(?UiPrefs uiPrefs): void |
+| `uiPrefs` | [`?UiPrefs1`](../../doc/models/ui-prefs-1.md) | Optional | - | getUiPrefs(): ?UiPrefs1 | setUiPrefs(?UiPrefs1 uiPrefs): void |
 | `username` | `string` | Required | Username<br><br>**Constraints**: *Minimum Length*: `2`, *Maximum Length*: `64` | getUsername(): string | setUsername(string username): void |
 | `userApiKey` | `?string` | Optional | User Api Key<br><br>**Constraints**: *Minimum Length*: `16`, *Maximum Length*: `64` | getUserApiKey(): ?string | setUserApiKey(?string userApiKey): void |
 | `userHashKey` | `?string` | Optional | User Hash Key<br><br>**Constraints**: *Minimum Length*: `24`, *Maximum Length*: `36` | getUserHashKey(): ?string | setUserHashKey(?string userHashKey): void |
-| `userTypeCode` | [`int(UserTypeCodeEnum)`](../../doc/models/user-type-code-enum.md) | Required | User Type | getUserTypeCode(): int | setUserTypeCode(int userTypeCode): void |
+| `userTypeCode` | [`int(UserTypeCode)`](../../doc/models/user-type-code.md) | Required | - | getUserTypeCode(): int | setUserTypeCode(int userTypeCode): void |
 | `password` | `?string` | Optional | Password<br><br>**Constraints**: *Minimum Length*: `8`, *Maximum Length*: `128`, *Pattern*: ``^(?=.*[`!@#$%^&*()_+\-=\[\]{};':"\\\|,.<>\/?~])(?=.*[0-9])(?=.*[a-zA-Z]).*$`` | getPassword(): ?string | setPassword(?string password): void |
 | `zip` | `?string` | Optional | Zip<br><br>**Constraints**: *Minimum Length*: `3`, *Maximum Length*: `10`, *Pattern*: `^[a-zA-Z0-9\-\s]+$` | getZip(): ?string | setZip(?string zip): void |
 | `locationId` | `?string` | Optional | Location ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` | getLocationId(): ?string | setLocationId(?string locationId): void |
 | `contactApiId` | `?string` | Optional | ContactApi Id | getContactApiId(): ?string | setContactApiId(?string contactApiId): void |
 | `primaryLocationApiId` | `?string` | Optional | Primary LocationApi ID | getPrimaryLocationApiId(): ?string | setPrimaryLocationApiId(?string primaryLocationApiId): void |
-| `statusCode` | [`?int(StatusCodeEnum)`](../../doc/models/status-code-enum.md) | Optional | Status Code | getStatusCode(): ?int | setStatusCode(?int statusCode): void |
+| `statusCode` | `?array` | Optional | - | getStatusCode(): ?array | setStatusCode(?array statusCode): void |
 | `apiOnly` | `?bool` | Optional | API Only | getApiOnly(): ?bool | setApiOnly(?bool apiOnly): void |
 | `isInvitation` | `?bool` | Optional | Is Invitation | getIsInvitation(): ?bool | setIsInvitation(?bool isInvitation): void |
-| `address` | [`?Address2`](../../doc/models/address-2.md) | Optional | Address | getAddress(): ?Address2 | setAddress(?Address2 address): void |
+| `address` | [`?Address3`](../../doc/models/address-3.md) | Optional | - | getAddress(): ?Address3 | setAddress(?Address3 address): void |
+| `additionalProperties` | `array<string, array>` | Optional | - | findAdditionalProperty(string key): array | additionalProperty(string key, array value): void |
 
 ## Example (as JSON)
 
@@ -67,12 +70,15 @@
   "tz": "America/New_York",
   "username": "{user_name}",
   "user_api_key": "234bas8dfn8238f923w2",
-  "user_type_code": 100,
+  "user_type_code": 500,
   "zip": "48375",
   "location_id": "11e95f8ec39de8fbdb0a4f1a",
-  "status_code": 1,
   "api_only": false,
-  "is_invitation": false
+  "is_invitation": false,
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 
